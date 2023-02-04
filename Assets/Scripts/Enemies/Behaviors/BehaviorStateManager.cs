@@ -8,12 +8,19 @@ public class BehaviorStateManager : MonoBehaviour
 
     [SerializeField] private List<BehaviorState> behaviors = new List<BehaviorState>();
 
-    [SerializeField] private GameObject target; // may change to some player script later
-    
+    [SerializeField] private Transform target; // may change to some player script later
+
+    [HideInInspector] public EnemyMovementManager movement;
+
+    void Awake()
+    {
+        target = GameObject.FindWithTag("Player").transform; // may change with more clean code later
+
+        movement = GetComponent<EnemyMovementManager>();
+    }
+
     void Start()
     {
-        target = GameObject.FindWithTag("Player"); // may change with more clean code later
-
         currentState.EnterState(this);
     }
 
@@ -44,8 +51,8 @@ public class BehaviorStateManager : MonoBehaviour
         return new List<BehaviorState>(behaviors);
     }
 
-    public Vector3 GetTargetPosition()
+    public Vector2 GetTargetPosition()
     {
-        return target != null ? target.transform.position : Vector3.zero;
+        return target != null ? new Vector2(target.position.x, target.position.y) : Vector2.zero;
     }
 }

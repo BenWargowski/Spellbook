@@ -65,6 +65,8 @@ public class BasicProjectile : MonoBehaviour
         if (collisionLayers == (collisionLayers | (1 << other.gameObject.layer)))
         {
             // other.gameObject.GetComponent (need player stat script)
+
+            Debug.LogFormat("BasicProjectile: Hit player");
         }
 
         onHitCoroutine = OnHit();
