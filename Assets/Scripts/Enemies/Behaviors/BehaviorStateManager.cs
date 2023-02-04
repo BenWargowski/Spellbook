@@ -44,6 +44,8 @@ public class BehaviorStateManager : MonoBehaviour
 
     public void ChangeState(BehaviorState newState)
     {
+        movement.ResetTargetPosition();
+
         currentState = newState;
         currentState.EnterState(this);
     }

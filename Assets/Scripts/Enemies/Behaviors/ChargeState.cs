@@ -31,8 +31,7 @@ public class ChargeState : BehaviorState
         if (chargeParticlesInstance == null)
             chargeParticlesInstance = Instantiate(particlesPrefab, manager.transform.position, Quaternion.identity).GetComponent<ParticleSystem>();
 
-        tileKey = FindTargetTile(manager, minDistanceThreshold, maxDistanceThreshold);
-
+        chargeParticlesInstance.transform.position = manager.transform.position;
         chargeParticlesInstance.Play();
 
         timeSinceCharged = 0;
@@ -60,7 +59,9 @@ public class ChargeState : BehaviorState
 
         if (timeSinceCharged >= windUp)
         {
-            Charge(tileKey, manager);
+            tileKey = FindTargetTile(manager, minDistanceThreshold, maxDistanceThreshold);
+
+            Charge(manager);
         }
     }
 
@@ -79,7 +80,7 @@ public class ChargeState : BehaviorState
 
     }
 
-    private void Charge(char tileKey, BehaviorStateManager manager)
+    private void Charge(BehaviorStateManager manager)
     {
         manager.SetMovement(tileKey, chargeSpeed);
 

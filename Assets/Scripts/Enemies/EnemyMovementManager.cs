@@ -6,16 +6,12 @@ public class EnemyMovementManager : MonoBehaviour
 {
     private float moveSpeed;
 
-    private Transform enemy;
-
     private bool isMoving;
     
     private Vector2 targetPosition;
 
     void Awake()
     {
-        enemy = gameObject.transform;
-
         isMoving = false;
     }
 
@@ -31,7 +27,7 @@ public class EnemyMovementManager : MonoBehaviour
 
     public bool HasReachedTarget()
     {
-        return Vector2.Distance(new Vector2(enemy.position.x, enemy.position.y), targetPosition) <= .01;
+        return Vector2.Distance(new Vector2(transform.position.x, transform.position.y), targetPosition) <= .01;
     }
 
     public void SetTargetPosition(char c, float newSpeed)
@@ -45,8 +41,17 @@ public class EnemyMovementManager : MonoBehaviour
         isMoving = true;
     }
 
+    public void ResetTargetPosition()
+    {
+        targetPosition = new Vector2(transform.position.x, transform.position.y);
+
+        isMoving = false;
+    }
+
     private void Move()
     {
+        if (isMoving) Debug.Log("isMoving");
+
         if (!isMoving) return;
 
         float step = moveSpeed * Time.deltaTime;

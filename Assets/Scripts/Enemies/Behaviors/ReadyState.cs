@@ -10,8 +10,14 @@ public class ReadyState : BehaviorState
 
     [System.NonSerialized] private List<BehaviorState> satchel = new List<BehaviorState>();
 
+    [SerializeField] private float delayBetweenAttacks;
+
+    private float timeSinceReadied;
+
     public override void EnterState(BehaviorStateManager manager)
     {
+        timeSinceReadied = 0;
+
         if (satchel.Count == 0)
         {
             List<BehaviorState> temp = manager.GetBehaviors();
@@ -24,16 +30,20 @@ public class ReadyState : BehaviorState
                 }
             }
         }
-
-        int j = Random.Range(0, satchel.Count);
-        BehaviorState state = satchel[j];
-        satchel.RemoveAt(j);
-
-        manager.ChangeState(state);
     }
 
     public override void UpdateState(BehaviorStateManager manager)
     {
+        timeSinceReadied += Time.deltaTime;
+
+        if (timeSinceReadied >= delayBetweenAttacks)
+        {
+            int j = Random.Range(0, satchel.Count);
+            BehaviorState state = satchel[j];
+            satchel.RemoveAt(j);
+
+            manager.ChangeState(state);
+        }
     }
 
     public override void OnStateTriggerEnter(BehaviorStateManager manager, Collider2D other)
