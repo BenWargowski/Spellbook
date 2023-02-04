@@ -6,20 +6,21 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New ReadyState", menuName = "Behavior/ReadyState")]
 public class ReadyState : BehaviorState
 {
+    [SerializeField] private List<BehaviorState> behaviorsToKeep;
+
     [System.NonSerialized] private List<BehaviorState> satchel = new List<BehaviorState>();
 
     public override void EnterState(BehaviorStateManager manager)
     {
         if (satchel.Count == 0)
         {
-            satchel = manager.GetBehaviors();
+            List<BehaviorState> temp = manager.GetBehaviors();
             
-            for (int i = 0; i < satchel.Count; i++)
+            for (int i = 0; i < temp.Count; i++)
             {
-                if (satchel[i].behaviorName == behaviorName)
+                if (behaviorsToKeep.Contains(temp[i]))
                 {
-                    satchel.RemoveAt(i);
-                    break;
+                    satchel.Add(temp[i]);
                 }
             }
         }

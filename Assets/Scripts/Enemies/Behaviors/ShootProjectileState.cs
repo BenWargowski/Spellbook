@@ -5,21 +5,21 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New ShootProjectileState", menuName = "Behavior/ShootProjectileState")]
 public class ShootProjectileState : BehaviorState
 {
-    [SerializeField] protected BehaviorState returningState;
+    [SerializeField] private BehaviorState returningState;
 
-    [SerializeField] protected GameObject projectilePrefab;
+    [SerializeField] private GameObject projectilePrefab;
 
-    [SerializeField] protected int maxProjectileCount;
+    [SerializeField] private int maxProjectileCount;
 
-    [SerializeField] protected float fireRate;
+    [SerializeField] private float fireRate;
 
     [SerializeField] private Vector3 aimDirection;
 
     [System.NonSerialized] private List<BasicProjectile> projectilePool = new List<BasicProjectile>();
 
-    protected float timeSinceFired;
+    private float timeSinceFired;
 
-    protected int currentCount;
+    private int currentCount;
 
     public override void EnterState(BehaviorStateManager manager)
     {
