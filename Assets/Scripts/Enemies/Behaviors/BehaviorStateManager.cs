@@ -10,7 +10,9 @@ public class BehaviorStateManager : MonoBehaviour
 
     [SerializeField] private Transform target; // may change to some player script later
 
-    [HideInInspector] public EnemyMovementManager movement;
+    [field: SerializeField] public float DefaultSpeed { get; private set; }
+
+    private EnemyMovementManager movement;
 
     void Awake()
     {
@@ -54,5 +56,15 @@ public class BehaviorStateManager : MonoBehaviour
     public Vector2 GetTargetPosition()
     {
         return target != null ? new Vector2(target.position.x, target.position.y) : Vector2.zero;
+    }
+
+    public void SetMovement(char tileKey, float speed)
+    {
+        movement.SetTargetPosition(tileKey, speed);
+    }
+
+    public bool GetIsMoving()
+    {
+        return movement.HasReachedTarget();
     }
 }

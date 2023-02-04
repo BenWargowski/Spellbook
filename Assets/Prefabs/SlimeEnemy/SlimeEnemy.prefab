@@ -121,7 +121,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 000c3d27b4755c0498ab4f36dd370cf8, type: 2}
   - {fileID: 11400000, guid: 96ee03984d18dc446b37577e2b1c2d71, type: 2}
   target: {fileID: 0}
-  movement: {fileID: 0}
+  <DefaultSpeed>k__BackingField: 3.5
 --- !u!114 &5705103563315739810
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,4 +134,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8e39628c4efd444b8ce8abcb28e5aa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 10

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyMovementManager : MonoBehaviour
 {
-    [SerializeField] private int moveSpeed;
+    private float moveSpeed;
 
     private Transform enemy;
 
@@ -34,28 +34,31 @@ public class EnemyMovementManager : MonoBehaviour
         return Vector2.Distance(new Vector2(enemy.position.x, enemy.position.y), targetPosition) <= .01;
     }
 
-    public void SetTargetPosition(char c)
+    public void SetTargetPosition(char c, float newSpeed)
     {
         if (!StageLayout.Instance.TilePositions.ContainsKey(c)) return;
 
         targetPosition = StageLayout.Instance.TilePositions[c];
+        
+        moveSpeed = newSpeed;
+        
         isMoving = true;
     }
 
     private void Move()
     {
-        if (!this.isMoving) return;
+        if (!isMoving) return;
 
-        float step = this.moveSpeed * Time.deltaTime;
+        float step = moveSpeed * Time.deltaTime;
         transform.position = Vector2.MoveTowards(
             transform.position,
-            this.targetPosition,
+            targetPosition,
             step
         );
 
-        if (Vector2.Distance(transform.position, this.targetPosition) <= 0.01)
+        if (Vector2.Distance(transform.position, targetPosition) <= 0.01)
         {
-            this.isMoving = false;
+            isMoving = false;
         }
     }
 }

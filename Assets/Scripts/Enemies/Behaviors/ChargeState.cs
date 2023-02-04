@@ -9,6 +9,8 @@ public class ChargeState : BehaviorState
 
     [SerializeField] private float damage;
 
+    [SerializeField] private float chargeSpeed;
+
     [SerializeField] private float windUp;
 
     [SerializeField] private float minDistanceThreshold;
@@ -44,9 +46,8 @@ public class ChargeState : BehaviorState
 
         if (hasCharged)
         {
-            if (manager.movement.HasReachedTarget())
+            if (manager.GetIsMoving())
             {
-
                 chargeParticlesInstance.Stop();
 
                 manager.ChangeState(returningState);
@@ -80,7 +81,7 @@ public class ChargeState : BehaviorState
 
     private void Charge(char tileKey, BehaviorStateManager manager)
     {
-        manager.movement.SetTargetPosition(tileKey);
+        manager.SetMovement(tileKey, chargeSpeed);
 
         hasCharged = true;
     }
