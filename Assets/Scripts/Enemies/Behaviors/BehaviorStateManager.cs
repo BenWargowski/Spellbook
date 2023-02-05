@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/**
+ * BehaviorStateManager
+ * Manages current behavior state of enemy
+ */
 public class BehaviorStateManager : MonoBehaviour
 {
     [SerializeField] private BehaviorState currentState;
-
-    [SerializeField] private List<BehaviorState> behaviors = new List<BehaviorState>();
 
     [SerializeField] private Transform target; // may change to some player script later
 
@@ -26,7 +28,6 @@ public class BehaviorStateManager : MonoBehaviour
         currentState.EnterState(this);
     }
 
-    // Update is called once per frame
     void Update()
     {
         currentState.UpdateState(this);
@@ -42,6 +43,9 @@ public class BehaviorStateManager : MonoBehaviour
         currentState.OnStateTriggerExit(this, other);
     }
 
+    /// <summary>
+    /// Change BehaviorStateManager's current state to newState
+    /// </summary>
     public void ChangeState(BehaviorState newState)
     {
         movement.ResetTargetPosition();
@@ -49,22 +53,28 @@ public class BehaviorStateManager : MonoBehaviour
         currentState = newState;
         currentState.EnterState(this);
     }
-
-    public List<BehaviorState> GetBehaviors()
-    {
-        return new List<BehaviorState>(behaviors);
-    }
-
+    
+    /// <summary>
+    /// Returns position of target (Player)
+    /// </summary>
     public Vector2 GetTargetPosition()
     {
         return target != null ? new Vector2(target.position.x, target.position.y) : Vector2.zero;
     }
 
+    /// <summary>
+    /// Sets target position for enemy movement
+    /// </summary>
+    /// <param name="tileKey">Character that corresponds to some tileKey on the level</param>
+    /// <param name="speed">How fast the enemy will be moving</param>
     public void SetMovement(char tileKey, float speed)
     {
         movement.SetTargetPosition(tileKey, speed);
     }
 
+    /// <summary>
+    /// Returns bool on whether or not enemy has reached its target position
+    /// </summary>
     public bool GetIsMoving()
     {
         return movement.HasReachedTarget();
