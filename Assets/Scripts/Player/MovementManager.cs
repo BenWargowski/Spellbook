@@ -13,6 +13,7 @@ public class MovementManager : MonoBehaviour {
 
     [Header("Settings")]
     [SerializeField] private int moveSpeed;
+    [SerializeField] private char startingKey;
 
     private bool isMoving;
     private Vector2 targetPosition;
@@ -24,6 +25,9 @@ public class MovementManager : MonoBehaviour {
 
     private void Start() {
         GameEvents.Instance.alphabetKeyPressed += OnMovementPress;
+
+        //Character starts on the starting key -- default is Q
+        player.transform.position = StageLayout.Instance.TilePositions[this.startingKey];
     }
     // ----------------------
 
