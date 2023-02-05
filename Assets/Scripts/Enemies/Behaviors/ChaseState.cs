@@ -50,7 +50,12 @@ public class ChaseState : BehaviorState
     {
         if (collisionLayers == (collisionLayers | (1 << other.gameObject.layer)))
         {
-            // other.gameObject.GetComponent (need player stat script)
+            //Check if the other object is a player
+            Player hitPlayer = null;
+            if (other.TryGetComponent<Player>(out hitPlayer)) {
+                //Damage the player
+                hitPlayer.Health -= this.damage;
+            }
         }
     }
 
