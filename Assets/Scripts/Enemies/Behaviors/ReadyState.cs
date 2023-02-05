@@ -3,10 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+/**
+ * ReadyState
+ * Central state that changes BehaviorStateManager's current state when entered to some random state
+ */
 [CreateAssetMenu(fileName = "New ReadyState", menuName = "Behavior/ReadyState")]
 public class ReadyState : BehaviorState
 {
-    [SerializeField] private List<BehaviorState> behaviorsToKeep;
+    [SerializeField] private List<BehaviorState> Behaviors;
 
     [System.NonSerialized] private List<BehaviorState> satchel = new List<BehaviorState>();
 
@@ -20,15 +24,7 @@ public class ReadyState : BehaviorState
 
         if (satchel.Count == 0)
         {
-            List<BehaviorState> temp = manager.GetBehaviors();
-            
-            for (int i = 0; i < temp.Count; i++)
-            {
-                if (behaviorsToKeep.Contains(temp[i]))
-                {
-                    satchel.Add(temp[i]);
-                }
-            }
+            satchel = new List<BehaviorState>(Behaviors);
         }
     }
 

@@ -24,9 +24,9 @@ public class ChaseState : BehaviorState
 
     public override void EnterState(BehaviorStateManager manager)
     {
-        tileKey = FindTargetTile(manager, minDistanceThreshold, maxDistanceThreshold);
-
         timeSinceChasing = 0;
+
+        Chase(manager);
     }
 
     public override void UpdateState(BehaviorStateManager manager)
@@ -42,8 +42,6 @@ public class ChaseState : BehaviorState
 
         if (tileDistanceFromTarget < minDistanceThreshold || tileDistanceFromTarget > maxDistanceThreshold)
         {
-            tileKey = FindTargetTile(manager, minDistanceThreshold, maxDistanceThreshold);
-
             Chase(manager);
         }
     }
@@ -68,6 +66,8 @@ public class ChaseState : BehaviorState
 
     private void Chase(BehaviorStateManager manager)
     {
+        tileKey = FindTargetTile(manager, minDistanceThreshold, maxDistanceThreshold);
+
         manager.SetMovement(tileKey, chaseSpeed);
     }
 }
