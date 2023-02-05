@@ -70,8 +70,6 @@ public class ChargeState : BehaviorState
         if (collisionLayers == (collisionLayers | (1 << other.gameObject.layer)))
         {
             // other.gameObject.GetComponent (need player stat script)
-
-            Debug.LogFormat("ChargeState: Hit player");
         }
     }
 
