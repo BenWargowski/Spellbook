@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [CreateAssetMenu(fileName = "New ShootProjectileState", menuName = "Behavior/ShootProjectileState")]
 public class ShootProjectileState : BehaviorState
@@ -23,6 +24,8 @@ public class ShootProjectileState : BehaviorState
 
     public override void EnterState(BehaviorStateManager manager)
     {
+        CheckProjectilePool();
+
         timeSinceFired = 0;
 
         currentCount = 0;
@@ -83,5 +86,18 @@ public class ShootProjectileState : BehaviorState
         projectilePool.Add(newProjectile);
 
         return newProjectile;
+    }
+
+    private void CheckProjectilePool()
+    {
+        List<BasicProjectile> newPool = new List<BasicProjectile>();
+
+        for (int i = 0; i < projectilePool.Count; i++)
+        {
+            if (projectilePool[i] != null)
+                newPool.Add(projectilePool[i]);
+        }
+
+        projectilePool = newPool;
     }
 }
