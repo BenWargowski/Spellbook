@@ -5,21 +5,24 @@ using UnityEngine;
 /**
  * MovementManager
  * Listens to movement key events and moves the player to the desired position.
+ * Is intended to be placed on the player object
  */
 public class MovementManager : MonoBehaviour {
-
-    [Header("References")]
-    [SerializeField] private Transform player;
-
     [Header("Settings")]
     [SerializeField] private int moveSpeed;
     [SerializeField] private char startingKey;
+
+    //Accepting new key inputs
+    // NOTE: Disabling this will not cause the player to immediately stop moving,
+    // they just won't respond to any new movements
+    public bool Active {get; set;}
 
     private bool isMoving;
     private Vector2 targetPosition;
 
     // INITIALIZATION -------
     private void Awake() {
+        this.Active = true;
         this.isMoving = false;
     }
 
@@ -27,7 +30,7 @@ public class MovementManager : MonoBehaviour {
         GameEvents.Instance.alphabetKeyPressed += OnMovementPress;
 
         //Character starts on the starting key -- default is Q
-        player.transform.position = StageLayout.Instance.TilePositions[this.startingKey];
+        transform.position = StageLayout.Instance.TilePositions[this.startingKey];
     }
     // ----------------------
 
@@ -42,6 +45,7 @@ public class MovementManager : MonoBehaviour {
     public void OnMovementPress(char c, bool shiftKey) {
         //guard clauses -- not shift-modified and key actually exists
         if (shiftKey) return;
+        if (!this.Active) return;
         if (!StageLayout.Instance.TilePositions.ContainsKey(c)) return;
 
         //move to the key 

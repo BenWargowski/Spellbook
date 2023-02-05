@@ -35,4 +35,12 @@ public class GameEvents : MonoBehaviour {
             modifierKeyUpdated(modifierActive);
         }
     }
+
+    public event Action playerDeath;
+    public void PlayerDeath() {
+        if (playerDeath != null) {
+            playerDeath();
+        }
+    }
+    
 }
