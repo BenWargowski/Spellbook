@@ -33,6 +33,11 @@ public class ShootProjectileState : BehaviorState
         currentCount = 0;
     }
 
+    public override void ExitState(BehaviorStateManager manager)
+    {
+
+    }
+
     public override void UpdateState(BehaviorStateManager manager)
     {
         timeSinceFired += Time.deltaTime;

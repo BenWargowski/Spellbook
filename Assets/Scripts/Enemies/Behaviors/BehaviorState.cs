@@ -2,10 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-/**
- * BehaviorState
- * Template for derived BehaviorStates
- */
+/// <summary>
+/// Template for derived BehaviorStates
+/// </summary>
 public abstract class BehaviorState : ScriptableObject
 {
     public string behaviorName;
@@ -14,6 +13,11 @@ public abstract class BehaviorState : ScriptableObject
     /// Called by BehaviorStateManager when entering the BehaviorState
     /// </summary>
     public abstract void EnterState(BehaviorStateManager manager);
+
+    /// <summary>
+    /// Called by BehaviorStateManager when exiting the BehaviorState
+    /// </summary>
+    public abstract void ExitState(BehaviorStateManager manager);
 
     /// <summary>
     /// Called by BehaviorStateManager every Update

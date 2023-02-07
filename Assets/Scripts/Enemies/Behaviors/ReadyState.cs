@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-/**
- * ReadyState
- * Central state that changes BehaviorStateManager's current state when entered to some random state
- */
+/// <summary>
+/// Central state that changes BehaviorStateManager's current state when entered to some random state
+/// </summary>
 [CreateAssetMenu(fileName = "New ReadyState", menuName = "Behavior/ReadyState")]
 public class ReadyState : BehaviorState
 {
@@ -32,6 +31,11 @@ public class ReadyState : BehaviorState
         {
             satchel = new List<BehaviorState>(Behaviors);
         }
+    }
+
+    public override void ExitState(BehaviorStateManager manager)
+    {
+
     }
 
     public override void UpdateState(BehaviorStateManager manager)

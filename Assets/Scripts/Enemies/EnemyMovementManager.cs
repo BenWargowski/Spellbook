@@ -2,10 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-/**
- * EnemyMovementManager
- * Manages enemy movement by moving them toward target position
- */
+/// <summary>
+/// Manages enemy movement by moving them toward target position
+/// </summary>
 public class EnemyMovementManager : MonoBehaviour
 {
     [SerializeField] private char startingKey;

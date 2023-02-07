@@ -42,5 +42,13 @@ public class GameEvents : MonoBehaviour {
             playerDeath();
         }
     }
-    
+
+    public event Action playerVictory;
+    public void PlayerVictory()
+    {
+        if (playerVictory != null)
+        {
+            playerVictory();
+        }
+    }
 }

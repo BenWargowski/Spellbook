@@ -41,6 +41,11 @@ public class ChargeState : BehaviorState
         hasCharged = false;
     }
 
+    public override void ExitState(BehaviorStateManager manager)
+    {
+        chargeParticlesInstance.Stop();
+    }
+
     public override void UpdateState(BehaviorStateManager manager)
     {
         chargeParticlesInstance.transform.position = manager.transform.position + new Vector3((manager.GetIsFacingRight() ? 1 : -1) * particlesPosition.x, particlesPosition.y, 0);
@@ -51,8 +56,6 @@ public class ChargeState : BehaviorState
         {
             if (!manager.GetIsMoving())
             {
-                chargeParticlesInstance.Stop();
-
                 manager.ChangeState(returningState);
             }
         }

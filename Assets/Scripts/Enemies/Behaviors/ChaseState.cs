@@ -29,6 +29,11 @@ public class ChaseState : BehaviorState
         Chase(manager);
     }
 
+    public override void ExitState(BehaviorStateManager manager)
+    {
+
+    }
+
     public override void UpdateState(BehaviorStateManager manager)
     {
         timeSinceChasing += Time.deltaTime;
