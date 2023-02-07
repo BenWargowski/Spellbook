@@ -8,6 +8,8 @@ using UnityEngine;
  */
 public class EnemyMovementManager : MonoBehaviour
 {
+    [SerializeField] private char startingKey;
+
     private float moveSpeed;
 
     private bool isMoving;
@@ -17,6 +19,11 @@ public class EnemyMovementManager : MonoBehaviour
     void Awake()
     {
         isMoving = false;
+    }
+
+    void Start()
+    {
+        transform.position = StageLayout.Instance.TilePositions[startingKey];
     }
 
     void Update()
@@ -33,11 +40,21 @@ public class EnemyMovementManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Returns bool on whether or not enemy has reached target position
+    /// Returns bool on whether or not enemy is moving
     /// </summary>
-    public bool HasReachedTarget()
+    /// <returns></returns>
+    public bool GetIsMoving()
     {
-        return Vector2.Distance(new Vector2(transform.position.x, transform.position.y), targetPosition) <= .01;
+        return isMoving;
+    }
+
+    /// <summary>
+    /// Returns bool on whether or not enmey is facing right when moving
+    /// </summary>
+    /// <returns></returns>
+    public bool GetIsFacingRight()
+    {
+        return targetPosition.x - transform.position.x > 0;
     }
 
     /// <summary>

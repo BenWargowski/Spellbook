@@ -14,7 +14,9 @@ public class ShootProjectileState : BehaviorState
 
     [SerializeField] private float fireRate;
 
-    [SerializeField] private Vector3 aimDirection;
+    [SerializeField] private Vector2 firePosition;
+
+    private Vector3 aimDirection;
 
     [System.NonSerialized] private List<BasicProjectile> projectilePool = new List<BasicProjectile>();
 
@@ -56,11 +58,11 @@ public class ShootProjectileState : BehaviorState
 
     private void Shoot(BehaviorStateManager manager)
     {
-        Vector3 targetPosition = manager.GetTargetPosition();
-        aimDirection = (targetPosition - manager.transform.position).normalized;
+        Vector3 projectileOrigin = manager.transform.position + new Vector3((manager.GetIsFacingRight() ? 1 : -1) * firePosition.x, firePosition.y, 0);
+        aimDirection = (manager.GetTargetPosition() - new Vector2(projectileOrigin.x, projectileOrigin.y)).normalized;
 
         BasicProjectile projectile = GetProjectile(manager);
-        projectile.transform.position = manager.transform.position;
+        projectile.transform.position = projectileOrigin;
         projectile.SetDirection(aimDirection);
 
 

@@ -17,4 +17,4 @@ MonoBehaviour:
   projectilePrefab: {fileID: 2872422517036203979, guid: afce09d700b25af498e7f25a7f281b68, type: 3}
   maxProjectileCount: 3
   fireRate: 1.5
-  aimDirection: {x: 0, y: 0, z: 0}
+  firePosition: {x: 0.5, y: 0}

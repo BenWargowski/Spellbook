@@ -33,14 +33,13 @@ public class ChaseState : BehaviorState
     {
         timeSinceChasing += Time.deltaTime;
 
+        float tileDistanceFromTarget = EnemyMovementManager.CalculateDistance(tileKey, manager.GetTargetPosition());
+
         if (timeSinceChasing >= maxChasingTime)
         {
             manager.ChangeState(returningState);
         }
-
-        float tileDistanceFromTarget = EnemyMovementManager.CalculateDistance(tileKey, manager.GetTargetPosition());
-
-        if (tileDistanceFromTarget < minDistanceThreshold || tileDistanceFromTarget > maxDistanceThreshold)
+        else if (tileDistanceFromTarget < minDistanceThreshold || tileDistanceFromTarget > maxDistanceThreshold)
         {
             Chase(manager);
         }
@@ -66,7 +65,7 @@ public class ChaseState : BehaviorState
 
     private void Chase(BehaviorStateManager manager)
     {
-        tileKey = FindTargetTile(manager, minDistanceThreshold, maxDistanceThreshold);
+        tileKey = FindTargetTile(manager, manager.GetTargetPosition(), minDistanceThreshold, maxDistanceThreshold);
 
         manager.SetMovement(tileKey, chaseSpeed);
     }

@@ -21,6 +21,8 @@ public class ChargeState : BehaviorState
 
     [SerializeField] private GameObject particlesPrefab;
 
+    [SerializeField] private Vector2 particlesPosition;
+
     private char tileKey;
     private float timeSinceCharged;
     private bool hasCharged;
@@ -31,7 +33,7 @@ public class ChargeState : BehaviorState
         if (chargeParticlesInstance == null)
             chargeParticlesInstance = Instantiate(particlesPrefab, manager.transform.position, Quaternion.identity).GetComponent<ParticleSystem>();
 
-        chargeParticlesInstance.transform.position = manager.transform.position;
+        chargeParticlesInstance.transform.position = manager.transform.position + new Vector3((manager.GetIsFacingRight() ? 1 : -1) * particlesPosition.x, particlesPosition.y, 0);
         chargeParticlesInstance.Play();
 
         timeSinceCharged = 0;
@@ -41,25 +43,22 @@ public class ChargeState : BehaviorState
 
     public override void UpdateState(BehaviorStateManager manager)
     {
-        chargeParticlesInstance.transform.position = manager.transform.position;
+        chargeParticlesInstance.transform.position = manager.transform.position + new Vector3((manager.GetIsFacingRight() ? 1 : -1) * particlesPosition.x, particlesPosition.y, 0);
+
+        timeSinceCharged += Time.deltaTime;
 
         if (hasCharged)
         {
-            if (manager.GetIsMoving())
+            if (!manager.GetIsMoving())
             {
                 chargeParticlesInstance.Stop();
 
                 manager.ChangeState(returningState);
             }
-
-            return;
         }
-
-        timeSinceCharged += Time.deltaTime;
-
-        if (timeSinceCharged >= windUp)
+        else if (timeSinceCharged >= windUp)
         {
-            tileKey = FindTargetTile(manager, minDistanceThreshold, maxDistanceThreshold);
+            tileKey = FindTargetTile(manager, manager.GetTargetPosition(), minDistanceThreshold, maxDistanceThreshold);
 
             Charge(manager);
         }

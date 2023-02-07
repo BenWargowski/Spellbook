@@ -48,8 +48,6 @@ public class BehaviorStateManager : MonoBehaviour
     /// </summary>
     public void ChangeState(BehaviorState newState)
     {
-        movement.ResetTargetPosition();
-
         currentState = newState;
         currentState.EnterState(this);
     }
@@ -77,6 +75,21 @@ public class BehaviorStateManager : MonoBehaviour
     /// </summary>
     public bool GetIsMoving()
     {
-        return movement.HasReachedTarget();
+        return movement.GetIsMoving();
+    }
+
+    /// <summary>
+    /// Returns bool on whether or not enemy is facing right
+    /// </summary>
+    public bool GetIsFacingRight()
+    {
+        if (GetIsMoving())
+        {
+            return movement.GetIsFacingRight();
+        }
+        else
+        {
+            return GetTargetPosition().x - transform.position.x > 0;
+        }
     }
 }

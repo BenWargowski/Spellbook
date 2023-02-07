@@ -16,11 +16,17 @@ public class ReadyState : BehaviorState
 
     [SerializeField] private float delayBetweenAttacks;
 
+    [SerializeField] private float minDistanceThreshold;
+
+    [SerializeField] private float maxDistanceThreshold;
+
     private float timeSinceReadied;
 
     public override void EnterState(BehaviorStateManager manager)
     {
         timeSinceReadied = 0;
+
+        manager.SetMovement(FindTargetTile(manager, manager.transform.position, minDistanceThreshold, maxDistanceThreshold), manager.DefaultSpeed);
 
         if (satchel.Count == 0)
         {
@@ -32,7 +38,7 @@ public class ReadyState : BehaviorState
     {
         timeSinceReadied += Time.deltaTime;
 
-        if (timeSinceReadied >= delayBetweenAttacks)
+        if (timeSinceReadied >= delayBetweenAttacks && !manager.GetIsMoving())
         {
             int j = Random.Range(0, satchel.Count);
             BehaviorState state = satchel[j];
