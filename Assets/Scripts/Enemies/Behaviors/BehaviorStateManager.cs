@@ -49,6 +49,11 @@ public class BehaviorStateManager : MonoBehaviour
         currentState.OnStateTriggerExit(this, other);
     }
 
+    void OnTriggerStay2D(Collider2D other)
+    {
+        currentState.OnStateTriggerStay(this, other);
+    }
+
     /// <summary>
     /// Change BehaviorStateManager's current state to newState
     /// </summary>
@@ -82,11 +87,11 @@ public class BehaviorStateManager : MonoBehaviour
     /// <summary>
     /// Sets target position for enemy movement
     /// </summary>
-    /// <param name="tileKey">Character that corresponds to some tileKey on the level</param>
+    /// <param name="target">Target position that the enemy moves toward</param>
     /// <param name="speed">How fast the enemy will be moving</param>
-    public void SetMovement(char tileKey, float speed)
+    public void SetMovement(Vector2 target, float speed)
     {
-        movement.SetTargetPosition(tileKey, speed);
+        movement.SetTargetPosition(target, speed);
     }
 
     /// <summary>

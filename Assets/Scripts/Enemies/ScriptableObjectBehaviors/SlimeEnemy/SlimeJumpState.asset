@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5dea4f005f416b46a62715693327a45, type: 3}
+  m_Name: SlimeJumpState
+  m_EditorClassIdentifier: 
+  behaviorName: SlimeJumpState
+  nextState: {fileID: 11400000, guid: b34c56ac6603c5f468ed0deab3d6106d, type: 2}
+  windUp: 1.5
+  jumpHeight: 25
+  jumpSpeed: 25

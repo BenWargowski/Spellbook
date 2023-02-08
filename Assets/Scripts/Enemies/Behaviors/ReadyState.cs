@@ -25,7 +25,7 @@ public class ReadyState : BehaviorState
     {
         timeSinceReadied = 0;
 
-        manager.SetMovement(FindTargetTile(manager, manager.transform.position, minDistanceThreshold, maxDistanceThreshold), manager.DefaultSpeed);
+        manager.SetMovement(StageLayout.Instance.TilePositions[FindTargetTile(manager, manager.transform.position, minDistanceThreshold, maxDistanceThreshold)], manager.DefaultSpeed);
 
         if (satchel.Count == 0)
         {
@@ -54,9 +54,16 @@ public class ReadyState : BehaviorState
 
     public override void OnStateTriggerEnter(BehaviorStateManager manager, Collider2D other)
     {
+
     }
 
     public override void OnStateTriggerExit(BehaviorStateManager manager, Collider2D other)
     {
+
+    }
+
+    public override void OnStateTriggerStay(BehaviorStateManager manager, Collider2D other)
+    {
+
     }
 }

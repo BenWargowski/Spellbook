@@ -55,10 +55,17 @@ public class ShootProjectileState : BehaviorState
 
     public override void OnStateTriggerEnter(BehaviorStateManager manager, Collider2D other)
     {
+
     }
 
     public override void OnStateTriggerExit(BehaviorStateManager manager, Collider2D other)
     {
+
+    }
+
+    public override void OnStateTriggerStay(BehaviorStateManager manager, Collider2D other)
+    {
+
     }
 
     private void Shoot(BehaviorStateManager manager)

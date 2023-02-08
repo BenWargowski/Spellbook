@@ -35,6 +35,11 @@ public abstract class BehaviorState : ScriptableObject
     public abstract void OnStateTriggerExit(BehaviorStateManager manager, Collider2D other);
 
     /// <summary>
+    ///  Called by BehaviorStateManager each frame some collider stays in enemy
+    /// </summary>
+    public abstract void OnStateTriggerStay(BehaviorStateManager manager, Collider2D other);
+
+    /// <summary>
     /// Finds a keyTile that satisfies the various requirements
     /// </summary>
     /// <param name="target">Target position that's compared against each keyTile to find a suitable keyTile</param>
@@ -51,6 +56,6 @@ public abstract class BehaviorState : ScriptableObject
                 return tile.Key;
         }
 
-        return FindTargetTile(manager, target, minDistance, maxDistance * 1.1f);
+        return FindTargetTile(manager, target, minDistance * .95f, maxDistance * 1.05f);
     }
 }

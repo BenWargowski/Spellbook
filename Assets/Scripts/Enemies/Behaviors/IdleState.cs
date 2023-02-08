@@ -9,7 +9,7 @@ public class IdleState : BehaviorState
 
     public override void EnterState(BehaviorStateManager manager)
     {
-        manager.SetMovement(keyTile, manager.DefaultSpeed);
+        manager.SetMovement(StageLayout.Instance.TilePositions[keyTile], manager.DefaultSpeed);
     }
 
     public override void ExitState(BehaviorStateManager manager)
@@ -28,6 +28,11 @@ public class IdleState : BehaviorState
     }
 
     public override void OnStateTriggerExit(BehaviorStateManager manager, Collider2D other)
+    {
+
+    }
+
+    public override void OnStateTriggerStay(BehaviorStateManager manager, Collider2D other)
     {
 
     }
