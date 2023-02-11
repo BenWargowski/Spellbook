@@ -59,8 +59,6 @@ public class BasicProjectile : MonoBehaviour
     {
         if (hasHit)
             return;
-        else
-            hasHit = true;
 
         if (collisionLayers == (collisionLayers | (1 << other.gameObject.layer)))
         {
@@ -70,10 +68,11 @@ public class BasicProjectile : MonoBehaviour
                 //Damage the player
                 hitPlayer.Health -= this.damage;
             }
-        }
 
-        onHitCoroutine = OnHit();
-        StartCoroutine(onHitCoroutine);
+            onHitCoroutine = OnHit();
+            StartCoroutine(onHitCoroutine);
+            hasHit = true;
+        }
     }
 
     private IEnumerator OnHit()
