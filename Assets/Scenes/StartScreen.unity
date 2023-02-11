@@ -2137,7 +2137,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 599891204}
-  - component: {fileID: 599891205}
   - component: {fileID: 599891206}
   m_Layer: 0
   m_Name: Level Select Menu 3
@@ -2170,18 +2169,6 @@ Transform:
   m_Father: {fileID: 1956568842}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &599891205
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 599891203}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 293493628a7c0b340acc347f9616692e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &599891206
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3160,7 +3147,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 763349743}
-  - component: {fileID: 763349744}
   m_Layer: 0
   m_Name: Main Menu (old)
   m_TagString: Untagged
@@ -3187,18 +3173,6 @@ Transform:
   m_Father: {fileID: 1956568842}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &763349744
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 763349742}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 293493628a7c0b340acc347f9616692e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &770551734
 GameObject:
   m_ObjectHideFlags: 0
@@ -4675,8 +4649,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2044286736}
-        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+      - m_Target: {fileID: 2044286737}
+        m_TargetAssemblyTypeName: MenuButtons, Assembly-CSharp
         m_MethodName: NewGame
         m_Mode: 1
         m_Arguments:
@@ -5618,7 +5592,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 763349744}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
         m_MethodName: Exit
         m_Mode: 1
@@ -6081,7 +6055,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1538088812}
-  - component: {fileID: 1538088813}
   - component: {fileID: 1538088814}
   m_Layer: 0
   m_Name: Level Select Menu 2
@@ -6115,18 +6088,6 @@ Transform:
   m_Father: {fileID: 1956568842}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1538088813
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1538088811}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 293493628a7c0b340acc347f9616692e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1538088814
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6809,7 +6770,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1752058742}
-  - component: {fileID: 1752058743}
   - component: {fileID: 1752058744}
   m_Layer: 0
   m_Name: Level Select Menu 1
@@ -6842,18 +6802,6 @@ Transform:
   m_Father: {fileID: 1956568842}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1752058743
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1752058741}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 293493628a7c0b340acc347f9616692e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1752058744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8209,7 +8157,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2044286735}
-  - component: {fileID: 2044286736}
   - component: {fileID: 2044286737}
   m_Layer: 0
   m_Name: Play Menu
@@ -8237,18 +8184,6 @@ Transform:
   m_Father: {fileID: 1956568842}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2044286736
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2044286734}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 293493628a7c0b340acc347f9616692e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2044286737
 MonoBehaviour:
   m_ObjectHideFlags: 0
