@@ -106,7 +106,7 @@ public class EnemyStatusManager : MonoBehaviour
             mod += status.modifier;
         }
 
-        return mod;
+        return Mathf.Max(0f, mod);
     }
 
     public float GetSpeedMod()
@@ -118,6 +118,6 @@ public class EnemyStatusManager : MonoBehaviour
             mod += status.modifier;
         }
 
-        return mod;
+        return Mathf.Max(0f, mod);
     }
 }
