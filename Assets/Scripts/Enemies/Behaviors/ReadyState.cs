@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-/**
- * ReadyState
- * Central state that changes BehaviorStateManager's current state when entered to some random state
- */
+/// <summary>
+/// Central state that changes BehaviorStateManager's current state when entered to some random state
+/// </summary>
 [CreateAssetMenu(fileName = "New ReadyState", menuName = "Behavior/ReadyState")]
 public class ReadyState : BehaviorState
 {
@@ -26,12 +25,17 @@ public class ReadyState : BehaviorState
     {
         timeSinceReadied = 0;
 
-        manager.SetMovement(FindTargetTile(manager, manager.transform.position, minDistanceThreshold, maxDistanceThreshold), manager.DefaultSpeed);
+        manager.SetMovement(StageLayout.Instance.TilePositions[FindTargetTile(manager, manager.transform.position, minDistanceThreshold, maxDistanceThreshold)], manager.DefaultSpeed);
 
         if (satchel.Count == 0)
         {
             satchel = new List<BehaviorState>(Behaviors);
         }
+    }
+
+    public override void ExitState(BehaviorStateManager manager)
+    {
+
     }
 
     public override void UpdateState(BehaviorStateManager manager)
@@ -50,9 +54,16 @@ public class ReadyState : BehaviorState
 
     public override void OnStateTriggerEnter(BehaviorStateManager manager, Collider2D other)
     {
+
     }
 
     public override void OnStateTriggerExit(BehaviorStateManager manager, Collider2D other)
     {
+
+    }
+
+    public override void OnStateTriggerStay(BehaviorStateManager manager, Collider2D other)
+    {
+
     }
 }

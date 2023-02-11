@@ -2,10 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-/**
- * BehaviorState
- * Template for derived BehaviorStates
- */
+/// <summary>
+/// Template for derived BehaviorStates
+/// </summary>
 public abstract class BehaviorState : ScriptableObject
 {
     public string behaviorName;
@@ -14,6 +13,11 @@ public abstract class BehaviorState : ScriptableObject
     /// Called by BehaviorStateManager when entering the BehaviorState
     /// </summary>
     public abstract void EnterState(BehaviorStateManager manager);
+
+    /// <summary>
+    /// Called by BehaviorStateManager when exiting the BehaviorState
+    /// </summary>
+    public abstract void ExitState(BehaviorStateManager manager);
 
     /// <summary>
     /// Called by BehaviorStateManager every Update
@@ -29,6 +33,11 @@ public abstract class BehaviorState : ScriptableObject
     /// Called by BehaviorStateManager when some collider exits enemy
     /// </summary>
     public abstract void OnStateTriggerExit(BehaviorStateManager manager, Collider2D other);
+
+    /// <summary>
+    ///  Called by BehaviorStateManager each frame some collider stays in enemy
+    /// </summary>
+    public abstract void OnStateTriggerStay(BehaviorStateManager manager, Collider2D other);
 
     /// <summary>
     /// Finds a keyTile that satisfies the various requirements
@@ -47,6 +56,6 @@ public abstract class BehaviorState : ScriptableObject
                 return tile.Key;
         }
 
-        return FindTargetTile(manager, target, minDistance, maxDistance * 1.1f);
+        return FindTargetTile(manager, target, minDistance * .95f, maxDistance * 1.05f);
     }
 }

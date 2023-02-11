@@ -33,6 +33,11 @@ public class ShootProjectileState : BehaviorState
         currentCount = 0;
     }
 
+    public override void ExitState(BehaviorStateManager manager)
+    {
+
+    }
+
     public override void UpdateState(BehaviorStateManager manager)
     {
         timeSinceFired += Time.deltaTime;
@@ -50,10 +55,17 @@ public class ShootProjectileState : BehaviorState
 
     public override void OnStateTriggerEnter(BehaviorStateManager manager, Collider2D other)
     {
+
     }
 
     public override void OnStateTriggerExit(BehaviorStateManager manager, Collider2D other)
     {
+
+    }
+
+    public override void OnStateTriggerStay(BehaviorStateManager manager, Collider2D other)
+    {
+
     }
 
     private void Shoot(BehaviorStateManager manager)

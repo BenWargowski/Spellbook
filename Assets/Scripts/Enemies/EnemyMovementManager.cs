@@ -2,10 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-/**
- * EnemyMovementManager
- * Manages enemy movement by moving them toward target position
- */
+/// <summary>
+/// Manages enemy movement by moving them toward target position
+/// </summary>
 public class EnemyMovementManager : MonoBehaviour
 {
     [SerializeField] private char startingKey;
@@ -58,13 +57,11 @@ public class EnemyMovementManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Updates target position on some c tileKey and begins enemy's movement toward it
+    /// Updates target position to some Vector2 and begins enemy's movement toward it
     /// </summary>
-    public void SetTargetPosition(char c, float newSpeed)
+    public void SetTargetPosition(Vector2 target, float newSpeed)
     {
-        if (!StageLayout.Instance.TilePositions.ContainsKey(c)) return;
-
-        targetPosition = StageLayout.Instance.TilePositions[c];
+        targetPosition = target;
         
         moveSpeed = newSpeed;
         

@@ -9,6 +9,8 @@ public class ChargeState : BehaviorState
 
     [SerializeField] private float damage;
 
+    [SerializeField] private float tickDamage;
+
     [SerializeField] private float chargeSpeed;
 
     [SerializeField] private float windUp;
@@ -41,6 +43,11 @@ public class ChargeState : BehaviorState
         hasCharged = false;
     }
 
+    public override void ExitState(BehaviorStateManager manager)
+    {
+        chargeParticlesInstance.Stop();
+    }
+
     public override void UpdateState(BehaviorStateManager manager)
     {
         chargeParticlesInstance.transform.position = manager.transform.position + new Vector3((manager.GetIsFacingRight() ? 1 : -1) * particlesPosition.x, particlesPosition.y, 0);
@@ -50,16 +57,10 @@ public class ChargeState : BehaviorState
         if (hasCharged)
         {
             if (!manager.GetIsMoving())
-            {
-                chargeParticlesInstance.Stop();
-
                 manager.ChangeState(returningState);
-            }
         }
         else if (timeSinceCharged >= windUp)
         {
-            tileKey = FindTargetTile(manager, manager.GetTargetPosition(), minDistanceThreshold, maxDistanceThreshold);
-
             Charge(manager);
         }
     }
@@ -72,7 +73,7 @@ public class ChargeState : BehaviorState
             Player hitPlayer = null;
             if (other.TryGetComponent<Player>(out hitPlayer)) {
                 //Damage the player
-                hitPlayer.Health -= this.damage;
+                hitPlayer.Health -= damage;
             }
         }
     }
@@ -82,9 +83,25 @@ public class ChargeState : BehaviorState
 
     }
 
+    public override void OnStateTriggerStay(BehaviorStateManager manager, Collider2D other)
+    {
+        if (collisionLayers == (collisionLayers | (1 << other.gameObject.layer)))
+        {
+            //Check if the other object is a player
+            Player hitPlayer = null;
+            if (other.TryGetComponent<Player>(out hitPlayer))
+            {
+                //Damage the player
+                hitPlayer.Health -= tickDamage;
+            }
+        }
+    }
+
     private void Charge(BehaviorStateManager manager)
     {
-        manager.SetMovement(tileKey, chargeSpeed);
+        tileKey = FindTargetTile(manager, manager.GetTargetPosition(), minDistanceThreshold, maxDistanceThreshold);
+
+        manager.SetMovement(StageLayout.Instance.TilePositions[tileKey], chargeSpeed);
 
         hasCharged = true;
     }

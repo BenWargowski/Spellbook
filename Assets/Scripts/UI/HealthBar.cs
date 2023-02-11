@@ -16,6 +16,6 @@ public class HealthBar : MonoBehaviour {
         // NOTE:
         // Possible expansion/things to do in the future could to make this smoother/animated
         // or even change the bar's color depending on what HP you are at
-        this.healthBar.fillAmount = (health / maxHealth);        
+        this.healthBar.fillAmount = (health / maxHealth);       
     }
 }

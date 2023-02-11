@@ -9,19 +9,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fccd115fc7d8a634e8d329e933db8560, type: 3}
-  m_Name: SlimeChargeState
+  m_Script: {fileID: 11500000, guid: d14ce5a6ef0b55c43812a75926f9a314, type: 3}
+  m_Name: SlimeSmashState
   m_EditorClassIdentifier: 
-  behaviorName: SlimeChargeState
+  behaviorName: SlimeSmashState
   returningState: {fileID: 11400000, guid: f1cca3e83c4f68c42a4c053f08e99a76, type: 2}
-  damage: 3
-  tickDamage: 0.05
-  chargeSpeed: 10
-  windUp: 1.5
+  damage: 3.5
+  smashSpeed: 25
+  smashRadius: 3.5
+  windDown: 1
   minDistanceThreshold: 0
-  maxDistanceThreshold: 1
+  maxDistanceThreshold: 3.5
   collisionLayers:
     serializedVersion: 2
     m_Bits: 8
-  particlesPrefab: {fileID: 8448905160726681702, guid: 950eb0c416281644697afa4c24dbf451, type: 3}
-  particlesPosition: {x: -0.25, y: -0.3}
+  particlesPrefab: {fileID: 1199003620748557828, guid: c52dedf2f172cad40bca5bf63f22c9f5, type: 3}
