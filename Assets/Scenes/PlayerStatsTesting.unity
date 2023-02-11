@@ -496,6 +496,7 @@ GameObject:
   - component: {fileID: 1038572125}
   - component: {fileID: 1038572124}
   - component: {fileID: 1038572123}
+  - component: {fileID: 1038572128}
   m_Layer: 3
   m_Name: player
   m_TagString: Player
@@ -564,7 +565,7 @@ Transform:
   m_GameObject: {fileID: 1038572119}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -646,6 +647,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 20
   startingKey: 81
+  animator: {fileID: 1038572128}
 --- !u!114 &1038572127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -660,6 +662,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBar: {fileID: 1371283424}
   maxHealth: 10
+--- !u!95 &1038572128
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1038572119}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7376b43102525b94da39851acd443488, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1298293425
 GameObject:
   m_ObjectHideFlags: 0
