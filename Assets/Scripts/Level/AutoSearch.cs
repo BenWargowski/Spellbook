@@ -7,43 +7,48 @@ using UnityEngine;
 /// Level Loader that searches for pre-existing tiles with the Tile tag
 /// and attempts to determine which tile is which key automatically
 /// </summary>
-public class AutoSearch : MonoBehaviour, ILevelLoader{
+public class AutoSearch : MonoBehaviour, ILevelLoader {
+    [SerializeField] private bool ignoreCount;
+
     public Dictionary<char, Vector2> GetTilePositions() {
         Dictionary<char, Vector2> tileMap = new Dictionary<char, Vector2>();
+        int readIndex = 0;
         string[] keyboard = {
             "QWERTYUIOP",
             "ASDFGHJKL",
             "ZXCVBNM"
         };
 
-        //TODO: CLEAN UP THIS CODE
+        //Find tiles
+        GameObject[] keyTiles = GameObject.FindGameObjectsWithTag("Tile");
+        if (!ignoreCount && keyTiles.Length != 26) {
+            throw new System.Exception($"AutoSearch: Incorrect Tile Count! Expected 26, Got {keyTiles.Length}.");
+        }
 
-        HashSet<GameObject> keyTiles = new HashSet<GameObject>(GameObject.FindGameObjectsWithTag("Tile"));
+        //Sort keyTiles by Y, decreasing
+        Array.Sort(keyTiles, Comparer<GameObject>.Create(
+            (x, y) => x.transform.position.y < y.transform.position.y ? 1 : x.transform.position.y > y.transform.position.y ? -1 : 0
+        ));
 
-        for (int a = 0; a < keyboard.Length; ++a) {
-            List<GameObject> list = new List<GameObject>();
-            for (int i = 0; i < keyboard[a].Length; ++i) {
-                GameObject temp = null;
-                float y = float.MinValue;
+        //Iterate through every row
+        for (int r = 0; r < keyboard.Length; ++r) {
+            GameObject[] keyRow = new GameObject[keyboard[r].Length];
 
-                foreach (GameObject tile in keyTiles) {
-                    if (tile.transform.position.y > y) {
-                        temp = tile;
-                        y = tile.transform.position.y;
-                    }
-                }
-
-                if (temp != null) {
-                    list.Add(temp);
-                    keyTiles.Remove(temp);
-                }
+            //The {col} next tiles with the highest Y position -> list
+            //Essentially, grab an entire row's worth of keys from the topmost row
+            for (int c = 0; c < keyboard[r].Length; ++c) {
+                keyRow[c] = keyTiles[readIndex];
+                ++readIndex;
             }
 
-            list.Sort(Comparer<GameObject>.Create(
+            //The list now contains a row of keys. Sort this so the one in the leftmost position is first.
+            Array.Sort(keyRow, Comparer<GameObject>.Create(
                 (x, y) => x.transform.position.x > y.transform.position.x ? 1 : x.transform.position.x < y.transform.position.x ? -1 : 0
             ));
-            for (int i = 0; i < keyboard[a].Length; ++i) {
-               tileMap[keyboard[a][i]] = list[i].transform.position;
+
+            //Assign keys from left to right in this row
+            for (int i = 0; i < keyboard[r].Length; ++i) {
+               tileMap[keyboard[r][i]] = keyRow[i].transform.position;
             }
         }
 
