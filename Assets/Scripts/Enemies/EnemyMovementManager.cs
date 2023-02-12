@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-/**
- * EnemyMovementManager
- * Manages enemy movement by moving them toward target position
- */
+/// <summary>
+/// Manages enemy movement by moving them toward target position
+/// </summary>
 public class EnemyMovementManager : MonoBehaviour
 {
     [SerializeField] private char startingKey;
+
+    private EnemyStatusManager statusManager;
 
     private float moveSpeed;
 
@@ -19,6 +20,10 @@ public class EnemyMovementManager : MonoBehaviour
     void Awake()
     {
         isMoving = false;
+
+        statusManager = GetComponent<EnemyStatusManager>();
+        statusManager.onStunned += Stunned;
+        statusManager.onNotStunned += StunRecovery;
     }
 
     void Start()
@@ -58,13 +63,11 @@ public class EnemyMovementManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Updates target position on some c tileKey and begins enemy's movement toward it
+    /// Updates target position to some Vector2 and begins enemy's movement toward it
     /// </summary>
-    public void SetTargetPosition(char c, float newSpeed)
+    public void SetTargetPosition(Vector2 target, float newSpeed)
     {
-        if (!StageLayout.Instance.TilePositions.ContainsKey(c)) return;
-
-        targetPosition = StageLayout.Instance.TilePositions[c];
+        targetPosition = target;
         
         moveSpeed = newSpeed;
         
@@ -88,7 +91,7 @@ public class EnemyMovementManager : MonoBehaviour
     {
         if (!isMoving) return;
 
-        float step = moveSpeed * Time.deltaTime;
+        float step = moveSpeed * Time.deltaTime * (statusManager != null ? statusManager.GetSpeedMod() : 1);
         transform.position = Vector2.MoveTowards(
             transform.position,
             targetPosition,
@@ -99,5 +102,16 @@ public class EnemyMovementManager : MonoBehaviour
         {
             isMoving = false;
         }
+    }
+
+    private void Stunned()
+    {
+        Debug.LogFormat("EnemyMovementManager.Stunned");
+        ResetTargetPosition();
+    }
+
+    private void StunRecovery()
+    {
+        Debug.LogFormat("EnemyMovementManager.StunRecovery");
     }
 }

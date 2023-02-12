@@ -2,30 +2,45 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-/**
- * BehaviorStateManager
- * Manages current behavior state of enemy
- */
+/// <summary>
+/// Manages current behavior state of enemy
+/// </summary>
 public class BehaviorStateManager : MonoBehaviour
 {
     [SerializeField] private BehaviorState currentState;
 
-    [SerializeField] private Transform target; // may change to some player script later
+    [SerializeField] private Transform target;
 
     [field: SerializeField] public float DefaultSpeed { get; private set; }
 
-    private EnemyMovementManager movement;
+    [SerializeField] private BehaviorState deathState;
+
+    [SerializeField] private BehaviorState idleState;
+
+    [SerializeField] private BehaviorState stunnedState;
+
+    [SerializeField] private BehaviorState recoveredState;
+
+    private EnemyStatusManager statusManager;
+
+    private EnemyMovementManager movementManager;
 
     void Awake()
     {
-        target = GameObject.FindWithTag("Player").transform; // may change with more clean code later
+        target = GameObject.FindWithTag("Player")?.transform; // may change with more clean code later
 
-        movement = GetComponent<EnemyMovementManager>();
+        statusManager = GetComponent<EnemyStatusManager>();
+        statusManager.onStunned += Stunned;
+        statusManager.onNotStunned += StunRecovery;
+        movementManager = GetComponent<EnemyMovementManager>();
     }
 
     void Start()
     {
         currentState.EnterState(this);
+
+        GameEvents.Instance.playerDeath += PlayerDefeat;
+        GameEvents.Instance.playerVictory += EnemyDeath;
     }
 
     void Update()
@@ -43,13 +58,31 @@ public class BehaviorStateManager : MonoBehaviour
         currentState.OnStateTriggerExit(this, other);
     }
 
+    void OnTriggerStay2D(Collider2D other)
+    {
+        currentState.OnStateTriggerStay(this, other);
+    }
+
     /// <summary>
     /// Change BehaviorStateManager's current state to newState
     /// </summary>
     public void ChangeState(BehaviorState newState)
     {
+        currentState.ExitState(this);
         currentState = newState;
         currentState.EnterState(this);
+    }
+
+    private void PlayerDefeat()
+    {
+        ChangeState(idleState);
+    }
+
+    private void EnemyDeath()
+    {
+        movementManager.ResetTargetPosition();
+
+        ChangeState(deathState);
     }
     
     /// <summary>
@@ -63,11 +96,27 @@ public class BehaviorStateManager : MonoBehaviour
     /// <summary>
     /// Sets target position for enemy movement
     /// </summary>
-    /// <param name="tileKey">Character that corresponds to some tileKey on the level</param>
+    /// <param name="target">Target position that the enemy moves toward</param>
     /// <param name="speed">How fast the enemy will be moving</param>
-    public void SetMovement(char tileKey, float speed)
+    public void SetMovement(Vector2 target, float speed)
     {
-        movement.SetTargetPosition(tileKey, speed);
+        movementManager.SetTargetPosition(target, speed);
+    }
+
+    /// <summary>
+    /// Returns float representing a damage modifier for enemy attacks
+    /// </summary>
+    public float GetDamageModifier()
+    {
+        return statusManager ? statusManager.GetDamageMod() : 1f;
+    }
+
+    /// <summary>
+    /// Sets the invincibility status of enemy to isInvincible parameter
+    /// </summary>
+    public void SetInvincibility(bool isInvincible)
+    {
+        statusManager.isInvincible = isInvincible;
     }
 
     /// <summary>
@@ -75,7 +124,7 @@ public class BehaviorStateManager : MonoBehaviour
     /// </summary>
     public bool GetIsMoving()
     {
-        return movement.GetIsMoving();
+        return movementManager.GetIsMoving();
     }
 
     /// <summary>
@@ -85,11 +134,23 @@ public class BehaviorStateManager : MonoBehaviour
     {
         if (GetIsMoving())
         {
-            return movement.GetIsFacingRight();
+            return movementManager.GetIsFacingRight();
         }
         else
         {
             return GetTargetPosition().x - transform.position.x > 0;
         }
+    }
+
+    private void Stunned()
+    {
+        Debug.LogFormat("BehaviorStateManager.Stunned");
+        ChangeState(stunnedState);
+    }
+
+    private void StunRecovery()
+    {
+        Debug.LogFormat("BehaviorStateManager.StunRecovery");
+        ChangeState(recoveredState);
     }
 }

@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   behaviorName: SlimeChargeState
   returningState: {fileID: 11400000, guid: f1cca3e83c4f68c42a4c053f08e99a76, type: 2}
-  damage: 5
+  damage: 3
+  tickDamage: 0.05
   chargeSpeed: 10
   windUp: 1.5
   minDistanceThreshold: 0

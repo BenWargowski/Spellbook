@@ -10,11 +10,10 @@ public class BasicProjectile : MonoBehaviour
 
     [SerializeField] float maxAirTime;
 
-    [SerializeField] float damage;
-
     [SerializeField] private LayerMask collisionLayers;
 
     private float currentAirTime;
+    private float damage;
 
     private SpriteRenderer sprite;
     private CircleCollider2D projectileCollider;
@@ -59,8 +58,6 @@ public class BasicProjectile : MonoBehaviour
     {
         if (hasHit)
             return;
-        else
-            hasHit = true;
 
         if (collisionLayers == (collisionLayers | (1 << other.gameObject.layer)))
         {
@@ -70,14 +67,16 @@ public class BasicProjectile : MonoBehaviour
                 //Damage the player
                 hitPlayer.Health -= this.damage;
             }
-        }
 
-        onHitCoroutine = OnHit();
-        StartCoroutine(onHitCoroutine);
+            onHitCoroutine = OnHit();
+            StartCoroutine(onHitCoroutine);
+        }
     }
 
     private IEnumerator OnHit()
     {
+        hasHit = true;
+
         sprite.enabled = false;
         projectileCollider.enabled = false;
         trailParticles.Stop();
@@ -91,8 +90,9 @@ public class BasicProjectile : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    public void SetDirection(Vector3 direction)
+    public void SetProjectile(Vector3 direction, float projectileDamage)
     {
         moveDirection = direction;
+        damage = projectileDamage;
     }
 }

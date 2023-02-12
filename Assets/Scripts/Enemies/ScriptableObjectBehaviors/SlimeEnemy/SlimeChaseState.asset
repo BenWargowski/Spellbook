@@ -13,8 +13,11 @@ MonoBehaviour:
   m_Name: SlimeChaseState
   m_EditorClassIdentifier: 
   behaviorName: SlimeChaseState
-  returningState: {fileID: 11400000, guid: f1cca3e83c4f68c42a4c053f08e99a76, type: 2}
-  damage: 2
+  nextStates:
+  - {fileID: 11400000, guid: f1cca3e83c4f68c42a4c053f08e99a76, type: 2}
+  - {fileID: 11400000, guid: c6ad0d932564bb24082125cb1c9cbc90, type: 2}
+  damage: 1
+  tickDamage: 0.05
   maxChasingTime: 4
   chaseSpeed: 3.5
   minDistanceThreshold: 0

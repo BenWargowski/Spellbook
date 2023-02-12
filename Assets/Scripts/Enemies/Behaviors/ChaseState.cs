@@ -5,9 +5,11 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New ChaseState", menuName = "Behavior/ChaseState")]
 public class ChaseState : BehaviorState
 {
-    [SerializeField] private BehaviorState returningState;
+    [SerializeField] private List<BehaviorState> nextStates;
 
     [SerializeField] private float damage;
+
+    [SerializeField] private float tickDamage;
 
     [SerializeField] private float maxChasingTime;
 
@@ -29,6 +31,11 @@ public class ChaseState : BehaviorState
         Chase(manager);
     }
 
+    public override void ExitState(BehaviorStateManager manager)
+    {
+
+    }
+
     public override void UpdateState(BehaviorStateManager manager)
     {
         timeSinceChasing += Time.deltaTime;
@@ -37,7 +44,7 @@ public class ChaseState : BehaviorState
 
         if (timeSinceChasing >= maxChasingTime)
         {
-            manager.ChangeState(returningState);
+            manager.ChangeState(nextStates[Random.Range(0,nextStates.Count)]);
         }
         else if (tileDistanceFromTarget < minDistanceThreshold || tileDistanceFromTarget > maxDistanceThreshold)
         {
@@ -53,7 +60,7 @@ public class ChaseState : BehaviorState
             Player hitPlayer = null;
             if (other.TryGetComponent<Player>(out hitPlayer)) {
                 //Damage the player
-                hitPlayer.Health -= this.damage;
+                hitPlayer.Health -= damage * manager.GetDamageModifier();
             }
         }
     }
@@ -63,10 +70,24 @@ public class ChaseState : BehaviorState
 
     }
 
+    public override void OnStateTriggerStay(BehaviorStateManager manager, Collider2D other)
+    {
+        if (collisionLayers == (collisionLayers | (1 << other.gameObject.layer)))
+        {
+            //Check if the other object is a player
+            Player hitPlayer = null;
+            if (other.TryGetComponent<Player>(out hitPlayer))
+            {
+                //Damage the player
+                hitPlayer.Health -= tickDamage * manager.GetDamageModifier();
+            }
+        }
+    }
+
     private void Chase(BehaviorStateManager manager)
     {
         tileKey = FindTargetTile(manager, manager.GetTargetPosition(), minDistanceThreshold, maxDistanceThreshold);
 
-        manager.SetMovement(tileKey, chaseSpeed);
+        manager.SetMovement(StageLayout.Instance.TilePositions[tileKey], chaseSpeed);
     }
 }

@@ -14,6 +14,8 @@ public class ShootProjectileState : BehaviorState
 
     [SerializeField] private float fireRate;
 
+    [SerializeField] private float damage;
+
     [SerializeField] private Vector2 firePosition;
 
     private Vector3 aimDirection;
@@ -28,9 +30,14 @@ public class ShootProjectileState : BehaviorState
     {
         CheckProjectilePool();
 
-        timeSinceFired = 0;
+        timeSinceFired = fireRate;
 
         currentCount = 0;
+    }
+
+    public override void ExitState(BehaviorStateManager manager)
+    {
+
     }
 
     public override void UpdateState(BehaviorStateManager manager)
@@ -50,10 +57,17 @@ public class ShootProjectileState : BehaviorState
 
     public override void OnStateTriggerEnter(BehaviorStateManager manager, Collider2D other)
     {
+
     }
 
     public override void OnStateTriggerExit(BehaviorStateManager manager, Collider2D other)
     {
+
+    }
+
+    public override void OnStateTriggerStay(BehaviorStateManager manager, Collider2D other)
+    {
+
     }
 
     private void Shoot(BehaviorStateManager manager)
@@ -63,7 +77,7 @@ public class ShootProjectileState : BehaviorState
 
         BasicProjectile projectile = GetProjectile(manager);
         projectile.transform.position = projectileOrigin;
-        projectile.SetDirection(aimDirection);
+        projectile.SetProjectile(aimDirection, damage * manager.GetDamageModifier());
 
 
         timeSinceFired = 0;
