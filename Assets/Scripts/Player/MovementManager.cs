@@ -8,8 +8,11 @@ using UnityEngine;
  * Is intended to be placed on the player object
  */
 public class MovementManager : MonoBehaviour {
+    [Header("References")]
+    [SerializeField] private Player player;
+    [SerializeField] private Animator animator;
+
     [Header("Settings")]
-    [SerializeField] private int moveSpeed;
     [SerializeField] private char startingKey;
 
     //Accepting new key inputs
@@ -19,8 +22,6 @@ public class MovementManager : MonoBehaviour {
 
     private bool isMoving;
     private Vector2 targetPosition;
-
-    public Animator animator;
 
     // INITIALIZATION -------
     private void Awake() {
@@ -32,7 +33,7 @@ public class MovementManager : MonoBehaviour {
         GameEvents.Instance.alphabetKeyPressed += OnMovementPress;
 
         //Character starts on the starting key -- default is Q
-        transform.position = StageLayout.Instance.TilePositions[this.startingKey];
+        this.player.transform.position = StageLayout.Instance.TilePositions[this.startingKey];
     }
     // ----------------------
 
@@ -67,14 +68,14 @@ public class MovementManager : MonoBehaviour {
     private void Move() {
         if (!this.isMoving) return;
 
-        float step = this.moveSpeed * Time.deltaTime;
-        transform.position = Vector2.MoveTowards(
-            transform.position,
+        float step = this.player.MovementSpeed * Time.deltaTime;
+        this.player.transform.position = Vector2.MoveTowards(
+            this.player.transform.position,
             this.targetPosition,
             step
         );
 
-        if (Vector2.Distance(transform.position, this.targetPosition) <= 0.01) {
+        if (Vector2.Distance(this.player.transform.position, this.targetPosition) <= 0.01) {
             this.isMoving = false;
         }
     }

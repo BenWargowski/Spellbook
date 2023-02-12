@@ -60,7 +60,7 @@ public class ChaseState : BehaviorState
             Player hitPlayer = null;
             if (other.TryGetComponent<Player>(out hitPlayer)) {
                 //Damage the player
-                hitPlayer.Health -= damage * manager.GetDamageModifier();
+                hitPlayer.Damage(damage * manager.GetDamageModifier(), true, false);
             }
         }
     }
@@ -79,7 +79,7 @@ public class ChaseState : BehaviorState
             if (other.TryGetComponent<Player>(out hitPlayer))
             {
                 //Damage the player
-                hitPlayer.Health -= tickDamage * manager.GetDamageModifier();
+                hitPlayer.Damage(tickDamage * manager.GetDamageModifier(), false, false); //NOTE: does not trigger i-frames
             }
         }
     }

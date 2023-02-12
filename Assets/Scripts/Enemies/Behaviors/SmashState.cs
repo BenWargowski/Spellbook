@@ -105,7 +105,7 @@ public class SmashState : BehaviorState
             if (c.TryGetComponent<Player>(out hitPlayer))
             {
                 //Damage the player
-                hitPlayer.Health -= damage * manager.GetDamageModifier();
+                hitPlayer.Damage(damage * manager.GetDamageModifier(), true, false);
             }
         }
 

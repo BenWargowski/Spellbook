@@ -65,7 +65,7 @@ public class BasicProjectile : MonoBehaviour
             Player hitPlayer = null;
             if (other.TryGetComponent<Player>(out hitPlayer)) {
                 //Damage the player
-                hitPlayer.Health -= this.damage;
+                hitPlayer.Damage(this.damage, true, false);
             }
 
             onHitCoroutine = OnHit();
