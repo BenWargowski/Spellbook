@@ -440,6 +440,7 @@ GameObject:
   m_Component:
   - component: {fileID: 917859113}
   - component: {fileID: 917859112}
+  - component: {fileID: 917859114}
   m_Layer: 0
   m_Name: stage
   m_TagString: Untagged
@@ -459,13 +460,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c73ad93786e534f15aed8aaa3c84f602, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rowStartOffset:
-  - 0
-  - 0.5
-  - 2
-  keyDistance: {x: 1.75, y: 1.75}
-  startPosition: {x: -7.75, y: 2}
-  tilePrefab: {fileID: 5461075324429428742, guid: da637aba4274440c6b46c52f65745ba3, type: 3}
+  defaultGenerator: {fileID: 917859114}
+  manualSearch: {fileID: 0}
+  autoSearch: {fileID: 0}
 --- !u!4 &917859113
 Transform:
   m_ObjectHideFlags: 0
@@ -481,6 +478,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &917859114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 917859111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c15a6c5d5aebb4d4a943527597d49b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rowStartOffset:
+  - 0
+  - 0.5
+  - 2
+  keyDistance: {x: 1.75, y: 1.75}
+  startPosition: {x: -7.75, y: 2}
+  createTiles: 1
+  tilePrefab: {fileID: 5461075324429428742, guid: da637aba4274440c6b46c52f65745ba3, type: 3}
 --- !u!1 &1038572119
 GameObject:
   m_ObjectHideFlags: 0

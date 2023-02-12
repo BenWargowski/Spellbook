@@ -1,11 +1,11 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StageLayout : MonoBehaviour {
-
-    //Singleton reference (feel free to refactor this out)
-    public static StageLayout Instance {get; private set;}
-
+/// <summary>
+/// The default level layout. Generates tiles in the shape of a keyboard using a formula.
+/// </summary>
+public class DefaultGenerator : MonoBehaviour, ILevelLoader {
     [Header("Options")]
     /*
         [Q][W][E][R][T][Y]...
@@ -24,28 +24,26 @@ public class StageLayout : MonoBehaviour {
     //Start Position (AKA: position of top left key [Q])
     [SerializeField] private Vector2 startPosition;
 
+    //Should this spawn in the tiles too?    
+    [SerializeField] private bool createTiles;
+
     [Header("References")]
 
     //Tiles to instantiate at the key locations
     [SerializeField] private GameObject tilePrefab;
-    
-    //Stores the positions of each 'key' / tile that the player can stand on
-    public Dictionary<char, Vector2> TilePositions {get; private set;}
 
-    private void Awake() {
-        //Setting singleton reference
-        if (Instance != null) Destroy(this);
-        Instance = this;
+    public Dictionary<char, Vector2> GetTilePositions() {
+        Dictionary<char, Vector2> tileMap = new Dictionary<char, Vector2>();
+        InitializeTilePositions(ref tileMap);
 
-        this.TilePositions = new Dictionary<char, Vector2>();
-        InitializeTilePositions();
-        InstantiateTiles();
+        if (this.createTiles) InstantiateTiles(tileMap);
+        return tileMap;
     }
 
     /// <summary>
     /// Populates the dictionary with the desired key positions
     /// </summary>
-    private void InitializeTilePositions() {
+    private void InitializeTilePositions(ref Dictionary<char, Vector2> tilePositions) {
         string[] keyboard = {
             "QWERTYUIOP",
             "ASDFGHJKL",
@@ -55,7 +53,7 @@ public class StageLayout : MonoBehaviour {
         //Addressing keyboard keys by keyboard[row][col]
         for (int row = 0; row < keyboard.Length; ++row) {
             for (int col = 0; col < keyboard[row].Length; ++col) {
-                this.TilePositions[keyboard[row][col]] = new Vector2(
+                tilePositions[keyboard[row][col]] = new Vector2(
                     //horizontal
                     (
                         //first start at the desired start position
@@ -75,12 +73,11 @@ public class StageLayout : MonoBehaviour {
     /// <summary>
     /// Instantiates a tile GameObject from the prefab at each position
     /// </summary>
-    private void InstantiateTiles() {
+    private void InstantiateTiles(in Dictionary<char, Vector2> tilePositions) {
         if (this.tilePrefab == null) return;
 
-        foreach (char c in this.TilePositions.Keys) {
-            Instantiate(this.tilePrefab, this.TilePositions[c], Quaternion.identity, this.transform);
+        foreach (char c in tilePositions.Keys) {
+            Instantiate(this.tilePrefab, tilePositions[c], Quaternion.identity, this.transform);
         }
     }
-
 }
