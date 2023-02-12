@@ -20,6 +20,8 @@ public class MovementManager : MonoBehaviour {
     private bool isMoving;
     private Vector2 targetPosition;
 
+    public Animator animator;
+
     // INITIALIZATION -------
     private void Awake() {
         this.Active = true;
@@ -36,6 +38,12 @@ public class MovementManager : MonoBehaviour {
 
     private void Update() {
         Move();
+
+        // Update animator variables
+        if (isMoving == true)
+        { animator.SetInteger("isMoving", 1); }
+        else
+        { animator.SetInteger("isMoving", 0); }
     }
 
     /// <summary>
