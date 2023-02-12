@@ -13,12 +13,18 @@ public class JumpState : BehaviorState
 
     [SerializeField] private float jumpSpeed;
 
+    [SerializeField] private float minDistanceThreshold;
+
+    [SerializeField] private float maxDistanceThreshold;
+
     private float timeElapsed;
 
     private bool hasJumped;
 
     public override void EnterState(BehaviorStateManager manager)
     {
+        manager.SetMovement(StageLayout.Instance.TilePositions[FindTargetTile(manager, manager.transform.position, minDistanceThreshold, maxDistanceThreshold)], manager.DefaultSpeed);
+
         timeElapsed = 0;
 
         hasJumped = false;
@@ -62,6 +68,7 @@ public class JumpState : BehaviorState
     private void Jump(BehaviorStateManager manager)
     {
         manager.SetMovement(new Vector2(manager.transform.position.x, manager.transform.position.y + jumpHeight), jumpSpeed);
+        manager.SetInvincibility(true);
 
         hasJumped = true;
     }

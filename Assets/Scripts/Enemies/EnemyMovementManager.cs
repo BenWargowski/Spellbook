@@ -9,6 +9,8 @@ public class EnemyMovementManager : MonoBehaviour
 {
     [SerializeField] private char startingKey;
 
+    private EnemyStatusManager statusManager;
+
     private float moveSpeed;
 
     private bool isMoving;
@@ -18,6 +20,10 @@ public class EnemyMovementManager : MonoBehaviour
     void Awake()
     {
         isMoving = false;
+
+        statusManager = GetComponent<EnemyStatusManager>();
+        statusManager.onStunned += Stunned;
+        statusManager.onNotStunned += StunRecovery;
     }
 
     void Start()
@@ -85,7 +91,7 @@ public class EnemyMovementManager : MonoBehaviour
     {
         if (!isMoving) return;
 
-        float step = moveSpeed * Time.deltaTime;
+        float step = moveSpeed * Time.deltaTime * (statusManager != null ? statusManager.GetSpeedMod() : 1);
         transform.position = Vector2.MoveTowards(
             transform.position,
             targetPosition,
@@ -96,5 +102,16 @@ public class EnemyMovementManager : MonoBehaviour
         {
             isMoving = false;
         }
+    }
+
+    private void Stunned()
+    {
+        Debug.LogFormat("EnemyMovementManager.Stunned");
+        ResetTargetPosition();
+    }
+
+    private void StunRecovery()
+    {
+        Debug.LogFormat("EnemyMovementManager.StunRecovery");
     }
 }

@@ -5,11 +5,13 @@ using UnityEngine;
 /// <summary>
 /// Manages enemy health and death
 /// </summary>
-public class Enemy : MonoBehaviour
+public class EnemyHealth : MonoBehaviour
 {
     [SerializeField] private HealthBar healthBar;
 
     [SerializeField] private float maxHealth;
+
+    private EnemyStatusManager statusManager;
 
     private float currentHealth;
 
@@ -21,6 +23,8 @@ public class Enemy : MonoBehaviour
         }
         set
         {
+            if (statusManager ? statusManager.isInvincible : false) return;
+
             //set value w/ respect to bounds
             currentHealth = Mathf.Clamp(value, 0, this.maxHealth);
 
@@ -32,6 +36,11 @@ public class Enemy : MonoBehaviour
                 Death();
             }
         }
+    }
+    
+    void Awake()
+    {
+        statusManager = GetComponent<EnemyStatusManager>();
     }
 
     void Start()

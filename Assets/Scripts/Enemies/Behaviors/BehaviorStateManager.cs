@@ -17,13 +17,22 @@ public class BehaviorStateManager : MonoBehaviour
 
     [SerializeField] private BehaviorState idleState;
 
-    private EnemyMovementManager movement;
+    [SerializeField] private BehaviorState stunnedState;
+
+    [SerializeField] private BehaviorState recoveredState;
+
+    private EnemyStatusManager statusManager;
+
+    private EnemyMovementManager movementManager;
 
     void Awake()
     {
         target = GameObject.FindWithTag("Player")?.transform; // may change with more clean code later
 
-        movement = GetComponent<EnemyMovementManager>();
+        statusManager = GetComponent<EnemyStatusManager>();
+        statusManager.onStunned += Stunned;
+        statusManager.onNotStunned += StunRecovery;
+        movementManager = GetComponent<EnemyMovementManager>();
     }
 
     void Start()
@@ -71,7 +80,7 @@ public class BehaviorStateManager : MonoBehaviour
 
     private void EnemyDeath()
     {
-        movement.ResetTargetPosition();
+        movementManager.ResetTargetPosition();
 
         ChangeState(deathState);
     }
@@ -91,7 +100,23 @@ public class BehaviorStateManager : MonoBehaviour
     /// <param name="speed">How fast the enemy will be moving</param>
     public void SetMovement(Vector2 target, float speed)
     {
-        movement.SetTargetPosition(target, speed);
+        movementManager.SetTargetPosition(target, speed);
+    }
+
+    /// <summary>
+    /// Returns float representing a damage modifier for enemy attacks
+    /// </summary>
+    public float GetDamageModifier()
+    {
+        return statusManager ? statusManager.GetDamageMod() : 1f;
+    }
+
+    /// <summary>
+    /// Sets the invincibility status of enemy to isInvincible parameter
+    /// </summary>
+    public void SetInvincibility(bool isInvincible)
+    {
+        statusManager.isInvincible = isInvincible;
     }
 
     /// <summary>
@@ -99,7 +124,7 @@ public class BehaviorStateManager : MonoBehaviour
     /// </summary>
     public bool GetIsMoving()
     {
-        return movement.GetIsMoving();
+        return movementManager.GetIsMoving();
     }
 
     /// <summary>
@@ -109,11 +134,23 @@ public class BehaviorStateManager : MonoBehaviour
     {
         if (GetIsMoving())
         {
-            return movement.GetIsFacingRight();
+            return movementManager.GetIsFacingRight();
         }
         else
         {
             return GetTargetPosition().x - transform.position.x > 0;
         }
+    }
+
+    private void Stunned()
+    {
+        Debug.LogFormat("BehaviorStateManager.Stunned");
+        ChangeState(stunnedState);
+    }
+
+    private void StunRecovery()
+    {
+        Debug.LogFormat("BehaviorStateManager.StunRecovery");
+        ChangeState(recoveredState);
     }
 }
