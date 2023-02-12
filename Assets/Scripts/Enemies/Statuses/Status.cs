@@ -15,12 +15,12 @@ public class Status
         timeRemaining = duration;
     }
 
-    public void UpdateStatus()
+    public virtual void UpdateStatus()
     {
         timeRemaining -= Time.deltaTime;
     }
 
-    public bool IsValid()
+    public virtual bool IsValid()
     {
         return timeRemaining > 0;
     }
