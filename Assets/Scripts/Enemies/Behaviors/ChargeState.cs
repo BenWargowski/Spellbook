@@ -71,7 +71,7 @@ public class ChargeState : BehaviorState
             Player hitPlayer = null;
             if (other.TryGetComponent<Player>(out hitPlayer)) {
                 //Damage the player
-                hitPlayer.Health -= damage * manager.GetDamageModifier();
+                hitPlayer.Damage(damage * manager.GetDamageModifier(), true, false);
             }
         }
     }

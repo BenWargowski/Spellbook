@@ -6,7 +6,7 @@ using UnityEngine;
 /// Main script for the Player.
 /// Manages health, death, effects
 /// </summary>
-public class Player : MonoBehaviour, IDamageable {
+public class Player : MonoBehaviour, IDamageable, IHealable{
     //NOTE: Possible future expansion could be to add a finite-state machine
 
     [Header("References")]
@@ -108,11 +108,26 @@ public class Player : MonoBehaviour, IDamageable {
     }
 
     public void Damage(float damage, bool triggerInvuln, bool ignoreArmor) {
-        this.Health -= (ignoreArmor ? damage : (damage * (1 - (this.Armor / 100))));
+        //Apply armor damage reduction
+        if (!ignoreArmor) {
+            damage *= (1 - (this.Armor / 100));
+        }
+
+        //Final Damage cannot be non-positive
+        if (damage <= 0) return;
+        
+        this.Health -= damage;
 
         //TODO: I-Frames
+        //TODO: Damage effects
+    }
 
+    public void Heal(float hp) {
+        //Healing canot be non-positive
+        if (hp <= 0) return;
+        this.Health += hp;
         
+        //TODO: Heal effects
     }
 
     //GETTERS AND SETTERS ---------------------
@@ -126,7 +141,7 @@ public class Player : MonoBehaviour, IDamageable {
         get {
             return _health;
         }
-        set {
+        private set {
             //set value w/ respect to bounds
             _health = Mathf.Clamp(value, 0, this.MaxHealth);
 
