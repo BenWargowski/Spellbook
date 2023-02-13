@@ -13,4 +13,8 @@ MonoBehaviour:
   m_Name: Fire
   m_EditorClassIdentifier: 
   name: Fire
-  damage: 1
+  damage: 10
+  speed: 4
+  manaCost: 0
+  type: 0
+  attackPrefab: {fileID: 7094286980879645727, guid: db79d1b263b56a44a9936f975052e865, type: 3}
