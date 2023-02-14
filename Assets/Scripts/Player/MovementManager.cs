@@ -21,6 +21,7 @@ public class MovementManager : MonoBehaviour {
     private Vector2 targetPosition;
 
     public Animator animator;
+    public int walkDirection;
 
     // INITIALIZATION -------
     private void Awake() {
@@ -39,11 +40,13 @@ public class MovementManager : MonoBehaviour {
     private void Update() {
         Move();
 
-        // Update animator variables
-        if (isMoving == true)
-        { animator.SetInteger("isMoving", 1); }
-        else
-        { animator.SetInteger("isMoving", 0); }
+        // Update animator variables:
+        // isMoving - whether the player is currently walking (0=no, 1=yes)
+        if (isMoving == true) { animator.SetInteger("isMoving", 1); }
+        else { animator.SetInteger("isMoving", 0); }
+        // walkDirection - which direction the player is walking in (0=left, 1=up, 2=right, 3=down)
+        if (isMoving == true) { animator.SetInteger("walkDirection", walkDirection); }
+        
     }
 
     /// <summary>
@@ -59,7 +62,11 @@ public class MovementManager : MonoBehaviour {
         //move to the key 
         this.targetPosition = StageLayout.Instance.TilePositions[c];
         this.isMoving = true;
+
+        //used for determining which walk animation is used based on the furthest distance from current location
+        walkDirection = getWalkDirection((transform.position.x - targetPosition.x), (transform.position.y - targetPosition.y));
     }
+
 
     /// <summary>
     /// Main movement mechanic, moves the player towards the target position each frame
@@ -77,5 +84,36 @@ public class MovementManager : MonoBehaviour {
         if (Vector2.Distance(transform.position, this.targetPosition) <= 0.01) {
             this.isMoving = false;
         }
+    }
+
+    // determine which cardinal direction the player is moving the most toward (0=left, 1=up, 2=right, 3=down)
+    public int getWalkDirection(double x, double y)
+    {
+        int walkDirection = 0;
+
+        
+        bool isNegativeX = false;
+        bool isNegativeY = false;
+
+        if (x < 0) { x *= -1; isNegativeX = true; }
+        if (y < 0) { y *= -1; isNegativeY = true; }
+
+        if (x > y)
+        {
+            if (isNegativeX == false) { walkDirection = 0; }
+            else { walkDirection = 2; }
+        }
+        else if (y > x)
+        {
+            if (isNegativeY == false) { walkDirection = 3; }
+            else { walkDirection = 1; }
+        }
+
+        //DELTE THESE 2 LINES ONCE LEFT AND RIGHT HAVE BEEN ADDED
+        if (isNegativeY == false) { walkDirection = 3; }
+        else { walkDirection = 1; }
+        //
+
+        return walkDirection;
     }
 }
