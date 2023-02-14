@@ -302,6 +302,31 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &139448092 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5705103563315739822, guid: 4a37852dcae7e1a469f3b12b2d8c36dd, type: 3}
+  m_PrefabInstance: {fileID: 1309604677}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &139448098
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 139448092}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4f53012eb47527549a0081b2cf272d13, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &234549058
 GameObject:
   m_ObjectHideFlags: 0
@@ -648,6 +673,7 @@ MonoBehaviour:
   moveSpeed: 20
   startingKey: 81
   animator: {fileID: 1038572128}
+  walkDirection: 0
 --- !u!114 &1038572127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -771,6 +797,18 @@ PrefabInstance:
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5705103563315739821, guid: 4a37852dcae7e1a469f3b12b2d8c36dd, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5705103563315739821, guid: 4a37852dcae7e1a469f3b12b2d8c36dd, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5705103563315739821, guid: 4a37852dcae7e1a469f3b12b2d8c36dd, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5705103563315739821, guid: 4a37852dcae7e1a469f3b12b2d8c36dd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.64
       objectReference: {fileID: 0}
@@ -808,6 +846,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5705103563315739821, guid: 4a37852dcae7e1a469f3b12b2d8c36dd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5705103563315739821, guid: 4a37852dcae7e1a469f3b12b2d8c36dd, type: 3}
+      propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5705103563315739822, guid: 4a37852dcae7e1a469f3b12b2d8c36dd, type: 3}
