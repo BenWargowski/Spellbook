@@ -20,7 +20,7 @@ public class VictoryScreen : MonoBehaviour
     
     public void ReturnToMainMenu()
     {
-        // main menu not yet implemented
+        SceneManager.LoadScene(0);
     }
 
     // Continue to the next boss
