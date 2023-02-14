@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Lightning
   damage: 2
+  manaCost: 0
+  type: 1
