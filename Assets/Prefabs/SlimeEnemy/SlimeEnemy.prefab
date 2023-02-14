@@ -31,8 +31,8 @@ Transform:
   m_GameObject: {fileID: 5705103563315739822}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2669387444715442734}
   m_Father: {fileID: 0}
@@ -133,7 +133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 0}
-  maxHealth: 30
+  maxHealth: 50
 --- !u!1 &6609726355290562113
 GameObject:
   m_ObjectHideFlags: 0
@@ -144,7 +144,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2669387444715442734}
   - component: {fileID: 7074155336329767774}
-  - component: {fileID: 4188722487704045088}
+  - component: {fileID: 8171893069887287603}
   m_Layer: 0
   m_Name: SlimeSprite
   m_TagString: Untagged
@@ -219,7 +219,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4188722487704045088
+--- !u!114 &8171893069887287603
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -228,8 +228,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6609726355290562113}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5577bca6047474a42bda68a15035011d, type: 3}
+  m_Script: {fileID: 11500000, guid: 03fb855c238a6904fa88116d6b048dc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  flipped: 1
+  manager: {fileID: 5705103563315739823}
