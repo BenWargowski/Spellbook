@@ -21,10 +21,10 @@ public class SpellProjectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Enemy")
-        {
-            collision.GetComponent<EnemyHealth>().Health = collision.GetComponent<EnemyHealth>().Health - damage;
-            Destroy(gameObject);
+        EnemyHealth enemyHealth = null;
+        if (collision.TryGetComponent<EnemyHealth>(out enemyHealth)) {
+            enemyHealth.Health -= damage;
+            Destroy(gameObject);    
         }
     }
 
