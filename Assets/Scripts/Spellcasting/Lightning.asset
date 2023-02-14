@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Lightning
   m_EditorClassIdentifier: 
   name: Lightning
-  damage: 2
+  damage: 7.5
+  speed: 0
   manaCost: 0
   type: 1
+  attackPrefab: {fileID: 0}
