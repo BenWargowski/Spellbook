@@ -13,8 +13,8 @@ public class ManualSearch : MonoBehaviour, ILevelLoader {
     [SerializeField] private string prefix;
     [SerializeField] private bool ignoreCount;
 
-    public Dictionary<char, Vector2> GetTilePositions() {
-        Dictionary<char, Vector2> tileMap = new Dictionary<char, Vector2>();
+    public Dictionary<char, GameObject> GetTiles() {
+        Dictionary<char, GameObject> tileMap = new Dictionary<char, GameObject>();
 
         GameObject[] keyTiles = GameObject.FindGameObjectsWithTag("Tile");
         //either too many or too little tiles (should be one tile per English letter, so 26)
@@ -25,7 +25,7 @@ public class ManualSearch : MonoBehaviour, ILevelLoader {
         foreach (GameObject tile in keyTiles) {
             //If name starts with prefix, get last char of name and record the position of this tile under that char
             if (string.IsNullOrEmpty(prefix) || tile.name.StartsWith(this.prefix)) {
-                tileMap[Char.ToUpper(tile.name[tile.name.Length - 1])] = tile.transform.position;
+                tileMap[Char.ToUpper(tile.name[tile.name.Length - 1])] = tile;
             }
         }
 

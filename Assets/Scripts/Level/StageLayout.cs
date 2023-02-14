@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,7 +13,9 @@ public class StageLayout : MonoBehaviour {
     private ILevelLoader loader;
 
     //Stores the positions of each 'key' / tile that the player can stand on
-    public Dictionary<char, Vector2> TilePositions {get; private set;}
+    public Dictionary<char, GameObject> Tiles {get; private set;}
+
+    public Dictionary<char, Vector2> TilePositions {get; private set;} //DEPRECATED
 
     private void Awake() {
         //Setting singleton reference
@@ -20,7 +23,17 @@ public class StageLayout : MonoBehaviour {
         Instance = this;
 
         FindLoader();
-        this.TilePositions = loader.GetTilePositions();
+        this.Tiles = loader.GetTiles();
+        
+        //Temporary patch to ensure Deprecated TilePositions still works
+        TilePositions = new Dictionary<char, Vector2>();
+        foreach (char c in Tiles.Keys) {
+            TilePositions[c] = Tiles[c].transform.position;
+        }
+    }
+
+    public Vector2 GetTilePosition(char c) {
+        return Tiles[c].transform.position;
     }
 
     private void FindLoader() {

@@ -24,26 +24,14 @@ public class DefaultGenerator : MonoBehaviour, ILevelLoader {
     //Start Position (AKA: position of top left key [Q])
     [SerializeField] private Vector2 startPosition;
 
-    //Should this spawn in the tiles too?    
-    [SerializeField] private bool createTiles;
-
     [Header("References")]
 
     //Tiles to instantiate at the key locations
     [SerializeField] private GameObject tilePrefab;
 
-    public Dictionary<char, Vector2> GetTilePositions() {
-        Dictionary<char, Vector2> tileMap = new Dictionary<char, Vector2>();
-        InitializeTilePositions(ref tileMap);
+    public Dictionary<char, GameObject> GetTiles() {
+        Dictionary<char, GameObject> tiles = new Dictionary<char, GameObject>();
 
-        if (this.createTiles) InstantiateTiles(tileMap);
-        return tileMap;
-    }
-
-    /// <summary>
-    /// Populates the dictionary with the desired key positions
-    /// </summary>
-    private void InitializeTilePositions(ref Dictionary<char, Vector2> tilePositions) {
         string[] keyboard = {
             "QWERTYUIOP",
             "ASDFGHJKL",
@@ -53,31 +41,27 @@ public class DefaultGenerator : MonoBehaviour, ILevelLoader {
         //Addressing keyboard keys by keyboard[row][col]
         for (int row = 0; row < keyboard.Length; ++row) {
             for (int col = 0; col < keyboard[row].Length; ++col) {
-                tilePositions[keyboard[row][col]] = new Vector2(
-                    //horizontal
-                    (
-                        //first start at the desired start position
-                        //then move the desired offset for the given row
-                        //then travel along, adding 1 keyDistance for each key
-                        startPosition.x + (rowStartOffset[row]) + (col * keyDistance.x)
+                tiles[keyboard[row][col]] = Instantiate(
+                    this.tilePrefab,
+                    new Vector2 (
+                        //horizontal
+                        (
+                            //first start at the desired start position
+                            //then move the desired offset for the given row
+                            //then travel along, adding 1 keyDistance for each key
+                            startPosition.x + (rowStartOffset[row]) + (col * keyDistance.x)
+                        ),
+                        //vertical
+                        (
+                            startPosition.y - (row * keyDistance.y)
+                        )
                     ),
-                    //vertical
-                    (
-                        startPosition.y - (row * keyDistance.y)
-                    )
+                    Quaternion.identity,
+                    this.transform
                 );
             }
         }
-    }
 
-    /// <summary>
-    /// Instantiates a tile GameObject from the prefab at each position
-    /// </summary>
-    private void InstantiateTiles(in Dictionary<char, Vector2> tilePositions) {
-        if (this.tilePrefab == null) return;
-
-        foreach (char c in tilePositions.Keys) {
-            Instantiate(this.tilePrefab, tilePositions[c], Quaternion.identity, this.transform);
-        }
+        return tiles;
     }
 }
