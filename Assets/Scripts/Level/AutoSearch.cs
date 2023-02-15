@@ -10,8 +10,8 @@ using UnityEngine;
 public class AutoSearch : MonoBehaviour, ILevelLoader {
     [SerializeField] private bool ignoreCount;
 
-    public Dictionary<char, Vector2> GetTilePositions() {
-        Dictionary<char, Vector2> tileMap = new Dictionary<char, Vector2>();
+    public Dictionary<char, GameObject> GetTiles() {
+        Dictionary<char, GameObject> tileMap = new Dictionary<char, GameObject>();
         int readIndex = 0;
         string[] keyboard = {
             "QWERTYUIOP",
@@ -48,7 +48,7 @@ public class AutoSearch : MonoBehaviour, ILevelLoader {
 
             //Assign keys from left to right in this row
             for (int i = 0; i < keyboard[r].Length; ++i) {
-               tileMap[keyboard[r][i]] = keyRow[i].transform.position;
+               tileMap[keyboard[r][i]] = keyRow[i];
             }
         }
 
