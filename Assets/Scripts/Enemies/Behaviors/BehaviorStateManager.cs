@@ -108,7 +108,7 @@ public class BehaviorStateManager : MonoBehaviour
     /// </summary>
     public float GetDamageModifier()
     {
-        return statusManager ? statusManager.GetDamageMod() : 1f;
+        return statusManager != null ? statusManager.GetStatModifier(EnemyStat.DAMAGE) : 1f;
     }
 
     /// <summary>
@@ -116,7 +116,16 @@ public class BehaviorStateManager : MonoBehaviour
     /// </summary>
     public void SetInvincibility(bool isInvincible)
     {
-        statusManager.isInvincible = isInvincible;
+        if (isInvincible)
+        {
+            float zero = 0;
+            float infinity = 1 / zero;
+            statusManager.AddStatusEffect(EnemyStat.INVINCIBILITY, new Status(1f, infinity));
+        }
+        else
+        {
+            statusManager.RemoveStatusEffect(EnemyStat.INVINCIBILITY);
+        }
     }
 
     /// <summary>

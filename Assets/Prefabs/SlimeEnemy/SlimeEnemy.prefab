@@ -89,7 +89,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentState: {fileID: 11400000, guid: f1cca3e83c4f68c42a4c053f08e99a76, type: 2}
   target: {fileID: 0}
-  <DefaultSpeed>k__BackingField: 3.5
+  <DefaultSpeed>k__BackingField: 2.5
   deathState: {fileID: 11400000, guid: a3485afe32341ea42a11ec5c4cb8edc6, type: 2}
   idleState: {fileID: 11400000, guid: dd9d51ab346637a4381fdf64da021a04, type: 2}
   stunnedState: {fileID: 11400000, guid: a3485afe32341ea42a11ec5c4cb8edc6, type: 2}
@@ -119,7 +119,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8b762fa95dbbba419588d3f8c4f3e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isInvincible: 0
 --- !u!114 &1572367700
 MonoBehaviour:
   m_ObjectHideFlags: 0

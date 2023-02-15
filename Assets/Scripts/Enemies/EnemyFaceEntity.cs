@@ -6,14 +6,22 @@ public class EnemyFaceEntity : MonoBehaviour
 {
     [SerializeField] private BehaviorStateManager manager;
     private SpriteRenderer rend;
+    private bool isActive = true;
 
     void Awake()
     {
         rend = GetComponent<SpriteRenderer>();
     }
 
+    void Start()
+    {
+        GameEvents.Instance.playerVictory += EnemyDeath;
+    }
+
     void Update()
     {
+        if (!isActive) return;
+
         if (manager.GetIsFacingRight())
         {
             rend.flipX = false;
@@ -22,5 +30,10 @@ public class EnemyFaceEntity : MonoBehaviour
         {
             rend.flipX = true;
         }
+    }
+
+    private void EnemyDeath()
+    {
+        isActive = false;
     }
 }

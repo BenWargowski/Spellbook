@@ -23,7 +23,7 @@ public class EnemyHealth : MonoBehaviour
         }
         set
         {
-            if (statusManager ? statusManager.isInvincible : false) return;
+            if (statusManager.GetStatCount(EnemyStat.INVINCIBILITY) >= 1) return;
 
             //set value w/ respect to bounds
             currentHealth = Mathf.Clamp(value, 0, this.maxHealth);

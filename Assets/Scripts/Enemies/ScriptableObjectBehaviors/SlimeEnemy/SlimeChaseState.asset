@@ -18,8 +18,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c6ad0d932564bb24082125cb1c9cbc90, type: 2}
   damage: 1
   tickDamage: 0.05
-  maxChasingTime: 4
-  chaseSpeed: 3.5
+  maxChasingTime: 3
+  chaseSpeed: 2.5
   minDistanceThreshold: 0
   maxDistanceThreshold: 1.5
   collisionLayers:

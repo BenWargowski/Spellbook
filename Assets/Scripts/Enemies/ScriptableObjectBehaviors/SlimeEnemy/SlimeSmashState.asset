@@ -16,7 +16,7 @@ MonoBehaviour:
   returningState: {fileID: 11400000, guid: f1cca3e83c4f68c42a4c053f08e99a76, type: 2}
   damage: 3.5
   smashSpeed: 25
-  smashRadius: 3.5
+  smashRadius: 3
   windDown: 1
   minDistanceThreshold: 0
   maxDistanceThreshold: 3.5
