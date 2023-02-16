@@ -15,6 +15,16 @@ public class EnemyStatusManager : MonoBehaviour
 
     public event Action onNotStunned;
 
+    [SerializeField] private float baseFireResist;
+    [SerializeField] private float baseLightningResist;
+    [SerializeField] private float baseRockResist;
+
+    public bool IsStunned => (GetStatCount(EnemyStat.STUNNED) >= 1);
+    public bool IsInvincible => (GetStatCount(EnemyStat.INVINCIBILITY) >= 1);
+    public float FireResistance => (baseFireResist + Mathf.Clamp(GetStatModifier(EnemyStat.FIRE_RESISTANCE), 0f, 1f));
+    public float LightningResistance => (baseLightningResist + Mathf.Clamp(GetStatModifier(EnemyStat.LIGHTNING_RESISTANCE), 0f, 1f));
+    public float RockResistance => (baseRockResist + Mathf.Clamp(GetStatModifier(EnemyStat.ROCK_RESISTANCE), 0f, 1f));
+
     void Awake()
     {
         var statusCategories = Enum.GetValues(typeof(EnemyStat));
@@ -35,18 +45,18 @@ public class EnemyStatusManager : MonoBehaviour
 
             int statusesRemovedCount = pair.Value.RemoveWhere((x) => !x.IsValid());
 
-            if (pair.Key == EnemyStat.STUNNED && statusesRemovedCount > 0 && GetStatCount(EnemyStat.STUNNED) == 0 && onNotStunned != null)
+            if (pair.Key == EnemyStat.STUNNED && statusesRemovedCount > 0 && !IsStunned && onNotStunned != null)
                 onNotStunned();
         }
     }
 
     public void AddStatusEffect(EnemyStat statCategory, Status status)
     {
-        if (GetStatCount(EnemyStat.INVINCIBILITY) >= 1 && statCategory != EnemyStat.INVINCIBILITY) return;
+        if (IsInvincible && statCategory != EnemyStat.INVINCIBILITY) return;
 
         statusEffects[statCategory].Add(status);
 
-        if (statCategory == EnemyStat.STUNNED && GetStatCount(EnemyStat.STUNNED) == 1 && onStunned != null)
+        if (statCategory == EnemyStat.STUNNED && IsStunned && onStunned != null)
             onStunned();
     }
 
@@ -54,9 +64,15 @@ public class EnemyStatusManager : MonoBehaviour
     {
         if (GetStatCount(statCategory) == 0) return;
 
-        Status randomStat = statusEffects[statCategory].ElementAt(UnityEngine.Random.Range(0, GetStatCount(statCategory)));
+        Status statToRemove = null;
+
+        foreach (Status status in statusEffects[statCategory])
+        {
+            if (statToRemove == null || status.timeRemaining < statToRemove.timeRemaining)
+                statToRemove = status;
+        }
         
-        statusEffects[statCategory].Remove(randomStat);
+        statusEffects[statCategory].Remove(statToRemove);
     }
 
     public float GetStatModifier(EnemyStat enemyStat)
@@ -68,7 +84,7 @@ public class EnemyStatusManager : MonoBehaviour
             mod += status.modifier;
         }
 
-        return mod;
+        return Mathf.Max(0, mod);
     }
 
     public int GetStatCount(EnemyStat enemyStat)

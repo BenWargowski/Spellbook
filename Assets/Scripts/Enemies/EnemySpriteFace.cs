@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyFaceEntity : MonoBehaviour
+public class EnemySpriteFace : MonoBehaviour
 {
     [SerializeField] private BehaviorStateManager manager;
     private SpriteRenderer rend;

@@ -21,21 +21,53 @@ public class EnemyHealth : MonoBehaviour
         {
             return currentHealth;
         }
-        set
+        private set
         {
-            if (statusManager.GetStatCount(EnemyStat.INVINCIBILITY) >= 1) return;
+            if (statusManager.IsInvincible) return;
 
             //set value w/ respect to bounds
-            currentHealth = Mathf.Clamp(value, 0, this.maxHealth);
+            currentHealth = Mathf.Clamp(value, 0, maxHealth);
 
             //update health bar
-            if (healthBar != null) healthBar.UpdateBar(currentHealth, this.maxHealth);
+            if (healthBar != null) healthBar.UpdateBar(currentHealth, maxHealth);
 
             if (currentHealth <= 0)
             {
                 Death();
             }
         }
+    }
+
+    public void Damage(float damage, SpellType spellType, bool ignoreResistance)
+    {
+        if (!ignoreResistance)
+        {
+            switch (spellType)
+            {
+                case SpellType.FIRE:
+                    damage -= damage * statusManager.FireResistance;
+                    break;
+                case SpellType.LIGHTNING:
+                    damage -= damage * statusManager.LightningResistance;
+                    break;
+                case SpellType.ROCK:
+                    damage -= damage * statusManager.RockResistance;
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        if (damage <= 0) return;
+
+        Health -= damage;
+    }
+
+    public void Heal(float healAmount)
+    {
+        if (healAmount >= 0) return;
+
+        Health += healAmount;
     }
     
     void Awake()
