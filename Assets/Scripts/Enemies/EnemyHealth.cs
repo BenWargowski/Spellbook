@@ -23,8 +23,6 @@ public class EnemyHealth : MonoBehaviour
         }
         private set
         {
-            if (statusManager.IsInvincible) return;
-
             //set value w/ respect to bounds
             currentHealth = Mathf.Clamp(value, 0, maxHealth);
 
@@ -40,6 +38,8 @@ public class EnemyHealth : MonoBehaviour
 
     public void Damage(float damage, SpellType spellType, bool ignoreResistance)
     {
+        if (statusManager.IsInvincible) return;
+
         if (!ignoreResistance)
         {
             switch (spellType)
