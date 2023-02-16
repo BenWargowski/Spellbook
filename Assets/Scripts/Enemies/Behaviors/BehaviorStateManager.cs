@@ -118,9 +118,7 @@ public class BehaviorStateManager : MonoBehaviour
     {
         if (isInvincible)
         {
-            float zero = 0;
-            float infinity = 1 / zero;
-            statusManager.AddStatusEffect(EnemyStat.INVINCIBILITY, new Status(1f, infinity));
+            statusManager.AddStatusEffect(EnemyStat.INVINCIBILITY, new Status(1f, Mathf.Infinity));
         }
         else
         {

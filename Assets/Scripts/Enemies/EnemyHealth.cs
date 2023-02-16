@@ -45,15 +45,13 @@ public class EnemyHealth : MonoBehaviour
             switch (spellType)
             {
                 case SpellType.FIRE:
-                    damage -= damage * statusManager.FireResistance;
+                    damage = (damage * damage) / (damage + statusManager.FireResistance);
                     break;
                 case SpellType.LIGHTNING:
-                    damage -= damage * statusManager.LightningResistance;
+                    damage = (damage * damage) / (damage + statusManager.LightningResistance);
                     break;
                 case SpellType.ROCK:
-                    damage -= damage * statusManager.RockResistance;
-                    break;
-                default:
+                    damage = (damage * damage) / (damage + statusManager.RockResistance);
                     break;
             }
         }

@@ -6,11 +6,13 @@ public class SpellProjectile : MonoBehaviour
 {
     public float speed;
     public float damage;
+    public SpellType type;
 
-    public void init(float s, float d)
+    public void init(float s, float d, SpellType t)
     {
         speed = s;
         damage = d;
+        type = t;
     }
 
     void Start()
@@ -23,7 +25,7 @@ public class SpellProjectile : MonoBehaviour
     {
         EnemyHealth enemyHealth = null;
         if (collision.TryGetComponent<EnemyHealth>(out enemyHealth)) {
-            enemyHealth.Health -= damage;
+            enemyHealth.Damage(damage, type, false);
             Destroy(gameObject);    
         }
     }

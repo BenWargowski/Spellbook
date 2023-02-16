@@ -21,9 +21,9 @@ public class EnemyStatusManager : MonoBehaviour
 
     public bool IsStunned => (GetStatCount(EnemyStat.STUNNED) >= 1);
     public bool IsInvincible => (GetStatCount(EnemyStat.INVINCIBILITY) >= 1);
-    public float FireResistance => (Mathf.Clamp(baseFireResist + GetStatModifier(EnemyStat.FIRE_RESISTANCE), 0f, 1f));
-    public float LightningResistance => (Mathf.Clamp(baseLightningResist + GetStatModifier(EnemyStat.LIGHTNING_RESISTANCE), 0f, 1f));
-    public float RockResistance => (Mathf.Clamp(baseRockResist + GetStatModifier(EnemyStat.ROCK_RESISTANCE), 0f, 1f));
+    public float FireResistance => (Mathf.Max(0f, baseFireResist + GetStatModifier(EnemyStat.FIRE_RESISTANCE)));
+    public float LightningResistance => (Mathf.Max(0f, baseLightningResist + GetStatModifier(EnemyStat.LIGHTNING_RESISTANCE)));
+    public float RockResistance => (Mathf.Max(0f, baseRockResist + GetStatModifier(EnemyStat.ROCK_RESISTANCE)));
 
     void Awake()
     {
