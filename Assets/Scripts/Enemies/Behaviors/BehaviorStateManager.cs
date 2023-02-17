@@ -25,7 +25,7 @@ public class BehaviorStateManager : MonoBehaviour
 
     private EnemyMovementManager movementManager;
 
-    [SerializeField] private Animator animator;
+    private Animator animator;
 
     void Awake()
     {
@@ -36,6 +36,8 @@ public class BehaviorStateManager : MonoBehaviour
         statusManager.onNotStunned += StunRecovery;
 
         movementManager = GetComponent<EnemyMovementManager>();
+
+        animator = GetComponentInChildren<Animator>();
     }
 
     void Start()
@@ -152,6 +154,10 @@ public class BehaviorStateManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Used by BehaviorStates to set the animation of enemy sprite
+    /// </summary>
+    /// <param name="animation">Container of animation name, parameter type, etc</param>
     public void SetAnimation(EnemyAnimation animation)
     {
         switch (animation.type)
