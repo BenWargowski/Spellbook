@@ -19,7 +19,7 @@ MonoBehaviour:
   damage: 1
   tickDamage: 0.05
   maxChasingTime: 3
-  chaseSpeed: 2.5
+  chaseSpeed: 3
   minDistanceThreshold: 0
   maxDistanceThreshold: 1.5
   collisionLayers:

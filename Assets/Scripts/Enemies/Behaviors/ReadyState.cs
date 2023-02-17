@@ -42,13 +42,18 @@ public class ReadyState : BehaviorState
     {
         timeSinceReadied += Time.deltaTime;
 
-        if (timeSinceReadied >= delayBetweenAttacks && !manager.GetIsMoving())
+        if (!manager.GetIsMoving())
         {
-            int j = Random.Range(0, satchel.Count);
-            BehaviorState state = satchel[j];
-            satchel.RemoveAt(j);
+            manager.SetAnimation(new EnemyAnimation("IdleTrigger", AnimParamType.TRIG));
 
-            manager.ChangeState(state);
+            if (timeSinceReadied >= delayBetweenAttacks)
+            {
+                int j = Random.Range(0, satchel.Count);
+                BehaviorState state = satchel[j];
+                satchel.RemoveAt(j);
+
+                manager.ChangeState(state);
+            }
         }
     }
 

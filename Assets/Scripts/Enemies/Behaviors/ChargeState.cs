@@ -43,6 +43,8 @@ public class ChargeState : BehaviorState
 
     public override void ExitState(BehaviorStateManager manager)
     {
+        manager.SetAnimation(new EnemyAnimation("IdleTrigger", AnimParamType.TRIG));
+
         chargeParticlesInstance.Stop();
     }
 
@@ -88,6 +90,8 @@ public class ChargeState : BehaviorState
 
     private void Charge(BehaviorStateManager manager)
     {
+        manager.SetAnimation(new EnemyAnimation("FastAttackTrigger", AnimParamType.TRIG));
+
         tileKey = FindTargetTile(manager, manager.GetTargetPosition(), minDistanceThreshold, maxDistanceThreshold);
 
         manager.SetMovement(StageLayout.Instance.TilePositions[tileKey], chargeSpeed);

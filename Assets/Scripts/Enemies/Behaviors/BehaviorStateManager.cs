@@ -25,6 +25,8 @@ public class BehaviorStateManager : MonoBehaviour
 
     private EnemyMovementManager movementManager;
 
+    [SerializeField] private Animator animator;
+
     void Awake()
     {
         target = GameObject.FindWithTag("Player")?.transform; // may change with more clean code later
@@ -32,6 +34,7 @@ public class BehaviorStateManager : MonoBehaviour
         statusManager = GetComponent<EnemyStatusManager>();
         statusManager.onStunned += Stunned;
         statusManager.onNotStunned += StunRecovery;
+
         movementManager = GetComponent<EnemyMovementManager>();
     }
 
@@ -146,6 +149,19 @@ public class BehaviorStateManager : MonoBehaviour
         else
         {
             return GetTargetPosition().x - transform.position.x > 0;
+        }
+    }
+
+    public void SetAnimation(EnemyAnimation animation)
+    {
+        switch (animation.type)
+        {
+            case AnimParamType.INT:
+                animator.SetInteger(animation.name, animation.state);
+                break;
+            case AnimParamType.TRIG:
+                animator.SetTrigger(animation.name);
+                break;
         }
     }
 

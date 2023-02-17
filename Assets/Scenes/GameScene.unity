@@ -1905,7 +1905,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: SlimeEnemy
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 532505840431964199, guid: 4a37852dcae7e1a469f3b12b2d8c36dd, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4a37852dcae7e1a469f3b12b2d8c36dd, type: 3}
 --- !u!4 &1589675095 stripped
 Transform:

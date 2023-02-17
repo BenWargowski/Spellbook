@@ -92,8 +92,9 @@ MonoBehaviour:
   <DefaultSpeed>k__BackingField: 2.5
   deathState: {fileID: 11400000, guid: a3485afe32341ea42a11ec5c4cb8edc6, type: 2}
   idleState: {fileID: 11400000, guid: dd9d51ab346637a4381fdf64da021a04, type: 2}
-  stunnedState: {fileID: 11400000, guid: a3485afe32341ea42a11ec5c4cb8edc6, type: 2}
+  stunnedState: {fileID: 11400000, guid: 44d20ea3b71d20a468da27f2cf8ce909, type: 2}
   recoveredState: {fileID: 11400000, guid: f1cca3e83c4f68c42a4c053f08e99a76, type: 2}
+  animator: {fileID: 6532089997041277420}
 --- !u!114 &5705103563315739810
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,6 +148,7 @@ GameObject:
   - component: {fileID: 2669387444715442734}
   - component: {fileID: 7074155336329767774}
   - component: {fileID: 8171893069887287603}
+  - component: {fileID: 6532089997041277420}
   m_Layer: 0
   m_Name: SlimeSprite
   m_TagString: Untagged
@@ -234,3 +236,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   manager: {fileID: 5705103563315739823}
+--- !u!95 &6532089997041277420
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6609726355290562113}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: da496e7fbee06cd4aac0dde59222de1c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

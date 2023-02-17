@@ -7,7 +7,7 @@ public class DeathState : BehaviorState
 {
     public override void EnterState(BehaviorStateManager manager)
     {
-
+        manager.SetAnimation(new EnemyAnimation("DeathTrigger", AnimParamType.TRIG));
     }
 
     public override void ExitState(BehaviorStateManager manager)

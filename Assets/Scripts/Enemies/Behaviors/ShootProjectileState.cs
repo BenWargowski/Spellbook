@@ -37,11 +37,13 @@ public class ShootProjectileState : BehaviorState
 
     public override void ExitState(BehaviorStateManager manager)
     {
-
+        manager.SetAnimation(new EnemyAnimation("IdleTrigger", AnimParamType.TRIG));
     }
 
     public override void UpdateState(BehaviorStateManager manager)
     {
+        if (manager.GetIsMoving()) return;
+
         timeSinceFired += Time.deltaTime;
 
         if (timeSinceFired >= fireRate)
