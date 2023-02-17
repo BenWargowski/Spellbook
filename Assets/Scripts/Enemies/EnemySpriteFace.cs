@@ -18,7 +18,7 @@ public class EnemySpriteFace : MonoBehaviour
         GameEvents.Instance.playerVictory += EnemyDeath;
     }
 
-    void Update()
+    void LateUpdate()
     {
         if (!isActive) return;
 
