@@ -26,7 +26,7 @@ public class ChaseState : BehaviorState
 
     public override void EnterState(BehaviorStateManager manager)
     {
-        manager.SetAnimation(new EnemyAnimation("AttackTrigger", AnimParamType.TRIG));
+        manager.SetAnimation(SlimeAnimationTriggers.Chase);
 
         timeSinceChasing = 0;
 
@@ -35,7 +35,7 @@ public class ChaseState : BehaviorState
 
     public override void ExitState(BehaviorStateManager manager)
     {
-        manager.SetAnimation(new EnemyAnimation("IdleTrigger", AnimParamType.TRIG));
+        manager.SetAnimation(EnemyAnimationTriggers.Idle);
     }
 
     public override void UpdateState(BehaviorStateManager manager)

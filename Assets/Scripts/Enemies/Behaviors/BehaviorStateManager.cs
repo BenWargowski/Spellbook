@@ -155,20 +155,12 @@ public class BehaviorStateManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Used by BehaviorStates to set the animation of enemy sprite
+    /// Used by BehaviorStates to update enemy animation
     /// </summary>
-    /// <param name="animation">Container of animation name, parameter type, etc</param>
-    public void SetAnimation(EnemyAnimation animation)
+    /// <param name="triggerName">string name of trigger used to set animation</param>
+    public void SetAnimation(string triggerName)
     {
-        switch (animation.type)
-        {
-            case AnimParamType.INT:
-                animator.SetInteger(animation.name, animation.state);
-                break;
-            case AnimParamType.TRIG:
-                animator.SetTrigger(animation.name);
-                break;
-        }
+        animator.SetTrigger(triggerName);
     }
 
     private void Stunned()
@@ -182,4 +174,21 @@ public class BehaviorStateManager : MonoBehaviour
         Debug.LogFormat("BehaviorStateManager.StunRecovery");
         ChangeState(recoveredState);
     }
+}
+
+public static class EnemyAnimationTriggers
+{
+    public const string Idle = "IdleTrigger";
+    public const string Death = "DeathTrigger";
+    public const string Stunned = "StunnedTrigger";
+}
+
+
+public static class SlimeAnimationTriggers
+{
+    public const string Chase = "ChaseTrigger";
+    public const string Charge = "ChargeTrigger";
+    public const string Shoot = "ShootTrigger";
+    public const string Jump = "JumpTrigger";
+    public const string Smash = "SmashTrigger";
 }

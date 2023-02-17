@@ -44,7 +44,7 @@ public class ReadyState : BehaviorState
 
         if (!manager.GetIsMoving())
         {
-            manager.SetAnimation(new EnemyAnimation("IdleTrigger", AnimParamType.TRIG));
+            manager.SetAnimation(EnemyAnimationTriggers.Idle);
 
             if (timeSinceReadied >= delayBetweenAttacks)
             {
