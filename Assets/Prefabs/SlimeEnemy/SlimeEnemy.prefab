@@ -92,9 +92,8 @@ MonoBehaviour:
   <DefaultSpeed>k__BackingField: 2.5
   deathState: {fileID: 11400000, guid: a3485afe32341ea42a11ec5c4cb8edc6, type: 2}
   idleState: {fileID: 11400000, guid: dd9d51ab346637a4381fdf64da021a04, type: 2}
-  stunnedState: {fileID: 11400000, guid: 44d20ea3b71d20a468da27f2cf8ce909, type: 2}
+  stunnedState: {fileID: 11400000, guid: 7df50d1c057aded49a436d868337939d, type: 2}
   recoveredState: {fileID: 11400000, guid: f1cca3e83c4f68c42a4c053f08e99a76, type: 2}
-  animator: {fileID: 6532089997041277420}
 --- !u!114 &5705103563315739810
 MonoBehaviour:
   m_ObjectHideFlags: 0
