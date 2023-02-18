@@ -63,7 +63,7 @@ public class EnemyHealth : MonoBehaviour
 
     public void Heal(float healAmount)
     {
-        if (healAmount >= 0) return;
+        if (healAmount <= 0) return;
 
         Health += healAmount;
     }

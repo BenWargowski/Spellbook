@@ -30,7 +30,7 @@ public class MenuButtons : MonoBehaviour
     }
     public void Level2()
     {
-        // SceneManager.LoadScene("");
+        SceneManager.LoadScene(2);
     }
     public void Level3()
     {
