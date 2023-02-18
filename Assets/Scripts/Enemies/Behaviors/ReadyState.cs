@@ -25,7 +25,7 @@ public class ReadyState : BehaviorState
     {
         timeSinceReadied = 0;
 
-        manager.SetMovement(StageLayout.Instance.TilePositions[FindTargetTile(manager, manager.transform.position, minDistanceThreshold, maxDistanceThreshold)], manager.DefaultSpeed);
+        manager.SetAnimation(EnemyAnimationTriggers.Idle);
 
         if (satchel.Count == 0)
         {
@@ -42,18 +42,13 @@ public class ReadyState : BehaviorState
     {
         timeSinceReadied += Time.deltaTime;
 
-        if (!manager.GetIsMoving())
+        if (!manager.GetIsMoving() && timeSinceReadied >= delayBetweenAttacks)
         {
-            manager.SetAnimation(EnemyAnimationTriggers.Idle);
+            int j = Random.Range(0, satchel.Count);
+            BehaviorState state = satchel[j];
+            satchel.RemoveAt(j);
 
-            if (timeSinceReadied >= delayBetweenAttacks)
-            {
-                int j = Random.Range(0, satchel.Count);
-                BehaviorState state = satchel[j];
-                satchel.RemoveAt(j);
-
-                manager.ChangeState(state);
-            }
+            manager.ChangeState(state);
         }
     }
 

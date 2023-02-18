@@ -17,6 +17,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 000c3d27b4755c0498ab4f36dd370cf8, type: 2}
   - {fileID: 11400000, guid: 9a14b8a97d199cb49a414ae51c3953a2, type: 2}
   - {fileID: 11400000, guid: 96ee03984d18dc446b37577e2b1c2d71, type: 2}
-  delayBetweenAttacks: 0.5
+  delayBetweenAttacks: 1
   minDistanceThreshold: 0
   maxDistanceThreshold: 0.25

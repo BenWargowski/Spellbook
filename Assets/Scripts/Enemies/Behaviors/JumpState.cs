@@ -23,8 +23,6 @@ public class JumpState : BehaviorState
 
     public override void EnterState(BehaviorStateManager manager)
     {
-        manager.SetMovement(StageLayout.Instance.TilePositions[FindTargetTile(manager, manager.transform.position, minDistanceThreshold, maxDistanceThreshold)], manager.DefaultSpeed);
-
         timeElapsed = 0;
 
         hasJumped = false;

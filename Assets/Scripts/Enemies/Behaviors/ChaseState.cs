@@ -23,10 +23,13 @@ public class ChaseState : BehaviorState
 
     private char tileKey;
     private float timeSinceChasing;
+    private bool isReseting;
 
     public override void EnterState(BehaviorStateManager manager)
     {
         manager.SetAnimation(SlimeAnimationTriggers.Chase);
+
+        isReseting = false;
 
         timeSinceChasing = 0;
 
@@ -35,7 +38,7 @@ public class ChaseState : BehaviorState
 
     public override void ExitState(BehaviorStateManager manager)
     {
-        manager.SetAnimation(EnemyAnimationTriggers.Idle);
+
     }
 
     public override void UpdateState(BehaviorStateManager manager)
@@ -46,7 +49,14 @@ public class ChaseState : BehaviorState
 
         if (timeSinceChasing >= maxChasingTime)
         {
-            manager.ChangeState(nextStates[Random.Range(0,nextStates.Count)]);
+            if (!isReseting)
+            {
+                manager.SetAnimation(EnemyAnimationTriggers.Idle); // TO DO: should change to a walk animation if one is created
+                manager.SetMovement(StageLayout.Instance.TilePositions[FindTargetTile(manager, manager.transform.position, minDistanceThreshold, maxDistanceThreshold)], manager.DefaultSpeed);
+                isReseting = true;
+            }
+            else if (!manager.GetIsMoving())
+                manager.ChangeState(nextStates[Random.Range(0,nextStates.Count)]);
         }
         else if (tileDistanceFromTarget < minDistanceThreshold || tileDistanceFromTarget > maxDistanceThreshold)
         {
