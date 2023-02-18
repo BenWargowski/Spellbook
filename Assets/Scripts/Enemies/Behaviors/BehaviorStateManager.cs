@@ -181,6 +181,7 @@ public static class EnemyAnimationTriggers
     public const string Idle = "IdleTrigger";
     public const string Death = "DeathTrigger";
     public const string Stunned = "StunnedTrigger";
+    public const string WindUp = "WindUpTrigger";
 }
 
 

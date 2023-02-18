@@ -9,6 +9,8 @@ public class ChargeState : BehaviorState
 
     [SerializeField] private float damage;
 
+    [SerializeField] private float tickDamage;
+
     [SerializeField] private float chargeSpeed;
 
     [SerializeField] private float windUp;
@@ -32,6 +34,8 @@ public class ChargeState : BehaviorState
     {
         if (chargeParticlesInstance == null)
             chargeParticlesInstance = Instantiate(particlesPrefab, manager.transform.position, Quaternion.identity).GetComponent<ParticleSystem>();
+
+        manager.SetAnimation(EnemyAnimationTriggers.WindUp);
 
         chargeParticlesInstance.transform.position = manager.transform.position + new Vector3((manager.GetIsFacingRight() ? 1 : -1) * particlesPosition.x, particlesPosition.y, 0);
         chargeParticlesInstance.Play();
@@ -85,7 +89,16 @@ public class ChargeState : BehaviorState
 
     public override void OnStateTriggerStay(BehaviorStateManager manager, Collider2D other)
     {
-
+        if (collisionLayers == (collisionLayers | (1 << other.gameObject.layer)))
+        {
+            //Check if the other object is a player
+            Player hitPlayer = null;
+            if (other.TryGetComponent<Player>(out hitPlayer))
+            {
+                //Damage the player
+                hitPlayer.Damage(tickDamage * manager.GetDamageModifier(), false, false); //NOTE: does not trigger i-frames
+            }
+        }
     }
 
     private void Charge(BehaviorStateManager manager)

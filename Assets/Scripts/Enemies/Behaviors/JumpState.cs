@@ -25,6 +25,8 @@ public class JumpState : BehaviorState
     {
         timeElapsed = 0;
 
+        manager.SetAnimation(EnemyAnimationTriggers.WindUp);
+
         hasJumped = false;
     }
 
