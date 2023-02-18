@@ -6,25 +6,25 @@ using UnityEngine.SceneManagement;
 [CreateAssetMenu(fileName = "New ShootProjectileState", menuName = "Behavior/ShootProjectileState")]
 public class ShootProjectileState : BehaviorState
 {
-    [SerializeField] private BehaviorState returningState;
+    [SerializeField] protected BehaviorState returningState;
 
     [SerializeField] private GameObject projectilePrefab;
 
-    [SerializeField] private int maxProjectileCount;
+    [SerializeField] protected int maxProjectileFire;
 
-    [SerializeField] private float fireRate;
+    [SerializeField] protected float fireRate;
 
-    [SerializeField] private float damage;
+    [SerializeField] protected float damage;
 
     [SerializeField] private Vector2 firePosition;
 
-    private Vector3 aimDirection;
+    protected Vector3 aimDirection;
 
     [System.NonSerialized] private List<BasicProjectile> projectilePool = new List<BasicProjectile>();
 
-    private float timeSinceFired;
+    protected float timeSinceFired;
 
-    private int currentCount;
+    protected int currentCount;
 
     public override void EnterState(BehaviorStateManager manager)
     {
@@ -51,7 +51,7 @@ public class ShootProjectileState : BehaviorState
             Shoot(manager);
         }
 
-        if (currentCount >= maxProjectileCount)
+        if (currentCount >= maxProjectileFire)
         {
             manager.ChangeState(returningState);
         }
@@ -87,7 +87,7 @@ public class ShootProjectileState : BehaviorState
         currentCount++;
     }
 
-    private BasicProjectile GetProjectile(BehaviorStateManager manager)
+    protected BasicProjectile GetProjectile(BehaviorStateManager manager)
     {
         for (int i = 0; i < projectilePool.Count; i++)
         {

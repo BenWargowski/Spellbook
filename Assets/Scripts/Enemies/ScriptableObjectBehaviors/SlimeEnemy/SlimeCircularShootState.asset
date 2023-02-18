@@ -9,13 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30df8b24fa8db0445a626ba1f55c0dfe, type: 3}
-  m_Name: SlimeShootProjectileState
+  m_Script: {fileID: 11500000, guid: 601518cebfca80842898efe843649d18, type: 3}
+  m_Name: SlimeCircularShootState
   m_EditorClassIdentifier: 
-  behaviorName: SlimeShootProjectileState
+  behaviorName: SlimeCircularShootState
   returningState: {fileID: 11400000, guid: f1cca3e83c4f68c42a4c053f08e99a76, type: 2}
   projectilePrefab: {fileID: 2872422517036203979, guid: afce09d700b25af498e7f25a7f281b68, type: 3}
   maxProjectileFire: 3
-  fireRate: 1.5
-  damage: 1
-  firePosition: {x: 0.5, y: 0}
+  fireRate: 1.65
+  damage: 1.75
+  firePosition: {x: 0, y: 0}
+  primaryProjectileCount: 9
+  secondaryProjectileCount: 5
