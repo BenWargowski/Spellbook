@@ -29,9 +29,4 @@ public class DeathState : BehaviorState
     {
 
     }
-
-    public override void OnStateTriggerStay(BehaviorStateManager manager, Collider2D other)
-    {
-
-    }
 }

@@ -18,12 +18,14 @@ public class ShootProjectileState : BehaviorState
 
     [SerializeField] private Vector2 firePosition;
 
+    [SerializeField] protected float windDown;
+
     protected Vector3 aimDirection;
 
     [System.NonSerialized] private List<BasicProjectile> projectilePool = new List<BasicProjectile>();
 
     protected float timeSinceFired;
-
+    protected float timeSinceReseting;
     protected int currentCount;
 
     public override void EnterState(BehaviorStateManager manager)
@@ -33,11 +35,13 @@ public class ShootProjectileState : BehaviorState
         timeSinceFired = fireRate;
 
         currentCount = 0;
+
+        timeSinceReseting = 0;
     }
 
     public override void ExitState(BehaviorStateManager manager)
     {
-        manager.SetAnimation(EnemyAnimationTriggers.Idle);
+
     }
 
     public override void UpdateState(BehaviorStateManager manager)
@@ -53,7 +57,12 @@ public class ShootProjectileState : BehaviorState
 
         if (currentCount >= maxProjectileFire)
         {
-            manager.ChangeState(returningState);
+            if (timeSinceReseting >= windDown)
+                manager.ChangeState(returningState);
+            else
+            {
+                timeSinceReseting += Time.deltaTime;
+            }
         }
     }
 
@@ -67,20 +76,16 @@ public class ShootProjectileState : BehaviorState
 
     }
 
-    public override void OnStateTriggerStay(BehaviorStateManager manager, Collider2D other)
+    public virtual void Shoot(BehaviorStateManager manager)
     {
+        manager.SetAnimation(SlimeAnimationTriggers.Shoot);
 
-    }
-
-    private void Shoot(BehaviorStateManager manager)
-    {
         Vector3 projectileOrigin = manager.transform.position + new Vector3((manager.GetIsFacingRight() ? 1 : -1) * firePosition.x, firePosition.y, 0);
         aimDirection = (manager.GetTargetPosition() - new Vector2(projectileOrigin.x, projectileOrigin.y)).normalized;
 
         BasicProjectile projectile = GetProjectile(manager);
         projectile.transform.position = projectileOrigin;
         projectile.SetProjectile(aimDirection, damage * manager.GetDamageModifier());
-
 
         timeSinceFired = 0;
 

@@ -9,8 +9,6 @@ public class ChaseState : BehaviorState
 
     [SerializeField] private float damage;
 
-    [SerializeField] private float tickDamage;
-
     [SerializeField] private float maxChasingTime;
 
     [SerializeField] private float chaseSpeed;
@@ -18,8 +16,6 @@ public class ChaseState : BehaviorState
     [SerializeField] private float minDistanceThreshold;
 
     [SerializeField] private float maxDistanceThreshold;
-
-    [SerializeField] private LayerMask collisionLayers;
 
     private char tileKey;
     private float timeSinceChasing;
@@ -66,13 +62,14 @@ public class ChaseState : BehaviorState
 
     public override void OnStateTriggerEnter(BehaviorStateManager manager, Collider2D other)
     {
-        if (collisionLayers == (collisionLayers | (1 << other.gameObject.layer)))
+        if (onContactCollisionLayers == (onContactCollisionLayers | (1 << other.gameObject.layer)))
         {
             //Check if the other object is a player
             Player hitPlayer = null;
-            if (other.TryGetComponent<Player>(out hitPlayer)) {
+            if (other.TryGetComponent<Player>(out hitPlayer))
+            {
                 //Damage the player
-                hitPlayer.Damage(damage * manager.GetDamageModifier(), true, false);
+                hitPlayer.Damage(damage * manager.GetDamageModifier(), false, false); //NOTE: does not trigger i-frames
             }
         }
     }
@@ -80,20 +77,6 @@ public class ChaseState : BehaviorState
     public override void OnStateTriggerExit(BehaviorStateManager manager, Collider2D other)
     {
 
-    }
-
-    public override void OnStateTriggerStay(BehaviorStateManager manager, Collider2D other)
-    {
-        if (collisionLayers == (collisionLayers | (1 << other.gameObject.layer)))
-        {
-            //Check if the other object is a player
-            Player hitPlayer = null;
-            if (other.TryGetComponent<Player>(out hitPlayer))
-            {
-                //Damage the player
-                hitPlayer.Damage(tickDamage * manager.GetDamageModifier(), false, false); //NOTE: does not trigger i-frames
-            }
-        }
     }
 
     private void Chase(BehaviorStateManager manager)

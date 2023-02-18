@@ -33,9 +33,4 @@ public class IdleState : BehaviorState
     {
 
     }
-
-    public override void OnStateTriggerStay(BehaviorStateManager manager, Collider2D other)
-    {
-
-    }
 }

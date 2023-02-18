@@ -13,11 +13,15 @@ MonoBehaviour:
   m_Name: SlimeCircularShootState
   m_EditorClassIdentifier: 
   behaviorName: SlimeCircularShootState
+  onContactCollisionLayers:
+    serializedVersion: 2
+    m_Bits: 8
   returningState: {fileID: 11400000, guid: f1cca3e83c4f68c42a4c053f08e99a76, type: 2}
   projectilePrefab: {fileID: 2872422517036203979, guid: afce09d700b25af498e7f25a7f281b68, type: 3}
   maxProjectileFire: 3
   fireRate: 1.65
   damage: 1.75
   firePosition: {x: 0, y: 0}
+  windDown: 1
   primaryProjectileCount: 9
   secondaryProjectileCount: 5

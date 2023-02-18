@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: DummyHealState
   m_EditorClassIdentifier: 
   behaviorName: DummyHealState
+  onContactCollisionLayers:
+    serializedVersion: 2
+    m_Bits: 8
   keyTile: 65
   healAmount: 0.35
   delayBetweenHeal: 0.25

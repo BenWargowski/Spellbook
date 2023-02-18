@@ -60,11 +60,6 @@ public class JumpState : BehaviorState
 
     }
 
-    public override void OnStateTriggerStay(BehaviorStateManager manager, Collider2D other)
-    {
-
-    }
-
     private void Jump(BehaviorStateManager manager)
     {
         manager.SetMovement(new Vector2(manager.transform.position.x, manager.transform.position.y + jumpHeight), jumpSpeed);

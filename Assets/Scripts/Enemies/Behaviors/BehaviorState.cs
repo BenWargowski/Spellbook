@@ -9,6 +9,10 @@ public abstract class BehaviorState : ScriptableObject
 {
     public string behaviorName;
 
+    [SerializeField] protected LayerMask onContactCollisionLayers;
+
+    protected const float onContactTickDamage = .1f;
+
     /// <summary>
     /// Called by BehaviorStateManager when entering the BehaviorState
     /// </summary>
@@ -37,7 +41,19 @@ public abstract class BehaviorState : ScriptableObject
     /// <summary>
     ///  Called by BehaviorStateManager each frame some collider stays in enemy
     /// </summary>
-    public abstract void OnStateTriggerStay(BehaviorStateManager manager, Collider2D other);
+    public virtual void OnStateTriggerStay(BehaviorStateManager manager, Collider2D other)
+    {
+        if (onContactCollisionLayers == (onContactCollisionLayers | (1 << other.gameObject.layer)))
+        {
+            //Check if the other object is a player
+            Player hitPlayer = null;
+            if (other.TryGetComponent<Player>(out hitPlayer))
+            {
+                //Damage the player
+                hitPlayer.Damage(onContactTickDamage * manager.GetDamageModifier(), false, false); //NOTE: does not trigger i-frames
+            }
+        }
+    }
 
     /// <summary>
     /// Finds a keyTile that satisfies the various requirements

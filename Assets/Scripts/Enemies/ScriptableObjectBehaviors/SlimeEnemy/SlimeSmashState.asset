@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: SlimeSmashState
   m_EditorClassIdentifier: 
   behaviorName: SlimeSmashState
+  onContactCollisionLayers:
+    serializedVersion: 2
+    m_Bits: 8
   returningState: {fileID: 11400000, guid: f1cca3e83c4f68c42a4c053f08e99a76, type: 2}
   damage: 3.5
   smashSpeed: 25
@@ -20,7 +23,4 @@ MonoBehaviour:
   windDown: 1
   minDistanceThreshold: 0
   maxDistanceThreshold: 3.5
-  collisionLayers:
-    serializedVersion: 2
-    m_Bits: 8
   particlesPrefab: {fileID: 1199003620748557828, guid: c52dedf2f172cad40bca5bf63f22c9f5, type: 3}

@@ -8,25 +8,10 @@ public class CircularShootProjectileState : ShootProjectileState
     [SerializeField] private int primaryProjectileCount;
     [SerializeField] private int secondaryProjectileCount;
 
-    public override void UpdateState(BehaviorStateManager manager)
+    public override void Shoot(BehaviorStateManager manager)
     {
-        if (manager.GetIsMoving()) return;
+        manager.SetAnimation(SlimeAnimationTriggers.Shoot);
 
-        timeSinceFired += Time.deltaTime;
-
-        if (timeSinceFired >= fireRate)
-        {
-            Shoot(manager);
-        }
-
-        if (currentCount >= maxProjectileFire)
-        {
-            manager.ChangeState(returningState);
-        }
-    }
-
-    private void Shoot(BehaviorStateManager manager)
-    {
         int projectileCount = (currentCount % 2 == 0 ? primaryProjectileCount : secondaryProjectileCount);
 
         float degrees = 360f / projectileCount;

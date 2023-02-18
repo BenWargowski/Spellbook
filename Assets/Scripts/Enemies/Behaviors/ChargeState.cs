@@ -9,8 +9,6 @@ public class ChargeState : BehaviorState
 
     [SerializeField] private float damage;
 
-    [SerializeField] private float tickDamage;
-
     [SerializeField] private float chargeSpeed;
 
     [SerializeField] private float windUp;
@@ -18,8 +16,6 @@ public class ChargeState : BehaviorState
     [SerializeField] private float minDistanceThreshold;
 
     [SerializeField] private float maxDistanceThreshold;
-
-    [SerializeField] private LayerMask collisionLayers;
 
     [SerializeField] private GameObject particlesPrefab;
 
@@ -71,7 +67,7 @@ public class ChargeState : BehaviorState
 
     public override void OnStateTriggerEnter(BehaviorStateManager manager, Collider2D other)
     {
-        if (collisionLayers == (collisionLayers | (1 << other.gameObject.layer)))
+        if (onContactCollisionLayers == (onContactCollisionLayers | (1 << other.gameObject.layer)))
         {
             //Check if the other object is a player
             Player hitPlayer = null;
@@ -85,20 +81,6 @@ public class ChargeState : BehaviorState
     public override void OnStateTriggerExit(BehaviorStateManager manager, Collider2D other)
     {
 
-    }
-
-    public override void OnStateTriggerStay(BehaviorStateManager manager, Collider2D other)
-    {
-        if (collisionLayers == (collisionLayers | (1 << other.gameObject.layer)))
-        {
-            //Check if the other object is a player
-            Player hitPlayer = null;
-            if (other.TryGetComponent<Player>(out hitPlayer))
-            {
-                //Damage the player
-                hitPlayer.Damage(tickDamage * manager.GetDamageModifier(), false, false); //NOTE: does not trigger i-frames
-            }
-        }
     }
 
     private void Charge(BehaviorStateManager manager)
