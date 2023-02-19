@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -52,13 +53,22 @@ public class MovementManager : MonoBehaviour {
     /// </summary>
     /// <param name="c">Character pressed on the keyboard</param>
     public void OnMovementPress(char c, bool shiftKey) {
+        // truth table
+        // lowercase | shift held || caps lock enabled | mode
+        // F         | F          || F                 | move
+        // F         | T          || F                 | spell
+        // T         | F          || T                 | spell
+        // T         | T          || T                 | spell
+
         //guard clauses -- not shift-modified and key actually exists
-        if (shiftKey) return;
+        if (Char.IsUpper(c) || shiftKey) return;
+        c = Char.ToUpper(c);
+
         if (!this.Active) return;
         if (!StageLayout.Instance.TilePositions.ContainsKey(c)) return;
 
         //move to the key 
-        this.targetPosition = StageLayout.Instance.TilePositions[c];
+        this.targetPosition = StageLayout.Instance.GetTilePosition(c);
         this.isMoving = true;
     }
 

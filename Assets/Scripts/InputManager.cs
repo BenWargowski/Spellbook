@@ -32,7 +32,7 @@ public class InputManager : MonoBehaviour {
         foreach (char c in input) {
             if (Char.IsLetter(c)) {
                 //Raise the event
-                GameEvents.Instance.AlphabetKeyPressed(Char.ToUpper(c), Input.GetKey(this.modeSwitchKey));
+                GameEvents.Instance.AlphabetKeyPressed(c, Input.GetKey(this.modeSwitchKey));
                 return;
             }
         }
