@@ -6,25 +6,27 @@ using UnityEngine.SceneManagement;
 [CreateAssetMenu(fileName = "New ShootProjectileState", menuName = "Behavior/ShootProjectileState")]
 public class ShootProjectileState : BehaviorState
 {
-    [SerializeField] private BehaviorState returningState;
+    [SerializeField] protected BehaviorState returningState;
 
     [SerializeField] private GameObject projectilePrefab;
 
-    [SerializeField] private int maxProjectileCount;
+    [SerializeField] protected int maxProjectileFire;
 
-    [SerializeField] private float fireRate;
+    [SerializeField] protected float fireRate;
 
-    [SerializeField] private float damage;
+    [SerializeField] protected float damage;
 
     [SerializeField] private Vector2 firePosition;
 
-    private Vector3 aimDirection;
+    [SerializeField] protected float windDown;
+
+    protected Vector3 aimDirection;
 
     [System.NonSerialized] private List<BasicProjectile> projectilePool = new List<BasicProjectile>();
 
-    private float timeSinceFired;
-
-    private int currentCount;
+    protected float timeSinceFired;
+    protected float timeSinceReseting;
+    protected int currentCount;
 
     public override void EnterState(BehaviorStateManager manager)
     {
@@ -33,6 +35,8 @@ public class ShootProjectileState : BehaviorState
         timeSinceFired = fireRate;
 
         currentCount = 0;
+
+        timeSinceReseting = 0;
     }
 
     public override void ExitState(BehaviorStateManager manager)
@@ -42,6 +46,8 @@ public class ShootProjectileState : BehaviorState
 
     public override void UpdateState(BehaviorStateManager manager)
     {
+        if (manager.GetIsMoving()) return;
+
         timeSinceFired += Time.deltaTime;
 
         if (timeSinceFired >= fireRate)
@@ -49,9 +55,14 @@ public class ShootProjectileState : BehaviorState
             Shoot(manager);
         }
 
-        if (currentCount >= maxProjectileCount)
+        if (currentCount >= maxProjectileFire)
         {
-            manager.ChangeState(returningState);
+            if (timeSinceReseting >= windDown)
+                manager.ChangeState(returningState);
+            else
+            {
+                timeSinceReseting += Time.deltaTime;
+            }
         }
     }
 
@@ -65,13 +76,10 @@ public class ShootProjectileState : BehaviorState
 
     }
 
-    public override void OnStateTriggerStay(BehaviorStateManager manager, Collider2D other)
+    public virtual void Shoot(BehaviorStateManager manager)
     {
+        manager.SetAnimation(SlimeAnimationTriggers.Shoot);
 
-    }
-
-    private void Shoot(BehaviorStateManager manager)
-    {
         Vector3 projectileOrigin = manager.transform.position + new Vector3((manager.GetIsFacingRight() ? 1 : -1) * firePosition.x, firePosition.y, 0);
         aimDirection = (manager.GetTargetPosition() - new Vector2(projectileOrigin.x, projectileOrigin.y)).normalized;
 
@@ -79,13 +87,12 @@ public class ShootProjectileState : BehaviorState
         projectile.transform.position = projectileOrigin;
         projectile.SetProjectile(aimDirection, damage * manager.GetDamageModifier());
 
-
         timeSinceFired = 0;
 
         currentCount++;
     }
 
-    private BasicProjectile GetProjectile(BehaviorStateManager manager)
+    protected BasicProjectile GetProjectile(BehaviorStateManager manager)
     {
         for (int i = 0; i < projectilePool.Count; i++)
         {

@@ -23,9 +23,9 @@ public class JumpState : BehaviorState
 
     public override void EnterState(BehaviorStateManager manager)
     {
-        manager.SetMovement(StageLayout.Instance.TilePositions[FindTargetTile(manager, manager.transform.position, minDistanceThreshold, maxDistanceThreshold)], manager.DefaultSpeed);
-
         timeElapsed = 0;
+
+        manager.SetAnimation(EnemyAnimationTriggers.WindUp);
 
         hasJumped = false;
     }
@@ -56,11 +56,6 @@ public class JumpState : BehaviorState
     }
 
     public override void OnStateTriggerExit(BehaviorStateManager manager, Collider2D other)
-    {
-
-    }
-
-    public override void OnStateTriggerStay(BehaviorStateManager manager, Collider2D other)
     {
 
     }

@@ -13,4 +13,7 @@ MonoBehaviour:
   m_Name: IdleState
   m_EditorClassIdentifier: 
   behaviorName: IdleState
+  onContactCollisionLayers:
+    serializedVersion: 2
+    m_Bits: 0
   keyTile: 74

@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 601518cebfca80842898efe843649d18, type: 3}
+  m_Name: SlimeCircularShootState
+  m_EditorClassIdentifier: 
+  behaviorName: SlimeCircularShootState
+  onContactCollisionLayers:
+    serializedVersion: 2
+    m_Bits: 8
+  returningState: {fileID: 11400000, guid: f1cca3e83c4f68c42a4c053f08e99a76, type: 2}
+  projectilePrefab: {fileID: 2872422517036203979, guid: afce09d700b25af498e7f25a7f281b68, type: 3}
+  maxProjectileFire: 3
+  fireRate: 1.65
+  damage: 1.75
+  firePosition: {x: 0, y: 0}
+  windDown: 1
+  primaryProjectileCount: 9
+  secondaryProjectileCount: 5

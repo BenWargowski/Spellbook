@@ -26,7 +26,7 @@ public class VictoryScreen : MonoBehaviour
     // Continue to the next boss
     public void Continue()
     {
-        // another boss not yet implemented
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex, LoadSceneMode.Single); // will remove later
+        int buildIndex = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene((buildIndex >= SceneManager.sceneCountInBuildSettings - 1 ? 0 : buildIndex + 1), LoadSceneMode.Single);
     }
 }

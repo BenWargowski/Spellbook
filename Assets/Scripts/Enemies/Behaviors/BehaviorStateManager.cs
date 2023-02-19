@@ -25,6 +25,8 @@ public class BehaviorStateManager : MonoBehaviour
 
     private EnemyMovementManager movementManager;
 
+    private Animator animator;
+
     void Awake()
     {
         target = GameObject.FindWithTag("Player")?.transform; // may change with more clean code later
@@ -32,7 +34,10 @@ public class BehaviorStateManager : MonoBehaviour
         statusManager = GetComponent<EnemyStatusManager>();
         statusManager.onStunned += Stunned;
         statusManager.onNotStunned += StunRecovery;
+
         movementManager = GetComponent<EnemyMovementManager>();
+
+        animator = GetComponentInChildren<Animator>();
     }
 
     void Start()
@@ -108,7 +113,7 @@ public class BehaviorStateManager : MonoBehaviour
     /// </summary>
     public float GetDamageModifier()
     {
-        return statusManager ? statusManager.GetDamageMod() : 1f;
+        return statusManager != null ? statusManager.GetStatModifier(EnemyStat.DAMAGE) : 1f;
     }
 
     /// <summary>
@@ -116,7 +121,14 @@ public class BehaviorStateManager : MonoBehaviour
     /// </summary>
     public void SetInvincibility(bool isInvincible)
     {
-        statusManager.isInvincible = isInvincible;
+        if (isInvincible)
+        {
+            statusManager.AddStatusEffect(EnemyStat.INVINCIBILITY, new Status(1f, Mathf.Infinity));
+        }
+        else
+        {
+            statusManager.RemoveStatusEffect(EnemyStat.INVINCIBILITY);
+        }
     }
 
     /// <summary>
@@ -142,6 +154,15 @@ public class BehaviorStateManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Used by BehaviorStates to update enemy animation
+    /// </summary>
+    /// <param name="triggerName">string name of trigger used to set animation</param>
+    public void SetAnimation(string triggerName)
+    {
+        animator.SetTrigger(triggerName);
+    }
+
     private void Stunned()
     {
         Debug.LogFormat("BehaviorStateManager.Stunned");
@@ -153,4 +174,22 @@ public class BehaviorStateManager : MonoBehaviour
         Debug.LogFormat("BehaviorStateManager.StunRecovery");
         ChangeState(recoveredState);
     }
+}
+
+public static class EnemyAnimationTriggers
+{
+    public const string Idle = "IdleTrigger";
+    public const string Death = "DeathTrigger";
+    public const string Stunned = "StunnedTrigger";
+    public const string WindUp = "WindUpTrigger";
+}
+
+
+public static class SlimeAnimationTriggers
+{
+    public const string Chase = "ChaseTrigger";
+    public const string Charge = "ChargeTrigger";
+    public const string Shoot = "ShootTrigger";
+    public const string Jump = "JumpTrigger";
+    public const string Smash = "SmashTrigger";
 }

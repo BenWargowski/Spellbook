@@ -56,7 +56,7 @@ Rigidbody2D:
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
-  m_SleepingMode: 1
+  m_SleepingMode: 0
   m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1731817360
@@ -89,10 +89,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentState: {fileID: 11400000, guid: f1cca3e83c4f68c42a4c053f08e99a76, type: 2}
   target: {fileID: 0}
-  <DefaultSpeed>k__BackingField: 3.5
+  <DefaultSpeed>k__BackingField: 2.5
   deathState: {fileID: 11400000, guid: a3485afe32341ea42a11ec5c4cb8edc6, type: 2}
   idleState: {fileID: 11400000, guid: dd9d51ab346637a4381fdf64da021a04, type: 2}
-  stunnedState: {fileID: 11400000, guid: a3485afe32341ea42a11ec5c4cb8edc6, type: 2}
+  stunnedState: {fileID: 11400000, guid: 7df50d1c057aded49a436d868337939d, type: 2}
   recoveredState: {fileID: 11400000, guid: f1cca3e83c4f68c42a4c053f08e99a76, type: 2}
 --- !u!114 &5705103563315739810
 MonoBehaviour:
@@ -119,7 +119,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8b762fa95dbbba419588d3f8c4f3e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isInvincible: 0
+  baseFireResist: 0
+  baseLightningResist: 0.25
+  baseRockResist: 2.5
 --- !u!114 &1572367700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145,6 +147,7 @@ GameObject:
   - component: {fileID: 2669387444715442734}
   - component: {fileID: 7074155336329767774}
   - component: {fileID: 8171893069887287603}
+  - component: {fileID: 6532089997041277420}
   m_Layer: 0
   m_Name: SlimeSprite
   m_TagString: Untagged
@@ -231,4 +234,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03fb855c238a6904fa88116d6b048dc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  manager: {fileID: 5705103563315739823}
+  flashingMaterial: {fileID: 2100000, guid: 6c13400a084d5cb44a0b2a8d513b8793, type: 2}
+--- !u!95 &6532089997041277420
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6609726355290562113}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: da496e7fbee06cd4aac0dde59222de1c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

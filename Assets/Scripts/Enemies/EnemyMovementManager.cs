@@ -91,7 +91,7 @@ public class EnemyMovementManager : MonoBehaviour
     {
         if (!isMoving) return;
 
-        float step = moveSpeed * Time.deltaTime * (statusManager != null ? statusManager.GetSpeedMod() : 1);
+        float step = moveSpeed * statusManager.GetStatModifier(EnemyStat.MOVEMENT_SPEED) * Time.deltaTime;
         transform.position = Vector2.MoveTowards(
             transform.position,
             targetPosition,

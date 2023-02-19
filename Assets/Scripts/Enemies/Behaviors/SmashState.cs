@@ -19,8 +19,6 @@ public class SmashState : BehaviorState
 
     [SerializeField] private float maxDistanceThreshold;
 
-    [SerializeField] private LayerMask collisionLayers;
-
     [SerializeField] private GameObject particlesPrefab;
 
     private char tileKey;
@@ -78,11 +76,6 @@ public class SmashState : BehaviorState
 
     }
 
-    public override void OnStateTriggerStay(BehaviorStateManager manager, Collider2D other)
-    {
-
-    }
-
     private void Move(BehaviorStateManager manager)
     {
         tileKey = FindTargetTile(manager, manager.GetTargetPosition(), minDistanceThreshold, maxDistanceThreshold);
@@ -97,7 +90,7 @@ public class SmashState : BehaviorState
 
         Vector2 origin = new Vector2(manager.transform.position.x, manager.transform.position.y);
 
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(origin, smashRadius, collisionLayers);
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(origin, smashRadius, onContactCollisionLayers);
 
         foreach (Collider2D c in colliders)
         {

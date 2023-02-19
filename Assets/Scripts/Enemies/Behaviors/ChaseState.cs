@@ -9,8 +9,6 @@ public class ChaseState : BehaviorState
 
     [SerializeField] private float damage;
 
-    [SerializeField] private float tickDamage;
-
     [SerializeField] private float maxChasingTime;
 
     [SerializeField] private float chaseSpeed;
@@ -19,13 +17,16 @@ public class ChaseState : BehaviorState
 
     [SerializeField] private float maxDistanceThreshold;
 
-    [SerializeField] private LayerMask collisionLayers;
-
     private char tileKey;
     private float timeSinceChasing;
+    private bool isReseting;
 
     public override void EnterState(BehaviorStateManager manager)
     {
+        manager.SetAnimation(SlimeAnimationTriggers.Chase);
+
+        isReseting = false;
+
         timeSinceChasing = 0;
 
         Chase(manager);
@@ -44,7 +45,14 @@ public class ChaseState : BehaviorState
 
         if (timeSinceChasing >= maxChasingTime)
         {
-            manager.ChangeState(nextStates[Random.Range(0,nextStates.Count)]);
+            if (!isReseting)
+            {
+                manager.SetAnimation(EnemyAnimationTriggers.Idle); // TO DO: should change to a walk animation if one is created
+                manager.SetMovement(StageLayout.Instance.TilePositions[FindTargetTile(manager, manager.transform.position, minDistanceThreshold, maxDistanceThreshold)], manager.DefaultSpeed);
+                isReseting = true;
+            }
+            else if (!manager.GetIsMoving())
+                manager.ChangeState(nextStates[Random.Range(0,nextStates.Count)]);
         }
         else if (tileDistanceFromTarget < minDistanceThreshold || tileDistanceFromTarget > maxDistanceThreshold)
         {
@@ -54,13 +62,14 @@ public class ChaseState : BehaviorState
 
     public override void OnStateTriggerEnter(BehaviorStateManager manager, Collider2D other)
     {
-        if (collisionLayers == (collisionLayers | (1 << other.gameObject.layer)))
+        if (onContactCollisionLayers == (onContactCollisionLayers | (1 << other.gameObject.layer)))
         {
             //Check if the other object is a player
             Player hitPlayer = null;
-            if (other.TryGetComponent<Player>(out hitPlayer)) {
+            if (other.TryGetComponent<Player>(out hitPlayer))
+            {
                 //Damage the player
-                hitPlayer.Damage(damage * manager.GetDamageModifier(), true, false);
+                hitPlayer.Damage(damage * manager.GetDamageModifier(), false, false); //NOTE: does not trigger i-frames
             }
         }
     }
@@ -68,20 +77,6 @@ public class ChaseState : BehaviorState
     public override void OnStateTriggerExit(BehaviorStateManager manager, Collider2D other)
     {
 
-    }
-
-    public override void OnStateTriggerStay(BehaviorStateManager manager, Collider2D other)
-    {
-        if (collisionLayers == (collisionLayers | (1 << other.gameObject.layer)))
-        {
-            //Check if the other object is a player
-            Player hitPlayer = null;
-            if (other.TryGetComponent<Player>(out hitPlayer))
-            {
-                //Damage the player
-                hitPlayer.Damage(tickDamage * manager.GetDamageModifier(), false, false); //NOTE: does not trigger i-frames
-            }
-        }
     }
 
     private void Chase(BehaviorStateManager manager)
