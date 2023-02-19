@@ -172,12 +172,14 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   movementManager: {fileID: 5344515631323388844}
   spellCasting: {fileID: 5344515631323388851}
+  renderer: {fileID: 5344515630762471175}
   baseMaxHealth: 20
   baseMaxMana: 20
   baseManaRegenRate: 0.5
   baseMovementSpeed: 12.5
   baseSpellDamageMultiplier: 1
   baseArmor: 0
+  invulnBounds: {x: 0.25, y: 3}
 --- !u!114 &5344515631323388844
 MonoBehaviour:
   m_ObjectHideFlags: 0

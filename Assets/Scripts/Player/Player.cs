@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -13,6 +14,7 @@ public class Player : MonoBehaviour, IDamageable, IHealable{
     [SerializeField] private HealthBar healthBar;
     [SerializeField] private MovementManager movementManager;
     [SerializeField] private SpellCasting spellCasting;
+    [SerializeField] private new SpriteRenderer renderer;
 
     [Header("Stats")]
     [SerializeField] private float baseMaxHealth;
@@ -22,14 +24,23 @@ public class Player : MonoBehaviour, IDamageable, IHealable{
     [SerializeField] private float baseSpellDamageMultiplier;
     [SerializeField] private float baseArmor;
 
+    [Header("Other Options")]
+    //the minimum/maximum seconds the player can get invulnerability for when damaged
+    //the duration is scaled to the damage, and the max is only reached if the damage = the player's base max health
+    [SerializeField] private Vector2 invulnBounds; 
+
     //stats internal variables (use the Properties when modifying)
     private float _health;
     private float _mana;
+    private float invulerabilityTime;
+    private Color originalColor;
 
     private Dictionary<PlayerStat, HashSet<Status>> statusEffects;
 
     private void Awake() {
         this.statusEffects = new Dictionary<PlayerStat, HashSet<Status>>();
+        this.invulerabilityTime = 0.0f;
+        this.originalColor = this.renderer.color;
     }
 
     private void Start() {
@@ -49,6 +60,11 @@ public class Player : MonoBehaviour, IDamageable, IHealable{
 
         //Mana Regeneration
         ManaRegen();
+
+        //count down invuln time
+        if (invulerabilityTime > 0.0f) {
+            invulerabilityTime = Mathf.Max(0, invulerabilityTime - Time.deltaTime);
+        }
     }
 
     /// <summary>
@@ -112,6 +128,9 @@ public class Player : MonoBehaviour, IDamageable, IHealable{
     }
 
     public void Damage(float damage, bool triggerInvuln, bool ignoreArmor) {
+        //if invulnerable, return
+        if (invulerabilityTime > 0.0f) return;
+
         //Apply armor damage reduction
         if (!ignoreArmor) {
             damage *= (1 - (this.Armor / 100));
@@ -122,8 +141,14 @@ public class Player : MonoBehaviour, IDamageable, IHealable{
         
         this.Health -= damage;
 
-        //TODO: I-Frames
-        //TODO: Damage effects
+        //Add invulnerability based on damage taken -- more damage, more invulnerability
+        float min = invulnBounds.x;
+        float max = invulnBounds.y;
+        this.invulerabilityTime = Mathf.Clamp((((max - min) / this.baseMaxHealth) * damage) + min, min, max);
+
+        //Damage vfx/sfx
+        StopAllCoroutines();
+        StartCoroutine(ColorFlash(Color.red, 5.0f, 2.5f));
     }
 
     public void Heal(float hp) {
@@ -136,6 +161,29 @@ public class Player : MonoBehaviour, IDamageable, IHealable{
 
     private void ManaRegen() {
         this.Mana += this.ManaRegenRate * Time.deltaTime;
+    }
+    
+    private IEnumerator ColorFlash(Color color, float fadeInSpeed, float fadeOutSpeed) {
+        Color startColor = renderer.color;
+        float t = 0.0f;
+
+        //lerp from current color to target color
+        while (t <= 1.0f) {
+            renderer.color = Color.Lerp(startColor, color, t);
+            t += fadeInSpeed * Time.deltaTime;
+            yield return null;
+        }
+
+        //lerp from current color to default/original color
+        t = 0.0f;
+        while (t <= 1.0f) {
+            renderer.color = Color.Lerp(color, this.originalColor, t);
+            t += fadeOutSpeed * Time.deltaTime;
+            yield return null;
+        }
+
+        //just in case -- set color back to original
+        renderer.color = this.originalColor;
     }
 
     //GETTERS AND SETTERS ---------------------
