@@ -63,9 +63,9 @@ public class DefaultGenerator : MonoBehaviour, ILevelLoader {
                 );
 
                 //edit the letter
-                TextMeshPro text = null;
-                if (tile.transform.GetChild(0).GetChild(0).TryGetComponent<TextMeshPro>(out text)) {
-                    text.text = "" + keyboard[row][col];
+                Tile tileData = null;
+                if (tile.TryGetComponent<Tile>(out tileData)) {
+                    tileData.Text.text = "" + keyboard[row][col];
                 }
 
                 //add to map

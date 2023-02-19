@@ -51,9 +51,9 @@ public class AutoSearch : MonoBehaviour, ILevelLoader {
             for (int i = 0; i < keyboard[r].Length; ++i) {
                 char c = keyboard[r][i];
 
-                TextMeshPro text = null;
-                if (keyRow[i].transform.GetChild(0).GetChild(0).TryGetComponent<TextMeshPro>(out text)) {
-                    text.text = "" + c;
+                Tile tileData = null;
+                if (keyRow[i].TryGetComponent<Tile>(out tileData)) {
+                    tileData.Text.text = "" + c;
                 } 
 
                 tileMap[c] = keyRow[i];

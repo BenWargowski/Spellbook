@@ -17,10 +17,11 @@ public class TileSpellwrite : MonoBehaviour
         if (!shift) return;
 
         GameObject tile = StageLayout.Instance.Tiles[c];
-        tile = tile.transform.GetChild(0).gameObject;
+        Tile tileData = null;
+        if (!tile.TryGetComponent<Tile>(out tileData)) return;
 
         Animator animator = null;
-        if (!tile.TryGetComponent<Animator>(out animator)) return;
+        if (!tileData.Sprite.TryGetComponent<Animator>(out animator)) return;
 
         animator.Play("Blink");
     }

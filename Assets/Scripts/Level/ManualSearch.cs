@@ -31,9 +31,9 @@ public class ManualSearch : MonoBehaviour, ILevelLoader {
                     c = Char.ToUpper(c);
 
                     //set text display on tile
-                    TextMeshPro text = null;
-                    if (tile.transform.GetChild(0).GetChild(0).TryGetComponent<TextMeshPro>(out text)) {
-                        text.text = "" + c;
+                    Tile tileData = null;
+                    if (tile.TryGetComponent<Tile>(out tileData)) {
+                        tileData.Text.text = "" + c;
                     } 
 
                     tileMap[c] = tile;
