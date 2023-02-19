@@ -17,8 +17,9 @@ public class Player : MonoBehaviour, IDamageable, IHealable{
     [Header("Stats")]
     [SerializeField] private float baseMaxHealth;
     [SerializeField] private float baseMaxMana;
+    [SerializeField] private float baseManaRegenRate; //per second
     [SerializeField] private float baseMovementSpeed;
-    [SerializeField] private float baseSpellDamage;
+    [SerializeField] private float baseSpellDamageMultiplier;
     [SerializeField] private float baseArmor;
 
     //stats internal variables (use the Properties when modifying)
@@ -45,6 +46,9 @@ public class Player : MonoBehaviour, IDamageable, IHealable{
             //Remove expired effects
             sublist.RemoveWhere((x) => !x.IsValid());
         }
+
+        //Mana Regeneration
+        ManaRegen();
     }
 
     /// <summary>
@@ -130,11 +134,16 @@ public class Player : MonoBehaviour, IDamageable, IHealable{
         //TODO: Heal effects
     }
 
+    private void ManaRegen() {
+        this.Mana += this.ManaRegenRate * Time.deltaTime;
+    }
+
     //GETTERS AND SETTERS ---------------------
     public float MaxHealth => (this.baseMaxHealth + ModifierSum(PlayerStat.MAX_HEALTH));
     public float MaxMana => (this.baseMaxMana + ModifierSum(PlayerStat.MAX_MANA));
+    public float ManaRegenRate => (this.baseManaRegenRate + ModifierSum(PlayerStat.MANA_REGEN_RATE));
     public float MovementSpeed => (this.baseMovementSpeed + ModifierSum(PlayerStat.MOVEMENT_SPEED));
-    public float SpellDamage => (this.baseSpellDamage + ModifierSum(PlayerStat.SPELL_DAMAGE));
+    public float SpellDamageMultiplier => (this.baseSpellDamageMultiplier + ModifierSum(PlayerStat.SPELL_DAMAGE));
     public float Armor => (this.baseArmor + ModifierSum(PlayerStat.ARMOR));
     
     public float Health {

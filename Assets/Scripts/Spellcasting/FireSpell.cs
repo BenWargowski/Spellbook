@@ -26,7 +26,7 @@ public class FireSpell : ScriptableObject, ISpell
     {
         //Initializes the spell with damage parametres
         player = FindObjectOfType<Player>();
-        spellDamage = damage + player.SpellDamage;
+        spellDamage = damage * player.SpellDamageMultiplier;
         spellSpeed = speed;
     }
 }

@@ -29,7 +29,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.09, y: 0, z: 0}
   m_LocalScale: {x: 0.6451613, y: 0.6451613, z: 0.6451613}
-  m_ConstrainProportionsScale: 1
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5344515631323388847}
   m_RootOrder: 0
@@ -174,8 +174,9 @@ MonoBehaviour:
   spellCasting: {fileID: 5344515631323388851}
   baseMaxHealth: 20
   baseMaxMana: 20
-  baseMovementSpeed: 10
-  baseSpellDamage: 1
+  baseManaRegenRate: 0.5
+  baseMovementSpeed: 12.5
+  baseSpellDamageMultiplier: 1
   baseArmor: 0
 --- !u!114 &5344515631323388844
 MonoBehaviour:
@@ -231,7 +232,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.5, y: 0.9}
   m_EdgeRadius: 0
 --- !u!50 &5344515631323388849
 Rigidbody2D:
