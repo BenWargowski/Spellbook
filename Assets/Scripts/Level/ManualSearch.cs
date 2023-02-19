@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 /// <summary>
 /// Level Loader that searches for pre-existing tiles with the Tile tag
@@ -25,7 +26,18 @@ public class ManualSearch : MonoBehaviour, ILevelLoader {
         foreach (GameObject tile in keyTiles) {
             //If name starts with prefix, get last char of name and record the position of this tile under that char
             if (string.IsNullOrEmpty(prefix) || tile.name.StartsWith(this.prefix)) {
-                tileMap[Char.ToUpper(tile.name[tile.name.Length - 1])] = tile;
+                char c = tile.name[tile.name.Length - 1];
+                if (Char.IsLetter(c)) {
+                    c = Char.ToUpper(c);
+
+                    //set text display on tile
+                    TextMeshPro text = null;
+                    if (tile.transform.GetChild(0).GetChild(0).TryGetComponent<TextMeshPro>(out text)) {
+                        text.text = "" + c;
+                    } 
+
+                    tileMap[c] = tile;
+                }
             }
         }
 

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 /// <summary>
 /// Level Loader that searches for pre-existing tiles with the Tile tag
@@ -48,7 +49,14 @@ public class AutoSearch : MonoBehaviour, ILevelLoader {
 
             //Assign keys from left to right in this row
             for (int i = 0; i < keyboard[r].Length; ++i) {
-               tileMap[keyboard[r][i]] = keyRow[i];
+                char c = keyboard[r][i];
+
+                TextMeshPro text = null;
+                if (keyRow[i].transform.GetChild(0).GetChild(0).TryGetComponent<TextMeshPro>(out text)) {
+                    text.text = "" + c;
+                } 
+
+                tileMap[c] = keyRow[i];
             }
         }
 
