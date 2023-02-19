@@ -62,6 +62,9 @@ public class DefaultGenerator : MonoBehaviour, ILevelLoader {
                     this.transform
                 );
 
+                //change name
+                tile.name = $"Tile {keyboard[row][col]}";
+
                 //edit the letter
                 Tile tileData = null;
                 if (tile.TryGetComponent<Tile>(out tileData)) {

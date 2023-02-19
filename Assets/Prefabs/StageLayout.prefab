@@ -64,6 +64,6 @@ MonoBehaviour:
   - 0
   - 0.5
   - 2
-  keyDistance: {x: 1.75, y: 1.75}
-  startPosition: {x: -7.75, y: 2.5}
+  keyDistance: {x: 1.75, y: 2.25}
+  startPosition: {x: -7.75, y: 2.75}
   tilePrefab: {fileID: 5770268021960960668, guid: 3350332d368f647a08bddb669fe79034, type: 3}

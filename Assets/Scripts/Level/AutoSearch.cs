@@ -51,10 +51,17 @@ public class AutoSearch : MonoBehaviour, ILevelLoader {
             for (int i = 0; i < keyboard[r].Length; ++i) {
                 char c = keyboard[r][i];
 
+                //change name
+                keyRow[i].name = $"Tile {c}";
+
+                //change text
                 Tile tileData = null;
                 if (keyRow[i].TryGetComponent<Tile>(out tileData)) {
                     tileData.Text.text = "" + c;
                 } 
+                else {
+                    Debug.Log(keyRow[i].name);
+                }
 
                 tileMap[c] = keyRow[i];
             }
