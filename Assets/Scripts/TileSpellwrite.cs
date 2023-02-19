@@ -23,6 +23,6 @@ public class TileSpellwrite : MonoBehaviour
         Animator animator = null;
         if (!tileData.Sprite.TryGetComponent<Animator>(out animator)) return;
 
-        animator.Play("Blink");
+        animator.SetTrigger("Blink");
     }
 }
