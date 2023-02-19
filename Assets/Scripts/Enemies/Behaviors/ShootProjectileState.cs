@@ -14,7 +14,9 @@ public class ShootProjectileState : BehaviorState
 
     [SerializeField] protected float fireRate;
 
-    [SerializeField] protected float damage;
+    [SerializeField] protected float projectileDamage;
+
+    [SerializeField] protected float projectileSpeed;
 
     [SerializeField] private Vector2 firePosition;
 
@@ -78,14 +80,14 @@ public class ShootProjectileState : BehaviorState
 
     public virtual void Shoot(BehaviorStateManager manager)
     {
-        manager.SetAnimation(SlimeAnimationTriggers.Shoot);
+        manager.SetAnimation(EnemyAnimationTriggers.Shoot);
 
         Vector3 projectileOrigin = manager.transform.position + new Vector3((manager.GetIsFacingRight() ? 1 : -1) * firePosition.x, firePosition.y, 0);
         aimDirection = (manager.GetTargetPosition() - new Vector2(projectileOrigin.x, projectileOrigin.y)).normalized;
 
         BasicProjectile projectile = GetProjectile(manager);
         projectile.transform.position = projectileOrigin;
-        projectile.SetProjectile(aimDirection, damage * manager.GetDamageModifier());
+        projectile.SetProjectile(aimDirection, projectileDamage * manager.GetDamageModifier(), projectileSpeed);
 
         timeSinceFired = 0;
 

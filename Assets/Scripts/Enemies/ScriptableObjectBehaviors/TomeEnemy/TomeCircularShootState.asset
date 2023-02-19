@@ -10,18 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 601518cebfca80842898efe843649d18, type: 3}
-  m_Name: SlimeCircularShootState
+  m_Name: TomeCircularShootState
   m_EditorClassIdentifier: 
-  behaviorName: SlimeCircularShootState
+  behaviorName: TomeCircularShootState
   onContactCollisionLayers:
     serializedVersion: 2
     m_Bits: 8
-  returningState: {fileID: 11400000, guid: f1cca3e83c4f68c42a4c053f08e99a76, type: 2}
-  projectilePrefab: {fileID: 2872422517036203979, guid: afce09d700b25af498e7f25a7f281b68, type: 3}
+  returningState: {fileID: 11400000, guid: 363b6f802a309f94cbac336290a475e1, type: 2}
+  projectilePrefab: {fileID: 4269867114393835157, guid: 2fd5a5611f89ed0489efd1aa7ddf1467, type: 3}
   maxProjectileFire: 3
   fireRate: 1.65
-  damage: 1.75
+  projectileDamage: 2
+  projectileSpeed: 3.5
   firePosition: {x: 0, y: 0}
   windDown: 1
   primaryProjectileCount: 9
-  secondaryProjectileCount: 5
+  secondaryProjectileCount: 6

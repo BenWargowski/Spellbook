@@ -23,7 +23,7 @@ public class ChaseState : BehaviorState
 
     public override void EnterState(BehaviorStateManager manager)
     {
-        manager.SetAnimation(SlimeAnimationTriggers.Chase);
+        manager.SetAnimation(EnemyAnimationTriggers.Chase);
 
         isReseting = false;
 

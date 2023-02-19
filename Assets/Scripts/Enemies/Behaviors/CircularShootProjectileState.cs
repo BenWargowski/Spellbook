@@ -10,7 +10,7 @@ public class CircularShootProjectileState : ShootProjectileState
 
     public override void Shoot(BehaviorStateManager manager)
     {
-        manager.SetAnimation(SlimeAnimationTriggers.Shoot);
+        manager.SetAnimation(EnemyAnimationTriggers.Shoot);
 
         int projectileCount = (currentCount % 2 == 0 ? primaryProjectileCount : secondaryProjectileCount);
 
@@ -25,7 +25,7 @@ public class CircularShootProjectileState : ShootProjectileState
             Vector3 projectileOrigin = manager.transform.position;
             BasicProjectile projectile = GetProjectile(manager);
             projectile.transform.position = projectileOrigin;
-            projectile.SetProjectile(aimDirection, damage * manager.GetDamageModifier());
+            projectile.SetProjectile(aimDirection, projectileDamage * manager.GetDamageModifier(), projectileSpeed);
         }
 
         timeSinceFired = 0;

@@ -149,7 +149,7 @@ GameObject:
   - component: {fileID: 1796798677235781652}
   - component: {fileID: 5318543198852565579}
   m_Layer: 0
-  m_Name: SlimeSprite
+  m_Name: DummySprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

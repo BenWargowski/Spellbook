@@ -4,25 +4,24 @@ using UnityEngine;
 
 public class BasicProjectile : MonoBehaviour
 {
-    [SerializeField] private Vector3 moveDirection = new Vector3(1, 0, 0);
+    [SerializeField] private Vector3 moveDirection = new Vector3(0, 0, 0);
 
-    [SerializeField] float speed;
+    [SerializeField] protected float maxAirTime;
 
-    [SerializeField] float maxAirTime;
+    [SerializeField] protected LayerMask collisionLayers;
 
-    [SerializeField] private LayerMask collisionLayers;
+    protected float currentAirTime;
+    protected float damage;
+    private float speed;
 
-    private float currentAirTime;
-    private float damage;
+    protected SpriteRenderer sprite;
+    protected CircleCollider2D projectileCollider;
+    [SerializeField] protected ParticleSystem trailParticles;
+    [SerializeField] protected ParticleSystem onHitParticles;
 
-    private SpriteRenderer sprite;
-    private CircleCollider2D projectileCollider;
-    [SerializeField] private ParticleSystem trailParticles;
-    [SerializeField] private ParticleSystem onHitParticles;
+    protected bool hasHit = false;
 
-    private bool hasHit = false;
-
-    private IEnumerator onHitCoroutine;
+    protected IEnumerator onHitCoroutine;
 
     void Awake()
     {
@@ -65,7 +64,7 @@ public class BasicProjectile : MonoBehaviour
             Player hitPlayer = null;
             if (other.TryGetComponent<Player>(out hitPlayer)) {
                 //Damage the player
-                hitPlayer.Damage(this.damage, true, false);
+                hitPlayer.Damage(damage, true, false);
             }
 
             onHitCoroutine = OnHit();
@@ -90,9 +89,10 @@ public class BasicProjectile : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    public void SetProjectile(Vector3 direction, float projectileDamage)
+    public void SetProjectile(Vector3 direction, float damage, float speed)
     {
         moveDirection = direction;
-        damage = projectileDamage;
+        this.damage = damage;
+        this.speed = speed;
     }
 }

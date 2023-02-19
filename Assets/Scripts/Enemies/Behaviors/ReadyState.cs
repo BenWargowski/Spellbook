@@ -9,17 +9,17 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New ReadyState", menuName = "Behavior/ReadyState")]
 public class ReadyState : BehaviorState
 {
-    [SerializeField] private List<BehaviorState> Behaviors;
+    [SerializeField] protected List<BehaviorState> Behaviors;
 
-    [System.NonSerialized] private List<BehaviorState> satchel = new List<BehaviorState>();
+    [System.NonSerialized] protected List<BehaviorState> satchel = new List<BehaviorState>();
 
-    [SerializeField] private float delayBetweenAttacks;
+    [SerializeField] protected float delayBetweenAttacks;
 
     [SerializeField] private float minDistanceThreshold;
 
     [SerializeField] private float maxDistanceThreshold;
 
-    private float timeSinceReadied;
+    protected float timeSinceReadied;
 
     public override void EnterState(BehaviorStateManager manager)
     {
