@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -36,6 +37,7 @@ public class EnemyHealth : MonoBehaviour
         }
     }
 
+    public event Action onDamaged;
     public void Damage(float damage, SpellType spellType, bool ignoreResistance)
     {
         if (statusManager.IsInvincible) return;
@@ -59,6 +61,9 @@ public class EnemyHealth : MonoBehaviour
         if (damage <= 0) return;
 
         Health -= damage;
+
+        if (onDamaged != null)
+            onDamaged();
     }
 
     public void Heal(float healAmount)

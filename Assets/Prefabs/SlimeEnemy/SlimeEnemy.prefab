@@ -234,7 +234,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03fb855c238a6904fa88116d6b048dc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  manager: {fileID: 5705103563315739823}
+  flashingMaterial: {fileID: 2100000, guid: 6c13400a084d5cb44a0b2a8d513b8793, type: 2}
 --- !u!95 &6532089997041277420
 Animator:
   serializedVersion: 4

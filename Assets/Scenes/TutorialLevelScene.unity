@@ -1094,7 +1094,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Dummy
+  m_text: Training Dummy
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2753,6 +2753,22 @@ PrefabInstance:
     - target: {fileID: 4540837579509275882, guid: 79340da8ab4000446a427cedba0fd948, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6799175272900832744, guid: 79340da8ab4000446a427cedba0fd948, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 78b192679531e4cf3853830775aeb71b, type: 3}
+    - target: {fileID: 6799175272900832744, guid: 79340da8ab4000446a427cedba0fd948, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6799175272900832744, guid: 79340da8ab4000446a427cedba0fd948, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6799175272900832744, guid: 79340da8ab4000446a427cedba0fd948, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8081941316791078163, guid: 79340da8ab4000446a427cedba0fd948, type: 3}
       propertyPath: healthBar
