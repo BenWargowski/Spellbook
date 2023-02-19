@@ -17,8 +17,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   Behaviors:
-  - {fileID: 11400000, guid: 24b816d21481faf4eac4071247fd1d4e, type: 2}
   - {fileID: 11400000, guid: a78556cd291678c409f080ff18fe93b8, type: 2}
+  - {fileID: 11400000, guid: 16c02616643aa2f458d035384e2e9382, type: 2}
   delayBetweenAttacks: 1
   minDistanceThreshold: 0
   maxDistanceThreshold: 0.5
