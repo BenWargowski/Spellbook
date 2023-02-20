@@ -85,7 +85,7 @@ public class ChargeState : BehaviorState
 
     private void Charge(BehaviorStateManager manager)
     {
-        manager.SetAnimation(SlimeAnimationTriggers.Charge);
+        manager.SetAnimation(EnemyAnimationTriggers.Charge);
 
         tileKey = FindTargetTile(manager, manager.GetTargetPosition(), minDistanceThreshold, maxDistanceThreshold);
 

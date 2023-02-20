@@ -14,15 +14,17 @@ public class ShootProjectileState : BehaviorState
 
     [SerializeField] protected float fireRate;
 
-    [SerializeField] protected float damage;
+    [SerializeField] protected float projectileDamage;
 
-    [SerializeField] private Vector2 firePosition;
+    [SerializeField] protected float projectileSpeed;
+
+    [SerializeField] protected Vector2 firePosition;
 
     [SerializeField] protected float windDown;
 
     protected Vector3 aimDirection;
 
-    [System.NonSerialized] private List<BasicProjectile> projectilePool = new List<BasicProjectile>();
+    [System.NonSerialized] protected List<BasicProjectile> projectilePool = new List<BasicProjectile>();
 
     protected float timeSinceFired;
     protected float timeSinceReseting;
@@ -50,12 +52,13 @@ public class ShootProjectileState : BehaviorState
 
         timeSinceFired += Time.deltaTime;
 
-        if (timeSinceFired >= fireRate)
-        {
-            Shoot(manager);
-        }
 
-        if (currentCount >= maxProjectileFire)
+        if (currentCount < maxProjectileFire)
+        {
+            if (timeSinceFired >= fireRate)
+                Shoot(manager);
+        }
+        else
         {
             if (timeSinceReseting >= windDown)
                 manager.ChangeState(returningState);
@@ -76,16 +79,16 @@ public class ShootProjectileState : BehaviorState
 
     }
 
-    public virtual void Shoot(BehaviorStateManager manager)
+    protected virtual void Shoot(BehaviorStateManager manager)
     {
-        manager.SetAnimation(SlimeAnimationTriggers.Shoot);
+        manager.SetAnimation(EnemyAnimationTriggers.Shoot);
 
         Vector3 projectileOrigin = manager.transform.position + new Vector3((manager.GetIsFacingRight() ? 1 : -1) * firePosition.x, firePosition.y, 0);
         aimDirection = (manager.GetTargetPosition() - new Vector2(projectileOrigin.x, projectileOrigin.y)).normalized;
 
         BasicProjectile projectile = GetProjectile(manager);
         projectile.transform.position = projectileOrigin;
-        projectile.SetProjectile(aimDirection, damage * manager.GetDamageModifier());
+        projectile.SetProjectile(aimDirection, projectileDamage * manager.GetDamageModifier(), projectileSpeed);
 
         timeSinceFired = 0;
 

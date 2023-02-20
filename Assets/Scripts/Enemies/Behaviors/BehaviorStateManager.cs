@@ -182,14 +182,10 @@ public static class EnemyAnimationTriggers
     public const string Death = "DeathTrigger";
     public const string Stunned = "StunnedTrigger";
     public const string WindUp = "WindUpTrigger";
-}
+    public const string Shoot = "ShootTrigger";
 
-
-public static class SlimeAnimationTriggers
-{
     public const string Chase = "ChaseTrigger";
     public const string Charge = "ChargeTrigger";
-    public const string Shoot = "ShootTrigger";
     public const string Jump = "JumpTrigger";
     public const string Smash = "SmashTrigger";
 }

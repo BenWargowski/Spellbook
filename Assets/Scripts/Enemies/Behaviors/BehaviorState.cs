@@ -56,6 +56,15 @@ public abstract class BehaviorState : ScriptableObject
     }
 
     /// <summary>
+    /// Can be used to determine whether or not to enter the state
+    /// </summary>
+    /// <returns>Returns bool on whether or not to enter the state</returns>
+    public virtual bool EnterCondition(BehaviorStateManager manager)
+    {
+        return true;
+    }
+
+    /// <summary>
     /// Finds a keyTile that satisfies the various requirements
     /// </summary>
     /// <param name="target">Target position that's compared against each keyTile to find a suitable keyTile</param>

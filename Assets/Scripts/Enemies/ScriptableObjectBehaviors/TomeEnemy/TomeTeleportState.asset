@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8204e05203aa59f49b8bd3c1fa232751, type: 3}
+  m_Name: TomeTeleportState
+  m_EditorClassIdentifier: 
+  behaviorName: TomeTeleportState
+  onContactCollisionLayers:
+    serializedVersion: 2
+    m_Bits: 8
+  returningState: {fileID: 11400000, guid: 24b816d21481faf4eac4071247fd1d4e, type: 2}
+  style: 0
+  teleportLocations:
+  - {x: 7, y: 0}
+  - {x: -7, y: 0}
+  - {x: 0, y: 3}
+  - {x: 0, y: -3}
+  - {x: 0, y: 0}
+  windUp: 1
+  windDown: 1
+  teleportParticlesPrefab: {fileID: 5211134491561693590, guid: a7cce99be67de04478987ef3c4b02493, type: 3}
+  checkCollisionLayers:
+    serializedVersion: 2
+    m_Bits: 8
+  checkRadius: 3.5
