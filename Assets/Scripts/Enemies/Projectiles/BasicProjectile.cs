@@ -36,9 +36,10 @@ public class BasicProjectile : MonoBehaviour
 
         currentAirTime += Time.deltaTime;
 
-        if (currentAirTime >= maxAirTime)
+        if (currentAirTime >= maxAirTime && !hasHit)
         {
-            gameObject.SetActive(false);
+            onHitCoroutine = OnHit();
+            StartCoroutine(onHitCoroutine);
         }
     }
 
