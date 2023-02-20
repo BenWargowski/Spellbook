@@ -51,7 +51,8 @@ public class TeleportState : BehaviorState
 
     public override void ExitState(BehaviorStateManager manager)
     {
-
+        if (initialParticlesInstance.isPlaying) initialParticlesInstance.Stop();
+        if (destinationParticlesInstance.isPlaying) destinationParticlesInstance.Stop();
     }
 
     public override void UpdateState(BehaviorStateManager manager)
