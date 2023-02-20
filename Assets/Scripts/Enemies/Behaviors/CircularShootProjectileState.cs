@@ -8,7 +8,7 @@ public class CircularShootProjectileState : ShootProjectileState
     [SerializeField] private int primaryProjectileCount;
     [SerializeField] private int secondaryProjectileCount;
 
-    public override void Shoot(BehaviorStateManager manager)
+    protected override void Shoot(BehaviorStateManager manager)
     {
         manager.SetAnimation(EnemyAnimationTriggers.Shoot);
 

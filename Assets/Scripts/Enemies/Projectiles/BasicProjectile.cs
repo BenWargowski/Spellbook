@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BasicProjectile : MonoBehaviour
 {
-    [SerializeField] private Vector3 moveDirection = new Vector3(0, 0, 0);
+    [SerializeField] protected Vector3 moveDirection = new Vector3(0, 0, 0);
 
     [SerializeField] protected float maxAirTime;
 

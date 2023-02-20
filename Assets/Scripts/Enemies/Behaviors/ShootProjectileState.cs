@@ -18,13 +18,13 @@ public class ShootProjectileState : BehaviorState
 
     [SerializeField] protected float projectileSpeed;
 
-    [SerializeField] private Vector2 firePosition;
+    [SerializeField] protected Vector2 firePosition;
 
     [SerializeField] protected float windDown;
 
     protected Vector3 aimDirection;
 
-    [System.NonSerialized] private List<BasicProjectile> projectilePool = new List<BasicProjectile>();
+    [System.NonSerialized] protected List<BasicProjectile> projectilePool = new List<BasicProjectile>();
 
     protected float timeSinceFired;
     protected float timeSinceReseting;
@@ -52,12 +52,13 @@ public class ShootProjectileState : BehaviorState
 
         timeSinceFired += Time.deltaTime;
 
-        if (timeSinceFired >= fireRate)
-        {
-            Shoot(manager);
-        }
 
-        if (currentCount >= maxProjectileFire)
+        if (currentCount < maxProjectileFire)
+        {
+            if (timeSinceFired >= fireRate)
+                Shoot(manager);
+        }
+        else
         {
             if (timeSinceReseting >= windDown)
                 manager.ChangeState(returningState);
@@ -78,7 +79,7 @@ public class ShootProjectileState : BehaviorState
 
     }
 
-    public virtual void Shoot(BehaviorStateManager manager)
+    protected virtual void Shoot(BehaviorStateManager manager)
     {
         manager.SetAnimation(EnemyAnimationTriggers.Shoot);
 

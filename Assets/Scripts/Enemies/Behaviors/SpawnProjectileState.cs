@@ -7,7 +7,7 @@ public class SpawnProjectileState : ShootProjectileState
 {
     [SerializeField] private float yOriginOffset;
 
-    public override void Shoot(BehaviorStateManager manager)
+    protected override void Shoot(BehaviorStateManager manager)
     {
         manager.SetAnimation(EnemyAnimationTriggers.Shoot);
 
