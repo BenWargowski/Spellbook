@@ -17,13 +17,13 @@ public class ManualSearch : MonoBehaviour, ILevelLoader {
     public Dictionary<char, GameObject> GetTiles() {
         Dictionary<char, GameObject> tileMap = new Dictionary<char, GameObject>();
 
-        GameObject[] keyTiles = GameObject.FindGameObjectsWithTag("Tile");
+        Tile[] keyTiles = FindObjectsOfType<Tile>();
         //either too many or too little tiles (should be one tile per English letter, so 26)
         if (!ignoreCount && keyTiles.Length != 26) {
             throw new System.Exception($"ManualSearch: Incorrect Tile Count! Expected 26, Got {keyTiles.Length}.");
         }
 
-        foreach (GameObject tile in keyTiles) {
+        foreach (Tile tile in keyTiles) {
             //If name starts with prefix, get last char of name and record the position of this tile under that char
             if (string.IsNullOrEmpty(prefix) || tile.name.StartsWith(this.prefix)) {
                 char c = tile.name[tile.name.Length - 1];
@@ -31,12 +31,9 @@ public class ManualSearch : MonoBehaviour, ILevelLoader {
                     c = Char.ToUpper(c);
 
                     //set text display on tile
-                    Tile tileData = null;
-                    if (tile.TryGetComponent<Tile>(out tileData)) {
-                        tileData.Text.text = "" + c;
-                    } 
+                    tile.Text.text = "" + c;
 
-                    tileMap[c] = tile;
+                    tileMap[c] = tile.gameObject;
                 }
             }
         }

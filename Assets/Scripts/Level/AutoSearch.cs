@@ -21,19 +21,19 @@ public class AutoSearch : MonoBehaviour, ILevelLoader {
         };
 
         //Find tiles
-        GameObject[] keyTiles = GameObject.FindGameObjectsWithTag("Tile");
+        Tile[] keyTiles = FindObjectsOfType<Tile>();
         if (!ignoreCount && keyTiles.Length != 26) {
             throw new System.Exception($"AutoSearch: Incorrect Tile Count! Expected 26, Got {keyTiles.Length}.");
         }
 
         //Sort keyTiles by Y, decreasing
-        Array.Sort(keyTiles, Comparer<GameObject>.Create(
+        Array.Sort(keyTiles, Comparer<Tile>.Create(
             (x, y) => x.transform.position.y < y.transform.position.y ? 1 : x.transform.position.y > y.transform.position.y ? -1 : 0
         ));
 
         //Iterate through every row
         for (int r = 0; r < keyboard.Length; ++r) {
-            GameObject[] keyRow = new GameObject[keyboard[r].Length];
+            Tile[] keyRow = new Tile[keyboard[r].Length];
 
             //The {col} next tiles with the highest Y position -> list
             //Essentially, grab an entire row's worth of keys from the topmost row
@@ -43,7 +43,7 @@ public class AutoSearch : MonoBehaviour, ILevelLoader {
             }
 
             //The list now contains a row of keys. Sort this so the one in the leftmost position is first.
-            Array.Sort(keyRow, Comparer<GameObject>.Create(
+            Array.Sort(keyRow, Comparer<Tile>.Create(
                 (x, y) => x.transform.position.x > y.transform.position.x ? 1 : x.transform.position.x < y.transform.position.x ? -1 : 0
             ));
 
@@ -51,19 +51,11 @@ public class AutoSearch : MonoBehaviour, ILevelLoader {
             for (int i = 0; i < keyboard[r].Length; ++i) {
                 char c = keyboard[r][i];
 
-                //change name
+                //change name and text
                 keyRow[i].name = $"Tile {c}";
+                keyRow[i].Text.text = "" + c;
 
-                //change text
-                Tile tileData = null;
-                if (keyRow[i].TryGetComponent<Tile>(out tileData)) {
-                    tileData.Text.text = "" + c;
-                } 
-                else {
-                    Debug.Log(keyRow[i].name);
-                }
-
-                tileMap[c] = keyRow[i];
+                tileMap[c] = keyRow[i].gameObject;
             }
         }
 
