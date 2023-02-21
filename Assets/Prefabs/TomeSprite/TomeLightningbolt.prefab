@@ -109,7 +109,8 @@ MonoBehaviour:
   trailParticles: {fileID: 330357137708970429}
   onHitParticles: {fileID: 5554302093828786987}
   onSpawnParticles: {fileID: 7303407301414034628}
-  delayOnSpawn: 0.75
+  delayForSpawn: 0.75
+  delayForCollision: 0.15
 --- !u!58 &38742588157163167
 CircleCollider2D:
   m_ObjectHideFlags: 0

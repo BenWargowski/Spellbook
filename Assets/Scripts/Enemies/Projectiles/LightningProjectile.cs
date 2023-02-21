@@ -6,14 +6,16 @@ public class LightningProjectile : BasicProjectile
 {
     [SerializeField] private ParticleSystem onSpawnParticles;
 
-    [SerializeField] private float delayOnSpawn;
+    [SerializeField] private float delayForSpawn;
+
+    [SerializeField] private float delayForCollision;
 
     private float timeSinceSpawned;
     private bool hasSpawned;
 
     void Update()
     {
-        if (timeSinceSpawned >= delayOnSpawn)
+        if (timeSinceSpawned >= delayForSpawn)
         {
             if (!hasSpawned) StartCoroutine(Spawn());
 
@@ -47,7 +49,7 @@ public class LightningProjectile : BasicProjectile
 
         hasSpawned = true;
 
-        yield return new WaitForSeconds(.15f);
+        yield return new WaitForSeconds(delayForCollision);
 
         projectileCollider.enabled = true;
         trailParticles.Stop();
