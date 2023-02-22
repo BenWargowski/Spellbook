@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 /// <summary>
 /// The default level layout. Generates tiles in the shape of a keyboard using a formula.
@@ -41,7 +42,8 @@ public class DefaultGenerator : MonoBehaviour, ILevelLoader {
         //Addressing keyboard keys by keyboard[row][col]
         for (int row = 0; row < keyboard.Length; ++row) {
             for (int col = 0; col < keyboard[row].Length; ++col) {
-                tiles[keyboard[row][col]] = Instantiate(
+                //instantiate in the correct position
+                GameObject tile = Instantiate(
                     this.tilePrefab,
                     new Vector2 (
                         //horizontal
@@ -59,6 +61,18 @@ public class DefaultGenerator : MonoBehaviour, ILevelLoader {
                     Quaternion.identity,
                     this.transform
                 );
+
+                //change name
+                tile.name = $"Tile {keyboard[row][col]}";
+
+                //edit the letter
+                Tile tileData = null;
+                if (tile.TryGetComponent<Tile>(out tileData)) {
+                    tileData.Text.text = "" + keyboard[row][col];
+                }
+
+                //add to map
+                tiles[keyboard[row][col]] = tile;
             }
         }
 

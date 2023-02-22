@@ -25,11 +25,12 @@ public class TileSpellwrite : MonoBehaviour
         c = Char.ToUpper(c);
 
         GameObject tile = StageLayout.Instance.Tiles[c];
-        tile = tile.transform.GetChild(0).gameObject;
+        Tile tileData = null;
+        if (!tile.TryGetComponent<Tile>(out tileData)) return;
 
         Animator animator = null;
-        if (!tile.TryGetComponent<Animator>(out animator)) return;
+        if (!tileData.Sprite.TryGetComponent<Animator>(out animator)) return;
 
-        animator.Play("Blink");
+        animator.SetTrigger("Blink");
     }
 }

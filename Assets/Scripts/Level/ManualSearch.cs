@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 /// <summary>
 /// Level Loader that searches for pre-existing tiles with the Tile tag
@@ -16,16 +17,24 @@ public class ManualSearch : MonoBehaviour, ILevelLoader {
     public Dictionary<char, GameObject> GetTiles() {
         Dictionary<char, GameObject> tileMap = new Dictionary<char, GameObject>();
 
-        GameObject[] keyTiles = GameObject.FindGameObjectsWithTag("Tile");
+        Tile[] keyTiles = FindObjectsOfType<Tile>();
         //either too many or too little tiles (should be one tile per English letter, so 26)
         if (!ignoreCount && keyTiles.Length != 26) {
             throw new System.Exception($"ManualSearch: Incorrect Tile Count! Expected 26, Got {keyTiles.Length}.");
         }
 
-        foreach (GameObject tile in keyTiles) {
+        foreach (Tile tile in keyTiles) {
             //If name starts with prefix, get last char of name and record the position of this tile under that char
             if (string.IsNullOrEmpty(prefix) || tile.name.StartsWith(this.prefix)) {
-                tileMap[Char.ToUpper(tile.name[tile.name.Length - 1])] = tile;
+                char c = tile.name[tile.name.Length - 1];
+                if (Char.IsLetter(c)) {
+                    c = Char.ToUpper(c);
+
+                    //set text display on tile
+                    tile.Text.text = "" + c;
+
+                    tileMap[c] = tile.gameObject;
+                }
             }
         }
 
