@@ -114,7 +114,7 @@ public class ShootProjectileState : BehaviorState
         return newProjectile;
     }
 
-    private void CheckProjectilePool()
+    protected void CheckProjectilePool()
     {
         List<BasicProjectile> newPool = new List<BasicProjectile>();
 

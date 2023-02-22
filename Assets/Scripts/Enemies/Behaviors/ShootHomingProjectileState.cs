@@ -25,6 +25,8 @@ public class ShootHomingProjectileState : ShootProjectileState
 
     public override bool EnterCondition(BehaviorStateManager manager)
     {
+        CheckProjectilePool();
+
         int activeProjectileCount = 0;
 
         for (int i = 0; i < projectilePool.Count; i++)
