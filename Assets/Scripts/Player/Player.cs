@@ -141,10 +141,13 @@ public class Player : MonoBehaviour, IDamageable, IHealable{
         
         this.Health -= damage;
 
-        //Add invulnerability based on damage taken -- more damage, more invulnerability
-        float min = invulnBounds.x;
-        float max = invulnBounds.y;
-        this.invulerabilityTime = Mathf.Clamp((((max - min) / this.baseMaxHealth) * damage) + min, min, max);
+        if (triggerInvuln)
+        {
+            //Add invulnerability based on damage taken -- more damage, more invulnerability
+            float min = invulnBounds.x;
+            float max = invulnBounds.y;
+            this.invulerabilityTime = Mathf.Clamp((((max - min) / this.baseMaxHealth) * damage) + min, min, max);
+        }
 
         //Damage vfx/sfx
         StopAllCoroutines();
