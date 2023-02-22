@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New SpawnProjectileState", menuName = "Behavior/SpawnProjectileState")]
 public class SpawnProjectileState : ShootProjectileState
 {
-    [SerializeField] private float yOriginOffset;
+    [SerializeField] protected float yOriginOffset;
 
     protected override void Shoot(BehaviorStateManager manager)
     {
