@@ -9,23 +9,23 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New ReadyState", menuName = "Behavior/ReadyState")]
 public class ReadyState : BehaviorState
 {
-    [SerializeField] private List<BehaviorState> Behaviors;
+    [SerializeField] protected List<BehaviorState> Behaviors;
 
-    [System.NonSerialized] private List<BehaviorState> satchel = new List<BehaviorState>();
+    [System.NonSerialized] protected List<BehaviorState> satchel = new List<BehaviorState>();
 
-    [SerializeField] private float delayBetweenAttacks;
+    [SerializeField] protected float delayBetweenAttacks;
 
     [SerializeField] private float minDistanceThreshold;
 
     [SerializeField] private float maxDistanceThreshold;
 
-    private float timeSinceReadied;
+    protected float timeSinceReadied;
 
     public override void EnterState(BehaviorStateManager manager)
     {
         timeSinceReadied = 0;
 
-        manager.SetMovement(StageLayout.Instance.TilePositions[FindTargetTile(manager, manager.transform.position, minDistanceThreshold, maxDistanceThreshold)], manager.DefaultSpeed);
+        manager.SetAnimation(EnemyAnimationTriggers.Idle);
 
         if (satchel.Count == 0)
         {
@@ -42,7 +42,7 @@ public class ReadyState : BehaviorState
     {
         timeSinceReadied += Time.deltaTime;
 
-        if (timeSinceReadied >= delayBetweenAttacks && !manager.GetIsMoving())
+        if (!manager.GetIsMoving() && timeSinceReadied >= delayBetweenAttacks)
         {
             int j = Random.Range(0, satchel.Count);
             BehaviorState state = satchel[j];
@@ -58,11 +58,6 @@ public class ReadyState : BehaviorState
     }
 
     public override void OnStateTriggerExit(BehaviorStateManager manager, Collider2D other)
-    {
-
-    }
-
-    public override void OnStateTriggerStay(BehaviorStateManager manager, Collider2D other)
     {
 
     }

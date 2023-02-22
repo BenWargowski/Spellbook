@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,21 +22,55 @@ public class EnemyHealth : MonoBehaviour
         {
             return currentHealth;
         }
-        set
+        private set
         {
-            if (statusManager ? statusManager.isInvincible : false) return;
-
             //set value w/ respect to bounds
-            currentHealth = Mathf.Clamp(value, 0, this.maxHealth);
+            currentHealth = Mathf.Clamp(value, 0, maxHealth);
 
             //update health bar
-            if (healthBar != null) healthBar.UpdateBar(currentHealth, this.maxHealth);
+            if (healthBar != null) healthBar.UpdateBar(currentHealth, maxHealth);
 
             if (currentHealth <= 0)
             {
                 Death();
             }
         }
+    }
+
+    public event Action onDamaged;
+    public void Damage(float damage, SpellType spellType, bool ignoreResistance)
+    {
+        if (statusManager.IsInvincible) return;
+
+        if (!ignoreResistance)
+        {
+            switch (spellType)
+            {
+                case SpellType.FIRE:
+                    damage = (damage * damage) / (damage + statusManager.FireResistance);
+                    break;
+                case SpellType.LIGHTNING:
+                    damage = (damage * damage) / (damage + statusManager.LightningResistance);
+                    break;
+                case SpellType.ROCK:
+                    damage = (damage * damage) / (damage + statusManager.RockResistance);
+                    break;
+            }
+        }
+
+        if (damage <= 0) return;
+
+        Health -= damage;
+
+        if (onDamaged != null)
+            onDamaged();
+    }
+
+    public void Heal(float healAmount)
+    {
+        if (healAmount <= 0) return;
+
+        Health += healAmount;
     }
     
     void Awake()

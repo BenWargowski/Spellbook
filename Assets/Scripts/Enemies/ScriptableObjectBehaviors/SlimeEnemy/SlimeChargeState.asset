@@ -13,15 +13,14 @@ MonoBehaviour:
   m_Name: SlimeChargeState
   m_EditorClassIdentifier: 
   behaviorName: SlimeChargeState
+  onContactCollisionLayers:
+    serializedVersion: 2
+    m_Bits: 8
   returningState: {fileID: 11400000, guid: f1cca3e83c4f68c42a4c053f08e99a76, type: 2}
   damage: 3
-  tickDamage: 0.05
   chargeSpeed: 10
   windUp: 1.5
   minDistanceThreshold: 0
   maxDistanceThreshold: 1
-  collisionLayers:
-    serializedVersion: 2
-    m_Bits: 8
   particlesPrefab: {fileID: 8448905160726681702, guid: 950eb0c416281644697afa4c24dbf451, type: 3}
-  particlesPosition: {x: -0.25, y: -0.3}
+  particlesPosition: {x: -0.25, y: -0.35}

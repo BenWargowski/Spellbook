@@ -17,8 +17,6 @@ public class ChargeState : BehaviorState
 
     [SerializeField] private float maxDistanceThreshold;
 
-    [SerializeField] private LayerMask collisionLayers;
-
     [SerializeField] private GameObject particlesPrefab;
 
     [SerializeField] private Vector2 particlesPosition;
@@ -33,6 +31,8 @@ public class ChargeState : BehaviorState
         if (chargeParticlesInstance == null)
             chargeParticlesInstance = Instantiate(particlesPrefab, manager.transform.position, Quaternion.identity).GetComponent<ParticleSystem>();
 
+        manager.SetAnimation(EnemyAnimationTriggers.WindUp);
+
         chargeParticlesInstance.transform.position = manager.transform.position + new Vector3((manager.GetIsFacingRight() ? 1 : -1) * particlesPosition.x, particlesPosition.y, 0);
         chargeParticlesInstance.Play();
 
@@ -43,6 +43,8 @@ public class ChargeState : BehaviorState
 
     public override void ExitState(BehaviorStateManager manager)
     {
+        manager.SetAnimation(EnemyAnimationTriggers.Idle);
+
         chargeParticlesInstance.Stop();
     }
 
@@ -65,7 +67,7 @@ public class ChargeState : BehaviorState
 
     public override void OnStateTriggerEnter(BehaviorStateManager manager, Collider2D other)
     {
-        if (collisionLayers == (collisionLayers | (1 << other.gameObject.layer)))
+        if (onContactCollisionLayers == (onContactCollisionLayers | (1 << other.gameObject.layer)))
         {
             //Check if the other object is a player
             Player hitPlayer = null;
@@ -81,13 +83,10 @@ public class ChargeState : BehaviorState
 
     }
 
-    public override void OnStateTriggerStay(BehaviorStateManager manager, Collider2D other)
-    {
-
-    }
-
     private void Charge(BehaviorStateManager manager)
     {
+        manager.SetAnimation(EnemyAnimationTriggers.Charge);
+
         tileKey = FindTargetTile(manager, manager.GetTargetPosition(), minDistanceThreshold, maxDistanceThreshold);
 
         manager.SetMovement(StageLayout.Instance.TilePositions[tileKey], chargeSpeed);

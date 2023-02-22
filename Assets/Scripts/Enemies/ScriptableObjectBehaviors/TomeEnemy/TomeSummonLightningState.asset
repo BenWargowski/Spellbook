@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b3dbba97396bd240ba00ecd4b1926d8, type: 3}
+  m_Name: TomeSummonLightningState
+  m_EditorClassIdentifier: 
+  behaviorName: TomeSummonLightningState
+  onContactCollisionLayers:
+    serializedVersion: 2
+    m_Bits: 8
+  returningState: {fileID: 11400000, guid: 363b6f802a309f94cbac336290a475e1, type: 2}
+  projectilePrefab: {fileID: 1561176330188929299, guid: 629581bd7885c79498a41f56b7928a81, type: 3}
+  maxProjectileFire: 5
+  fireRate: 0.5
+  projectileDamage: 1.75
+  projectileSpeed: 0
+  firePosition: {x: 0, y: 0}
+  windDown: 1
+  yOriginOffset: -0.65

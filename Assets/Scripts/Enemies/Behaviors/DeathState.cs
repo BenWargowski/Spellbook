@@ -7,7 +7,7 @@ public class DeathState : BehaviorState
 {
     public override void EnterState(BehaviorStateManager manager)
     {
-
+        manager.SetAnimation(EnemyAnimationTriggers.Death);
     }
 
     public override void ExitState(BehaviorStateManager manager)
@@ -26,11 +26,6 @@ public class DeathState : BehaviorState
     }
 
     public override void OnStateTriggerExit(BehaviorStateManager manager, Collider2D other)
-    {
-
-    }
-
-    public override void OnStateTriggerStay(BehaviorStateManager manager, Collider2D other)
     {
 
     }

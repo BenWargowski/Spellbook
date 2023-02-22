@@ -13,3 +13,6 @@ MonoBehaviour:
   m_Name: DeathState
   m_EditorClassIdentifier: 
   behaviorName: DeathState
+  onContactCollisionLayers:
+    serializedVersion: 2
+    m_Bits: 0

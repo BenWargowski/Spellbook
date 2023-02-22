@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,7 +15,14 @@ public class TileSpellwrite : MonoBehaviour
     }
 
     void OnSpellWrite(char c, bool shift) {
-        if (!shift) return;
+        // truth table
+        // lowercase | shift held || caps lock enabled | mode
+        // F         | F          || F                 | move
+        // F         | T          || F                 | spell
+        // T         | F          || T                 | spell
+        // T         | T          || T                 | spell
+        if (!Char.IsUpper(c) && !shift) return;
+        c = Char.ToUpper(c);
 
         GameObject tile = StageLayout.Instance.Tiles[c];
         Tile tileData = null;
