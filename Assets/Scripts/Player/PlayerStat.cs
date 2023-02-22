@@ -4,6 +4,7 @@
 public enum PlayerStat {
     MAX_HEALTH,
     MAX_MANA,
+    MANA_REGEN_RATE,
     MOVEMENT_SPEED,
     SPELL_DAMAGE,
     ARMOR,
