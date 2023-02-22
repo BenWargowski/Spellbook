@@ -9834,11 +9834,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d85082147dafb3f4f8ccbe41976fdfbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveDirection: {x: 0, y: 0, z: 0}
+  statusToApply: 6
+  statusInfo: {x: 0, y: 0}
   maxAirTime: 5
   collisionLayers:
     serializedVersion: 2
     m_Bits: 8
   trailParticles: {fileID: 4002866197055497945}
   onHitParticles: {fileID: 9082770731462204495}
-  rotationSpeed: 5
