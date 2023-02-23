@@ -80,11 +80,18 @@ public class EnemyHealth : MonoBehaviour
 
     void Start()
     {
+        GameEvents.Instance.playerDeath += GainInvincibility;
+
         Health = maxHealth;
     }
 
     private void Death()
     {
         GameEvents.Instance.PlayerVictory();
+    }
+
+    private void GainInvincibility()
+    {
+        statusManager.AddStatusEffect(EnemyStat.INVINCIBILITY, new Status(1f, Mathf.Infinity));
     }
 }
