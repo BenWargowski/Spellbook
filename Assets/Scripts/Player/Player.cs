@@ -190,6 +190,8 @@ public class Player : MonoBehaviour, IDamageable, IHealable{
     }
 
     //GETTERS AND SETTERS ---------------------
+    public char TargetKey => this.movementManager.TargetKey;
+
     public float MaxHealth => (this.baseMaxHealth + ModifierSum(PlayerStat.MAX_HEALTH));
     public float MaxMana => (this.baseMaxMana + ModifierSum(PlayerStat.MAX_MANA));
     public float ManaRegenRate => (this.baseManaRegenRate + ModifierSum(PlayerStat.MANA_REGEN_RATE));

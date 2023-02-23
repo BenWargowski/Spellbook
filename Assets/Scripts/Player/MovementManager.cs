@@ -23,11 +23,13 @@ public class MovementManager : MonoBehaviour {
 
     private bool isMoving;
     private Vector2 targetPosition;
+    public char TargetKey {get; private set;}
 
     // INITIALIZATION -------
     private void Awake() {
         this.Active = true;
         this.isMoving = false;
+        this.TargetKey = this.startingKey;
     }
 
     private void Start() {
@@ -69,6 +71,7 @@ public class MovementManager : MonoBehaviour {
 
         //move to the key 
         this.targetPosition = StageLayout.Instance.GetTilePosition(c);
+        this.TargetKey = c;
         this.isMoving = true;
     }
 
