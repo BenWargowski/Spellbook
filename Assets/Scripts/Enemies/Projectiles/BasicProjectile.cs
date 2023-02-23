@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class BasicProjectile : MonoBehaviour
 {
-    [SerializeField] private PlayerStat statusToApply;
-
-    [SerializeField] private Vector2 statusInfo;
-
     [SerializeField] protected float maxAirTime;
 
     [SerializeField] protected LayerMask collisionLayers;
@@ -69,9 +65,6 @@ public class BasicProjectile : MonoBehaviour
             if (other.TryGetComponent<Player>(out hitPlayer)) {
                 //Damage the player
                 hitPlayer.Damage(damage, true, false);
-
-                if (statusInfo != Vector2.zero)
-                    hitPlayer.AddStatusEffect(statusToApply, new Status(statusInfo.x, statusInfo.y));
             }
 
             onHitCoroutine = OnHit();

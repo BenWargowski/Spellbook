@@ -26,3 +26,5 @@ MonoBehaviour:
   windDown: 3.5
   yOriginOffset: -0.65
   tilesPerBurst: 7
+  guaranteedHitProportionChance: 4
+  enterConditionProportionChance: 4
