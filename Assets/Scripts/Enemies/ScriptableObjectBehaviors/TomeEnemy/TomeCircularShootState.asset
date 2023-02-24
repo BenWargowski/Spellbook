@@ -22,7 +22,7 @@ MonoBehaviour:
   fireRate: 1.65
   projectileDamage: 2
   projectileSpeed: 3.5
-  firePosition: {x: 0, y: 0}
+  firePosition: {x: 0.5, y: 0.5}
   windDown: 1
   primaryProjectileCount: 9
   secondaryProjectileCount: 6

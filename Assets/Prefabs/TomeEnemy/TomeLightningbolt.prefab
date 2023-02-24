@@ -101,8 +101,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d8cc2573a4fa1249957c02f8b6a0201, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  statusToApply: 3
-  statusInfo: {x: -0.15, y: 3}
   maxAirTime: 1
   collisionLayers:
     serializedVersion: 2
@@ -1475,7 +1473,7 @@ ParticleSystem:
         atime5: 0
         atime6: 0
         atime7: 0
-        m_Mode: 1
+        m_Mode: 0
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
       minGradient:

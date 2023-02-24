@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class EnemySpriteController : MonoBehaviour
 {
-    private BehaviorStateManager manager;
+    protected BehaviorStateManager manager;
     private EnemyHealth health;
     private SpriteRenderer rend;
-    private bool isActive = true;
+    protected bool isActive = true;
 
     private Material defaultMaterial;
     [SerializeField] private Material flashingMaterial;
