@@ -11,7 +11,7 @@ public abstract class BehaviorState : ScriptableObject
 
     [SerializeField] protected LayerMask onContactCollisionLayers;
 
-    protected const float onContactTickDamage = .1f;
+    public const float onContactTickDamage = .1f;
 
     /// <summary>
     /// Called by BehaviorStateManager when entering the BehaviorState

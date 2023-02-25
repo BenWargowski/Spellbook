@@ -28,7 +28,8 @@ public class EnemyMovementManager : MonoBehaviour
 
     void Start()
     {
-        transform.position = StageLayout.Instance.TilePositions[startingKey];
+        if (StageLayout.Instance.TilePositions.ContainsKey(startingKey))
+            transform.position = StageLayout.Instance.TilePositions[startingKey];
     }
 
     void Update()

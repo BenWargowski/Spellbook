@@ -7,6 +7,10 @@ public class MassSpawnProjectileState : SpawnProjectileState
 {
     [SerializeField] private int tilesPerBurst;
 
+    [SerializeField] private int guaranteedHitProportionChance;
+
+    [SerializeField] private int enterConditionProportionChance;
+
     private char[] keyTiles =
         {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J',
     'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U',
@@ -17,9 +21,18 @@ public class MassSpawnProjectileState : SpawnProjectileState
         List<char> tiles = new List<char>(keyTiles);
         List<Vector2> targetPositions = new List<Vector2>();
 
+        char tile = ' ';
         for (int i = 0; i < tilesPerBurst; i++)
         {
-            char tile = tiles[Random.Range(0, tiles.Count)];
+            if (i == 0 && Random.Range(0, guaranteedHitProportionChance) == 0)
+            {
+                tile = FindTargetTile(manager, manager.GetTargetPosition(), 0f, .5f);
+            }
+            else
+            {
+                tile = tiles[Random.Range(0, tiles.Count)];
+            }
+
             tiles.Remove(tile);
             targetPositions.Add(StageLayout.Instance.TilePositions[tile]);
         }
@@ -30,7 +43,7 @@ public class MassSpawnProjectileState : SpawnProjectileState
         {
             BasicProjectile projectile = GetProjectile(manager);
             Vector2 projectileOrigin = target;
-            projectile.transform.position = new Vector3(projectileOrigin.x, projectileOrigin.y + yOriginOffset, projectile.transform.position.z);
+            projectile.transform.position = new Vector3(projectileOrigin.x + firePosition.x, projectileOrigin.y + firePosition.y, projectile.transform.position.z);
             projectile.SetProjectile(Vector3.zero, projectileDamage * manager.GetDamageModifier(), projectileSpeed);
         }
 
@@ -41,6 +54,6 @@ public class MassSpawnProjectileState : SpawnProjectileState
 
     public override bool EnterCondition(BehaviorStateManager manager)
     {
-        return Random.Range(0, 4) == 0 ? true : false;
+        return Random.Range(0, enterConditionProportionChance) == 0 ? true : false;
     }
 }

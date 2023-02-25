@@ -22,6 +22,6 @@ MonoBehaviour:
   fireRate: 2.15
   projectileDamage: 3.5
   projectileSpeed: 3
-  firePosition: {x: 0.5, y: 1}
+  firePosition: {x: 1, y: 2}
   windDown: 4.5
   projectileRotationSpeed: 2.5
