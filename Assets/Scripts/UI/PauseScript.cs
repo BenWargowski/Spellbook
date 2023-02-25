@@ -16,7 +16,7 @@ public class PauseScript : MonoBehaviour
     {
         resumeButton.onClick.AddListener(resume);
         quitButton.onClick.AddListener(quitClick);
-        pauseMenu.SetActive(false);
+        resume();
     }
 
     void resume()
