@@ -52,7 +52,7 @@ public class DragonTail : BasicProjectile
         currentAirTime = 0;
 
         animator.SetBool("isAttacking", false);
-        sprite.color = new Color(1, 1, 1, .85f);
+        sprite.color = new Color(0, 0, 0, .5f);
         projectileCollider.enabled = false;
 
         hasHit = false;
