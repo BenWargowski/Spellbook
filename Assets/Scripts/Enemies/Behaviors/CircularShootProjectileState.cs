@@ -20,7 +20,7 @@ public class CircularShootProjectileState : ShootProjectileState
         {
             float xDirection = Mathf.Cos(Mathf.Deg2Rad * degrees * i);
             float yDirection = Mathf.Sin(Mathf.Deg2Rad * degrees * i);
-            aimDirection = new Vector3(xDirection, yDirection, aimDirection.z);
+            aimDirection = new Vector3(xDirection, yDirection, aimDirection.z).normalized;
             Vector3 projectileOrigin = manager.transform.position + new Vector3(aimDirection.x * firePosition.x, aimDirection.y * firePosition.y, 0);
 
             BasicProjectile projectile = GetProjectile(manager);

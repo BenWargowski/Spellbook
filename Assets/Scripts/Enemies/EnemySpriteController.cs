@@ -2,40 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemySpriteController : MonoBehaviour
+public class EnemySpriteController : EnemyDamagedVisual
 {
-    protected BehaviorStateManager manager;
-    private EnemyHealth health;
-    private SpriteRenderer rend;
+    protected BehaviorStateManager behaviorManager;
+    private EnemyStatusManager statusManager;
     protected bool isActive = true;
 
-    private Material defaultMaterial;
-    [SerializeField] private Material flashingMaterial;
-
-    private IEnumerator flashingEffect;
-    private float flashingDuration = 1;
-    private float flashingDelay = .075f;
-
-    void Awake()
+    protected override void Start()
     {
-        manager = GetComponentInParent<BehaviorStateManager>();
-        health = GetComponentInParent<EnemyHealth>();
-        rend = GetComponent<SpriteRenderer>();
+        base.Start();
 
-        defaultMaterial = rend.material;
-    }
+        GameEvents.Instance.playerVictory += Deactivate;
 
-    void Start()
-    {
-        GameEvents.Instance.playerVictory += EnemyDeath;
-        health.onDamaged += DamagedVisual;
+        behaviorManager = GetComponentInParent<BehaviorStateManager>();
+
+        behaviorManager.onActionLocked += Deactivate;
+        behaviorManager.onActionUnlocked += Activate;
+
+        statusManager = GetComponentInParent<EnemyStatusManager>();
+        statusManager.onStunned += Deactivate;
+        statusManager.onNotStunned += Activate;
     }
 
     void LateUpdate()
     {
         if (!isActive) return;
 
-        if (manager.GetIsFacingRight())
+        if (behaviorManager.GetIsFacingRight())
         {
             rend.flipX = false;
         }
@@ -45,50 +38,13 @@ public class EnemySpriteController : MonoBehaviour
         }
     }
 
-    private void EnemyDeath()
+    private void Activate()
+    {
+        isActive = true;
+    }
+
+    private void Deactivate()
     {
         isActive = false;
-
-        health.onDamaged -= DamagedVisual;
-    }
-
-    private void DamagedVisual()
-    {
-        if (flashingEffect != null)
-            StopCoroutine(flashingEffect);
-
-        flashingEffect = FlashingEffect();
-        StartCoroutine(flashingEffect);
-    }
-
-    private IEnumerator FlashingEffect()
-    {
-        float totalTimeElapsed = 0;
-        float timeSinceSwapped = 0;
-
-        while (totalTimeElapsed <= flashingDuration)
-        {
-            totalTimeElapsed += Time.deltaTime;
-
-            if (timeSinceSwapped >= flashingDelay)
-            {
-                rend.material = SwapMaterial(rend.material);
-
-                timeSinceSwapped = 0;
-            }
-            else
-            {
-                timeSinceSwapped += Time.deltaTime;
-            }
-
-            yield return null;
-        }
-
-        rend.material = defaultMaterial;
-    }
-
-    private Material SwapMaterial(Material currentMaterial)
-    {
-        return currentMaterial == defaultMaterial ? flashingMaterial : defaultMaterial; 
     }
 }

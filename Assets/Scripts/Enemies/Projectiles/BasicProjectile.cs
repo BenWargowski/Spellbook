@@ -14,7 +14,7 @@ public class BasicProjectile : MonoBehaviour
     private float speed;
 
     protected SpriteRenderer sprite;
-    protected CircleCollider2D projectileCollider;
+    protected Collider2D projectileCollider;
     [SerializeField] protected ParticleSystem trailParticles;
     [SerializeField] protected ParticleSystem onHitParticles;
 
@@ -22,11 +22,11 @@ public class BasicProjectile : MonoBehaviour
 
     protected IEnumerator onHitCoroutine;
 
-    void Awake()
+    protected virtual void Awake()
     {
         sprite = GetComponent<SpriteRenderer>();
 
-        projectileCollider = GetComponent<CircleCollider2D>();
+        projectileCollider = GetComponent<Collider2D>();
     }
 
     void Update()

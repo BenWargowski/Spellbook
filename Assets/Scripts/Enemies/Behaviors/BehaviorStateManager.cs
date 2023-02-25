@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -174,6 +175,20 @@ public class BehaviorStateManager : MonoBehaviour
         Debug.LogFormat("BehaviorStateManager.StunRecovery");
         ChangeState(recoveredState);
     }
+
+    public event Action onActionLocked;
+    public void LockAction()
+    {
+        if (onActionLocked != null)
+            onActionLocked();
+    }
+
+    public event Action onActionUnlocked;
+        public void UnlockAction()
+    {
+        if (onActionUnlocked != null)
+            onActionUnlocked();
+    }
 }
 
 public static class EnemyAnimationTriggers
@@ -188,4 +203,6 @@ public static class EnemyAnimationTriggers
     public const string Charge = "ChargeTrigger";
     public const string Jump = "JumpTrigger";
     public const string Smash = "SmashTrigger";
+
+    public const string Tail = "TailTrigger";
 }

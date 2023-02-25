@@ -8,7 +8,7 @@ public class DragonSpriteController : EnemySpriteController
     {
         if (!isActive) return;
 
-        Vector2 targetPosition = manager.GetTargetPosition();
+        Vector2 targetPosition = behaviorManager.GetTargetPosition();
         float lookAngle = Mathf.Atan2(targetPosition.y - transform.position.y, targetPosition.x - transform.position.x) * Mathf.Rad2Deg;
 
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, lookAngle));

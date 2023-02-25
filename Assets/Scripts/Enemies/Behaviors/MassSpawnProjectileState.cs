@@ -43,7 +43,7 @@ public class MassSpawnProjectileState : SpawnProjectileState
         {
             BasicProjectile projectile = GetProjectile(manager);
             Vector2 projectileOrigin = target;
-            projectile.transform.position = new Vector3(projectileOrigin.x, projectileOrigin.y + yOriginOffset, projectile.transform.position.z);
+            projectile.transform.position = new Vector3(projectileOrigin.x + firePosition.x, projectileOrigin.y + firePosition.y, projectile.transform.position.z);
             projectile.SetProjectile(Vector3.zero, projectileDamage * manager.GetDamageModifier(), projectileSpeed);
         }
 
