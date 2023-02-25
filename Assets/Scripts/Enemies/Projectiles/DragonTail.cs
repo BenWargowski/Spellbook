@@ -5,6 +5,7 @@ using UnityEngine;
 public class DragonTail : BasicProjectile
 {
     [SerializeField] private float delayForSpawn;
+    [SerializeField] private ParticleSystem onSpawnParticles;
 
     private BehaviorStateManager behaviorManager;
     private EnemyStatusManager statusManager;
@@ -62,6 +63,7 @@ public class DragonTail : BasicProjectile
     {
         animator.SetBool("isAttacking", true);
         sprite.color = new Color(1, 1, 1, 1);
+        onSpawnParticles.Play();
         projectileCollider.enabled = true;
         hasSpawned = true;
     }
