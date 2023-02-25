@@ -209,7 +209,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 5344515631323388845}
   _spellList:
-  - {fileID: 11400000, guid: e83bc2c0c94c846b0953c713fde4c7a3, type: 2}
+  - {fileID: 11400000, guid: 2e0eb4fef8b7e0b3389a7460a9c7c958, type: 2}
+  - {fileID: 11400000, guid: 20cd385ac9fc163fea456915e5547ff8, type: 2}
+  - {fileID: 11400000, guid: 548c34c643ddde555a324807dadda089, type: 2}
+  - {fileID: 11400000, guid: 262d7a0a02f93d435b87117a7f4addae, type: 2}
+  - {fileID: 11400000, guid: 610b043e928b6f4d4baf7c97caf402cf, type: 2}
+  - {fileID: 11400000, guid: e8bf5fd9d4c199d74bce08080157fc22, type: 2}
 --- !u!61 &5344515631323388850
 BoxCollider2D:
   m_ObjectHideFlags: 0

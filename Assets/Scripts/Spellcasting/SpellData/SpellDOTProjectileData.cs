@@ -3,8 +3,8 @@ using UnityEngine;
 /// <summary>
 /// Holds data for Spells that deal damage on contact and also Damage Over Time
 /// </summary>
-[CreateAssetMenu(fileName = "New SpellDoTProjectile", menuName = "Spells/SpellDoTProjectile")]
-public class SpellDoTProjectileData : SpellProjectileData {
+[CreateAssetMenu(fileName = "New SpellDOTProjectile", menuName = "Spells/SpellDOTProjectile")]
+public class SpellDOTProjectileData : SpellProjectileData {
         [Header("Damage Over Time Info")]
         [SerializeField] protected float dps;
         [SerializeField] protected float duration;

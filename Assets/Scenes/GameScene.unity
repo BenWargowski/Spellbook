@@ -2921,10 +2921,6 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 467543933}
-    - target: {fileID: 5344515631323388845, guid: 764ab981d8b9e4813a6376e3cff67f7a, type: 3}
-      propertyPath: baseMaxHealth
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 5344515631323388847, guid: 764ab981d8b9e4813a6376e3cff67f7a, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -2974,13 +2970,17 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5344515631323388851, guid: 764ab981d8b9e4813a6376e3cff67f7a, type: 3}
-      propertyPath: _spellList.Array.size
-      value: 2
+      propertyPath: asdf.m_PersistentCalls.m_Calls.Array.size
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5344515631323388851, guid: 764ab981d8b9e4813a6376e3cff67f7a, type: 3}
-      propertyPath: _spellList.Array.data[1]
-      value: 
-      objectReference: {fileID: 11400000, guid: 7be99a097d4fc52509e7ae05a4f65e6c, type: 2}
+      propertyPath: asdf.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5344515631323388851, guid: 764ab981d8b9e4813a6376e3cff67f7a, type: 3}
+      propertyPath: asdf.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5344515631323388855, guid: 764ab981d8b9e4813a6376e3cff67f7a, type: 3}
       propertyPath: m_Name
       value: Player

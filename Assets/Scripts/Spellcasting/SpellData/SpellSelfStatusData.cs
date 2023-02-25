@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 /// <summary>
 /// Spells that apply a status effect to the player
@@ -10,13 +11,22 @@ public class SpellSelfStatusData : SpellData {
         [SerializeField] protected PlayerStat stat;
         [SerializeField] protected float effectDuration;
         [SerializeField] protected float effectModifier;
-
+        [SerializeField] protected bool heal;
+        
         public override bool CastSpell(Player player) {
                 //Manage mana
                 if (!base.CastSpell(player)) return false;
 
                 //Apply the status effect
-                player.AddStatusEffect(this.stat, new Status(this.effectModifier, this.effectDuration));
+                Status status = null;
+                if (this.heal) {
+                        status = new HealStatus(player, this.effectModifier, this.effectDuration);
+                }
+                else {
+                        status = new Status(this.effectModifier, this.effectDuration);
+                }
+
+                player.AddStatusEffect(this.stat, status);
                 return true;
         }
 }

@@ -6,6 +6,7 @@ using UnityEngine;
 public abstract class SpellData : ScriptableObject {
         [SerializeField] protected string spellName;
         [SerializeField] protected int manaCost;
+        [SerializeField] protected string playerAnimationName;
 
         //Properties to access fields
         public string SpellName => spellName;
@@ -17,6 +18,15 @@ public abstract class SpellData : ScriptableObject {
 
                 //Subtract mana
                 player.Mana -= this.manaCost;
+
+                //Plays animation
+                if (this.playerAnimationName != null) {
+                        Animator animator = null;
+                        if (player.TryGetComponent<Animator>(out animator)) {
+                                animator.Play(this.playerAnimationName);
+                        }
+                }
+
                 return true;
         }
 }
