@@ -5,13 +5,13 @@ using UnityEngine;
 public class EnemyDoTStatus : Status
 {
     private EnemyHealth enemyHealth;
-    private SpellType type;
+    private SpellElement element;
     private bool ignoreResistance;
 
-    public EnemyDoTStatus(EnemyHealth health, SpellType spellType, bool ignoreResistance, float damage, float duration) : base(damage, duration)
+    public EnemyDoTStatus(EnemyHealth health, SpellElement spellElement, bool ignoreResistance, float damage, float duration) : base(damage, duration)
     {
         enemyHealth = health;
-        type = spellType;
+        element = spellElement;
         this.ignoreResistance = ignoreResistance;
     }
 
@@ -19,6 +19,6 @@ public class EnemyDoTStatus : Status
     {
         base.UpdateStatus();
 
-        enemyHealth.Damage(modifier * Time.deltaTime, type, ignoreResistance);
+        enemyHealth.Damage(modifier * Time.deltaTime, element, ignoreResistance);
     }
 }
