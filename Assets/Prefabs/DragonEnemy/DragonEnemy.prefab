@@ -238,9 +238,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8b762fa95dbbba419588d3f8c4f3e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseFireResist: 0
+  baseFireResist: 3
   baseLightningResist: 0
-  baseRockResist: 0
+  baseRockResist: 1.75
 --- !u!114 &2507317034742160587
 MonoBehaviour:
   m_ObjectHideFlags: 0
