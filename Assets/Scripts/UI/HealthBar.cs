@@ -1,21 +1,22 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-/// <summary>
-/// A simple script to update a health bar. Can be used for players or enemies.
-/// </summary>
-[RequireComponent(typeof(Image))]
-public class HealthBar : MonoBehaviour {
-    private Image healthBar;
+public class HealthBar : MonoBehaviour
+{
 
-    private void Awake() {
-        this.healthBar = this.GetComponent<Image>();
+    public Slider slider;
+    public Gradient gradient;
+    public Image fill;
+    
+    
+
+    public void UpdateBar(float Health, float maxHealth)
+    {
+        slider.value = Health/maxHealth;
+
+        fill.color = gradient.Evaluate(slider.normalizedValue);
     }
 
-    public void UpdateBar(float health, float maxHealth) {
-        // NOTE:
-        // Possible expansion/things to do in the future could to make this smoother/animated
-        // or even change the bar's color depending on what HP you are at
-        this.healthBar.fillAmount = (health / maxHealth);       
-    }
 }
