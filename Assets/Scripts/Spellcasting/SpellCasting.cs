@@ -4,12 +4,14 @@ using UnityEngine;
 using System;
 using System.Linq;
 
+
 public class SpellCasting : MonoBehaviour
 {
     [SerializeField] private List<Spell> list;
     private string input = string.Empty;
     //We use an Action so we can subscribe spell effects as coroutines at will
     public Action OnSpellTyped;
+    public SpellCastingBox spellCastingBox;
 
 
     // Update is called once per frame
@@ -20,11 +22,14 @@ public class SpellCasting : MonoBehaviour
         {
             //Since letters are typed per frame, we add letters to the input and check if there is a spell with the same name
             input += l;
+            spellCastingBox.SpellText(input);
+
         }
         if (Input.GetKeyDown(KeyCode.Return))
         {
             CheckSpellList();
         }
+        
     }
 
     void CheckSpellList()
@@ -34,8 +39,14 @@ public class SpellCasting : MonoBehaviour
         {
             //Subscribe the spell effect to the Action, run it, the unsubscribe from it, resetting the string on a successful cast
             l.castSpell();
+            ResetSpellcasting();
         }
-        ResetSpellcasting();
+        else
+        {
+            ResetSpellcasting();
+            spellCastingBox.FailedSpell();
+        }
+        
     }
 
     
@@ -43,5 +54,6 @@ public class SpellCasting : MonoBehaviour
     {
         //Resets the string for spellcasting, you can call this whenever you want
         input = string.Empty;
+        spellCastingBox.SpellText(input);
     }
 }
