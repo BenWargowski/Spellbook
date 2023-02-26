@@ -158,6 +158,8 @@ public class DragonTail : BasicProjectile
 
     private IEnumerator WindDown()
     {
+        projectileCollider.enabled = false;
+
         Vector3 targetPosition = new Vector3(transform.position.x, transform.position.y + animationYOffset, transform.position.z);
 
         while (Vector3.Distance(transform.position, targetPosition) > .01f)
