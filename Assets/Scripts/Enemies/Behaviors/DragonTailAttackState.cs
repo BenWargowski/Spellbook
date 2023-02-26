@@ -9,10 +9,11 @@ public class DragonTailAttackState : SpawnProjectileState
     {
         manager.SetAnimation(EnemyAnimationTriggers.Tail);
 
-        BasicProjectile tail = GetProjectile(manager);
+        DragonTail tail = (DragonTail)GetProjectile(manager);
         Vector2 tailOrigin = manager.GetTargetPosition();
         tail.transform.position = new Vector3(tailOrigin.x + firePosition.x, firePosition.y, tail.transform.position.z);
         tail.SetProjectile(Vector3.zero, projectileDamage * manager.GetDamageModifier(), projectileSpeed);
+        tail.StartWindUp();
 
         timeSinceFired = 0;
 
