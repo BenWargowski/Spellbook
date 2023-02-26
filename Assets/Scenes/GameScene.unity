@@ -2921,10 +2921,6 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 467543933}
-    - target: {fileID: 5344515631323388845, guid: 764ab981d8b9e4813a6376e3cff67f7a, type: 3}
-      propertyPath: baseMaxHealth
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 5344515631323388847, guid: 764ab981d8b9e4813a6376e3cff67f7a, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -2968,10 +2964,6 @@ PrefabInstance:
     - target: {fileID: 5344515631323388847, guid: 764ab981d8b9e4813a6376e3cff67f7a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5344515631323388851, guid: 764ab981d8b9e4813a6376e3cff67f7a, type: 3}
-      propertyPath: list.Array.size
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5344515631323388855, guid: 764ab981d8b9e4813a6376e3cff67f7a, type: 3}
       propertyPath: m_Name

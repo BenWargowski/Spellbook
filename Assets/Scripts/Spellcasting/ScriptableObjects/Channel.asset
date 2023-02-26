@@ -9,12 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0c229cc5a2dbea4b8ebed806789a134, type: 3}
-  m_Name: Lightning
+  m_Script: {fileID: 11500000, guid: 6d4bf6d43aa7f65c7a2511e9d98a4df0, type: 3}
+  m_Name: Channel
   m_EditorClassIdentifier: 
-  name: Lightning
-  damage: 7.5
-  speed: 0
-  manaCost: 0
-  type: 1
-  attackPrefab: {fileID: 0}
+  spellName: Channel
+  manaCost: 5
+  cooldown: 0
+  playerAnimationName: 
+  effectsPrefab: {fileID: 0}
+  stat: 2
+  effectDuration: 5
+  effectModifier: 0.5
+  heal: 0

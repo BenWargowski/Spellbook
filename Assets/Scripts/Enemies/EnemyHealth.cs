@@ -38,21 +38,21 @@ public class EnemyHealth : MonoBehaviour
     }
 
     public event Action onDamaged;
-    public void Damage(float damage, SpellType spellType, bool ignoreResistance)
+    public void Damage(float damage, SpellElement spellElement, bool ignoreResistance)
     {
         if (statusManager.IsInvincible) return;
 
         if (!ignoreResistance)
         {
-            switch (spellType)
+            switch (spellElement)
             {
-                case SpellType.FIRE:
+                case SpellElement.FIRE:
                     damage = (damage * damage) / (damage + statusManager.FireResistance);
                     break;
-                case SpellType.LIGHTNING:
+                case SpellElement.LIGHTNING:
                     damage = (damage * damage) / (damage + statusManager.LightningResistance);
                     break;
-                case SpellType.ROCK:
+                case SpellElement.GROUND:
                     damage = (damage * damage) / (damage + statusManager.RockResistance);
                     break;
             }
