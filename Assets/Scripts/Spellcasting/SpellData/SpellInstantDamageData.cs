@@ -5,9 +5,6 @@ using UnityEngine;
 /// </summary>
 [CreateAssetMenu(fileName = "New SpellInstantDamage", menuName = "Spells/SpellInstantDamage")]
 public class SpellInstantDamageData : SpellData {
-        [Header("References")]
-        [SerializeField] protected GameObject prefab; //for effects
-
         [Header("Damage Info")]
         [SerializeField] protected float damage;
         [SerializeField] protected SpellElement element;
@@ -40,7 +37,6 @@ public class SpellInstantDamageData : SpellData {
                         }
                 }
 
-                if (prefab != null) Instantiate(prefab);
                 return true;
         }
 

@@ -14,11 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellName: Earthquake
   manaCost: 8
-  animationPrefab: {fileID: 0}
+  cooldown: 0
+  playerAnimationName: 
+  effectsPrefab: {fileID: 0}
   enemyLayer:
     serializedVersion: 2
     m_Bits: 1
-  radius: 5
+  radius: 15
   damage: 7
   element: 2
   stat: 1

@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellName: Rumble
   manaCost: 5
-  animationPrefab: {fileID: 0}
+  cooldown: 0
+  playerAnimationName: 
+  effectsPrefab: {fileID: 0}
   enemyLayer:
     serializedVersion: 2
     m_Bits: 1

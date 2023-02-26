@@ -6,9 +6,6 @@ using UnityEngine;
 
 [CreateAssetMenu(fileName = "New SpellAOEDamage", menuName = "Spells/SpellAOEDamage")]
 public class SpellAOEDamageData : SpellData {
-        [Header("References")]
-        [SerializeField] protected GameObject prefab; //To handle particle effects, etc.
-
         [Header("Projectile Info")]
         [SerializeField] protected LayerMask enemyLayer;
         [SerializeField] protected float radius;
@@ -27,8 +24,6 @@ public class SpellAOEDamageData : SpellData {
                                 OnHit(enemyHealth);
                         }
                 }
-
-                if (prefab != null) Instantiate(prefab);
 
                 return true;
         }

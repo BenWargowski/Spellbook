@@ -14,6 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellName: Shield
   manaCost: 5
+  cooldown: 0
+  playerAnimationName: 
+  effectsPrefab: {fileID: 0}
   stat: 5
   effectDuration: 2.5
   effectModifier: 32767

@@ -14,6 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellName: Ignite
   manaCost: 5
+  cooldown: 0
+  playerAnimationName: 
+  effectsPrefab: {fileID: 0}
   prefab: {fileID: 7094286980879645727, guid: b302c2779d011144c9182f8bd2c64894, type: 3}
   homing: 1
   projectileSpeed: 4
