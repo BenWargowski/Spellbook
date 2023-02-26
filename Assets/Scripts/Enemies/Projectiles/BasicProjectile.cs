@@ -89,7 +89,7 @@ public class BasicProjectile : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    public void SetProjectile(Vector3 direction, float damage, float speed)
+    public virtual void SetProjectile(Vector3 direction, float damage, float speed)
     {
         moveDirection = direction;
         this.damage = damage;

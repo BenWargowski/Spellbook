@@ -74,31 +74,6 @@ public class DragonTail : BasicProjectile
         hasSpawned = false;
     }
 
-    private void Spawn()
-    {
-        animator.SetBool("isAttacking", true);
-        sprite.color = new Color(1, 1, 1, 1);
-        onSpawnParticles.Play();
-        projectileCollider.enabled = true;
-
-        Collider2D[] colliders = Physics2D.OverlapAreaAll(
-            new Vector2(transform.position.x - (projectileCollider.bounds.extents.x * smashSizeMultiplier), transform.position.y - (projectileCollider.bounds.extents.y * smashSizeMultiplier)),
-            new Vector2(transform.position.x + (projectileCollider.bounds.extents.x * smashSizeMultiplier), transform.position.y + (projectileCollider.bounds.extents.y * smashSizeMultiplier)),
-            collisionLayers);
-
-        foreach (Collider2D c in colliders)
-        {
-            Player hitPlayer = null;
-            if (c.TryGetComponent<Player>(out hitPlayer))
-            {
-                //Damage the player
-                hitPlayer.Damage(damage, true, false);
-            }
-        }
-
-        hasSpawned = true;
-    }
-
     void OnTriggerEnter2D(Collider2D other)
     {
         if (collisionLayers == (collisionLayers | (1 << other.gameObject.layer)))
@@ -127,20 +102,49 @@ public class DragonTail : BasicProjectile
         }
     }
 
+    public override void SetProjectile(Vector3 direction, float damage, float speed)
+    {
+        windUpCoroutine = WindUp();
+        StartCoroutine(windUpCoroutine);
+
+        base.SetProjectile(direction, damage, speed);
+    }
+
+    private void Spawn()
+    {
+        animator.SetBool("isAttacking", true);
+        sprite.color = new Color(1, 1, 1, 1);
+        onSpawnParticles.Play();
+        projectileCollider.enabled = true;
+
+        Collider2D[] colliders = Physics2D.OverlapAreaAll(
+            new Vector2(transform.position.x - (projectileCollider.bounds.extents.x * smashSizeMultiplier), transform.position.y - (projectileCollider.bounds.extents.y * smashSizeMultiplier)),
+            new Vector2(transform.position.x + (projectileCollider.bounds.extents.x * smashSizeMultiplier), transform.position.y + (projectileCollider.bounds.extents.y * smashSizeMultiplier)),
+            collisionLayers);
+
+        foreach (Collider2D c in colliders)
+        {
+            Player hitPlayer = null;
+            if (c.TryGetComponent<Player>(out hitPlayer))
+            {
+                //Damage the player
+                hitPlayer.Damage(damage, true, false);
+            }
+        }
+
+        hasSpawned = true;
+    }
+
     private void Stunned()
     {
+        if (!gameObject.activeSelf) return;
+
         hasSpawned = true;
         
         StopAllCoroutines();
 
         windDownCoroutine = WindDown();
         StartCoroutine(windDownCoroutine);
-    }
-
-    public void StartWindUp()
-    {
-        windUpCoroutine = WindUp();
-        StartCoroutine(windUpCoroutine);
     }
 
     private IEnumerator WindUp()

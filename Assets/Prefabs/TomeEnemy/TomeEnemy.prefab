@@ -238,8 +238,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8b762fa95dbbba419588d3f8c4f3e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseFireResist: 1
-  baseLightningResist: 2.15
+  baseFireResist: 0.5
+  baseLightningResist: 1
   baseRockResist: 0
 --- !u!114 &1517965978371312775
 MonoBehaviour:

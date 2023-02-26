@@ -19,10 +19,10 @@ MonoBehaviour:
   returningState: {fileID: 11400000, guid: 24b816d21481faf4eac4071247fd1d4e, type: 2}
   style: 0
   teleportLocations:
-  - {x: 6.15, y: 1}
-  - {x: -6.15, y: 1}
+  - {x: 6.15, y: 0}
+  - {x: -6.15, y: 0}
   - {x: 0, y: 2.75}
-  - {x: 0, y: -3}
+  - {x: 0, y: -1.5}
   windUp: 1
   windDown: 1
   teleportParticlesPrefab: {fileID: 5211134491561693590, guid: a7cce99be67de04478987ef3c4b02493, type: 3}
