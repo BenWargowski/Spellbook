@@ -1,6 +1,9 @@
 using UnityEngine;
 using System.Collections;
 
+/// <summary>
+/// Spell that makes the next move(s) instant for a duration
+/// </summary>
 [CreateAssetMenu(fileName = "New SpellTeleport", menuName = "Spells/SpellTeleport")]
 public class SpellTeleportData : SpellData {
     [Header("Teleport Settings")]

@@ -3,7 +3,6 @@ using UnityEngine;
 /// <summary>
 /// Spells that deal an instant Area of Effect Damage and also apply a Status Effect
 /// </summary>
-
 [CreateAssetMenu(fileName = "New SpellAOEStatusDamage", menuName = "Spells/SpellAOEStatusDamage")]
 public class SpellAOEStatusDamageData : SpellAOEDamageData {
         [Header("Status Effect Info")]

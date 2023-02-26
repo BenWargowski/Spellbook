@@ -3,7 +3,6 @@ using UnityEngine;
 /// <summary>
 /// Spells that deal an instant Area Of Effect Damage
 /// </summary>
-
 [CreateAssetMenu(fileName = "New SpellAOEDamage", menuName = "Spells/SpellAOEDamage")]
 public class SpellAOEDamageData : SpellData {
         [Header("Projectile Info")]
