@@ -168,13 +168,11 @@ public class BehaviorStateManager : MonoBehaviour
 
     private void Stunned()
     {
-        Debug.LogFormat("BehaviorStateManager.Stunned");
         ChangeState(health.Health > 0 ? stunnedState : deathState);
     }
 
     private void StunRecovery()
     {
-        Debug.LogFormat("BehaviorStateManager.StunRecovery");
         ChangeState(health.Health > 0 ? recoveredState : deathState);
     }
 

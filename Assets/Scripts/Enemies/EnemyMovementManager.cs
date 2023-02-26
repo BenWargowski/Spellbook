@@ -107,12 +107,11 @@ public class EnemyMovementManager : MonoBehaviour
 
     private void Stunned()
     {
-        Debug.LogFormat("EnemyMovementManager.Stunned");
         ResetTargetPosition();
     }
 
     private void StunRecovery()
     {
-        Debug.LogFormat("EnemyMovementManager.StunRecovery");
+
     }
 }
