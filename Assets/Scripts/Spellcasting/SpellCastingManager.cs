@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 /// <summary>
@@ -18,6 +19,7 @@ public class SpellCastingManager : MonoBehaviour {
 
         //spell hashmap for O(1) spell lookup
         private Dictionary<string, SpellData> spells;
+        public Dictionary<SpellData, float> Cooldowns { get; private set; }
 
         private string _spellString;
         public string SpellString {
@@ -33,6 +35,7 @@ public class SpellCastingManager : MonoBehaviour {
         private void Awake() {
                 this.SpellString = string.Empty;
                 this.spells = new Dictionary<string, SpellData>();
+                this.Cooldowns = new Dictionary<SpellData, float>();
 
                 //set up the hashmap for spells
                 foreach (SpellData spell in this._spellList) {
@@ -47,11 +50,28 @@ public class SpellCastingManager : MonoBehaviour {
         }
 
         private void Update() {
+                //decrement cooldowns
+                //hacky workaround :(
+                foreach (SpellData data in this.Cooldowns.Keys.ToList()) {
+                        //subtract cooldown time
+                        if (this.Cooldowns[data] > 0.0f) {
+                                this.Cooldowns[data] -= Time.deltaTime;
+                        }
+                }
+
+
                 //check for enter key
                 if (Input.GetKeyDown(KeyCode.Return)) {
                         //match spell name
                         if (this.spells.ContainsKey(this.SpellString)) {
-                                this.spells[this.SpellString].CastSpell(this.player);
+                                SpellData data = this.spells[this.SpellString];
+
+                                //make sure it's not on cooldown
+                                if (!this.Cooldowns.ContainsKey(data) || this.Cooldowns[data] <= 0.0f) {
+                                        //set cooldown and cast
+                                        this.Cooldowns[data] = data.Cooldown;
+                                        data.CastSpell(this.player);
+                                }
                         }
 
                         //clear the spell string
