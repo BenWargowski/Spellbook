@@ -9,12 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0c229cc5a2dbea4b8ebed806789a134, type: 3}
-  m_Name: Fire
+  m_Script: {fileID: 11500000, guid: 6d4bf6d43aa7f65c7a2511e9d98a4df0, type: 3}
+  m_Name: Shield
   m_EditorClassIdentifier: 
-  name: Fire
-  damage: 5
-  speed: 4
-  manaCost: 0
-  type: 0
-  attackPrefab: {fileID: 7094286980879645727, guid: db79d1b263b56a44a9936f975052e865, type: 3}
+  spellName: Shield
+  manaCost: 5
+  cooldown: 0
+  playerAnimationName: 
+  effectsPrefab: {fileID: 0}
+  stat: 5
+  effectDuration: 2.5
+  effectModifier: 32767
+  heal: 0

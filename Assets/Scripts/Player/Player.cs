@@ -13,7 +13,7 @@ public class Player : MonoBehaviour, IDamageable, IHealable{
     [Header("References")]
     [SerializeField] private HealthBar healthBar;
     [SerializeField] private MovementManager movementManager;
-    [SerializeField] private SpellCasting spellCasting;
+    [SerializeField] private SpellCastingManager spellCasting;
     [SerializeField] private new SpriteRenderer renderer;
 
     [Header("Stats")]
@@ -190,6 +190,7 @@ public class Player : MonoBehaviour, IDamageable, IHealable{
     }
 
     //GETTERS AND SETTERS ---------------------
+    public MovementManager MovementManager => movementManager;
     public char TargetKey => this.movementManager.TargetKey;
 
     public float MaxHealth => (this.baseMaxHealth + ModifierSum(PlayerStat.MAX_HEALTH));

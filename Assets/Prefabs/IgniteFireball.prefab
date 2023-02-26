@@ -223,7 +223,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.8490566, g: 0.40799037, b: 0.13216448, a: 1}
+      maxColor: {r: 0.8509804, g: 0.28958833, b: 0.13333333, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -1323,8 +1323,8 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 1, g: 0.6601781, b: 0, a: 0.78431374}
-        key1: {r: 1, g: 0.36335683, b: 0, a: 0.98039216}
+        key0: {r: 1, g: 0.52407205, b: 0, a: 0.78431374}
+        key1: {r: 1, g: 0.29354292, b: 0, a: 0.98039216}
         key2: {r: 1, g: 0.36335683, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
@@ -9731,7 +9731,7 @@ GameObject:
   - component: {fileID: 7016667747665475671}
   - component: {fileID: 1964401840334183742}
   m_Layer: 0
-  m_Name: Fireball
+  m_Name: IgniteFireball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
