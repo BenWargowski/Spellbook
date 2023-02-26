@@ -21,6 +21,9 @@ public class MovementManager : MonoBehaviour {
     // they just won't respond to any new movements
     public bool Active {get; set;}
 
+    //Should the player's next move be a teleport?
+    public bool Teleport {get; set;}
+
     private bool isMoving;
     private Vector2 targetPosition;
     public char TargetKey {get; private set;}
@@ -73,6 +76,14 @@ public class MovementManager : MonoBehaviour {
         this.targetPosition = StageLayout.Instance.GetTilePosition(c);
         this.TargetKey = c;
         this.isMoving = true;
+
+        //TELEPORTATION -----
+        if (this.Teleport) {
+            //warp player to target location
+            this.player.transform.position = this.targetPosition;
+            this.isMoving = false;
+            this.Teleport = false;
+        }
     }
 
     /// <summary>
