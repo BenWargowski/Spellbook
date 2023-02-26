@@ -28,6 +28,8 @@ public class SpellAOEDamageData : SpellData {
                         }
                 }
 
+                if (prefab != null) Instantiate(prefab);
+
                 return true;
         }
 
