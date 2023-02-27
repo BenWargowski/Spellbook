@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 30df8b24fa8db0445a626ba1f55c0dfe, type: 3}
-  m_Name: DragonShootProjecitleState
+  m_Name: DragonShootProjectileState
   m_EditorClassIdentifier: 
   behaviorName: DragonFlareState
   onContactCollisionLayers:
@@ -19,7 +19,7 @@ MonoBehaviour:
   returningState: {fileID: 11400000, guid: f96bb706f67cedc4e8eceaaf5fdc7039, type: 2}
   projectilePrefab: {fileID: 5780715303387852725, guid: 465df2330f572f846a1c5da5abb5677f, type: 3}
   maxProjectileFire: 1
-  fireRate: 0
+  fireRate: 0.25
   projectileDamage: 3
   projectileSpeed: 3
   firePosition: {x: 1, y: 1}

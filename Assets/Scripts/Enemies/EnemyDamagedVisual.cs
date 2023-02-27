@@ -12,7 +12,7 @@ public class EnemyDamagedVisual : MonoBehaviour
 
     private IEnumerator flashingEffect;
     private float flashingDuration = .5f;
-    private float flashingDelay = .075f;
+    private float flashingDelay = .05f;
 
     protected virtual void Start()
     {
@@ -30,6 +30,7 @@ public class EnemyDamagedVisual : MonoBehaviour
 
         if (!gameObject.activeSelf) return;
 
+        rend.material = SwapMaterial(rend.material);
         flashingEffect = FlashingEffect();
         StartCoroutine(flashingEffect);
     }
