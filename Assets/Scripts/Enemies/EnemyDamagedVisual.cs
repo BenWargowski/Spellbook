@@ -14,6 +14,10 @@ public class EnemyDamagedVisual : MonoBehaviour
     private float flashingDuration = .5f;
     private float flashingDelay = .05f;
 
+    private float totalTimeElapsed;
+    private float timeSinceSwapped;
+    private bool inProgress;
+
     protected virtual void Start()
     {
         health = GetComponentInParent<EnemyHealth>();
@@ -25,20 +29,24 @@ public class EnemyDamagedVisual : MonoBehaviour
 
     private void DamagedVisual()
     {
-        if (flashingEffect != null)
-            StopCoroutine(flashingEffect);
-
         if (!gameObject.activeSelf) return;
 
-        rend.material = SwapMaterial(rend.material);
-        flashingEffect = FlashingEffect();
-        StartCoroutine(flashingEffect);
+        if (inProgress)
+        {
+            totalTimeElapsed = 0;
+        }
+        else
+        {
+            flashingEffect = FlashingEffect();
+            StartCoroutine(flashingEffect);
+        }
     }
 
     private IEnumerator FlashingEffect()
     {
-        float totalTimeElapsed = 0;
-        float timeSinceSwapped = 0;
+        inProgress = true;
+        totalTimeElapsed = 0;
+        timeSinceSwapped = 0;
 
         while (totalTimeElapsed <= flashingDuration)
         {
@@ -59,6 +67,7 @@ public class EnemyDamagedVisual : MonoBehaviour
         }
 
         rend.material = defaultMaterial;
+        inProgress = false;
     }
 
     private Material SwapMaterial(Material currentMaterial)
