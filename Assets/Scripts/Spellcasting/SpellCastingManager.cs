@@ -11,6 +11,7 @@ public class SpellCastingManager : MonoBehaviour {
         [Header("References")]
 
         [SerializeField] private Player player;
+        [SerializeField] private SpellCastingBox textBox;
 
         [Header("Data")]
 
@@ -28,7 +29,9 @@ public class SpellCastingManager : MonoBehaviour {
                 }
                 private set {
                         _spellString = value;
-                        //TODO: ADD SPELL BOX DISPLAY FUNCTION HERE!
+
+                        //update UI
+                        if (textBox != null) textBox.SpellText(value);
                 }
         }
 
@@ -70,7 +73,11 @@ public class SpellCastingManager : MonoBehaviour {
                                 if (!this.Cooldowns.ContainsKey(data) || this.Cooldowns[data] <= 0.0f) {
                                         //set cooldown and cast
                                         this.Cooldowns[data] = data.Cooldown;
-                                        data.CastSpell(this.player);
+                                        bool success = data.CastSpell(this.player);
+
+                                        if (!success && this.textBox != null) {
+                                                this.textBox.FailedSpell();
+                                        }
                                 }
                         }
 
