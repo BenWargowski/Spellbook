@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/TutorialLevelScene.unity
     guid: 684e80fb17526fd4395c4e027601a790
   - enabled: 1
-    path: Assets/Scenes/GameScene.unity
+    path: Assets/Scenes/SlimeLevel.unity
     guid: 35454f6c400fd42f8bb67796aec1a840
   - enabled: 1
     path: Assets/Scenes/TomeLevelScene.unity
