@@ -15,10 +15,6 @@ public class ReadyState : BehaviorState
 
     [SerializeField] protected float delayBetweenAttacks;
 
-    [SerializeField] private float minDistanceThreshold;
-
-    [SerializeField] private float maxDistanceThreshold;
-
     protected float timeSinceReadied;
 
     public override void EnterState(BehaviorStateManager manager)

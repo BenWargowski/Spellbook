@@ -5,8 +5,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New ChannelHealState", menuName = "Behavior/ChannelHealState")]
 public class ChannelHealState : BehaviorState
 {
-    [SerializeField] private char keyTile;
-
     [SerializeField] private float healAmount;
 
     [SerializeField] private float delayBetweenHeal;
@@ -17,7 +15,7 @@ public class ChannelHealState : BehaviorState
     public override void EnterState(BehaviorStateManager manager)
     {
         health = manager.GetComponent<EnemyHealth>();
-
+        health.onDamaged += ResetHealing;
         timeSinceHealed = 0;
     }
 
@@ -48,5 +46,10 @@ public class ChannelHealState : BehaviorState
     public override void OnStateTriggerExit(BehaviorStateManager manager, Collider2D other)
     {
 
+    }
+
+    private void ResetHealing()
+    {
+        timeSinceHealed = 0;
     }
 }

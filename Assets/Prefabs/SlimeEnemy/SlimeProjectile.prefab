@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6423020675435524942}
   - component: {fileID: 2652386261642165123}
   - component: {fileID: 995698624017890850}
+  - component: {fileID: 7052583006302305567}
   m_Layer: 0
   m_Name: SlimeProjectile
   m_TagString: Untagged
@@ -28,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 2872422517036203979}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 424982996892959235}
@@ -77,8 +78,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.1285207, g: 0.7924528, b: 0.115877524, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 186bee1fdfc9e284eaced01597ba5108, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -116,14 +117,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51f6754e70e644c4f8aa23ff7c2d559b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  statusToApply: 6
-  statusInfo: {x: 0, y: 0}
   maxAirTime: 5
   collisionLayers:
     serializedVersion: 2
     m_Bits: 8
   trailParticles: {fileID: 4684414656369041772}
   onHitParticles: {fileID: 3685810174497928198}
+--- !u!95 &7052583006302305567
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2872422517036203979}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d094e12ccd328f64cbfc7e30a3740a93, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4721657256816176908
 GameObject:
   m_ObjectHideFlags: 0
@@ -1471,7 +1490,7 @@ ParticleSystem:
         atime5: 0
         atime6: 0
         atime7: 0
-        m_Mode: 1
+        m_Mode: 0
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
       minGradient:

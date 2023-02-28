@@ -13,6 +13,18 @@ public class EnemyMovementManager : MonoBehaviour
 
     private float moveSpeed;
 
+    public float MovementSpeed
+    {
+        get 
+        { 
+            return moveSpeed * statusManager.GetStatModifier(EnemyStat.MOVEMENT_SPEED); 
+        }
+        private set
+        {
+            moveSpeed = Mathf.Max(0, value);
+        }
+    }
+
     private bool isMoving;
     
     private Vector2 targetPosition;
@@ -28,7 +40,8 @@ public class EnemyMovementManager : MonoBehaviour
 
     void Start()
     {
-        transform.position = StageLayout.Instance.TilePositions[startingKey];
+        if (StageLayout.Instance.TilePositions.ContainsKey(startingKey))
+            transform.position = StageLayout.Instance.TilePositions[startingKey];
     }
 
     void Update()
@@ -91,14 +104,14 @@ public class EnemyMovementManager : MonoBehaviour
     {
         if (!isMoving) return;
 
-        float step = moveSpeed * statusManager.GetStatModifier(EnemyStat.MOVEMENT_SPEED) * Time.deltaTime;
+        float step = MovementSpeed * Time.deltaTime;
         transform.position = Vector2.MoveTowards(
             transform.position,
             targetPosition,
             step
         );
 
-        if (Vector2.Distance(transform.position, targetPosition) <= 0.01)
+        if (Vector2.Distance(transform.position, targetPosition) <= 0.01 || MovementSpeed <= 0)
         {
             isMoving = false;
         }
@@ -106,12 +119,11 @@ public class EnemyMovementManager : MonoBehaviour
 
     private void Stunned()
     {
-        Debug.LogFormat("EnemyMovementManager.Stunned");
         ResetTargetPosition();
     }
 
     private void StunRecovery()
     {
-        Debug.LogFormat("EnemyMovementManager.StunRecovery");
+
     }
 }

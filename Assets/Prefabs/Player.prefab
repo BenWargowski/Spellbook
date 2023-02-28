@@ -204,12 +204,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 5344515631323388855}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0f04f52fd3981e428e1059e662f24d5, type: 3}
+  m_Script: {fileID: 11500000, guid: 4db5c112d1bb6a5f39fd7d387e9c13a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  list:
-  - {fileID: 11400000, guid: 70f749a6f47a82b4ea91687b953e83fd, type: 2}
-  - {fileID: 11400000, guid: 9ae7f13861d467f4aa54295d99a4ef25, type: 2}
+  player: {fileID: 5344515631323388845}
+  _spellList:
+  - {fileID: 11400000, guid: 2e0eb4fef8b7e0b3389a7460a9c7c958, type: 2}
+  - {fileID: 11400000, guid: 20cd385ac9fc163fea456915e5547ff8, type: 2}
+  - {fileID: 11400000, guid: 548c34c643ddde555a324807dadda089, type: 2}
+  - {fileID: 11400000, guid: 262d7a0a02f93d435b87117a7f4addae, type: 2}
+  - {fileID: 11400000, guid: 610b043e928b6f4d4baf7c97caf402cf, type: 2}
+  - {fileID: 11400000, guid: e8bf5fd9d4c199d74bce08080157fc22, type: 2}
+  - {fileID: 11400000, guid: 72a7ea66520a8549790ec85705cf10d1, type: 2}
+  - {fileID: 11400000, guid: fbda468e08c404c788d282bf7131d349, type: 2}
+  - {fileID: 11400000, guid: c02577a62a6ad4b8bb0390e00a4bc939, type: 2}
+  - {fileID: 11400000, guid: 7fb4a85d56b5147d5844c5508c81e2d5, type: 2}
+  - {fileID: 11400000, guid: d2786fe20ce1e458890fe723334771fd, type: 2}
+  - {fileID: 11400000, guid: 2191d44efb6ce4b9a92219dec23105cf, type: 2}
+  - {fileID: 11400000, guid: 13e3b25d63e574f72ad255f20f65ad2c, type: 2}
 --- !u!61 &5344515631323388850
 BoxCollider2D:
   m_ObjectHideFlags: 0

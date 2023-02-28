@@ -21,9 +21,9 @@ public class EnemyStatusManager : MonoBehaviour
 
     public bool IsStunned => (GetStatCount(EnemyStat.STUNNED) >= 1);
     public bool IsInvincible => (GetStatCount(EnemyStat.INVINCIBILITY) >= 1);
-    public float FireResistance => (Mathf.Max(0f, baseFireResist + GetStatModifier(EnemyStat.FIRE_RESISTANCE)));
-    public float LightningResistance => (Mathf.Max(0f, baseLightningResist + GetStatModifier(EnemyStat.LIGHTNING_RESISTANCE)));
-    public float RockResistance => (Mathf.Max(0f, baseRockResist + GetStatModifier(EnemyStat.ROCK_RESISTANCE)));
+    public float FireResistance => (Mathf.Max(0f, baseFireResist + GetStatModifier(EnemyStat.FIRE_RESISTANCE, ModifierType.ADDITIVE)));
+    public float LightningResistance => (Mathf.Max(0f, baseLightningResist + GetStatModifier(EnemyStat.LIGHTNING_RESISTANCE, ModifierType.ADDITIVE)));
+    public float RockResistance => (Mathf.Max(0f, baseRockResist + GetStatModifier(EnemyStat.ROCK_RESISTANCE, ModifierType.ADDITIVE)));
 
     void Awake()
     {
@@ -58,6 +58,14 @@ public class EnemyStatusManager : MonoBehaviour
 
         if (statCategory == EnemyStat.STUNNED && IsStunned && onStunned != null)
             onStunned();
+
+        if (IsInvincible)
+        {
+            foreach (KeyValuePair<EnemyStat, HashSet<Status>> pair in statusEffects)
+            {
+                pair.Value.RemoveWhere((x) => x.modifier <= 0);
+            }
+        }
     }
 
     public void RemoveStatusEffect(EnemyStat statCategory)
@@ -75,16 +83,16 @@ public class EnemyStatusManager : MonoBehaviour
         statusEffects[statCategory].Remove(statToRemove);
     }
 
-    public float GetStatModifier(EnemyStat enemyStat)
+    public float GetStatModifier(EnemyStat enemyStat, ModifierType type = ModifierType.MULTIPLICATIVE)
     {
-        float mod = 1;
+        float mod = (type == ModifierType.ADDITIVE ? 0 : 1);
 
         foreach (Status status in statusEffects[enemyStat])
         {
             mod += status.modifier;
         }
 
-        return Mathf.Max(0, mod);
+        return (type == ModifierType.ADDITIVE ? mod : Mathf.Max(0, mod));
     }
 
     public int GetStatCount(EnemyStat enemyStat)
@@ -103,4 +111,10 @@ public enum EnemyStat
     LIGHTNING_RESISTANCE,
     ROCK_RESISTANCE,
     OTHER
+}
+
+public enum ModifierType
+{
+    ADDITIVE,
+    MULTIPLICATIVE
 }

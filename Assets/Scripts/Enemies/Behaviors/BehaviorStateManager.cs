@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -22,7 +23,7 @@ public class BehaviorStateManager : MonoBehaviour
     [SerializeField] private BehaviorState recoveredState;
 
     private EnemyStatusManager statusManager;
-
+    private EnemyHealth health;
     private EnemyMovementManager movementManager;
 
     private Animator animator;
@@ -34,6 +35,8 @@ public class BehaviorStateManager : MonoBehaviour
         statusManager = GetComponent<EnemyStatusManager>();
         statusManager.onStunned += Stunned;
         statusManager.onNotStunned += StunRecovery;
+
+        health = GetComponent<EnemyHealth>();
 
         movementManager = GetComponent<EnemyMovementManager>();
 
@@ -165,14 +168,26 @@ public class BehaviorStateManager : MonoBehaviour
 
     private void Stunned()
     {
-        Debug.LogFormat("BehaviorStateManager.Stunned");
-        ChangeState(stunnedState);
+        ChangeState(health.Health > 0 ? stunnedState : deathState);
     }
 
     private void StunRecovery()
     {
-        Debug.LogFormat("BehaviorStateManager.StunRecovery");
-        ChangeState(recoveredState);
+        ChangeState(health.Health > 0 ? recoveredState : deathState);
+    }
+
+    public event Action onActionLocked;
+    public void LockAction()
+    {
+        if (onActionLocked != null)
+            onActionLocked();
+    }
+
+    public event Action onActionUnlocked;
+        public void UnlockAction()
+    {
+        if (onActionUnlocked != null)
+            onActionUnlocked();
     }
 }
 
@@ -188,4 +203,6 @@ public static class EnemyAnimationTriggers
     public const string Charge = "ChargeTrigger";
     public const string Jump = "JumpTrigger";
     public const string Smash = "SmashTrigger";
+
+    public const string Tail = "TailTrigger";
 }

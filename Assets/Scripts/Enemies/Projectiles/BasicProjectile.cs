@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class BasicProjectile : MonoBehaviour
 {
-    [SerializeField] private PlayerStat statusToApply;
-
-    [SerializeField] private Vector2 statusInfo;
-
     [SerializeField] protected float maxAirTime;
 
     [SerializeField] protected LayerMask collisionLayers;
@@ -18,7 +14,7 @@ public class BasicProjectile : MonoBehaviour
     private float speed;
 
     protected SpriteRenderer sprite;
-    protected CircleCollider2D projectileCollider;
+    protected Collider2D projectileCollider;
     [SerializeField] protected ParticleSystem trailParticles;
     [SerializeField] protected ParticleSystem onHitParticles;
 
@@ -26,11 +22,11 @@ public class BasicProjectile : MonoBehaviour
 
     protected IEnumerator onHitCoroutine;
 
-    void Awake()
+    protected virtual void Awake()
     {
         sprite = GetComponent<SpriteRenderer>();
 
-        projectileCollider = GetComponent<CircleCollider2D>();
+        projectileCollider = GetComponent<Collider2D>();
     }
 
     void Update()
@@ -69,9 +65,6 @@ public class BasicProjectile : MonoBehaviour
             if (other.TryGetComponent<Player>(out hitPlayer)) {
                 //Damage the player
                 hitPlayer.Damage(damage, true, false);
-
-                if (statusInfo != Vector2.zero)
-                    hitPlayer.AddStatusEffect(statusToApply, new Status(statusInfo.x, statusInfo.y));
             }
 
             onHitCoroutine = OnHit();
@@ -96,7 +89,7 @@ public class BasicProjectile : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    public void SetProjectile(Vector3 direction, float damage, float speed)
+    public virtual void SetProjectile(Vector3 direction, float damage, float speed)
     {
         moveDirection = direction;
         this.damage = damage;

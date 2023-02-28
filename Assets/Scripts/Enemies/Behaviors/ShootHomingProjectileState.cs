@@ -42,8 +42,8 @@ public class ShootHomingProjectileState : ShootProjectileState
     {
         manager.SetAnimation(EnemyAnimationTriggers.Shoot);
 
-        Vector3 projectileOrigin = manager.transform.position + new Vector3((manager.GetIsFacingRight() ? 1 : -1) * firePosition.x, firePosition.y, 0);
-        aimDirection = (manager.GetTargetPosition() - new Vector2(projectileOrigin.x, projectileOrigin.y)).normalized;
+        aimDirection = (manager.GetTargetPosition() - new Vector2(manager.transform.position.x, manager.transform.position.y)).normalized;
+        Vector3 projectileOrigin = manager.transform.position + new Vector3(aimDirection.x * firePosition.x, aimDirection.y * firePosition.y, 0);
 
         HomingProjectile projectile = (HomingProjectile)GetProjectile(manager);
         projectile.transform.position = projectileOrigin;

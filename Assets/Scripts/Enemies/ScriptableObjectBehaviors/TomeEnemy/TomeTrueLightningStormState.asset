@@ -19,10 +19,11 @@ MonoBehaviour:
   returningState: {fileID: 11400000, guid: 363b6f802a309f94cbac336290a475e1, type: 2}
   projectilePrefab: {fileID: 1561176330188929299, guid: 629581bd7885c79498a41f56b7928a81, type: 3}
   maxProjectileFire: 5
-  fireRate: 1.25
+  fireRate: 1.65
   projectileDamage: 2.15
   projectileSpeed: 0
-  firePosition: {x: 0, y: 0}
+  firePosition: {x: 0, y: -0.65}
   windDown: 3.5
-  yOriginOffset: -0.65
   tilesPerBurst: 7
+  guaranteedHitProportionChance: 4
+  enterConditionProportionChance: 4

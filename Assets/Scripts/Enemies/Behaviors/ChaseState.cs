@@ -48,7 +48,8 @@ public class ChaseState : BehaviorState
             if (!isReseting)
             {
                 manager.SetAnimation(EnemyAnimationTriggers.Idle); // TO DO: should change to a walk animation if one is created
-                manager.SetMovement(StageLayout.Instance.TilePositions[FindTargetTile(manager, manager.transform.position, minDistanceThreshold, maxDistanceThreshold)], manager.DefaultSpeed);
+                if (manager.DefaultSpeed > 0)
+                    manager.SetMovement(StageLayout.Instance.TilePositions[FindTargetTile(manager, manager.transform.position, minDistanceThreshold, maxDistanceThreshold)], manager.DefaultSpeed);
                 isReseting = true;
             }
             else if (!manager.GetIsMoving())
