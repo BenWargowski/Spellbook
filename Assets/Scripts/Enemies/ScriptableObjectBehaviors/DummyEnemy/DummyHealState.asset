@@ -16,6 +16,6 @@ MonoBehaviour:
   onContactCollisionLayers:
     serializedVersion: 2
     m_Bits: 8
-  keyTile: 65
-  healAmount: 0.35
-  delayBetweenHeal: 0.25
+  keyTile: 71
+  healAmount: 0.1
+  delayBetweenHeal: 1

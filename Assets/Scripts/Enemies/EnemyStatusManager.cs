@@ -58,6 +58,14 @@ public class EnemyStatusManager : MonoBehaviour
 
         if (statCategory == EnemyStat.STUNNED && IsStunned && onStunned != null)
             onStunned();
+
+        if (IsInvincible)
+        {
+            foreach (KeyValuePair<EnemyStat, HashSet<Status>> pair in statusEffects)
+            {
+                pair.Value.RemoveWhere((x) => x.modifier <= 0);
+            }
+        }
     }
 
     public void RemoveStatusEffect(EnemyStat statCategory)

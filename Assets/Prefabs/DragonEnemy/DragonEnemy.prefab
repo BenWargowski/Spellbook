@@ -212,7 +212,7 @@ MonoBehaviour:
   deathState: {fileID: 11400000, guid: a3485afe32341ea42a11ec5c4cb8edc6, type: 2}
   idleState: {fileID: 11400000, guid: dd9d51ab346637a4381fdf64da021a04, type: 2}
   stunnedState: {fileID: 11400000, guid: 7df50d1c057aded49a436d868337939d, type: 2}
-  recoveredState: {fileID: 11400000, guid: 363b6f802a309f94cbac336290a475e1, type: 2}
+  recoveredState: {fileID: 11400000, guid: f96bb706f67cedc4e8eceaaf5fdc7039, type: 2}
 --- !u!114 &7919402895786642749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -238,9 +238,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8b762fa95dbbba419588d3f8c4f3e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseFireResist: 3
+  baseFireResist: 1.5
   baseLightningResist: 0
-  baseRockResist: 1.75
+  baseRockResist: 1
 --- !u!114 &2507317034742160587
 MonoBehaviour:
   m_ObjectHideFlags: 0

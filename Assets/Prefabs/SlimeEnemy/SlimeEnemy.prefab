@@ -121,7 +121,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseFireResist: 0
   baseLightningResist: 0.25
-  baseRockResist: 2.5
+  baseRockResist: 1
 --- !u!114 &1572367700
 MonoBehaviour:
   m_ObjectHideFlags: 0

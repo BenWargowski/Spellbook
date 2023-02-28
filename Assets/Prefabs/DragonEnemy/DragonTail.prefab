@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: b6251f332a5ebee4a848748a14c684a7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 62b95a653f92d5e449d74ec804c85c0e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -103,7 +103,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 15ef8dc4a4753f34cabd240a85a33478, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -175,8 +175,11 @@ MonoBehaviour:
     m_Bits: 8
   trailParticles: {fileID: 0}
   onHitParticles: {fileID: 0}
+  smashSizeMultiplier: 2
   delayForSpawn: 2.15
   onSpawnParticles: {fileID: 5098500472380326489}
+  animationMoveSpeed: 3.5
+  animationYOffset: 8.5
 --- !u!114 &1654967157949462628
 MonoBehaviour:
   m_ObjectHideFlags: 0
