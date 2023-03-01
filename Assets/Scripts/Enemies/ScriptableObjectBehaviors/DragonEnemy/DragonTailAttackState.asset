@@ -16,11 +16,11 @@ MonoBehaviour:
   onContactCollisionLayers:
     serializedVersion: 2
     m_Bits: 8
-  returningState: {fileID: 11400000, guid: f96bb706f67cedc4e8eceaaf5fdc7039, type: 2}
+  returningState: {fileID: 11400000, guid: 9d621d52a9a178047be1c320bb711f6c, type: 2}
   projectilePrefab: {fileID: 2040226945154950961, guid: 7e560b1ed36b6db4894744aa2e4e7a60, type: 3}
   maxProjectileFire: 1
   fireRate: 1.5
-  projectileDamage: 3
+  projectileDamage: 4.25
   projectileSpeed: 0
   firePosition: {x: 0, y: 4.15}
   windDown: 2.5

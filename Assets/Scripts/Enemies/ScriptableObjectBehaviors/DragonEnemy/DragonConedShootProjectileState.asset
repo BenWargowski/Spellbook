@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 444b4adf7df88f644b233fc94b6673c1, type: 3}
+  m_Name: DragonConedShootProjectileState
+  m_EditorClassIdentifier: 
+  behaviorName: DragonConedShootProjectileState
+  onContactCollisionLayers:
+    serializedVersion: 2
+    m_Bits: 8
+  returningState: {fileID: 11400000, guid: 9d621d52a9a178047be1c320bb711f6c, type: 2}
+  projectilePrefab: {fileID: 5780715303387852725, guid: 465df2330f572f846a1c5da5abb5677f, type: 3}
+  maxProjectileFire: 55
+  fireRate: 0.035
+  projectileDamage: 2.5
+  projectileSpeed: 3.25
+  firePosition: {x: 1, y: 1}
+  windDown: 2.5
+  coneDegAngle: 32.5
+  windUp: 1.5
+  windUpParticles: {fileID: 6114238532771599121, guid: 814be4f17e7389743aa0c6bc64cbbaaf, type: 3}

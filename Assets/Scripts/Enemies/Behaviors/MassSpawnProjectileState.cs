@@ -36,7 +36,7 @@ public class MassSpawnProjectileState : SpawnProjectileState
             tiles.Remove(tile);
             targetPositions.Add(StageLayout.Instance.TilePositions[tile]);
         }
-
+        
         manager.SetAnimation(EnemyAnimationTriggers.Shoot);
 
         foreach (Vector2 target in targetPositions)
