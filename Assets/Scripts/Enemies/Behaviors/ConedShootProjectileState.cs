@@ -61,7 +61,7 @@ public class ConedShootProjectileState : ShootProjectileState
     {
         manager.SetAnimation(EnemyAnimationTriggers.Shoot);
 
-        Vector3 conedAimDirection = Quaternion.Euler(0, 0, Random.Range(-coneDegAngle, coneDegAngle)) * aimDirection;
+        Vector3 conedAimDirection = (Quaternion.Euler(0, 0, Random.Range(-coneDegAngle, coneDegAngle)) * aimDirection).normalized;
 
         Vector3 projectileOrigin = manager.transform.position + new Vector3(aimDirection.x * firePosition.x, aimDirection.y * firePosition.y, 0);
 

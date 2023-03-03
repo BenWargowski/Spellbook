@@ -18,8 +18,10 @@ public class DragonTail : AnimatedSpawnedProjectile
         statusManager = FindObjectOfType<EnemyStatusManager>();
         if (statusManager != null)
         {
-            statusManager.onStunned += Stunned;
+            statusManager.onStunned += CancelAttack;
         }
+
+        GameEvents.Instance.playerVictory += CancelAttack;
 
         base.Awake();
     }
@@ -70,16 +72,19 @@ public class DragonTail : AnimatedSpawnedProjectile
         }
     }
 
-    private void Stunned()
+    private void CancelAttack()
     {
         if (!gameObject.activeSelf) return;
 
         hasSpawned = true;
-        
-        StopAllCoroutines();
 
-        windDownCoroutine = WindDown();
-        StartCoroutine(windDownCoroutine);
+        StopCoroutine(windUpCoroutine);
+        
+        if (!isWindingDown)
+        {
+            windDownCoroutine = WindDown();
+            StartCoroutine(windDownCoroutine);
+        }
     }
 
     protected override IEnumerator WindDown()

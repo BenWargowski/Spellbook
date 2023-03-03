@@ -18,6 +18,7 @@ public class AnimatedSpawnedProjectile : BasicProjectile
     protected Animator animator;
     protected float timeSinceEnabled;
     protected bool hasSpawned;
+    protected bool isWindingUp;
     protected bool isWindingDown;
 
     protected IEnumerator windUpCoroutine;
@@ -33,6 +34,8 @@ public class AnimatedSpawnedProjectile : BasicProjectile
     // Update is called once per frame
     void Update()
     {
+        if (isWindingUp) return;
+
         if (timeSinceEnabled >= delayForSpawn)
         {
             if (!hasSpawned) Spawn();
@@ -63,6 +66,7 @@ public class AnimatedSpawnedProjectile : BasicProjectile
         windUpCoroutine = null;
         windDownCoroutine = null;
 
+        isWindingUp = true;
         isWindingDown = false;
         hasSpawned = false;
     }
@@ -123,6 +127,8 @@ public class AnimatedSpawnedProjectile : BasicProjectile
             timeSinceEnabled = 0f;
             yield return null;
         }
+
+        isWindingUp = false;
     }
 
     protected virtual IEnumerator WindDown()
