@@ -2,33 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DragonTail : BasicProjectile
+public class DragonTail : AnimatedSpawnedProjectile
 {
     [SerializeField] private float smashSizeMultiplier;
-
-    [SerializeField] private float delayForSpawn;
     
-    [SerializeField] private ParticleSystem onSpawnParticles;
-
-    [SerializeField] private float animationMoveSpeed;
-
-    [SerializeField] private float animationYOffset;
-
     private BehaviorStateManager behaviorManager;
     private EnemyStatusManager statusManager;
-    private Animator animator;
-    private float timeSinceEnabled;
-    private bool hasSpawned;
-
-    private IEnumerator windUpCoroutine;
-    private IEnumerator windDownCoroutine;
 
     protected override void Awake()
     {
-        base.Awake();
-
-        animator = GetComponent<Animator>();
-
         behaviorManager = FindObjectOfType<BehaviorStateManager>();
         if (behaviorManager != null)
             transform.SetParent(behaviorManager.transform);
@@ -36,56 +18,20 @@ public class DragonTail : BasicProjectile
         statusManager = FindObjectOfType<EnemyStatusManager>();
         if (statusManager != null)
         {
-            statusManager.onStunned += Stunned;
+            statusManager.onStunned += CancelAttack;
         }
+
+        GameEvents.Instance.playerVictory += CancelAttack;
+
+        base.Awake();
     }
 
-    void Update()
+    protected override void OnEnable()
     {
-        if (timeSinceEnabled >= delayForSpawn)
-        {
-            if (!hasSpawned) Spawn();
-
-            currentAirTime += Time.deltaTime;
-
-            if (currentAirTime >= maxAirTime && windDownCoroutine == null)
-            {
-                windDownCoroutine = WindDown();
-                StartCoroutine(windDownCoroutine);
-            }
-        }
-        else
-            timeSinceEnabled += Time.deltaTime;
-    }
-
-    void OnEnable()
-    {
-        timeSinceEnabled = 0;
-
-        currentAirTime = 0;
-
         animator.SetBool("isAttacking", false);
         sprite.color = new Color(0, 0, 0, .5f);
-        projectileCollider.enabled = false;
 
-        windUpCoroutine = null;
-        windDownCoroutine = null;
-
-        hasSpawned = false;
-    }
-
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (collisionLayers == (collisionLayers | (1 << other.gameObject.layer)))
-        {
-            //Check if the other object is a player
-            Player hitPlayer = null;
-            if (other.TryGetComponent<Player>(out hitPlayer))
-            {
-                //Damage the player
-                hitPlayer.Damage(damage, true, false);
-            }
-        }
+        base.OnEnable();
     }
 
     void OnTriggerStay2D(Collider2D other)
@@ -102,19 +48,12 @@ public class DragonTail : BasicProjectile
         }
     }
 
-    public override void SetProjectile(Vector3 direction, float damage, float speed)
+    protected override void Spawn()
     {
-        windUpCoroutine = WindUp();
-        StartCoroutine(windUpCoroutine);
+        base.Spawn();
 
-        base.SetProjectile(direction, damage, speed);
-    }
-
-    private void Spawn()
-    {
         animator.SetBool("isAttacking", true);
         sprite.color = new Color(1, 1, 1, 1);
-        onSpawnParticles.Play();
         projectileCollider.enabled = true;
 
         Collider2D[] colliders = Physics2D.OverlapAreaAll(
@@ -131,37 +70,27 @@ public class DragonTail : BasicProjectile
                 hitPlayer.Damage(damage, true, false);
             }
         }
-
-        hasSpawned = true;
     }
 
-    private void Stunned()
+    private void CancelAttack()
     {
         if (!gameObject.activeSelf) return;
 
         hasSpawned = true;
+
+        StopCoroutine(windUpCoroutine);
         
-        StopAllCoroutines();
-
-        windDownCoroutine = WindDown();
-        StartCoroutine(windDownCoroutine);
-    }
-
-    private IEnumerator WindUp()
-    {
-        Vector3 targetPosition = transform.position;
-        transform.position = new Vector3(transform.position.x, transform.position.y + animationYOffset, transform.position.z);
-
-        while (Vector3.Distance(transform.position, targetPosition) > .01f)
+        if (!isWindingDown)
         {
-            transform.position = Vector3.MoveTowards(transform.position, targetPosition, animationMoveSpeed * Time.deltaTime);
-            timeSinceEnabled = 0f;
-            yield return null;
+            windDownCoroutine = WindDown();
+            StartCoroutine(windDownCoroutine);
         }
     }
 
-    private IEnumerator WindDown()
+    protected override IEnumerator WindDown()
     {
+        isWindingDown = true;
+
         projectileCollider.enabled = false;
 
         Vector3 targetPosition = new Vector3(transform.position.x, transform.position.y + animationYOffset, transform.position.z);

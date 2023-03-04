@@ -36,7 +36,7 @@ public class MassSpawnProjectileState : SpawnProjectileState
             tiles.Remove(tile);
             targetPositions.Add(StageLayout.Instance.TilePositions[tile]);
         }
-
+        
         manager.SetAnimation(EnemyAnimationTriggers.Shoot);
 
         foreach (Vector2 target in targetPositions)
@@ -54,6 +54,16 @@ public class MassSpawnProjectileState : SpawnProjectileState
 
     public override bool EnterCondition(BehaviorStateManager manager)
     {
-        return Random.Range(0, enterConditionProportionChance) == 0 ? true : false;
+        CheckProjectilePool();
+
+        int activeProjectileCount = 0;
+
+        for (int i = 0; i < projectilePool.Count; i++)
+        {
+            if (projectilePool[i].gameObject.activeSelf)
+                activeProjectileCount++;
+        }
+
+        return (Random.Range(0, enterConditionProportionChance) == 0 ? true : false) && activeProjectileCount == 0;
     }
 }

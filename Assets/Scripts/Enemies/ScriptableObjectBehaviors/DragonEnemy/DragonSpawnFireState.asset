@@ -10,20 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 19d0786bd7a67a44ab84fe5714da1ddc, type: 3}
-  m_Name: TomeTrueLightningStormState
+  m_Name: DragonSpawnFireState
   m_EditorClassIdentifier: 
-  behaviorName: TomeTrueLightningStormState
+  behaviorName: DragonSPawnFireState
   onContactCollisionLayers:
     serializedVersion: 2
     m_Bits: 8
-  returningState: {fileID: 11400000, guid: 363b6f802a309f94cbac336290a475e1, type: 2}
-  projectilePrefab: {fileID: 1561176330188929299, guid: 629581bd7885c79498a41f56b7928a81, type: 3}
-  maxProjectileFire: 5
-  fireRate: 2
-  projectileDamage: 2.15
+  returningState: {fileID: 11400000, guid: 9d621d52a9a178047be1c320bb711f6c, type: 2}
+  projectilePrefab: {fileID: 1478955084879059211, guid: 39e7fb1d51cb2e1429c7e40483b4c96e, type: 3}
+  maxProjectileFire: 1
+  fireRate: 1
+  projectileDamage: 1.5
   projectileSpeed: 0
   firePosition: {x: 0, y: -0.65}
-  windDown: 3.5
-  tilesPerBurst: 7
-  guaranteedHitProportionChance: 4
-  enterConditionProportionChance: 4
+  windDown: 1.5
+  tilesPerBurst: 6
+  guaranteedHitProportionChance: 3
+  enterConditionProportionChance: 1
