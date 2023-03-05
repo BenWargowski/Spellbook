@@ -16,11 +16,12 @@ MonoBehaviour:
   manaCost: 8
   cooldown: 0
   playerAnimationName: 
-  effectsPrefab: {fileID: 0}
+  effectsPrefab: {fileID: 6964328329385104095, guid: ce76a524be49e4cc09c2b109ceb977dc, type: 3}
+  spellEffectLocation: 0
   enemyLayer:
     serializedVersion: 2
     m_Bits: 1
-  radius: 15
+  radius: 20
   damage: 7
   element: 2
   stat: 1

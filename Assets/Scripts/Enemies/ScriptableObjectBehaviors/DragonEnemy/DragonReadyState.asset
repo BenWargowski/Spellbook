@@ -17,6 +17,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   Behaviors:
-  - {fileID: 11400000, guid: 9d621d52a9a178047be1c320bb711f6c, type: 2}
   - {fileID: 11400000, guid: a8c9cee0d10b1774a9a0ea05ef565de3, type: 2}
-  delayBetweenAttacks: 1.5
+  - {fileID: 11400000, guid: 29f5c1e3b8573064596cba48695d1f3e, type: 2}
+  - {fileID: 11400000, guid: ff343c2ab62cb60498f7d8bb9af153bb, type: 2}
+  delayBetweenAttacks: 1.35
