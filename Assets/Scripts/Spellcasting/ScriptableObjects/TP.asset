@@ -16,6 +16,7 @@ MonoBehaviour:
   manaCost: 8
   cooldown: 0
   playerAnimationName: 
-  effectsPrefab: {fileID: 0}
+  effectsPrefab: {fileID: 1199003620748557828, guid: 266fc1f4c8813452c8d691b7dd046b8f, type: 3}
+  spellEffectLocation: 1
   duration: 2.5
   limit: 1

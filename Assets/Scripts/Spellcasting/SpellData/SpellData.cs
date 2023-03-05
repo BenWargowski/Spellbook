@@ -12,6 +12,7 @@ public abstract class SpellData : ScriptableObject {
         [Header("VFX/SFX")]
         [SerializeField] protected string playerAnimationName;
         [SerializeField] protected GameObject effectsPrefab;
+        [SerializeField] protected SpellEffectLocation spellEffectLocation;
 
         //Properties to access fields
         public string SpellName => spellName;
@@ -33,7 +34,21 @@ public abstract class SpellData : ScriptableObject {
                 }
 
                 //Spawns effects prefab
-                if (this.effectsPrefab != null) Instantiate(this.effectsPrefab);
+                if (this.effectsPrefab != null) {
+                        GameObject effects = Instantiate(this.effectsPrefab);
+                        switch (spellEffectLocation) {
+                                case SpellEffectLocation.PLAYER:
+                                        effects.transform.position = player.transform.position;
+                                        break;
+                                case SpellEffectLocation.ENEMY:
+                                        effects.transform.position = FindObjectOfType<EnemyHealth>().transform.position;
+                                        break;
+                                case SpellEffectLocation.STAGE_CENTER:
+                                default:
+                                        effects.transform.position = Vector3.zero;
+                                        break;
+                        }
+                }
 
                 return true;
         }

@@ -16,7 +16,8 @@ MonoBehaviour:
   manaCost: 10
   cooldown: 0
   playerAnimationName: 
-  prefab: {fileID: 0}
+  effectsPrefab: {fileID: 4133632919594097471, guid: 9edd5241299ce4aad8222fafc8d2b868, type: 3}
+  spellEffectLocation: 2
   damage: 10
   element: 1
   applyStatusEffect: 1
