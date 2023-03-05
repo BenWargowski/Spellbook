@@ -176,7 +176,7 @@ MonoBehaviour:
   renderer: {fileID: 5344515630762471175}
   baseMaxHealth: 20
   baseMaxMana: 20
-  baseManaRegenRate: 1.25
+  baseManaRegenRate: 0.8
   baseMovementSpeed: 12.5
   baseSpellDamageMultiplier: 1
   baseArmor: 0
