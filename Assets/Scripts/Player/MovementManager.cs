@@ -46,11 +46,10 @@ public class MovementManager : MonoBehaviour {
     private void Update() {
         Move();
 
-        // Update animator variables
-        if (isMoving == true)
-        { animator.SetInteger("isMoving", 1); }
-        else
-        { animator.SetInteger("isMoving", 0); }
+        if (!isMoving) {
+            animator.SetInteger("isMoving", 0);
+        }
+
     }
 
     /// <summary>
@@ -92,13 +91,26 @@ public class MovementManager : MonoBehaviour {
     private void Move() {
         if (!this.isMoving) return;
 
+        //Make a step towards the target position
         float step = this.player.MovementSpeed * Time.deltaTime;
-        this.player.transform.position = Vector2.MoveTowards(
+        Vector2 newPosition = Vector2.MoveTowards(
             this.player.transform.position,
             this.targetPosition,
             step
         );
+        Vector2 delta = (Vector2) this.player.transform.position - newPosition;
 
+        this.player.transform.position = newPosition;
+
+        int animationValue;
+        if (delta.y < -Time.deltaTime) animationValue = 4; //going up
+        else if (delta.y > Time.deltaTime) animationValue = 1; //going down
+        else if (delta.x > 0.0f) animationValue = 2; //going left
+        else animationValue = 3; //going right
+
+        animator.SetInteger("isMoving", animationValue);
+
+        //If we have reached the target position --> stop moving
         if (Vector2.Distance(this.player.transform.position, this.targetPosition) <= 0.01) {
             this.isMoving = false;
         }

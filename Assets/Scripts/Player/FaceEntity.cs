@@ -8,6 +8,8 @@ using UnityEngine;
 [RequireComponent(typeof(SpriteRenderer))]
 public class FaceEntity : MonoBehaviour {
 
+    [SerializeField] private bool active;
+    [SerializeField] private int overrideFlipped; //hacky workaround for Animator to work properly
     [SerializeField] private Transform target;
     [SerializeField] private bool flipped;
 
@@ -19,6 +21,11 @@ public class FaceEntity : MonoBehaviour {
 
     // Update is called once per frame
     private void Update() {
+        if (!active) {
+            if (overrideFlipped != 0) rend.flipX = overrideFlipped == 1;
+            return;
+        }
+
         if (target.position.x < this.transform.position.x) {
             rend.flipX = flipped;
         }
