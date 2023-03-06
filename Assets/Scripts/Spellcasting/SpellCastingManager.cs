@@ -9,9 +9,9 @@ using UnityEngine;
 public class SpellCastingManager : MonoBehaviour {
 
         [Header("References")]
-
         [SerializeField] private Player player;
         [SerializeField] private SpellCastingBox textBox;
+        [SerializeField] private Animator animator;
 
         [Header("Data")]
 
@@ -35,6 +35,11 @@ public class SpellCastingManager : MonoBehaviour {
                 }
         }
 
+        //TODO: this is messy
+        private bool _capsLockInit;
+        private bool _capsLockState;
+        public bool CapsLockState => (_capsLockInit && _capsLockState);
+
         private void Awake() {
                 this.SpellString = string.Empty;
                 this.spells = new Dictionary<string, SpellData>();
@@ -45,6 +50,9 @@ public class SpellCastingManager : MonoBehaviour {
                         this.spells.Add(spell.SpellName.ToUpper(), spell);
                 }
                 this._spellList = null; //free the memory for the list
+
+                _capsLockInit = false;
+                _capsLockState = false;
         }
 
         private void Start() {
@@ -62,7 +70,11 @@ public class SpellCastingManager : MonoBehaviour {
                         }
                 }
 
-
+                if (_capsLockInit && Input.GetKeyDown(KeyCode.CapsLock)) {
+                        _capsLockState = !_capsLockState; //toggle state
+                }
+                animator.SetBool("isSpelling", (Input.GetKey(KeyCode.LeftShift) || CapsLockState));
+                
                 //check for enter key
                 if (Input.GetKeyDown(KeyCode.Return)) {
                         //match spell name
@@ -101,10 +113,20 @@ public class SpellCastingManager : MonoBehaviour {
                 // F         | T          || F                 | spell
                 // T         | F          || T                 | spell
                 // T         | T          || T                 | spell
-                if (!shiftKey && !Char.IsUpper(c)) return;
+                bool isUpper = Char.IsUpper(c);
+                if (!shiftKey && !isUpper) return;
                 c = Char.ToUpper(c);
+
+                //initialize caps lock state
+                //hacky workaround
+                if (!_capsLockInit) {
+                        _capsLockInit = true;
+
+                        if (shiftKey && isUpper) _capsLockState = false;
+                        else if (shiftKey && !isUpper) _capsLockState = true;
+                        else _capsLockState = true;
+                }
 
                 this.SpellString += c;
         }
-
 }
