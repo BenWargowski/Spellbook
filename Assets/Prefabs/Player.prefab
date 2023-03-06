@@ -170,12 +170,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 0}
+  manaBar: {fileID: 0}
   movementManager: {fileID: 5344515631323388844}
   spellCasting: {fileID: 5344515631323388851}
   renderer: {fileID: 5344515630762471175}
   baseMaxHealth: 20
   baseMaxMana: 20
-  baseManaRegenRate: 0.5
+  baseManaRegenRate: 0.8
   baseMovementSpeed: 12.5
   baseSpellDamageMultiplier: 1
   baseArmor: 0
@@ -208,6 +209,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 5344515631323388845}
+  textBox: {fileID: 0}
   _spellList:
   - {fileID: 11400000, guid: 2e0eb4fef8b7e0b3389a7460a9c7c958, type: 2}
   - {fileID: 11400000, guid: 20cd385ac9fc163fea456915e5547ff8, type: 2}
