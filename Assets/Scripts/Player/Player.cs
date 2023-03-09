@@ -47,6 +47,8 @@ public class Player : MonoBehaviour, IDamageable, IHealable{
     private void Start() {
         this.Health = this.baseMaxHealth;
         this.Mana = this.baseMaxMana;
+
+        GameEvents.Instance.playerVictory += Victory;
     }
 
     private void Update() {
@@ -126,6 +128,17 @@ public class Player : MonoBehaviour, IDamageable, IHealable{
 
         //dispatches player death event
         GameEvents.Instance.PlayerDeath();
+        this.enabled = false;
+    }
+
+    private void Victory() {
+        //disable movement and spellcasting
+        this.movementManager.Active = false;
+        this.spellCasting.enabled = false; //TODO: this just disables the component. might not be the greatest solution?
+
+
+        //TODO: play a win animation
+        this.enabled = false;
     }
 
     public void Damage(float damage, bool triggerInvuln, bool ignoreArmor) {
