@@ -73,10 +73,19 @@ public class Tutorial : MonoBehaviour
     private void setTutorialText() {
         if (mode == 0) {
             int strWalkCount = Mathf.Min(walkCount, totalWalkCount); // Just makes sures the presented walkCount is never greater than totalWalkCount.
-            tutorialText.text = String.Format("Move to blinking key by pressing\ncorresponding key on keyboard.\n{0} / {1}", strWalkCount, totalWalkCount);
+
+            //Not completed
+            if (walkCount < totalWalkCount) {
+                tutorialText.text = String.Format("Move to blinking key by pressing\ncorresponding key on keyboard.\n{0} / {1}", strWalkCount, totalWalkCount);
+            }
+            //Completed
+            else {
+                tutorialText.text = "You have completed the Movement tutorial. You can keep practicing movement, or continue to Spellcasting.";
+            }
+
         }
         else {
-            tutorialText.text = "To cast spell: hold shift, type in spell, and press enter.\nDefeat the Dummy Boss to move on.";
+            tutorialText.text = "To cast a spell: hold shift, type in the name of a spell, and press enter.\nDefeat the Dummy Boss to move on.";
         }
     }
 
