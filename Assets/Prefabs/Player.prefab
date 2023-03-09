@@ -118,6 +118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5577bca6047474a42bda68a15035011d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 1
   target: {fileID: 0}
   flipped: 1
 --- !u!1 &5344515631323388855
@@ -210,6 +211,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 5344515631323388845}
   textBox: {fileID: 0}
+  animator: {fileID: 5344515630762471168}
   _spellList:
   - {fileID: 11400000, guid: 2e0eb4fef8b7e0b3389a7460a9c7c958, type: 2}
   - {fileID: 11400000, guid: 20cd385ac9fc163fea456915e5547ff8, type: 2}
