@@ -9,12 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f60f6c9b60533a348a87b6c7da52dfd3, type: 3}
-  m_Name: DummyHealState
+  m_Script: {fileID: 11500000, guid: d8dd5ebf9343e0b4ea58e6dc2c8c624c, type: 3}
+  m_Name: DummyReadyState
   m_EditorClassIdentifier: 
-  behaviorName: DummyHealState
+  behaviorName: DummyReadyState
   onContactCollisionLayers:
     serializedVersion: 2
-    m_Bits: 0
-  healAmount: 0.1
-  delayBetweenHeal: 1
+    m_Bits: 8
+  Behaviors:
+  - {fileID: 11400000, guid: 430bb39e6be6546eb92e6206b5245724, type: 2}
+  - {fileID: 11400000, guid: 7b227e2e9dd1d4a9c98a8a4f54e6d6f0, type: 2}
+  delayBetweenAttacks: 1.5

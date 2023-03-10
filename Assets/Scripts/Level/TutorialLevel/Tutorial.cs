@@ -16,16 +16,24 @@ public class Tutorial : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI tutorialText;
 
+    [SerializeField] private EnemyHealth enemy;
+    [SerializeField] private BehaviorState phaseTwoState;
+
     private int mode; // 0 for walk, 1 for casting
     private int walkCount;
     private char currTile;
+    private bool phaseTwoActivated;
 
 
     void Start()
     {
+        phaseTwoActivated = false;
         mode = 0;
         walkCount = 0;
         setRandTile();
+
+        //janky workaround for constant unmodifiable enemy tick damage -- heavily reduces all incoming damage
+        player.AddStatusEffect(PlayerStat.ARMOR, new Status(75, Mathf.Infinity));
     }
 
 
@@ -65,7 +73,19 @@ public class Tutorial : MonoBehaviour
 
     // Currently does nothing.
     private void castingMode() {
+        //if health is lower than half
+        if (!phaseTwoActivated && enemy.Health != 0 && enemy.Health <= (enemy.MaxHealth / 2.0f)) {
 
+            //switch the target dummy into phase 2 state and display new message
+            BehaviorStateManager stateManager;
+            if (enemy.TryGetComponent<BehaviorStateManager>(out stateManager)) {
+                phaseTwoActivated = true;
+                stateManager.ChangeState(phaseTwoState);
+
+                //heal the dummy back to full hp
+                enemy.Heal(enemy.MaxHealth - enemy.Health);
+            }
+        }
     }
 
 
@@ -85,7 +105,12 @@ public class Tutorial : MonoBehaviour
 
         }
         else {
-            tutorialText.text = "To cast a spell: hold shift, type in the name of a spell, and press enter.\nDefeat the Dummy Boss to move on.";
+            if (phaseTwoActivated) {
+                tutorialText.text = "The dummy can now move and attack. Avoid its attacks and defeat it!";
+            }
+            else {
+                tutorialText.text = "To cast a spell: hold shift, type in the name of a spell, and press enter.\nDefeat the Dummy Boss to move on.";
+            }
         }
     }
 
