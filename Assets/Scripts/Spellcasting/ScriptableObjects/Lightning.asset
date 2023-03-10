@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Lightning
   m_EditorClassIdentifier: 
   spellName: Lightning
-  manaCost: 10
+  manaCost: 50
   cooldown: 0
   playerAnimationName: 
   effectsPrefab: {fileID: 4133632919594097471, guid: 9edd5241299ce4aad8222fafc8d2b868, type: 3}

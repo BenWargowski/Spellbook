@@ -13,7 +13,11 @@ MonoBehaviour:
   m_Name: Shock
   m_EditorClassIdentifier: 
   spellName: Shock
-  manaCost: 6
+  manaCost: 30
+  cooldown: 0
+  playerAnimationName: 
+  effectsPrefab: {fileID: 0}
+  spellEffectLocation: 0
   prefab: {fileID: 7094286980879645727, guid: a518032f082db1c54a4f19387f4413d7, type: 3}
   homing: 0
   projectileSpeed: 2.5

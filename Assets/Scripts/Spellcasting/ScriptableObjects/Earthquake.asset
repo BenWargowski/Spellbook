@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Earthquake
   m_EditorClassIdentifier: 
   spellName: Earthquake
-  manaCost: 8
+  manaCost: 40
   cooldown: 0
   playerAnimationName: 
   effectsPrefab: {fileID: 6964328329385104095, guid: ce76a524be49e4cc09c2b109ceb977dc, type: 3}

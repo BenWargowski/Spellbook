@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Regenerate
   m_EditorClassIdentifier: 
   spellName: Regenerate
-  manaCost: 10
+  manaCost: 50
   cooldown: 0
   playerAnimationName: 
   effectsPrefab: {fileID: 1199003620748557828, guid: a39fea8ed5d7f491c8a7b46590735e00, type: 3}

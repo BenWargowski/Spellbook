@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Channel
   m_EditorClassIdentifier: 
   spellName: Channel
-  manaCost: 5
+  manaCost: 30
   cooldown: 0
   playerAnimationName: 
   effectsPrefab: {fileID: 1199003620748557828, guid: 688ec2dea556247c791b888ef3f55416, type: 3}

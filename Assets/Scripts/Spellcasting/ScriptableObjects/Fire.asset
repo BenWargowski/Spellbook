@@ -13,7 +13,11 @@ MonoBehaviour:
   m_Name: Fire
   m_EditorClassIdentifier: 
   spellName: Fire
-  manaCost: 3
+  manaCost: 20
+  cooldown: 0
+  playerAnimationName: 
+  effectsPrefab: {fileID: 0}
+  spellEffectLocation: 0
   prefab: {fileID: 7094286980879645727, guid: db79d1b263b56a44a9936f975052e865, type: 3}
   homing: 0
   projectileSpeed: 4
