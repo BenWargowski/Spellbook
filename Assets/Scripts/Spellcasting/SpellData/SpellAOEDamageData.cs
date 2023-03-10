@@ -20,14 +20,14 @@ public class SpellAOEDamageData : SpellData {
                 foreach (Collider2D collider in colliders) {
                         EnemyHealth enemyHealth = null;
                         if (collider.TryGetComponent<EnemyHealth>(out enemyHealth)) {
-                                OnHit(enemyHealth);
+                                OnHit(enemyHealth, player);
                         }
                 }
 
                 return true;
         }
 
-        protected virtual void OnHit(EnemyHealth enemyHealth) {
-                enemyHealth.Damage(this.damage, this.element, false);
+        protected virtual void OnHit(EnemyHealth enemyHealth, Player player) {
+                enemyHealth.Damage(this.damage * player.SpellDamageMultiplier, this.element, false);
         }
 }

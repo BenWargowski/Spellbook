@@ -10,9 +10,9 @@ public class SpellAOEStatusDamageData : SpellAOEDamageData {
         [SerializeField] protected float effectDuration;
         [SerializeField] protected float effectModifier;
 
-        protected override void OnHit(EnemyHealth enemyHealth) {
+        protected override void OnHit(EnemyHealth enemyHealth, Player player) {
                 //still damage it
-                base.OnHit(enemyHealth);
+                base.OnHit(enemyHealth, player);
 
                 //Apply specified effect
                 EnemyStatusManager statusManager = null;
