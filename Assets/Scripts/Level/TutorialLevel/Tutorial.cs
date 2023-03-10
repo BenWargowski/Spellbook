@@ -17,12 +17,14 @@ public class Tutorial : MonoBehaviour
     private TextMeshProUGUI tutorialText;
 
     [SerializeField] private EnemyHealth enemy;
+    [SerializeField] private BehaviorState phaseOneForcedState;
     [SerializeField] private BehaviorState phaseTwoState;
 
     private int mode; // 0 for walk, 1 for casting
     private int walkCount;
     private char currTile;
     private bool phaseTwoActivated;
+    private BehaviorStateManager stateManager;
 
 
     void Start()
@@ -34,6 +36,8 @@ public class Tutorial : MonoBehaviour
 
         //janky workaround for constant unmodifiable enemy tick damage -- heavily reduces all incoming damage
         player.AddStatusEffect(PlayerStat.ARMOR, new Status(75, Mathf.Infinity));
+
+        stateManager = enemy.GetComponent<BehaviorStateManager>();
     }
 
 
@@ -73,17 +77,25 @@ public class Tutorial : MonoBehaviour
 
     // Currently does nothing.
     private void castingMode() {
-        //if health is lower than half
-        if (!phaseTwoActivated && enemy.Health != 0 && enemy.Health <= (enemy.MaxHealth / 2.0f)) {
+        //phase two has not been activated yet
+        if (!phaseTwoActivated) {
+            //if health is lower than half
+            if (enemy.Health != 0 && enemy.Health <= (enemy.MaxHealth / 2.0f)) {
+                //switch the target dummy into phase 2 state and display new message
+                if (stateManager != null) {
+                    phaseTwoActivated = true;
+                    stateManager.ChangeState(phaseTwoState);
 
-            //switch the target dummy into phase 2 state and display new message
-            BehaviorStateManager stateManager;
-            if (enemy.TryGetComponent<BehaviorStateManager>(out stateManager)) {
-                phaseTwoActivated = true;
-                stateManager.ChangeState(phaseTwoState);
-
-                //heal the dummy back to full hp
-                enemy.Heal(enemy.MaxHealth - enemy.Health);
+                    //heal the dummy back to full hp
+                    enemy.Heal(enemy.MaxHealth - enemy.Health);
+                }
+            }
+            
+            //force enemy to stay in heal state
+            else {
+                if (stateManager != null) {
+                    stateManager.ChangeState(phaseOneForcedState);
+                }
             }
         }
     }
@@ -96,7 +108,7 @@ public class Tutorial : MonoBehaviour
 
             //Not completed
             if (walkCount < totalWalkCount) {
-                tutorialText.text = String.Format("Move to blinking key by pressing\ncorresponding key on keyboard.\n{0} / {1}", strWalkCount, totalWalkCount);
+                tutorialText.text = String.Format("Move to the blinking key by pressing the\ncorresponding key on the keyboard.\n{0} / {1}", strWalkCount, totalWalkCount);
             }
             //Completed
             else {

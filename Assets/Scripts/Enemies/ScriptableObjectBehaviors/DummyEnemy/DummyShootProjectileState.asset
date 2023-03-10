@@ -21,6 +21,6 @@ MonoBehaviour:
   maxProjectileFire: 1
   fireRate: 1
   projectileDamage: 1.5
-  projectileSpeed: 2
+  projectileSpeed: 3
   firePosition: {x: 0.5, y: 0}
   windDown: 1

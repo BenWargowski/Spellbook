@@ -19,7 +19,7 @@ MonoBehaviour:
   nextStates:
   - {fileID: 11400000, guid: 312debf901f544fffb1b2dfd0fdd665a, type: 2}
   damage: 1
-  maxChasingTime: 3
+  maxChasingTime: 6
   chaseSpeed: 2
   minDistanceThreshold: 0
   maxDistanceThreshold: 1.5

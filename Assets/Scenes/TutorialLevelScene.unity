@@ -689,6 +689,7 @@ MonoBehaviour:
   totalWalkCount: 10
   tutorialText: {fileID: 848842278}
   enemy: {fileID: 2901776416067967096}
+  phaseOneForcedState: {fileID: 11400000, guid: e0349b438f9958946ae948d9163c7066, type: 2}
   phaseTwoState: {fileID: 11400000, guid: 312debf901f544fffb1b2dfd0fdd665a, type: 2}
 --- !u!1 &848842276
 GameObject:
