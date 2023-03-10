@@ -20,5 +20,5 @@ MonoBehaviour:
   spellEffectLocation: 1
   stat: 4
   effectDuration: 10
-  effectModifier: 1
+  effectModifier: 0.375
   heal: 0

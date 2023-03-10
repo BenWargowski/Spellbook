@@ -27,7 +27,7 @@ public class SpellInstantDamageData : SpellData {
                         return false;
                 }
 
-                enemy.Damage(this.damage, this.element, false);
+                enemy.Damage(this.damage * player.SpellDamageMultiplier, this.element, false);
 
                 //Apply status effect if specified
                 if (this.applyStatusEffect) {
