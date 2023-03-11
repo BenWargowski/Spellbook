@@ -26,3 +26,4 @@ MonoBehaviour:
   windDown: 1
   primaryProjectileCount: 14
   secondaryProjectileCount: 9
+  shootClip: {fileID: 8300000, guid: aa660b0d999b1214190fafe03a2dae4b, type: 3}
