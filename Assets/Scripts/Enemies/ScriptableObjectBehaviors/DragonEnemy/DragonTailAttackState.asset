@@ -22,5 +22,12 @@ MonoBehaviour:
   fireRate: 1.5
   projectileDamage: 4.25
   projectileSpeed: 0
-  firePosition: {x: 0, y: 4.15}
+  firePosition: {x: 0, y: 3}
   windDown: 2.5
+  spawnLocations:
+  - {x: -3, y: 0}
+  - {x: -4.5, y: 0}
+  - {x: -5.5, y: 0}
+  - {x: 3, y: 0}
+  - {x: 4.5, y: 0}
+  - {x: 5.5, y: 0}
