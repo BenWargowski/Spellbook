@@ -1109,7 +1109,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 193684381810815641, guid: 0feb76730222b079bb4d82abb9fb2835, type: 3}
       propertyPath: orthographic size
-      value: 6.5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 193684381810815643, guid: 0feb76730222b079bb4d82abb9fb2835, type: 3}
       propertyPath: m_Pivot.x
@@ -1336,7 +1336,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8618109346027275375, guid: 11ab825a77e3a4b9b9c61ab2e470cfb1, type: 3}
       propertyPath: startPosition.y
-      value: 2
+      value: 2.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11ab825a77e3a4b9b9c61ab2e470cfb1, type: 3}
