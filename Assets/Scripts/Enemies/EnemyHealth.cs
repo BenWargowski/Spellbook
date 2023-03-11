@@ -15,6 +15,7 @@ public class EnemyHealth : MonoBehaviour
     private EnemyStatusManager statusManager;
 
     private float currentHealth;
+    public float MaxHealth => maxHealth;
 
     public float Health
     {
