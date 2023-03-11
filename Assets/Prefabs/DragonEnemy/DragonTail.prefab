@@ -175,9 +175,11 @@ MonoBehaviour:
     m_Bits: 8
   trailParticles: {fileID: 0}
   onHitParticles: {fileID: 0}
+  onSpawnClip: {fileID: 8300000, guid: fd007f77481bde742a720cf6b0eefdb3, type: 3}
   tickDamageMultiplier: 1
   delayForSpawn: 1.75
   onSpawnParticles: {fileID: 5098500472380326489}
+  onDespawnParticles: {fileID: 0}
   animationMoveSpeed: 3.5
   animationYOffset: 8.5
   smashSizeMultiplier: 2

@@ -27,7 +27,7 @@ public class DragonSpriteController : EnemySpriteController
 
         transform.rotation = Quaternion.Euler(currentLookDirection);
 
-        isFacingTarget = Mathf.Abs(currentLookDirection.z - lookAngle) < 2.5;
+        isFacingTarget = Mathf.Abs(currentLookDirection.z - lookAngle) < 1.5f;
     }
 
     public override bool GetIsFacingTarget()

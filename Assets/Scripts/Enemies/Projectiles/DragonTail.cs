@@ -31,7 +31,19 @@ public class DragonTail : AnimatedSpawnedProjectile
         animator.SetBool("isAttacking", false);
         sprite.color = new Color(0, 0, 0, .5f);
 
-        base.OnEnable();
+        timeSinceEnabled = 0;
+
+        currentAirTime = 0;
+
+        sprite.enabled = true;
+        projectileCollider.enabled = false;
+
+        windUpCoroutine = null;
+        windDownCoroutine = null;
+
+        isWindingUp = true;
+        isWindingDown = false;
+        hasSpawned = false;
     }
 
     void OnTriggerStay2D(Collider2D other)
