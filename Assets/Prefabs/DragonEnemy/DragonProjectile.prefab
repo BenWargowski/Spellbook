@@ -9840,4 +9840,4 @@ MonoBehaviour:
     m_Bits: 8
   trailParticles: {fileID: 3956340461720629522}
   onHitParticles: {fileID: 4954940547529073784}
-  onSpawnClip: {fileID: 8300000, guid: aa660b0d999b1214190fafe03a2dae4b, type: 3}
+  onSpawnClip: {fileID: 0}
