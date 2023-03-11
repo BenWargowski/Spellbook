@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyDamagedVisual : MonoBehaviour
 {
-    private EnemyHealth health;
+    protected EnemyHealth health;
     protected SpriteRenderer rend;
 
     private Material defaultMaterial;

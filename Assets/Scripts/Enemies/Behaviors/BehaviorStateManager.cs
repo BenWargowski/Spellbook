@@ -27,6 +27,7 @@ public class BehaviorStateManager : MonoBehaviour
     private EnemyMovementManager movementManager;
 
     private Animator animator;
+    private EnemySpriteController spriteController;
 
     void Awake()
     {
@@ -41,6 +42,7 @@ public class BehaviorStateManager : MonoBehaviour
         movementManager = GetComponent<EnemyMovementManager>();
 
         animator = GetComponentInChildren<Animator>();
+        spriteController = GetComponentInChildren<EnemySpriteController>();
     }
 
     void Start()
@@ -76,6 +78,8 @@ public class BehaviorStateManager : MonoBehaviour
     /// </summary>
     public void ChangeState(BehaviorState newState)
     {
+        if (currentState == deathState) return;
+
         currentState.ExitState(this);
         currentState = newState;
         currentState.EnterState(this);
@@ -155,6 +159,14 @@ public class BehaviorStateManager : MonoBehaviour
         {
             return GetTargetPosition().x - transform.position.x > 0;
         }
+    }
+
+    /// <summary>
+    /// Returns bool on whether or not enemy is facing the player target
+    /// </summary>
+    public bool GetIsFacingTarget()
+    {
+        return spriteController.GetIsFacingTarget();
     }
 
     /// <summary>
