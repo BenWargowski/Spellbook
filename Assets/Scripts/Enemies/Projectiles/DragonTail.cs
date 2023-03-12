@@ -31,7 +31,7 @@ public class DragonTail : AnimatedSpawnedProjectile
 
     protected override void OnEnable()
     {
-        animator.SetBool("isAttacking", false);
+        animator.SetTrigger("Shadow");
         sprite.color = new Color(0, 0, 0, .5f);
 
         timeSinceEnabled = 0;
@@ -39,6 +39,7 @@ public class DragonTail : AnimatedSpawnedProjectile
         currentAirTime = 0;
 
         sprite.enabled = true;
+        sprite.flipX = transform.position.x < behaviorManager.transform.position.x;
         projectileCollider.enabled = false;
 
         windUpCoroutine = null;
@@ -67,7 +68,7 @@ public class DragonTail : AnimatedSpawnedProjectile
     {
         base.Spawn();
 
-        animator.SetBool("isAttacking", true);
+        animator.SetTrigger("Normal");
         sprite.color = new Color(1, 1, 1, 1);
         projectileCollider.enabled = true;
 
@@ -105,6 +106,7 @@ public class DragonTail : AnimatedSpawnedProjectile
     protected override IEnumerator WindDown()
     {
         isWindingDown = true;
+        animator.SetTrigger("Normal");
 
         projectileCollider.enabled = false;
 

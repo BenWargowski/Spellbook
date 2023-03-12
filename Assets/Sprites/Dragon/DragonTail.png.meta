@@ -43,11 +43,11 @@ TextureImporter:
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
-  spriteExtrude: 1
+  spriteExtrude: 0
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 256
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -109,9 +109,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 1536
-        width: 768
-        height: 768
+        y: 1539
+        width: 763
+        height: 765
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -130,9 +130,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 768
-        y: 1536
+        y: 1541
         width: 768
-        height: 768
+        height: 763
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,10 +150,10 @@ TextureImporter:
       name: DragonTail_2
       rect:
         serializedVersion: 2
-        x: 0
-        y: 768
-        width: 768
-        height: 768
+        x: 1
+        y: 773
+        width: 762
+        height: 763
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -172,9 +172,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 768
-        y: 768
+        y: 773
         width: 768
-        height: 768
+        height: 763
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -194,7 +194,7 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 768
+        width: 761
         height: 768
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -224,8 +224,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 39acfa803c3e45b42b83dabb31bbf519
-      internalID: 1589701389
+      spriteID: 8706e79b391937d48beb87b3607b7780
+      internalID: -119375283
       vertices: []
       indices: 
       edges: []
@@ -242,7 +242,7 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       DragonTail_4: -949293865
-      DragonTail_5: 1589701389
+      DragonTail_5: -119375283
       DragonTail_0: 1125191826
       DragonTail_3: 1838620767
       DragonTail_1: 1511572551
