@@ -8,12 +8,9 @@ public class CircularShootProjectileState : ShootProjectileState
     [SerializeField] private int primaryProjectileCount;
     [SerializeField] private int secondaryProjectileCount;
 
-    [SerializeField] private AudioClip shootClip;
-
     protected override void Shoot(BehaviorStateManager manager)
     {
         manager.SetAnimation(EnemyAnimationTriggers.Shoot);
-        SoundManager.Instance.PlaySound(shootClip);
 
         int projectileCount = (currentCount % 2 == 0 ? primaryProjectileCount : secondaryProjectileCount);
 

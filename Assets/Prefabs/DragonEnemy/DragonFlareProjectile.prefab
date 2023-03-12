@@ -122,7 +122,7 @@ MonoBehaviour:
     m_Bits: 8
   trailParticles: {fileID: 9030615426956133055}
   onHitParticles: {fileID: 1114626058849130453}
-  onSpawnClip: {fileID: 0}
+  onSpawnClip: {fileID: 8300000, guid: aa660b0d999b1214190fafe03a2dae4b, type: 3}
 --- !u!1 &7084876574534790237
 GameObject:
   m_ObjectHideFlags: 0
