@@ -42,7 +42,8 @@ public abstract class SpellData : ScriptableObject {
                                         effects.transform.position = player.transform.position;
                                         break;
                                 case SpellEffectLocation.ENEMY:
-                                        effects.transform.position = FindObjectOfType<EnemyHealth>().transform.position;
+                                        EnemyHealth enemy = FindObjectOfType<EnemyHealth>();
+                                        if (enemy != null) effects.transform.position = enemy.transform.position;
                                         break;
                                 case SpellEffectLocation.STAGE_CENTER:
                                 default:
