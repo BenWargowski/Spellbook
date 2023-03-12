@@ -17,6 +17,7 @@ public abstract class SpellData : ScriptableObject {
         //Properties to access fields
         public string SpellName => spellName;
         public float Cooldown => cooldown;
+        public int ManaCost => manaCost;
 
         public virtual bool CastSpell(Player player) {
                 //Make sure the player has enough Mana

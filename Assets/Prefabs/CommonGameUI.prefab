@@ -2563,8 +2563,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8563328013063006946}
-  - {fileID: 754112462685215971}
   - {fileID: 5975030930824619612}
+  - {fileID: 754112462685215971}
   - {fileID: 1975400683662322320}
   m_Father: {fileID: 4095352115891714007}
   m_RootOrder: 1
@@ -2619,7 +2619,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1975400685057925907}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -2706,6 +2706,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5975030930824619612}
   - component: {fileID: 5127768900329372503}
+  - component: {fileID: 5513141914716319981}
   m_Layer: 5
   m_Name: BGSegmentHolder
   m_TagString: Untagged
@@ -2726,7 +2727,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1975400685057925907}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -2759,6 +2760,21 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &5513141914716319981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5620041004690556043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2992ef11d9bb145f8925eb9114b2b712, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  segmentPrefab: {fileID: 2562922214818849108, guid: d7f3534a1e879498e968d37324d326f5, type: 3}
+  segmentHolder: {fileID: 5975030930824619612}
+  segmentCount: 5
 --- !u!1 &6847238763871808954
 GameObject:
   m_ObjectHideFlags: 0

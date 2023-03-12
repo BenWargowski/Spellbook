@@ -503,6 +503,17 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &1312769562 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5513141914716319981, guid: 719ca6c0aca17491f82a9ee058894c80, type: 3}
+  m_PrefabInstance: {fileID: 1356856225}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2992ef11d9bb145f8925eb9114b2b712, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1347268364 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5344515631323388847, guid: 764ab981d8b9e4813a6376e3cff67f7a, type: 3}
@@ -1273,6 +1284,10 @@ PrefabInstance:
       propertyPath: textBox
       value: 
       objectReference: {fileID: 1356856227}
+    - target: {fileID: 5344515631323388851, guid: 764ab981d8b9e4813a6376e3cff67f7a, type: 3}
+      propertyPath: manaCostDisplay
+      value: 
+      objectReference: {fileID: 1312769562}
     - target: {fileID: 5344515631323388855, guid: 764ab981d8b9e4813a6376e3cff67f7a, type: 3}
       propertyPath: m_Name
       value: Player
