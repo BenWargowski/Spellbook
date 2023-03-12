@@ -15,15 +15,18 @@ public class DragonTail : AnimatedSpawnedProjectile
         if (behaviorManager != null)
             transform.SetParent(behaviorManager.transform);
 
-        statusManager = FindObjectOfType<EnemyStatusManager>();
+        statusManager = GetComponentInParent<EnemyStatusManager>();
         if (statusManager != null)
         {
             statusManager.onStunned += CancelAttack;
         }
 
-        GameEvents.Instance.playerVictory += CancelAttack;
-
         base.Awake();
+    }
+
+    void Start()
+    {
+        GameEvents.Instance.playerVictory += CancelAttack;
     }
 
     protected override void OnEnable()

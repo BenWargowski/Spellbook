@@ -43,7 +43,7 @@ TextureImporter:
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
-  spriteExtrude: 1
+  spriteExtrude: 0
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
@@ -70,7 +70,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -105,15 +105,15 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: DragonHead_0
+      name: DragonHead_3
       rect:
         serializedVersion: 2
-        x: 0
-        y: 2048
-        width: 1024
+        x: 1024
+        y: 1024
+        width: 1023
         height: 1024
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -126,15 +126,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DragonHead_1
+      name: DragonHead_0
       rect:
         serializedVersion: 2
-        x: 1024
-        y: 2048
-        width: 1024
+        x: 0
+        y: 5
+        width: 1023
         height: 1024
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -147,15 +147,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DragonHead_2
+      name: DragonHead_4
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1024
-        width: 1024
+        x: 2048
+        y: 0
+        width: 1023
         height: 1024
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -168,15 +168,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DragonHead_3
+      name: DragonHead_1
       rect:
         serializedVersion: 2
-        x: 1024
+        x: 0
         y: 1024
-        width: 1024
+        width: 1023
         height: 1024
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -189,15 +189,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DragonHead_4
+      name: DragonHead_5
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1024
+        x: 2049
+        y: 1019
+        width: 1023
         height: 1024
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -210,15 +210,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DragonHead_5
+      name: DragonHead_2
       rect:
         serializedVersion: 2
         x: 1024
-        y: 0
-        width: 1024
+        y: 5
+        width: 1023
         height: 1024
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -241,12 +241,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      DragonHead_3: -1025608455
-      DragonHead_4: -2117748127
-      DragonHead_0: -1812524320
-      DragonHead_2: 11093246
-      DragonHead_5: 370382267
-      DragonHead_1: -313084856
+      DragonHead_3: -1812524320
+      DragonHead_4: 11093246
+      DragonHead_0: -313084856
+      DragonHead_2: 370382267
+      DragonHead_5: -2117748127
+      DragonHead_1: -1025608455
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -7,7 +7,7 @@ public class SpawnProjectileState : ShootProjectileState
 {
     protected override void Shoot(BehaviorStateManager manager)
     {
-        manager.SetAnimation(EnemyAnimationTriggers.Shoot);
+        manager.SetAnimation(EnemyAnimationTriggers.Spawn);
 
         BasicProjectile projectile = GetProjectile(manager);
         Vector2 projectileOrigin = manager.GetTargetPosition();

@@ -210,6 +210,7 @@ public static class EnemyAnimationTriggers
     public const string Stunned = "StunnedTrigger";
     public const string WindUp = "WindUpTrigger";
     public const string Shoot = "ShootTrigger";
+    public const string Spawn = "SpawnTrigger";
 
     public const string Chase = "ChaseTrigger";
     public const string Charge = "ChargeTrigger";

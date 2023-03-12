@@ -22,8 +22,8 @@ MonoBehaviour:
   fireRate: 0.035
   projectileDamage: 2.5
   projectileSpeed: 3.25
-  firePosition: {x: 1, y: 1}
-  windDown: 2.5
+  firePosition: {x: 3.25, y: 3.25}
+  windDown: 1
   coneDegAngle: 32.5
-  windUp: 1.5
+  windUp: 1.75
   windUpParticles: {fileID: 6114238532771599121, guid: 814be4f17e7389743aa0c6bc64cbbaaf, type: 3}
