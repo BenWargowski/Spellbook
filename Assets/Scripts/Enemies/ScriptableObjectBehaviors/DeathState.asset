@@ -16,3 +16,4 @@ MonoBehaviour:
   onContactCollisionLayers:
     serializedVersion: 2
     m_Bits: 0
+  deathClip: {fileID: 8300000, guid: fd007f77481bde742a720cf6b0eefdb3, type: 3}
