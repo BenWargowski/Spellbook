@@ -29,8 +29,8 @@ public class SoundUI : MonoBehaviour
 
     void Start()
     {
-        float musicVolume = PlayerPrefs.GetFloat(mixerMusic);
-        float sfxVolume = PlayerPrefs.GetFloat(mixerSFX);
+        float musicVolume = PlayerPrefs.GetFloat(mixerMusic, 0f);
+        float sfxVolume = PlayerPrefs.GetFloat(mixerSFX, 0f);
 
         bool musicIsToggled = PlayerPrefs.GetInt(mixerMusicToggled, 1) == 1 ? true : false;
         bool sfxIsToggled = PlayerPrefs.GetInt(mixerSFXToggled, 1) == 1 ? true : false;
