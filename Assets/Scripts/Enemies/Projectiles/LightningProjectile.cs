@@ -46,6 +46,7 @@ public class LightningProjectile : BasicProjectile
     {
         sprite.enabled = true;
         onSpawnParticles.Play();
+        SoundManager.Instance.PlaySound(onSpawnClip);
 
         hasSpawned = true;
 

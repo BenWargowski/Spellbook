@@ -21,6 +21,8 @@ public class SmashState : BehaviorState
 
     [SerializeField] private GameObject particlesPrefab;
 
+    [SerializeField] private AudioClip smashClip;
+
     private char tileKey;
     private bool hasSmashed;
     private float timeSinceSmashed;
@@ -87,6 +89,7 @@ public class SmashState : BehaviorState
     {
         smashParticlesInstance.transform.position = manager.transform.position;
         smashParticlesInstance.Play();
+        SoundManager.Instance.PlaySound(smashClip);
 
         Vector2 origin = new Vector2(manager.transform.position.x, manager.transform.position.y);
 

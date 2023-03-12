@@ -9,6 +9,7 @@ public class AnimatedSpawnedProjectile : BasicProjectile
     [SerializeField] protected float delayForSpawn;
 
     [SerializeField] protected ParticleSystem onSpawnParticles;
+    [SerializeField] protected ParticleSystem onDespawnParticles;
 
     [SerializeField] protected float animationMoveSpeed;
 
@@ -58,10 +59,9 @@ public class AnimatedSpawnedProjectile : BasicProjectile
 
         currentAirTime = 0;
 
+        sprite.enabled = true;
         projectileCollider.enabled = false;
-
-        if (trailParticles != null)
-            trailParticles.Play();
+        trailParticles.Play();
 
         windUpCoroutine = null;
         windDownCoroutine = null;
@@ -112,6 +112,7 @@ public class AnimatedSpawnedProjectile : BasicProjectile
         projectileCollider.enabled = true;
 
         onSpawnParticles.Play();
+        SoundManager.Instance.PlaySound(onSpawnClip);
 
         hasSpawned = true;
     }
@@ -135,9 +136,15 @@ public class AnimatedSpawnedProjectile : BasicProjectile
     {
         isWindingDown = true;
 
-        yield return null;
-
+        sprite.enabled = false;
         projectileCollider.enabled = false;
+        trailParticles.Stop();
+        onDespawnParticles.Play();
+
+        while (onDespawnParticles.isPlaying)
+        {
+            yield return null;
+        }
 
         gameObject.SetActive(false);
     }

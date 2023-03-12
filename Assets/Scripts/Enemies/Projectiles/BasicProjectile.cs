@@ -17,6 +17,7 @@ public class BasicProjectile : MonoBehaviour
     protected Collider2D projectileCollider;
     [SerializeField] protected ParticleSystem trailParticles;
     [SerializeField] protected ParticleSystem onHitParticles;
+    [SerializeField] protected AudioClip onSpawnClip;
 
     protected bool hasHit = false;
 
@@ -49,6 +50,7 @@ public class BasicProjectile : MonoBehaviour
         sprite.enabled = true;
         projectileCollider.enabled = true;
         trailParticles.Play();
+        SoundManager.Instance.PlaySound(onSpawnClip);
 
         hasHit = false;
     }

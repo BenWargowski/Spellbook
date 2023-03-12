@@ -24,3 +24,4 @@ MonoBehaviour:
   maxDistanceThreshold: 1
   particlesPrefab: {fileID: 8448905160726681702, guid: 950eb0c416281644697afa4c24dbf451, type: 3}
   particlesPosition: {x: -0.25, y: -0.35}
+  chargeClip: {fileID: 8300000, guid: 68babdc4fdc744c4dae00022fbed1932, type: 3}

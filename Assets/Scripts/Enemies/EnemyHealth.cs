@@ -15,6 +15,7 @@ public class EnemyHealth : MonoBehaviour
     private EnemyStatusManager statusManager;
 
     private float currentHealth;
+    public float MaxHealth => maxHealth;
 
     public float Health
     {
@@ -58,7 +59,7 @@ public class EnemyHealth : MonoBehaviour
             }
         }
 
-        if (damage <= 0) return;
+        if (damage <= 0 || float.IsNaN(damage)) return;
 
         Health -= damage;
 

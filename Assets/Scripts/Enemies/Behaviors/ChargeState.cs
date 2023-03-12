@@ -21,6 +21,8 @@ public class ChargeState : BehaviorState
 
     [SerializeField] private Vector2 particlesPosition;
 
+    [SerializeField] private AudioClip chargeClip;
+
     private char tileKey;
     private float timeSinceCharged;
     private bool hasCharged;
@@ -86,9 +88,9 @@ public class ChargeState : BehaviorState
     private void Charge(BehaviorStateManager manager)
     {
         manager.SetAnimation(EnemyAnimationTriggers.Charge);
+        SoundManager.Instance.PlaySound(chargeClip);
 
         tileKey = FindTargetTile(manager, manager.GetTargetPosition(), minDistanceThreshold, maxDistanceThreshold);
-
         manager.SetMovement(StageLayout.Instance.TilePositions[tileKey], chargeSpeed);
 
         hasCharged = true;

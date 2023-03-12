@@ -37,7 +37,7 @@ public class MassSpawnProjectileState : SpawnProjectileState
             targetPositions.Add(StageLayout.Instance.TilePositions[tile]);
         }
         
-        manager.SetAnimation(EnemyAnimationTriggers.Shoot);
+        manager.SetAnimation(EnemyAnimationTriggers.Spawn);
 
         foreach (Vector2 target in targetPositions)
         {
