@@ -233,7 +233,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1975400684134274900, guid: 719ca6c0aca17491f82a9ee058894c80, type: 3}
       propertyPath: m_text
-      value: Tome
+      value: Tome of Inazuma
+      objectReference: {fileID: 0}
+    - target: {fileID: 1975400684134274900, guid: 719ca6c0aca17491f82a9ee058894c80, type: 3}
+      propertyPath: m_fontSize
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 1975400684134274900, guid: 719ca6c0aca17491f82a9ee058894c80, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 1975400684569443614, guid: 719ca6c0aca17491f82a9ee058894c80, type: 3}
       propertyPath: m_AnchorMax.x
