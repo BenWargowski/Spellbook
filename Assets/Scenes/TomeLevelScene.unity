@@ -813,6 +813,26 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 289892798}
+    - target: {fileID: 5344515631323388845, guid: 764ab981d8b9e4813a6376e3cff67f7a, type: 3}
+      propertyPath: healingIcon
+      value: 
+      objectReference: {fileID: 2057138700}
+    - target: {fileID: 5344515631323388845, guid: 764ab981d8b9e4813a6376e3cff67f7a, type: 3}
+      propertyPath: armorBoostIcon
+      value: 
+      objectReference: {fileID: 2057138696}
+    - target: {fileID: 5344515631323388845, guid: 764ab981d8b9e4813a6376e3cff67f7a, type: 3}
+      propertyPath: manaRegenBoostIcon
+      value: 
+      objectReference: {fileID: 2057138699}
+    - target: {fileID: 5344515631323388845, guid: 764ab981d8b9e4813a6376e3cff67f7a, type: 3}
+      propertyPath: spellDamageBoostIcon
+      value: 
+      objectReference: {fileID: 2057138698}
+    - target: {fileID: 5344515631323388845, guid: 764ab981d8b9e4813a6376e3cff67f7a, type: 3}
+      propertyPath: <TeleportIcon>k__BackingField
+      value: 
+      objectReference: {fileID: 2057138697}
     - target: {fileID: 5344515631323388847, guid: 764ab981d8b9e4813a6376e3cff67f7a, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -1149,6 +1169,31 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2049807977}
   m_CullTransparentMesh: 1
+--- !u!1 &2057138696 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4746087834112192510, guid: 719ca6c0aca17491f82a9ee058894c80, type: 3}
+  m_PrefabInstance: {fileID: 289892794}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2057138697 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4471076277697163310, guid: 719ca6c0aca17491f82a9ee058894c80, type: 3}
+  m_PrefabInstance: {fileID: 289892794}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2057138698 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2156764927452397563, guid: 719ca6c0aca17491f82a9ee058894c80, type: 3}
+  m_PrefabInstance: {fileID: 289892794}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2057138699 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4151094039962825170, guid: 719ca6c0aca17491f82a9ee058894c80, type: 3}
+  m_PrefabInstance: {fileID: 289892794}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2057138700 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1537185997587472971, guid: 719ca6c0aca17491f82a9ee058894c80, type: 3}
+  m_PrefabInstance: {fileID: 289892794}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2139533274
 PrefabInstance:
   m_ObjectHideFlags: 0

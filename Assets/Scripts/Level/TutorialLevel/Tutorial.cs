@@ -35,7 +35,7 @@ public class Tutorial : MonoBehaviour
         setRandTile();
 
         //janky workaround for constant unmodifiable enemy tick damage -- heavily reduces all incoming damage
-        player.AddStatusEffect(PlayerStat.ARMOR, new Status(75, Mathf.Infinity));
+        player.AddStatusEffect(PlayerStat.ARMOR, new Status(75, Mathf.Infinity), true);
 
         stateManager = enemy.GetComponent<BehaviorStateManager>();
     }

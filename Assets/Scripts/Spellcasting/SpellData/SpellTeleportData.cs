@@ -28,6 +28,7 @@ public class SpellTeleportData : SpellData {
     public IEnumerator TeleportMechanism(Player player) {
         //initialize allow next move to be a teleport
         player.MovementManager.Teleport = true;
+        player.TeleportIcon.SetActive(true);
         
         int count = 0;
         //my signature cursed for loop
@@ -40,6 +41,7 @@ public class SpellTeleportData : SpellData {
             yield return null;
         }
 
+        player.TeleportIcon.SetActive(false);
         player.MovementManager.Teleport = false;
     }
 
