@@ -24,3 +24,4 @@ MonoBehaviour:
   minDistanceThreshold: 0
   maxDistanceThreshold: 3.5
   particlesPrefab: {fileID: 1199003620748557828, guid: c52dedf2f172cad40bca5bf63f22c9f5, type: 3}
+  smashClip: {fileID: 8300000, guid: fd007f77481bde742a720cf6b0eefdb3, type: 3}

@@ -123,6 +123,7 @@ MonoBehaviour:
     m_Bits: 8
   trailParticles: {fileID: 4684414656369041772}
   onHitParticles: {fileID: 3685810174497928198}
+  onSpawnClip: {fileID: 8300000, guid: aa660b0d999b1214190fafe03a2dae4b, type: 3}
 --- !u!95 &7052583006302305567
 Animator:
   serializedVersion: 4

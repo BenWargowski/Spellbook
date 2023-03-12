@@ -13,6 +13,7 @@ public class ConedShootProjectileState : ShootProjectileState
 
     private ParticleSystem particleSystemInstance;
     private float timeSinceEntered;
+    private bool startedShooting;
 
     public override void EnterState(BehaviorStateManager manager)
     {
@@ -21,6 +22,8 @@ public class ConedShootProjectileState : ShootProjectileState
         aimDirection = (manager.GetTargetPosition() - new Vector2(manager.transform.position.x, manager.transform.position.y)).normalized;
 
         timeSinceEntered = 0f;
+
+        startedShooting = false;
 
         if (particleSystemInstance == null)
         {
@@ -34,16 +37,15 @@ public class ConedShootProjectileState : ShootProjectileState
 
     public override void UpdateState(BehaviorStateManager manager)
     {
-        if (currentCount >= maxProjectileFire)
-        {
-            aimDirection = (manager.GetTargetPosition() - new Vector2(manager.transform.position.x, manager.transform.position.y)).normalized;
-            particleSystemInstance.transform.position = manager.transform.position + new Vector3(aimDirection.x * firePosition.x, aimDirection.y * firePosition.y, 0);
-        }
-
         if (timeSinceEntered < windUp)
         {
             timeSinceEntered += Time.deltaTime;
             return;
+        }
+        else if (!startedShooting)
+        {
+            manager.SetAnimation(EnemyAnimationTriggers.Shoot);
+            startedShooting = true;
         }
 
         base.UpdateState(manager);
@@ -59,8 +61,6 @@ public class ConedShootProjectileState : ShootProjectileState
 
     protected override void Shoot(BehaviorStateManager manager)
     {
-        manager.SetAnimation(EnemyAnimationTriggers.Shoot);
-
         Vector3 conedAimDirection = (Quaternion.Euler(0, 0, Random.Range(-coneDegAngle, coneDegAngle)) * aimDirection).normalized;
 
         Vector3 projectileOrigin = manager.transform.position + new Vector3(aimDirection.x * firePosition.x, aimDirection.y * firePosition.y, 0);
@@ -72,11 +72,5 @@ public class ConedShootProjectileState : ShootProjectileState
         timeSinceFired = 0;
 
         currentCount++;
-
-        if (currentCount >= maxProjectileFire)
-        {
-            particleSystemInstance.Stop();
-            manager.UnlockAction();
-        }
     }
 }

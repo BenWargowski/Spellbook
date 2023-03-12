@@ -78,7 +78,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 4
+  m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: 62b95a653f92d5e449d74ec804c85c0e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -143,7 +143,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_UsedByComposite: 1
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -175,11 +175,13 @@ MonoBehaviour:
     m_Bits: 8
   trailParticles: {fileID: 0}
   onHitParticles: {fileID: 0}
+  onSpawnClip: {fileID: 8300000, guid: fd007f77481bde742a720cf6b0eefdb3, type: 3}
   tickDamageMultiplier: 1
   delayForSpawn: 1.75
   onSpawnParticles: {fileID: 5098500472380326489}
-  animationMoveSpeed: 3.5
-  animationYOffset: 8.5
+  onDespawnParticles: {fileID: 0}
+  animationMoveSpeed: 5
+  animationYOffset: 12.5
   smashSizeMultiplier: 2
 --- !u!114 &1654967157949462628
 MonoBehaviour:

@@ -59,7 +59,7 @@ public class EnemyHealth : MonoBehaviour
             }
         }
 
-        if (damage <= 0) return;
+        if (damage <= 0 || float.IsNaN(damage)) return;
 
         Health -= damage;
 

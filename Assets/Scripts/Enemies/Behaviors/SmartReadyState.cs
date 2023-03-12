@@ -14,7 +14,9 @@ public class SmartReadyState : ReadyState
 
         if (!manager.GetIsMoving() && timeSinceReadied >= delayBetweenAttacks)
         {
-            manager.ChangeState(ChooseState(manager));
+            BehaviorState newState = ChooseState(manager);
+            
+            if (newState != null) manager.ChangeState(newState);
         }
     }
 
@@ -24,6 +26,8 @@ public class SmartReadyState : ReadyState
     /// <returns>A BehaviorState to change into</returns>
     private BehaviorState ChooseState(BehaviorStateManager manager)
     {
+        BehaviorState chosenState = null;
+
         if (satchel.Count == 0)
         {
             satchel = new List<BehaviorState>(Behaviors);
@@ -33,6 +37,9 @@ public class SmartReadyState : ReadyState
         BehaviorState state = satchel[j];
         satchel.RemoveAt(j);
 
-        return state.EnterCondition(manager) ? state : ChooseState(manager);
+        if (state.EnterCondition(manager))
+            chosenState = state;
+
+        return chosenState;
     }
 }

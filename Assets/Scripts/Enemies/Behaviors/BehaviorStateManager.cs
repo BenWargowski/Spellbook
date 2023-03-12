@@ -27,6 +27,7 @@ public class BehaviorStateManager : MonoBehaviour
     private EnemyMovementManager movementManager;
 
     private Animator animator;
+    private EnemySpriteController spriteController;
 
     void Awake()
     {
@@ -41,6 +42,7 @@ public class BehaviorStateManager : MonoBehaviour
         movementManager = GetComponent<EnemyMovementManager>();
 
         animator = GetComponentInChildren<Animator>();
+        spriteController = GetComponentInChildren<EnemySpriteController>();
     }
 
     void Start()
@@ -76,6 +78,8 @@ public class BehaviorStateManager : MonoBehaviour
     /// </summary>
     public void ChangeState(BehaviorState newState)
     {
+        if (currentState == deathState) return;
+
         currentState.ExitState(this);
         currentState = newState;
         currentState.EnterState(this);
@@ -158,6 +162,14 @@ public class BehaviorStateManager : MonoBehaviour
     }
 
     /// <summary>
+    /// Returns bool on whether or not enemy is facing the player target
+    /// </summary>
+    public bool GetIsFacingTarget()
+    {
+        return spriteController.GetIsFacingTarget();
+    }
+
+    /// <summary>
     /// Used by BehaviorStates to update enemy animation
     /// </summary>
     /// <param name="triggerName">string name of trigger used to set animation</param>
@@ -198,6 +210,7 @@ public static class EnemyAnimationTriggers
     public const string Stunned = "StunnedTrigger";
     public const string WindUp = "WindUpTrigger";
     public const string Shoot = "ShootTrigger";
+    public const string Spawn = "SpawnTrigger";
 
     public const string Chase = "ChaseTrigger";
     public const string Charge = "ChargeTrigger";
