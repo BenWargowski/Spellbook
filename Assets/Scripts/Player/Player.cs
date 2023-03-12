@@ -12,7 +12,7 @@ public class Player : MonoBehaviour, IDamageable, IHealable{
 
     [Header("References")]
     [SerializeField] private HealthBar healthBar;
-    [SerializeField] private HealthBar manaBar;
+    [SerializeField] private SegmentedBar manaBar;
     [SerializeField] private MovementManager movementManager;
     [SerializeField] private SpellCastingManager spellCasting;
     [SerializeField] private new SpriteRenderer renderer;

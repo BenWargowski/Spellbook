@@ -477,13 +477,13 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &388807009 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1975400685057925906, guid: 719ca6c0aca17491f82a9ee058894c80, type: 3}
+  m_CorrespondingSourceObject: {fileID: 4969277489773188820, guid: 719ca6c0aca17491f82a9ee058894c80, type: 3}
   m_PrefabInstance: {fileID: 388807007}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef76b5a39ac1ef6498ce3ac611507f27, type: 3}
+  m_Script: {fileID: 11500000, guid: 2992ef11d9bb145f8925eb9114b2b712, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &388807010 stripped
@@ -1004,6 +1004,10 @@ PrefabInstance:
       propertyPath: list.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5344515631323388851, guid: 764ab981d8b9e4813a6376e3cff67f7a, type: 3}
+      propertyPath: manaCostDisplay
+      value: 
+      objectReference: {fileID: 1807174762}
     - target: {fileID: 5344515631323388855, guid: 764ab981d8b9e4813a6376e3cff67f7a, type: 3}
       propertyPath: m_Name
       value: Player
@@ -1187,6 +1191,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1807174762 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5513141914716319981, guid: 719ca6c0aca17491f82a9ee058894c80, type: 3}
+  m_PrefabInstance: {fileID: 388807007}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2992ef11d9bb145f8925eb9114b2b712, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1950893957
 GameObject:
   m_ObjectHideFlags: 0

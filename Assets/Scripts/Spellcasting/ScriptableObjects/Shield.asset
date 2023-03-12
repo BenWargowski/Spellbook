@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Shield
   m_EditorClassIdentifier: 
   spellName: Shield
-  manaCost: 5
+  manaCost: 30
   cooldown: 0
   playerAnimationName: 
   effectsPrefab: {fileID: 1199003620748557828, guid: 87f342ce9a2cf427794f1e13e0ed4823, type: 3}

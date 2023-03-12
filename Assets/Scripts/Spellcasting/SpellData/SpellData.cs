@@ -17,6 +17,7 @@ public abstract class SpellData : ScriptableObject {
         //Properties to access fields
         public string SpellName => spellName;
         public float Cooldown => cooldown;
+        public int ManaCost => manaCost;
 
         public virtual bool CastSpell(Player player) {
                 //Make sure the player has enough Mana
@@ -41,7 +42,8 @@ public abstract class SpellData : ScriptableObject {
                                         effects.transform.position = player.transform.position;
                                         break;
                                 case SpellEffectLocation.ENEMY:
-                                        effects.transform.position = FindObjectOfType<EnemyHealth>().transform.position;
+                                        EnemyHealth enemy = FindObjectOfType<EnemyHealth>();
+                                        if (enemy != null) effects.transform.position = enemy.transform.position;
                                         break;
                                 case SpellEffectLocation.STAGE_CENTER:
                                 default:

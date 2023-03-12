@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: TP
   m_EditorClassIdentifier: 
   spellName: TP
-  manaCost: 8
+  manaCost: 40
   cooldown: 0
   playerAnimationName: 
   effectsPrefab: {fileID: 1199003620748557828, guid: 266fc1f4c8813452c8d691b7dd046b8f, type: 3}

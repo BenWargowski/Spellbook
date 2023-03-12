@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Teleport
   m_EditorClassIdentifier: 
   spellName: Teleport
-  manaCost: 8
+  manaCost: 40
   cooldown: 0
   playerAnimationName: 
   effectsPrefab: {fileID: 1199003620748557828, guid: c945033747367467394b669c86dc7c46, type: 3}

@@ -11,6 +11,7 @@ public class SpellCastingManager : MonoBehaviour {
         [Header("References")]
         [SerializeField] private Player player;
         [SerializeField] private SpellCastingBox textBox;
+        [SerializeField] private SegmentedBar manaCostDisplay;
         [SerializeField] private Animator animator;
 
         [Header("Data")]
@@ -103,6 +104,15 @@ public class SpellCastingManager : MonoBehaviour {
                         if (this.SpellString.Length > 0) {
                                 this.SpellString = this.SpellString.Substring(0, this.SpellString.Length - 1);
                         }
+                }
+
+                //Update mana cost display
+                if (this.spells.ContainsKey(this.SpellString)) {
+                        this.manaCostDisplay.gameObject.SetActive(true);
+                        this.manaCostDisplay.UpdateBar(this.spells[this.SpellString].ManaCost, player.MaxMana);
+                }
+                else if (this.manaCostDisplay.gameObject.activeInHierarchy) {
+                        this.manaCostDisplay.gameObject.SetActive(false);
                 }
         }
 
