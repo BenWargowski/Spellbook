@@ -30,3 +30,4 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   checkRadius: 3.5
+  clip: {fileID: 8300000, guid: fd007f77481bde742a720cf6b0eefdb3, type: 3}

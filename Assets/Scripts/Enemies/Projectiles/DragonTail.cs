@@ -39,7 +39,7 @@ public class DragonTail : AnimatedSpawnedProjectile
         currentAirTime = 0;
 
         sprite.enabled = true;
-        sprite.flipX = transform.position.x < behaviorManager.transform.position.x;
+        sprite.flipX = transform.position.x > behaviorManager.transform.position.x;
         projectileCollider.enabled = false;
 
         windUpCoroutine = null;
