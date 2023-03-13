@@ -184,8 +184,7 @@ MonoBehaviour:
   m_text: Quit
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
-  m_sharedMaterial: {fileID: 3249814384840925403, guid: 1d7dda6dcd956264e89464535f01f627,
-    type: 2}
+  m_sharedMaterial: {fileID: 3249814384840925403, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -624,8 +623,7 @@ MonoBehaviour:
   m_text: Return
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
-  m_sharedMaterial: {fileID: 3249814384840925403, guid: 1d7dda6dcd956264e89464535f01f627,
-    type: 2}
+  m_sharedMaterial: {fileID: 3249814384840925403, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -884,8 +882,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3da52a08260bf473f85e748c672b344f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Spell>k__BackingField: {fileID: 11400000, guid: 2191d44efb6ce4b9a92219dec23105cf,
-    type: 2}
+  <Spell>k__BackingField: {fileID: 11400000, guid: 2191d44efb6ce4b9a92219dec23105cf, type: 2}
 --- !u!1 &95842782
 GameObject:
   m_ObjectHideFlags: 0
@@ -947,8 +944,7 @@ MonoBehaviour:
   m_text: Slowly recover a larger amount of health over time.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
-  m_sharedMaterial: {fileID: 3249814384840925403, guid: 1d7dda6dcd956264e89464535f01f627,
-    type: 2}
+  m_sharedMaterial: {fileID: 3249814384840925403, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1217,8 +1213,7 @@ MonoBehaviour:
   m_text: Throws a fire projectile.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
-  m_sharedMaterial: {fileID: 3249814384840925403, guid: 1d7dda6dcd956264e89464535f01f627,
-    type: 2}
+  m_sharedMaterial: {fileID: 3249814384840925403, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1343,8 +1338,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3da52a08260bf473f85e748c672b344f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Spell>k__BackingField: {fileID: 11400000, guid: 20cd385ac9fc163fea456915e5547ff8,
-    type: 2}
+  <Spell>k__BackingField: {fileID: 11400000, guid: 20cd385ac9fc163fea456915e5547ff8, type: 2}
 --- !u!1 &273721177
 GameObject:
   m_ObjectHideFlags: 0
@@ -1542,8 +1536,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3da52a08260bf473f85e748c672b344f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Spell>k__BackingField: {fileID: 11400000, guid: 262d7a0a02f93d435b87117a7f4addae,
-    type: 2}
+  <Spell>k__BackingField: {fileID: 11400000, guid: 262d7a0a02f93d435b87117a7f4addae, type: 2}
 --- !u!1 &338864273
 GameObject:
   m_ObjectHideFlags: 0
@@ -1605,8 +1598,7 @@ MonoBehaviour:
   m_text: '>'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
-  m_sharedMaterial: {fileID: 3249814384840925403, guid: 1d7dda6dcd956264e89464535f01f627,
-    type: 2}
+  m_sharedMaterial: {fileID: 3249814384840925403, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1875,8 +1867,7 @@ MonoBehaviour:
   m_text: Level 2
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
-  m_sharedMaterial: {fileID: 3249814384840925403, guid: 1d7dda6dcd956264e89464535f01f627,
-    type: 2}
+  m_sharedMaterial: {fileID: 3249814384840925403, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2013,8 +2004,7 @@ MonoBehaviour:
 '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
-  m_sharedMaterial: {fileID: 3249814384840925403, guid: 1d7dda6dcd956264e89464535f01f627,
-    type: 2}
+  m_sharedMaterial: {fileID: 3249814384840925403, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2273,8 +2263,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3da52a08260bf473f85e748c672b344f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Spell>k__BackingField: {fileID: 11400000, guid: 2e0eb4fef8b7e0b3389a7460a9c7c958,
-    type: 2}
+  <Spell>k__BackingField: {fileID: 11400000, guid: 2e0eb4fef8b7e0b3389a7460a9c7c958, type: 2}
 --- !u!1001 &467659846
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2282,133 +2271,107 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 193684381810815641, guid: 0feb76730222b079bb4d82abb9fb2835,
-        type: 3}
+    - target: {fileID: 193684381810815641, guid: 0feb76730222b079bb4d82abb9fb2835, type: 3}
       propertyPath: m_BackGroundColor.a
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 193684381810815641, guid: 0feb76730222b079bb4d82abb9fb2835,
-        type: 3}
+    - target: {fileID: 193684381810815641, guid: 0feb76730222b079bb4d82abb9fb2835, type: 3}
       propertyPath: m_BackGroundColor.b
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 193684381810815641, guid: 0feb76730222b079bb4d82abb9fb2835,
-        type: 3}
+    - target: {fileID: 193684381810815641, guid: 0feb76730222b079bb4d82abb9fb2835, type: 3}
       propertyPath: m_BackGroundColor.g
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 193684381810815641, guid: 0feb76730222b079bb4d82abb9fb2835,
-        type: 3}
+    - target: {fileID: 193684381810815641, guid: 0feb76730222b079bb4d82abb9fb2835, type: 3}
       propertyPath: m_BackGroundColor.r
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 193684381810815643, guid: 0feb76730222b079bb4d82abb9fb2835,
-        type: 3}
+    - target: {fileID: 193684381810815643, guid: 0feb76730222b079bb4d82abb9fb2835, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 193684381810815643, guid: 0feb76730222b079bb4d82abb9fb2835,
-        type: 3}
+    - target: {fileID: 193684381810815643, guid: 0feb76730222b079bb4d82abb9fb2835, type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 193684381810815643, guid: 0feb76730222b079bb4d82abb9fb2835,
-        type: 3}
+    - target: {fileID: 193684381810815643, guid: 0feb76730222b079bb4d82abb9fb2835, type: 3}
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 193684381810815643, guid: 0feb76730222b079bb4d82abb9fb2835,
-        type: 3}
+    - target: {fileID: 193684381810815643, guid: 0feb76730222b079bb4d82abb9fb2835, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 193684381810815643, guid: 0feb76730222b079bb4d82abb9fb2835,
-        type: 3}
+    - target: {fileID: 193684381810815643, guid: 0feb76730222b079bb4d82abb9fb2835, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 193684381810815643, guid: 0feb76730222b079bb4d82abb9fb2835,
-        type: 3}
+    - target: {fileID: 193684381810815643, guid: 0feb76730222b079bb4d82abb9fb2835, type: 3}
       propertyPath: m_AnchorMin.x
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 193684381810815643, guid: 0feb76730222b079bb4d82abb9fb2835,
-        type: 3}
+    - target: {fileID: 193684381810815643, guid: 0feb76730222b079bb4d82abb9fb2835, type: 3}
       propertyPath: m_AnchorMin.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 193684381810815643, guid: 0feb76730222b079bb4d82abb9fb2835,
-        type: 3}
+    - target: {fileID: 193684381810815643, guid: 0feb76730222b079bb4d82abb9fb2835, type: 3}
       propertyPath: m_SizeDelta.x
       value: 100
       objectReference: {fileID: 0}
-    - target: {fileID: 193684381810815643, guid: 0feb76730222b079bb4d82abb9fb2835,
-        type: 3}
+    - target: {fileID: 193684381810815643, guid: 0feb76730222b079bb4d82abb9fb2835, type: 3}
       propertyPath: m_SizeDelta.y
       value: 100
       objectReference: {fileID: 0}
-    - target: {fileID: 193684381810815643, guid: 0feb76730222b079bb4d82abb9fb2835,
-        type: 3}
+    - target: {fileID: 193684381810815643, guid: 0feb76730222b079bb4d82abb9fb2835, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 193684381810815643, guid: 0feb76730222b079bb4d82abb9fb2835,
-        type: 3}
+    - target: {fileID: 193684381810815643, guid: 0feb76730222b079bb4d82abb9fb2835, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 193684381810815643, guid: 0feb76730222b079bb4d82abb9fb2835,
-        type: 3}
+    - target: {fileID: 193684381810815643, guid: 0feb76730222b079bb4d82abb9fb2835, type: 3}
       propertyPath: m_LocalPosition.z
       value: -10
       objectReference: {fileID: 0}
-    - target: {fileID: 193684381810815643, guid: 0feb76730222b079bb4d82abb9fb2835,
-        type: 3}
+    - target: {fileID: 193684381810815643, guid: 0feb76730222b079bb4d82abb9fb2835, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 193684381810815643, guid: 0feb76730222b079bb4d82abb9fb2835,
-        type: 3}
+    - target: {fileID: 193684381810815643, guid: 0feb76730222b079bb4d82abb9fb2835, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 193684381810815643, guid: 0feb76730222b079bb4d82abb9fb2835,
-        type: 3}
+    - target: {fileID: 193684381810815643, guid: 0feb76730222b079bb4d82abb9fb2835, type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 193684381810815643, guid: 0feb76730222b079bb4d82abb9fb2835,
-        type: 3}
+    - target: {fileID: 193684381810815643, guid: 0feb76730222b079bb4d82abb9fb2835, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 193684381810815643, guid: 0feb76730222b079bb4d82abb9fb2835,
-        type: 3}
+    - target: {fileID: 193684381810815643, guid: 0feb76730222b079bb4d82abb9fb2835, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 193684381810815643, guid: 0feb76730222b079bb4d82abb9fb2835,
-        type: 3}
+    - target: {fileID: 193684381810815643, guid: 0feb76730222b079bb4d82abb9fb2835, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 193684381810815643, guid: 0feb76730222b079bb4d82abb9fb2835,
-        type: 3}
+    - target: {fileID: 193684381810815643, guid: 0feb76730222b079bb4d82abb9fb2835, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 193684381810815643, guid: 0feb76730222b079bb4d82abb9fb2835,
-        type: 3}
+    - target: {fileID: 193684381810815643, guid: 0feb76730222b079bb4d82abb9fb2835, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 193684381810815643, guid: 0feb76730222b079bb4d82abb9fb2835,
-        type: 3}
+    - target: {fileID: 193684381810815643, guid: 0feb76730222b079bb4d82abb9fb2835, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 193684381810815647, guid: 0feb76730222b079bb4d82abb9fb2835,
-        type: 3}
+    - target: {fileID: 193684381810815647, guid: 0feb76730222b079bb4d82abb9fb2835, type: 3}
       propertyPath: m_Name
       value: Main Camera
       objectReference: {fileID: 0}
@@ -2475,8 +2438,7 @@ MonoBehaviour:
   m_text: Channel
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
-  m_sharedMaterial: {fileID: 3249814384840925403, guid: 1d7dda6dcd956264e89464535f01f627,
-    type: 2}
+  m_sharedMaterial: {fileID: 3249814384840925403, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2611,8 +2573,7 @@ MonoBehaviour:
   m_text: Empower
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
-  m_sharedMaterial: {fileID: 3249814384840925403, guid: 1d7dda6dcd956264e89464535f01f627,
-    type: 2}
+  m_sharedMaterial: {fileID: 3249814384840925403, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2744,14 +2705,44 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Benjamin Wargowski - Team Lead\r\n\nDiego Najera - Producer\n\nProgrammers:
-    \r\n- Thomas Tran\r\n- Ali Hassan\n- Samuel Hultman\n- David Huynh\n\nArtists:\n-
-    Edem Sedor\n- Cody Pfrunder\n\nNicholas Lins - Audio Designer\n\nKaten Chin -
-    Game Designer\n\nElijah Tabachnik - UI/UX"
+  m_text: 'Benjamin Wargowski - Team Lead
+
+
+    Diego Najera - Producer
+
+
+    Thomas
+    Tran - Head Programmer
+
+
+    Ali Hassan - Programmer
+
+
+    Samuel Hultman - Programmer
+
+
+    David
+    Huynh - Programmer
+
+
+    Edem Sedor - Artist
+
+
+    Cody Pfrunder - Artist
+
+
+    Nicholas
+    Lins - Audio Designer
+
+
+    Katen Chin - Game Designer
+
+
+    Elijah Tabachnik
+    - UI/UX'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
-  m_sharedMaterial: {fileID: 3249814384840925403, guid: 1d7dda6dcd956264e89464535f01f627,
-    type: 2}
+  m_sharedMaterial: {fileID: 3249814384840925403, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2886,8 +2877,7 @@ MonoBehaviour:
   m_text: <
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
-  m_sharedMaterial: {fileID: 3249814384840925403, guid: 1d7dda6dcd956264e89464535f01f627,
-    type: 2}
+  m_sharedMaterial: {fileID: 3249814384840925403, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3168,8 +3158,7 @@ MonoBehaviour:
   m_text: Instantly restore a small amount of health.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
-  m_sharedMaterial: {fileID: 3249814384840925403, guid: 1d7dda6dcd956264e89464535f01f627,
-    type: 2}
+  m_sharedMaterial: {fileID: 3249814384840925403, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3294,8 +3283,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3da52a08260bf473f85e748c672b344f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Spell>k__BackingField: {fileID: 11400000, guid: d2786fe20ce1e458890fe723334771fd,
-    type: 2}
+  <Spell>k__BackingField: {fileID: 11400000, guid: d2786fe20ce1e458890fe723334771fd, type: 2}
 --- !u!1 &763349742
 GameObject:
   m_ObjectHideFlags: 0
@@ -3392,8 +3380,7 @@ MonoBehaviour:
   m_text: New Game
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
-  m_sharedMaterial: {fileID: 3249814384840925403, guid: 1d7dda6dcd956264e89464535f01f627,
-    type: 2}
+  m_sharedMaterial: {fileID: 3249814384840925403, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3671,11 +3658,11 @@ MonoBehaviour:
   m_text: 'Shortened version of Teleport.
 
 
-    Allows the player to very briefly make one singular instantaneous teleport.'
+    Allows the player to very briefly
+    make one singular instantaneous teleport.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
-  m_sharedMaterial: {fileID: 3249814384840925403, guid: 1d7dda6dcd956264e89464535f01f627,
-    type: 2}
+  m_sharedMaterial: {fileID: 3249814384840925403, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3800,8 +3787,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3da52a08260bf473f85e748c672b344f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Spell>k__BackingField: {fileID: 11400000, guid: 610b043e928b6f4d4baf7c97caf402cf,
-    type: 2}
+  <Spell>k__BackingField: {fileID: 11400000, guid: 610b043e928b6f4d4baf7c97caf402cf, type: 2}
 --- !u!1 &905932149
 GameObject:
   m_ObjectHideFlags: 0
@@ -3863,8 +3849,7 @@ MonoBehaviour:
   m_text: Credits
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
-  m_sharedMaterial: {fileID: 3249814384840925403, guid: 1d7dda6dcd956264e89464535f01f627,
-    type: 2}
+  m_sharedMaterial: {fileID: 3249814384840925403, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3989,8 +3974,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3da52a08260bf473f85e748c672b344f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Spell>k__BackingField: {fileID: 11400000, guid: 548c34c643ddde555a324807dadda089,
-    type: 2}
+  <Spell>k__BackingField: {fileID: 11400000, guid: 548c34c643ddde555a324807dadda089, type: 2}
 --- !u!1 &992519178
 GameObject:
   m_ObjectHideFlags: 0
@@ -4118,12 +4102,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-    nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
-  m_sharedMaterial: {fileID: 3249814384840925403, guid: 1d7dda6dcd956264e89464535f01f627,
-    type: 2}
+  m_sharedMaterial: {fileID: 3249814384840925403, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4258,8 +4241,7 @@ MonoBehaviour:
   m_text: Earthquake
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
-  m_sharedMaterial: {fileID: 3249814384840925403, guid: 1d7dda6dcd956264e89464535f01f627,
-    type: 2}
+  m_sharedMaterial: {fileID: 3249814384840925403, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4394,8 +4376,7 @@ MonoBehaviour:
   m_text: All players' movements become instantaneous teleports for a short duration.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
-  m_sharedMaterial: {fileID: 3249814384840925403, guid: 1d7dda6dcd956264e89464535f01f627,
-    type: 2}
+  m_sharedMaterial: {fileID: 3249814384840925403, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4532,8 +4513,7 @@ MonoBehaviour:
 '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
-  m_sharedMaterial: {fileID: 3249814384840925403, guid: 1d7dda6dcd956264e89464535f01f627,
-    type: 2}
+  m_sharedMaterial: {fileID: 3249814384840925403, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4668,11 +4648,11 @@ MonoBehaviour:
   m_text: 'Creates a small circle of damage around the player.
 
 
-    Slows down hit enemies for a short duration.'
+    Slows down hit
+    enemies for a short duration.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
-  m_sharedMaterial: {fileID: 3249814384840925403, guid: 1d7dda6dcd956264e89464535f01f627,
-    type: 2}
+  m_sharedMaterial: {fileID: 3249814384840925403, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4807,11 +4787,11 @@ MonoBehaviour:
   m_text: 'Creates a massive circle of damage reaching every corner of the stage.
 
 
-    Slows down hit enemies for a long duration.'
+    Slows
+    down hit enemies for a long duration.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
-  m_sharedMaterial: {fileID: 3249814384840925403, guid: 1d7dda6dcd956264e89464535f01f627,
-    type: 2}
+  m_sharedMaterial: {fileID: 3249814384840925403, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5005,8 +4985,7 @@ MonoBehaviour:
   m_text: Temporarily boosts mana regeneration.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
-  m_sharedMaterial: {fileID: 3249814384840925403, guid: 1d7dda6dcd956264e89464535f01f627,
-    type: 2}
+  m_sharedMaterial: {fileID: 3249814384840925403, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5131,8 +5110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3da52a08260bf473f85e748c672b344f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Spell>k__BackingField: {fileID: 11400000, guid: 13e3b25d63e574f72ad255f20f65ad2c,
-    type: 2}
+  <Spell>k__BackingField: {fileID: 11400000, guid: 13e3b25d63e574f72ad255f20f65ad2c, type: 2}
 --- !u!1 &1150724366
 GameObject:
   m_ObjectHideFlags: 0
@@ -5194,8 +5172,7 @@ MonoBehaviour:
   m_text: Tutorial
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
-  m_sharedMaterial: {fileID: 3249814384840925403, guid: 1d7dda6dcd956264e89464535f01f627,
-    type: 2}
+  m_sharedMaterial: {fileID: 3249814384840925403, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5330,8 +5307,7 @@ MonoBehaviour:
   m_text: Level Select
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
-  m_sharedMaterial: {fileID: 3249814384840925403, guid: 1d7dda6dcd956264e89464535f01f627,
-    type: 2}
+  m_sharedMaterial: {fileID: 3249814384840925403, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5456,8 +5432,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3da52a08260bf473f85e748c672b344f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Spell>k__BackingField: {fileID: 11400000, guid: 72a7ea66520a8549790ec85705cf10d1,
-    type: 2}
+  <Spell>k__BackingField: {fileID: 11400000, guid: 72a7ea66520a8549790ec85705cf10d1, type: 2}
 --- !u!1 &1178174347
 GameObject:
   m_ObjectHideFlags: 0
@@ -5519,8 +5494,7 @@ MonoBehaviour:
   m_text: TP
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
-  m_sharedMaterial: {fileID: 3249814384840925403, guid: 1d7dda6dcd956264e89464535f01f627,
-    type: 2}
+  m_sharedMaterial: {fileID: 3249814384840925403, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5645,8 +5619,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3da52a08260bf473f85e748c672b344f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Spell>k__BackingField: {fileID: 11400000, guid: e8bf5fd9d4c199d74bce08080157fc22,
-    type: 2}
+  <Spell>k__BackingField: {fileID: 11400000, guid: e8bf5fd9d4c199d74bce08080157fc22, type: 2}
 --- !u!1 &1231868971
 GameObject:
   m_ObjectHideFlags: 0
@@ -5710,8 +5683,7 @@ MonoBehaviour:
 '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
-  m_sharedMaterial: {fileID: 3249814384840925403, guid: 1d7dda6dcd956264e89464535f01f627,
-    type: 2}
+  m_sharedMaterial: {fileID: 3249814384840925403, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -6114,8 +6086,7 @@ MonoBehaviour:
   m_text: Shield
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
-  m_sharedMaterial: {fileID: 3249814384840925403, guid: 1d7dda6dcd956264e89464535f01f627,
-    type: 2}
+  m_sharedMaterial: {fileID: 3249814384840925403, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -6250,8 +6221,7 @@ MonoBehaviour:
   m_text: Heal
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
-  m_sharedMaterial: {fileID: 3249814384840925403, guid: 1d7dda6dcd956264e89464535f01f627,
-    type: 2}
+  m_sharedMaterial: {fileID: 3249814384840925403, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -6386,8 +6356,7 @@ MonoBehaviour:
   m_text: Level 3
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
-  m_sharedMaterial: {fileID: 3249814384840925403, guid: 1d7dda6dcd956264e89464535f01f627,
-    type: 2}
+  m_sharedMaterial: {fileID: 3249814384840925403, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -6656,8 +6625,7 @@ MonoBehaviour:
   m_text: Level Select
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
-  m_sharedMaterial: {fileID: 3249814384840925403, guid: 1d7dda6dcd956264e89464535f01f627,
-    type: 2}
+  m_sharedMaterial: {fileID: 3249814384840925403, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -6782,8 +6750,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3da52a08260bf473f85e748c672b344f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Spell>k__BackingField: {fileID: 11400000, guid: c02577a62a6ad4b8bb0390e00a4bc939,
-    type: 2}
+  <Spell>k__BackingField: {fileID: 11400000, guid: c02577a62a6ad4b8bb0390e00a4bc939, type: 2}
 --- !u!1 &1410629226
 GameObject:
   m_ObjectHideFlags: 0
@@ -6845,8 +6812,7 @@ MonoBehaviour:
   m_text: Credits
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
-  m_sharedMaterial: {fileID: 3249814384840925403, guid: 1d7dda6dcd956264e89464535f01f627,
-    type: 2}
+  m_sharedMaterial: {fileID: 3249814384840925403, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -7253,8 +7219,7 @@ MonoBehaviour:
     Temporarily immobilizes the enemy.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
-  m_sharedMaterial: {fileID: 3249814384840925403, guid: 1d7dda6dcd956264e89464535f01f627,
-    type: 2}
+  m_sharedMaterial: {fileID: 3249814384840925403, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -7389,8 +7354,7 @@ MonoBehaviour:
   m_text: SpellName
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
-  m_sharedMaterial: {fileID: 3249814384840925403, guid: 1d7dda6dcd956264e89464535f01f627,
-    type: 2}
+  m_sharedMaterial: {fileID: 3249814384840925403, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -7771,8 +7735,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3da52a08260bf473f85e748c672b344f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Spell>k__BackingField: {fileID: 11400000, guid: 7fb4a85d56b5147d5844c5508c81e2d5,
-    type: 2}
+  <Spell>k__BackingField: {fileID: 11400000, guid: 7fb4a85d56b5147d5844c5508c81e2d5, type: 2}
 --- !u!1 &1636102052
 GameObject:
   m_ObjectHideFlags: 0
@@ -7834,8 +7797,7 @@ MonoBehaviour:
   m_text: Rumble
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
-  m_sharedMaterial: {fileID: 3249814384840925403, guid: 1d7dda6dcd956264e89464535f01f627,
-    type: 2}
+  m_sharedMaterial: {fileID: 3249814384840925403, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -7970,8 +7932,7 @@ MonoBehaviour:
   m_text: Fire
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
-  m_sharedMaterial: {fileID: 3249814384840925403, guid: 1d7dda6dcd956264e89464535f01f627,
-    type: 2}
+  m_sharedMaterial: {fileID: 3249814384840925403, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -8045,6 +8006,54 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1642212435}
   m_CullTransparentMesh: 1
+--- !u!1 &1672907376
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1672907378}
+  - component: {fileID: 1672907379}
+  m_Layer: 0
+  m_Name: Credits
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1672907378
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1672907376}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 14.08096, y: -70.4067, z: -1.2838953}
+  m_LocalScale: {x: 2.1075742, y: 2.1075742, z: 2.1075742}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2088556761}
+  - {fileID: 905932150}
+  - {fileID: 594881303}
+  m_Father: {fileID: 1956568842}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1672907379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1672907376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0251f706c26b654c9910574dc2991a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playMenu: {fileID: 2044286734}
 --- !u!1 &1674176994
 GameObject:
   m_ObjectHideFlags: 0
@@ -8106,8 +8115,7 @@ MonoBehaviour:
   m_text: Regenerate
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
-  m_sharedMaterial: {fileID: 3249814384840925403, guid: 1d7dda6dcd956264e89464535f01f627,
-    type: 2}
+  m_sharedMaterial: {fileID: 3249814384840925403, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -8181,54 +8189,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1674176994}
   m_CullTransparentMesh: 1
---- !u!1 &1672907376
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1672907378}
-  - component: {fileID: 1672907379}
-  m_Layer: 0
-  m_Name: Credits
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &1672907378
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1672907376}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 14.08096, y: -70.4067, z: -1.2838953}
-  m_LocalScale: {x: 2.1075742, y: 2.1075742, z: 2.1075742}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 2088556761}
-  - {fileID: 905932150}
-  - {fileID: 594881303}
-  m_Father: {fileID: 1956568842}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1672907379
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1672907376}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0251f706c26b654c9910574dc2991a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playMenu: {fileID: 2044286734}
 --- !u!1 &1699856727
 GameObject:
   m_ObjectHideFlags: 0
@@ -8293,8 +8253,7 @@ MonoBehaviour:
     Lights the enemy on fire.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
-  m_sharedMaterial: {fileID: 3249814384840925403, guid: 1d7dda6dcd956264e89464535f01f627,
-    type: 2}
+  m_sharedMaterial: {fileID: 3249814384840925403, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -8481,8 +8440,7 @@ MonoBehaviour:
   m_text: Ignite
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
-  m_sharedMaterial: {fileID: 3249814384840925403, guid: 1d7dda6dcd956264e89464535f01f627,
-    type: 2}
+  m_sharedMaterial: {fileID: 3249814384840925403, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -8763,8 +8721,7 @@ MonoBehaviour:
   m_text: SpellBook
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
-  m_sharedMaterial: {fileID: 3249814384840925403, guid: 1d7dda6dcd956264e89464535f01f627,
-    type: 2}
+  m_sharedMaterial: {fileID: 3249814384840925403, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -9171,8 +9128,7 @@ MonoBehaviour:
   m_text: Player becomes invulnerable to damage for a short duration.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
-  m_sharedMaterial: {fileID: 3249814384840925403, guid: 1d7dda6dcd956264e89464535f01f627,
-    type: 2}
+  m_sharedMaterial: {fileID: 3249814384840925403, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -9307,8 +9263,7 @@ MonoBehaviour:
   m_text: Back
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
-  m_sharedMaterial: {fileID: 3249814384840925403, guid: 1d7dda6dcd956264e89464535f01f627,
-    type: 2}
+  m_sharedMaterial: {fileID: 3249814384840925403, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -9577,8 +9532,7 @@ MonoBehaviour:
   m_text: Teleport
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
-  m_sharedMaterial: {fileID: 3249814384840925403, guid: 1d7dda6dcd956264e89464535f01f627,
-    type: 2}
+  m_sharedMaterial: {fileID: 3249814384840925403, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -9713,8 +9667,7 @@ MonoBehaviour:
   m_text: Level 1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
-  m_sharedMaterial: {fileID: 3249814384840925403, guid: 1d7dda6dcd956264e89464535f01f627,
-    type: 2}
+  m_sharedMaterial: {fileID: 3249814384840925403, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -9849,8 +9802,7 @@ MonoBehaviour:
   m_text: View Spells
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
-  m_sharedMaterial: {fileID: 3249814384840925403, guid: 1d7dda6dcd956264e89464535f01f627,
-    type: 2}
+  m_sharedMaterial: {fileID: 3249814384840925403, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -10141,8 +10093,7 @@ MonoBehaviour:
   m_text: Temporarily increases damage of spells.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
-  m_sharedMaterial: {fileID: 3249814384840925403, guid: 1d7dda6dcd956264e89464535f01f627,
-    type: 2}
+  m_sharedMaterial: {fileID: 3249814384840925403, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -10463,11 +10414,11 @@ MonoBehaviour:
   m_text: 'Strike your enemy with a bolt of lightning.
 
 
-    Temporarily immobilizes the enemy.'
+    Temporarily immobilizes
+    the enemy.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
-  m_sharedMaterial: {fileID: 3249814384840925403, guid: 1d7dda6dcd956264e89464535f01f627,
-    type: 2}
+  m_sharedMaterial: {fileID: 3249814384840925403, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -10727,8 +10678,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3da52a08260bf473f85e748c672b344f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Spell>k__BackingField: {fileID: 11400000, guid: fbda468e08c404c788d282bf7131d349,
-    type: 2}
+  <Spell>k__BackingField: {fileID: 11400000, guid: fbda468e08c404c788d282bf7131d349, type: 2}
 --- !u!1 &2138324264
 GameObject:
   m_ObjectHideFlags: 0
@@ -10992,8 +10942,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2992ef11d9bb145f8925eb9114b2b712, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  segmentPrefab: {fileID: 2562922214818849108, guid: b619150c6c74a4f4bba41762fe3d03ab,
-    type: 3}
+  segmentPrefab: {fileID: 2562922214818849108, guid: b619150c6c74a4f4bba41762fe3d03ab, type: 3}
   segmentHolder: {fileID: 2217121250403996277}
   segmentCount: 5
 --- !u!222 &6964318402985348782
