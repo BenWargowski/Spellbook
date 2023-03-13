@@ -4341,11 +4341,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Unleashes a small circle of damage around the player.
+  m_text: 'Creates a small circle of damage around the player.
 
 
-    Slows down
-    hit enemies for a short duration.'
+    Slows down hit
+    enemies for a short duration.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
   m_sharedMaterial: {fileID: 3249814384840925403, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
@@ -4480,7 +4480,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Unleashes a massive circle of damage reaching every corner of the stage.
+  m_text: 'Creates a massive circle of damage reaching every corner of the stage.
 
 
     Slows
