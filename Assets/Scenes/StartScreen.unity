@@ -2002,7 +2002,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Camera
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4876730929614101289, guid: 0feb76730222b079bb4d82abb9fb2835, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0feb76730222b079bb4d82abb9fb2835, type: 3}
 --- !u!1 &592256118
 GameObject:
@@ -3609,7 +3610,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1006527873
 GameObject:
@@ -8019,7 +8020,7 @@ RectTransform:
   - {fileID: 1538088812}
   - {fileID: 599891204}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

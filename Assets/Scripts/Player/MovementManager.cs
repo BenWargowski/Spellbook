@@ -31,7 +31,7 @@ public class MovementManager : MonoBehaviour {
 
     // INITIALIZATION -------
     private void Awake() {
-        this.Active = true;
+        this.Active = false;
         this.isMoving = false;
         this.TargetKey = this.startingKey;
     }
@@ -41,6 +41,7 @@ public class MovementManager : MonoBehaviour {
 
         //Character starts on the starting key -- default is Q
         this.player.transform.position = StageLayout.Instance.TilePositions[this.startingKey];
+        this.Active = true;
     }
     // ----------------------
 

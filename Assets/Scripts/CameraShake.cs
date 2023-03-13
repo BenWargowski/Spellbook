@@ -38,14 +38,14 @@ public class CameraShake : MonoBehaviour {
     }
 
     private void Start() {
-        this.originalPosition = transform.position;
+        this.originalPosition = transform.localPosition;
     }
 
     private void Update() {
         //if shake has stopped, make sure magnitude and positions are reset
         if (this.shakeDuration <= 0.0f) {
             this.magnitude = 0.0f;
-            this.transform.position = this.originalPosition;
+            this.transform.localPosition = this.originalPosition;
             return;
         }
 
@@ -53,7 +53,7 @@ public class CameraShake : MonoBehaviour {
         float x = Random.Range(-1.0f, 1.0f) * this.magnitude;
         float y = Random.Range(-1.0f, 1.0f) * this.magnitude;
 
-        transform.position = new Vector3(x, y, this.originalPosition.z);
+        transform.localPosition = new Vector3(x, y, this.originalPosition.z);
         this.shakeDuration -= Time.deltaTime;
     }
 }
