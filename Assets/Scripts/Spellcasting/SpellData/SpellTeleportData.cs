@@ -6,6 +6,10 @@ using System.Collections;
 /// </summary>
 [CreateAssetMenu(fileName = "New SpellTeleport", menuName = "Spells/SpellTeleport")]
 public class SpellTeleportData : SpellData {
+
+    //TODO: refactor
+    private static int RefCount = 0;
+
     [Header("Teleport Settings")]
 
     [Tooltip("How long the Teleporting State should last")]
@@ -16,7 +20,7 @@ public class SpellTeleportData : SpellData {
 
     public override bool CastSpell(Player player) {
         //already teleporting
-        if (player.MovementManager.Teleport) return false;
+        if (RefCount > 0 || player.MovementManager.Teleport) return false;
 
         //Handle mana
         if (!base.CastSpell(player)) return false;
@@ -29,6 +33,7 @@ public class SpellTeleportData : SpellData {
         //initialize allow next move to be a teleport
         player.MovementManager.Teleport = true;
         player.TeleportIcon.SetActive(true);
+        RefCount++;
         
         int count = 0;
         //my signature cursed for loop
@@ -41,7 +46,8 @@ public class SpellTeleportData : SpellData {
             yield return null;
         }
 
-        player.TeleportIcon.SetActive(false);
+        RefCount--;
+        if (RefCount <= 0) player.TeleportIcon.SetActive(false);
         player.MovementManager.Teleport = false;
     }
 
