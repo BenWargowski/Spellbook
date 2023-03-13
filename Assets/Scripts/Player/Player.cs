@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 /// <summary>
 /// Main script for the Player.
@@ -24,6 +25,13 @@ public class Player : MonoBehaviour, IDamageable, IHealable{
     [SerializeField] private float baseMovementSpeed;
     [SerializeField] private float baseSpellDamageMultiplier;
     [SerializeField] private float baseArmor;
+    
+    [Header("Buff Icons")]
+    [SerializeField] private GameObject manaRegenBoostIcon;
+    [SerializeField] private GameObject spellDamageBoostIcon;
+    [SerializeField] private GameObject armorBoostIcon;
+    [SerializeField] private GameObject healingIcon;
+    [field: SerializeField] public GameObject TeleportIcon {get; private set;}
 
     [Header("Other Options")]
     //the minimum/maximum seconds the player can get invulnerability for when damaged
@@ -53,12 +61,42 @@ public class Player : MonoBehaviour, IDamageable, IHealable{
 
     private void Update() {
         //Update Status Effects
-        foreach (HashSet<Status> sublist in statusEffects.Values) {
-            foreach (Status status in sublist) {
+        foreach (PlayerStat stat in statusEffects.Keys) {
+            foreach (Status status in statusEffects[stat]) {
                 status.UpdateStatus();
             }
+
+            foreach (Status status in statusEffects[stat].Where((x) => !x.IsValid())) {
+                //this is the last item being removed
+                if (statusEffects[stat].Count == 1) {
+                    //Update icons
+                    //TODO: REFACTOR
+                    GameObject icon = null;
+                    switch (stat) {
+                        case PlayerStat.MANA_REGEN_RATE:
+                            icon = manaRegenBoostIcon;
+                            break;
+                        case PlayerStat.SPELL_DAMAGE:
+                            icon = spellDamageBoostIcon;
+                            break;
+                        case PlayerStat.ARMOR:
+                            icon = armorBoostIcon;
+                            break;
+                        case PlayerStat.OTHER:
+                            if (status is HealStatus) {
+                                icon = healingIcon;
+                            }
+                            break;
+                    }
+
+                    if (icon != null) {
+                        icon.SetActive(false);
+                    }
+                }
+            }
+
             //Remove expired effects
-            sublist.RemoveWhere((x) => !x.IsValid());
+            statusEffects[stat].RemoveWhere((x) => !x.IsValid());
         }
 
         //Mana Regeneration
@@ -75,7 +113,8 @@ public class Player : MonoBehaviour, IDamageable, IHealable{
     /// </summary>
     /// <param name="statAffected">The player stat that the effect will affect. If using a custom effect, use PlayerStat.OTHER</param>
     /// <param name="statusEffect">Effect to apply to the stat</param>
-    public void AddStatusEffect(PlayerStat statAffected, Status statusEffect) {
+    /// <param name="silent">If the effect icon should be hidden</param>
+    public void AddStatusEffect(PlayerStat statAffected, Status statusEffect, bool silent = false) {
         //create set for stat if it doesn't already exist
         if (!this.statusEffects.ContainsKey(statAffected)) {
             this.statusEffects[statAffected] = new HashSet<Status>();
@@ -85,6 +124,32 @@ public class Player : MonoBehaviour, IDamageable, IHealable{
 
         //Manual update of HP bar if MAX HEALTH was changed
         if (statAffected == PlayerStat.MAX_HEALTH && healthBar != null) healthBar.UpdateBar(_health, this.MaxHealth);
+
+        if (silent) return;
+
+        //icons
+        //TODO: REFACTOR
+        GameObject icon = null;
+        switch (statAffected) {
+            case PlayerStat.MANA_REGEN_RATE:
+                icon = manaRegenBoostIcon;
+                break;
+            case PlayerStat.SPELL_DAMAGE:
+                icon = spellDamageBoostIcon;
+                break;
+            case PlayerStat.ARMOR:
+                icon = armorBoostIcon;
+                break;
+            case PlayerStat.OTHER:
+                if (statusEffect is HealStatus) {
+                    icon = healingIcon;
+                }
+                break;
+        }
+
+        if (icon != null) {
+            icon.SetActive(true);
+        }
     }
 
     /// <summary>
