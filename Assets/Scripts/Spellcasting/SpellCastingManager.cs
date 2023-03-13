@@ -90,13 +90,16 @@ public class SpellCastingManager : MonoBehaviour {
                 if (Input.GetKeyDown(KeyCode.Return)) {
                         //match spell name
                         if (this.spells.ContainsKey(this.SpellString)) {
-                                PlaySpellSFX(SpellString);
                                 SpellData data = this.spells[this.SpellString];
                                 //make sure it's not on cooldown
                                 if (!this.Cooldowns.ContainsKey(data) || this.Cooldowns[data] <= 0.0f) {
                                         //set cooldown and cast
                                         this.Cooldowns[data] = data.Cooldown;
                                         bool success = data.CastSpell(this.player);
+
+                                        if (success) {
+                                                PlaySpellSFX(SpellString);
+                                        }
 
                                         if (!success && this.textBox != null) {
                                                 this.textBox.FailedSpell();
@@ -131,10 +134,10 @@ public class SpellCastingManager : MonoBehaviour {
                 // plays sound clip of spell being cast. update sound files on player prefab
                 if (SpellString == "EARTHQUAKE") { SoundManager.Instance.PlaySound(earthquakeClip); }
                 else if (SpellString == "FIRE") { SoundManager.Instance.PlaySound(fireClip); }
-                else if (SpellString == "HEAL") { SoundManager.Instance.PlaySound(fireClip); }
-                else if (SpellString == "LIGHTNING") { SoundManager.Instance.PlaySound(fireClip); }
-                else if (SpellString == "SHIELD") { SoundManager.Instance.PlaySound(fireClip); }
-                else if (SpellString == "TELEPORT") { SoundManager.Instance.PlaySound(fireClip); }
+                else if (SpellString == "HEAL") { SoundManager.Instance.PlaySound(healClip); }
+                else if (SpellString == "LIGHTNING") { SoundManager.Instance.PlaySound(lightningClip); }
+                else if (SpellString == "SHIELD") { SoundManager.Instance.PlaySound(shieldClip); }
+                else if (SpellString == "TELEPORT") { SoundManager.Instance.PlaySound(teleportClip); }
         }
 
         private void OnSpellWrite(char c, bool shiftKey) {

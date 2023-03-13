@@ -182,6 +182,11 @@ MonoBehaviour:
   baseMovementSpeed: 12.5
   baseSpellDamageMultiplier: 1
   baseArmor: 0
+  manaRegenBoostIcon: {fileID: 0}
+  spellDamageBoostIcon: {fileID: 0}
+  armorBoostIcon: {fileID: 0}
+  healingIcon: {fileID: 0}
+  <TeleportIcon>k__BackingField: {fileID: 0}
   invulnBounds: {x: 0.25, y: 3}
 --- !u!114 &5344515631323388844
 MonoBehaviour:
@@ -215,6 +220,12 @@ MonoBehaviour:
   textBox: {fileID: 0}
   manaCostDisplay: {fileID: 0}
   animator: {fileID: 5344515630762471168}
+  earthquakeClip: {fileID: 8300000, guid: 126cd9859cc1c1e40ab954f15317983b, type: 3}
+  fireClip: {fileID: 8300000, guid: 186bc6f92276f5e48aa9e517c167caca, type: 3}
+  healClip: {fileID: 8300000, guid: bd503330681395e47a6f6cc1791be4b1, type: 3}
+  lightningClip: {fileID: 8300000, guid: 6bd9ad38f329d0a4eac342832958f48e, type: 3}
+  shieldClip: {fileID: 8300000, guid: 1e1e3d852d839714f95e5555bd0dd620, type: 3}
+  teleportClip: {fileID: 8300000, guid: 2970b588e50c9c54c9c2f57bc6dcf119, type: 3}
   _spellList:
   - {fileID: 11400000, guid: 2e0eb4fef8b7e0b3389a7460a9c7c958, type: 2}
   - {fileID: 11400000, guid: 20cd385ac9fc163fea456915e5547ff8, type: 2}
