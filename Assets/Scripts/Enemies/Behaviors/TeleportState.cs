@@ -109,13 +109,9 @@ public class TeleportState : BehaviorState
 
         for (int i = 0; i < teleportLocations.Count; i++)
         {
-            Collider2D[] colliders = Physics2D.OverlapCircleAll(new Vector3(teleportLocations[i].x, teleportLocations[i].y, manager.transform.position.z) , checkRadius, checkCollisionLayers);
+            float newDistance = Vector2.Distance(manager.GetTargetPosition(), teleportLocations[i]);
 
-            if (colliders.Length == 0) continue;
-
-            float newDistance = Vector2.Distance(new Vector2(colliders[0].transform.position.x, colliders[0].transform.position.y), teleportLocations[i]);
-
-            if (newDistance < minDistance)
+            if (newDistance < minDistance && manager.transform.position != new Vector3(teleportLocations[i].x, teleportLocations[i].y, manager.transform.position.z))
             {
                 newTeleportLocation = teleportLocations[i];
                 minDistance = newDistance;

@@ -129,6 +129,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6676983215077185124}
+  - component: {fileID: 8894246458194794520}
   - component: {fileID: 5543819256733680478}
   - component: {fileID: 4593695823352917123}
   - component: {fileID: 3494843465249624830}
@@ -154,6 +155,26 @@ Transform:
   m_Father: {fileID: 7919402895786642738}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &8894246458194794520
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2947999955051837288}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4cb44681e2532ec4f9fa708658383ce4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!212 &5543819256733680478
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -232,7 +253,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xMovement: 0.25
-  yMovement: 1
+  yMovement: 0.5
 --- !u!1 &4635527366588210783
 GameObject:
   m_ObjectHideFlags: 0
@@ -242,6 +263,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5379070704302409027}
+  - component: {fileID: 2045914484205563263}
   - component: {fileID: 3605716652318232904}
   - component: {fileID: 8124802801047785704}
   - component: {fileID: 4516786099798575626}
@@ -267,6 +289,26 @@ Transform:
   m_Father: {fileID: 7919402895786642738}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &2045914484205563263
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4635527366588210783}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 886ba69ad5cc8854d81bb762a99d1806, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!212 &3605716652318232904
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -345,7 +387,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xMovement: 0.25
-  yMovement: 1
+  yMovement: 0.5
 --- !u!1 &7919402895786642737
 GameObject:
   m_ObjectHideFlags: 0
