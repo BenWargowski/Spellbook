@@ -18,8 +18,9 @@ public class CircularShootProjectileState : ShootProjectileState
 
         for (int i = 0; i < projectileCount; i++)
         {
-            float xDirection = Mathf.Cos(Mathf.Deg2Rad * degrees * i);
-            float yDirection = Mathf.Sin(Mathf.Deg2Rad * degrees * i);
+            float xDirection = Mathf.Cos(Mathf.Deg2Rad * (degrees * i + (currentCount % 2 == 0 ? 0f : 180f)));
+            float yDirection = Mathf.Sin(Mathf.Deg2Rad * (degrees * i + (currentCount % 2 == 0 ? 0f : 180f)));
+            
             aimDirection = new Vector3(xDirection, yDirection, aimDirection.z).normalized;
             Vector3 projectileOrigin = manager.transform.position + new Vector3(aimDirection.x * firePosition.x, aimDirection.y * firePosition.y, 0);
 

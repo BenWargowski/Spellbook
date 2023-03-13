@@ -19,11 +19,10 @@ MonoBehaviour:
   returningState: {fileID: 11400000, guid: 363b6f802a309f94cbac336290a475e1, type: 2}
   projectilePrefab: {fileID: 4269867114393835157, guid: 2fd5a5611f89ed0489efd1aa7ddf1467, type: 3}
   maxProjectileFire: 3
-  fireRate: 1.65
-  projectileDamage: 2
-  projectileSpeed: 3.5
+  fireRate: 2.35
+  projectileDamage: 1.75
+  projectileSpeed: 4.5
   firePosition: {x: 0.5, y: 0.5}
   windDown: 1
-  primaryProjectileCount: 14
-  secondaryProjectileCount: 9
-  shootClip: {fileID: 8300000, guid: aa660b0d999b1214190fafe03a2dae4b, type: 3}
+  primaryProjectileCount: 15
+  secondaryProjectileCount: 15

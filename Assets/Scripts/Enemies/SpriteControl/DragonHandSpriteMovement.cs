@@ -7,6 +7,7 @@ public class DragonHandSpriteMovement : MonoBehaviour
     [SerializeField] float xMovement;
     [SerializeField] float yMovement;
 
+    private Animator animator;
     private BehaviorStateManager behaviorManager;
     private EnemyStatusManager statusManager;
     private EnemyHealth health;
@@ -16,6 +17,7 @@ public class DragonHandSpriteMovement : MonoBehaviour
 
     void Awake()
     {
+        animator = GetComponent<Animator>();
         behaviorManager = GetComponentInParent<BehaviorStateManager>();
         statusManager = GetComponentInParent<EnemyStatusManager>();
         health = GetComponentInParent<EnemyHealth>();
@@ -52,6 +54,8 @@ public class DragonHandSpriteMovement : MonoBehaviour
     private void StopMovement()
     {
         isActive = false;
+
+        animator.speed = health.Health <= 0 ? 0f : .25f;
     }
 
     private void StartMovement()
@@ -59,5 +63,7 @@ public class DragonHandSpriteMovement : MonoBehaviour
         if (health.Health <= 0) return;
 
         isActive = true;
+
+        animator.speed = 1f;
     }
 }

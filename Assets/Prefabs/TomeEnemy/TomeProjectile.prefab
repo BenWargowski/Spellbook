@@ -9834,7 +9834,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51f6754e70e644c4f8aa23ff7c2d559b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxAirTime: 5
+  maxAirTime: 3
   collisionLayers:
     serializedVersion: 2
     m_Bits: 8
