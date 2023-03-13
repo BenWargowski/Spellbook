@@ -354,7 +354,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1975400684134274900, guid: 719ca6c0aca17491f82a9ee058894c80, type: 3}
       propertyPath: m_text
-      value: Dragon
+      value: Siryu the Dragon
+      objectReference: {fileID: 0}
+    - target: {fileID: 1975400684134274900, guid: 719ca6c0aca17491f82a9ee058894c80, type: 3}
+      propertyPath: m_fontSize
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 1975400684134274900, guid: 719ca6c0aca17491f82a9ee058894c80, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 1975400684569443614, guid: 719ca6c0aca17491f82a9ee058894c80, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1328,7 +1336,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7919402895786642738, guid: fffb9b99f3ed27d45af4e59c6903c4f6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.5
+      value: 5.85
       objectReference: {fileID: 0}
     - target: {fileID: 7919402895786642738, guid: fffb9b99f3ed27d45af4e59c6903c4f6, type: 3}
       propertyPath: m_LocalPosition.z

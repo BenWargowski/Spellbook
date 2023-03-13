@@ -5,9 +5,13 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New DeathState", menuName = "Behavior/DeathState")]
 public class DeathState : BehaviorState
 {
+    [SerializeField] AudioClip deathClip;
+
     public override void EnterState(BehaviorStateManager manager)
     {
         manager.SetAnimation(EnemyAnimationTriggers.Death);
+
+        SoundManager.Instance.PlaySound(deathClip);
     }
 
     public override void ExitState(BehaviorStateManager manager)

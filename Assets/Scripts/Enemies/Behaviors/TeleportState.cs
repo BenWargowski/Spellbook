@@ -21,6 +21,8 @@ public class TeleportState : BehaviorState
 
     [SerializeField] private float checkRadius;
 
+    [SerializeField] private AudioClip clip;
+
     private Vector2 teleportDestination;
     private float timeSinceEntered;
     private float timeSinceTeleported;
@@ -93,6 +95,7 @@ public class TeleportState : BehaviorState
     {
         initialParticlesInstance.Stop();
         destinationParticlesInstance.Stop();
+        SoundManager.Instance.PlaySound(clip);
 
         manager.transform.position = new Vector3(teleportDestination.x, teleportDestination.y, manager.transform.position.z);
 

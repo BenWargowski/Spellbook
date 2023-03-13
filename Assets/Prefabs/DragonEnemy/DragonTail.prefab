@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 2040226945154950961}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.15, y: 3.85, z: 1}
+  m_LocalScale: {x: 2, y: 3.5813951, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2832329993835479999}
@@ -180,9 +180,9 @@ MonoBehaviour:
   delayForSpawn: 1.75
   onSpawnParticles: {fileID: 5098500472380326489}
   onDespawnParticles: {fileID: 0}
-  animationMoveSpeed: 5
+  animationMoveSpeed: 5.5
   animationYOffset: 12.5
-  smashSizeMultiplier: 2
+  smashSizeMultiplier: 2.25
 --- !u!114 &1654967157949462628
 MonoBehaviour:
   m_ObjectHideFlags: 0

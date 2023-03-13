@@ -124,12 +124,12 @@ MonoBehaviour:
   trailParticles: {fileID: 8239558241080395692}
   onHitParticles: {fileID: 0}
   onSpawnClip: {fileID: 8300000, guid: aa660b0d999b1214190fafe03a2dae4b, type: 3}
-  tickDamageMultiplier: 0.1
+  tickDamageMultiplier: 0.05
   delayForSpawn: 0
   onSpawnParticles: {fileID: 34911746695615174}
   onDespawnParticles: {fileID: 2282028096116645074}
-  animationMoveSpeed: 3.5
-  animationYOffset: 8.5
+  animationMoveSpeed: 4.25
+  animationYOffset: 10
 --- !u!1 &6801576787484882244
 GameObject:
   m_ObjectHideFlags: 0
