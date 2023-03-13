@@ -71,6 +71,8 @@ public class SpellCastingManager : MonoBehaviour {
                         }
                 }
 
+                //only update state if we already know it.
+                //if it hasn't been initialized -- the state is indeterminate
                 if (_capsLockInit && Input.GetKeyDown(KeyCode.CapsLock)) {
                         _capsLockState = !_capsLockState; //toggle state
                 }
@@ -127,16 +129,22 @@ public class SpellCastingManager : MonoBehaviour {
                 if (!shiftKey && !isUpper) return;
                 c = Char.ToUpper(c);
 
-                //initialize caps lock state
-                //hacky workaround
-                if (!_capsLockInit) {
-                        _capsLockInit = true;
+                //we now know for certain the caps lock state
+                if (!_capsLockInit) _capsLockInit = true;
 
-                        if (shiftKey && isUpper) _capsLockState = false;
-                        else if (shiftKey && !isUpper) _capsLockState = true;
-                        else _capsLockState = true;
-                }
+                //update caps lock state
+                if (shiftKey && isUpper) _capsLockState = false;
+                else if (shiftKey && !isUpper) _capsLockState = true;
+                else _capsLockState = true;
 
                 this.SpellString += c;
+        }
+
+        public void PlayerMoved() {
+                //player has successfully moved, so we know that the caps lock state must be off
+                //otherwise they would have begun casting
+
+                if (!_capsLockInit) _capsLockInit = true;
+                _capsLockState = false;
         }
 }

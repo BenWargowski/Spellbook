@@ -12,6 +12,7 @@ public class MovementManager : MonoBehaviour {
     [Header("References")]
     [SerializeField] private Player player;
     [SerializeField] private Animator animator;
+    [SerializeField] private SpellCastingManager spellCastingManager; //used for a hacky workaround to CAPS LOCK on Mac
 
     [Header("Settings")]
     [SerializeField] private char startingKey;
@@ -83,6 +84,8 @@ public class MovementManager : MonoBehaviour {
             this.isMoving = false;
             this.Teleport = false;
         }
+
+        this.spellCastingManager.PlayerMoved();
     }
 
     /// <summary>
