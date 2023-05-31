@@ -10,6 +10,8 @@ public class LightningProjectile : BasicProjectile
 
     [SerializeField] private float delayForCollision;
 
+    [SerializeField] private float maxHitTime;
+
     private float timeSinceSpawned;
     private bool hasSpawned;
 
@@ -21,11 +23,16 @@ public class LightningProjectile : BasicProjectile
 
             currentAirTime += Time.deltaTime;
 
+            if (currentAirTime >= maxHitTime)
+                projectileCollider.enabled = false;
+
             if (currentAirTime >= maxAirTime)
                 gameObject.SetActive(false);
         }
         else
+        {
             timeSinceSpawned += Time.deltaTime;
+        }
     }
 
     void OnEnable()

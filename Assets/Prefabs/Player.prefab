@@ -176,9 +176,9 @@ MonoBehaviour:
   movementManager: {fileID: 5344515631323388844}
   spellCasting: {fileID: 5344515631323388851}
   renderer: {fileID: 5344515630762471175}
-  baseMaxHealth: 20
+  baseMaxHealth: 15
   baseMaxMana: 100
-  baseManaRegenRate: 6
+  baseManaRegenRate: 7.5
   baseMovementSpeed: 12.5
   baseSpellDamageMultiplier: 1
   baseArmor: 0

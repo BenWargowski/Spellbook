@@ -180,7 +180,7 @@ MonoBehaviour:
   delayForSpawn: 1.75
   onSpawnParticles: {fileID: 5098500472380326489}
   onDespawnParticles: {fileID: 0}
-  animationMoveSpeed: 5.5
+  animationMoveSpeed: 7.5
   animationYOffset: 12.5
   smashSizeMultiplier: 2.25
 --- !u!114 &1654967157949462628

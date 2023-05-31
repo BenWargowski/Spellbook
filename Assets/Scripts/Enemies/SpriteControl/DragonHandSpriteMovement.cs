@@ -23,7 +23,7 @@ public class DragonHandSpriteMovement : MonoBehaviour
         health = GetComponentInParent<EnemyHealth>();
         isActive = true;
         originalPosition = transform.position;
-        time = Random.Range(0, 2 * (1 + xMovement + yMovement));
+        time = Random.Range(0, 2 * Mathf.PI);
 
         if (statusManager != null)
         {

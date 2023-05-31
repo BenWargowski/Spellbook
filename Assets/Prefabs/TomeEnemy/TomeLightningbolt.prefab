@@ -111,6 +111,7 @@ MonoBehaviour:
   onSpawnParticles: {fileID: 7303407301414034628}
   delayForSpawn: 1
   delayForCollision: 0.15
+  maxHitTime: 0.35
 --- !u!58 &38742588157163167
 CircleCollider2D:
   m_ObjectHideFlags: 0

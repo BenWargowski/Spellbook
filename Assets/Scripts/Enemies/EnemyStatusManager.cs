@@ -61,9 +61,14 @@ public class EnemyStatusManager : MonoBehaviour
 
         if (IsInvincible)
         {
+            List<EnemyStat> additiveStats = new List<EnemyStat> { EnemyStat.FIRE_RESISTANCE, EnemyStat.LIGHTNING_RESISTANCE, EnemyStat.ROCK_RESISTANCE, EnemyStat.STUNNED, EnemyStat.OTHER };
+
             foreach (KeyValuePair<EnemyStat, HashSet<Status>> pair in statusEffects)
             {
-                pair.Value.RemoveWhere((x) => x.modifier <= 0);
+                if (additiveStats.Contains(pair.Key))
+                    pair.Value.RemoveWhere((x) => x.modifier <= 0);
+                else
+                    pair.Value.RemoveWhere((x) => x.modifier < 1);
             }
         }
     }
