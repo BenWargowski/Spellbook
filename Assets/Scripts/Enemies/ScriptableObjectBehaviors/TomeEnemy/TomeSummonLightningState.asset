@@ -19,8 +19,8 @@ MonoBehaviour:
   returningState: {fileID: 11400000, guid: 363b6f802a309f94cbac336290a475e1, type: 2}
   projectilePrefab: {fileID: 1561176330188929299, guid: 629581bd7885c79498a41f56b7928a81, type: 3}
   maxProjectileFire: 5
-  fireRate: 0.5
+  fireRate: 0.75
   projectileDamage: 1.75
   projectileSpeed: 0
   firePosition: {x: 0, y: -0.65}
-  windDown: 1
+  windDown: 0.75

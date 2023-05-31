@@ -356,9 +356,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5274543830728318575, guid: 719ca6c0aca17491f82a9ee058894c80, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 300
+      objectReference: {fileID: 0}
     - target: {fileID: 5402603346275761615, guid: 719ca6c0aca17491f82a9ee058894c80, type: 3}
       propertyPath: m_Name
       value: CommonGameUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 7821044648980687923, guid: 719ca6c0aca17491f82a9ee058894c80, type: 3}
+      propertyPath: m_text
+      value: XX:XX:XX
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 719ca6c0aca17491f82a9ee058894c80, type: 3}

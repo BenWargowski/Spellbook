@@ -20,7 +20,7 @@ MonoBehaviour:
   damage: 3.5
   smashSpeed: 25
   smashRadius: 3
-  windDown: 1
+  windDown: 0.75
   minDistanceThreshold: 0
   maxDistanceThreshold: 3.5
   particlesPrefab: {fileID: 1199003620748557828, guid: c52dedf2f172cad40bca5bf63f22c9f5, type: 3}

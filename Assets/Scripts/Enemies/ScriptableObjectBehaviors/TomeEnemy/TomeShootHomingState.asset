@@ -23,5 +23,5 @@ MonoBehaviour:
   projectileDamage: 3
   projectileSpeed: 2.5
   firePosition: {x: 1, y: 0}
-  windDown: 4.5
+  windDown: 4
   projectileRotationSpeed: 2.5

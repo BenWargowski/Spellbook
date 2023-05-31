@@ -27,14 +27,14 @@ public class TimeScore : MonoBehaviour
     {
         if (!isActive) return;
 
-        currentTime += Time.deltaTime;
+        currentTime += Time.deltaTime * 100;
 
         if (progressTimer != null) progressTimer.text = TimeToString(currentTime);
     }
 
     public string TimeToString(float time)
     {
-        return string.Format("{0:00}:{1:00}", Mathf.FloorToInt(time / 60), Mathf.FloorToInt(time % 60));
+        return string.Format("{0:00}:{1:00}:{2:00}", Mathf.FloorToInt(time / 6000), Mathf.FloorToInt(time / 100 % 60), Mathf.FloorToInt(time%100));
     }
 
     public void Victory()

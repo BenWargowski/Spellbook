@@ -19,7 +19,7 @@ MonoBehaviour:
   returningState: {fileID: 11400000, guid: f1cca3e83c4f68c42a4c053f08e99a76, type: 2}
   damage: 3
   chargeSpeed: 10
-  windUp: 1.5
+  windUp: 1.25
   minDistanceThreshold: 0
   maxDistanceThreshold: 1
   particlesPrefab: {fileID: 8448905160726681702, guid: 950eb0c416281644697afa4c24dbf451, type: 3}
