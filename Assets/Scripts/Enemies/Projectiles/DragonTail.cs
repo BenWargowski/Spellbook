@@ -6,11 +6,12 @@ public class DragonTail : AnimatedSpawnedProjectile
 {
     [SerializeField] private float smashSizeMultiplier;
     
-    private BehaviorStateManager behaviorManager;
     private EnemyStatusManager statusManager;
 
     protected override void Awake()
     {
+        base.Awake();
+
         behaviorManager = FindObjectOfType<BehaviorStateManager>();
         if (behaviorManager != null)
             transform.SetParent(behaviorManager.transform);
@@ -20,8 +21,6 @@ public class DragonTail : AnimatedSpawnedProjectile
         {
             statusManager.onStunned += CancelAttack;
         }
-
-        base.Awake();
     }
 
     void Start()

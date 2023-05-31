@@ -15,7 +15,7 @@ public class AnimatedSpawnedProjectile : BasicProjectile
 
     [SerializeField] protected float animationYOffset;
 
-
+    protected BehaviorStateManager behaviorManager;
     protected Animator animator;
     protected float timeSinceEnabled;
     protected bool hasSpawned;
@@ -27,9 +27,10 @@ public class AnimatedSpawnedProjectile : BasicProjectile
 
     protected override void Awake()
     {
-        animator = GetComponent<Animator>();
-
         base.Awake();
+
+        behaviorManager = FindObjectOfType<BehaviorStateManager>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -94,7 +95,7 @@ public class AnimatedSpawnedProjectile : BasicProjectile
             if (other.TryGetComponent<Player>(out hitPlayer))
             {
                 //Damage the player
-                hitPlayer.Damage(damage * tickDamageMultiplier, false, false);
+                hitPlayer.Damage(damage * tickDamageMultiplier * behaviorManager.GetDamageModifier(), false, false);
             }
         }
     }
