@@ -36,7 +36,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -80}
-  m_SizeDelta: {x: 800, y: 50}
+  m_SizeDelta: {x: 850, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6341355875227641117
 CanvasRenderer:
@@ -66,7 +66,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Current Time: XX:XX:XX'
+  m_text: 'Time: XX:XX:XX'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
   m_sharedMaterial: {fileID: 3249814384840925403, guid: 1d7dda6dcd956264e89464535f01f627, type: 2}
@@ -3116,7 +3116,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -30}
-  m_SizeDelta: {x: 800, y: 50}
+  m_SizeDelta: {x: 850, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8053569194504060898
 CanvasRenderer:

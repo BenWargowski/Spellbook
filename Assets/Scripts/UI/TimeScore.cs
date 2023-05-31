@@ -43,7 +43,7 @@ public class TimeScore : MonoBehaviour
         progressTimer?.gameObject.SetActive(isActive);
 
         float currentHighScore = PlayerPrefs.GetFloat(highScorePlayerPref, Mathf.Infinity);
-        bool isNewHighScore = currentTime <= currentHighScore;
+        bool isNewHighScore = currentTime < currentHighScore;
         PlayerPrefs.SetFloat(highScorePlayerPref, Mathf.Min(currentTime, currentHighScore));
 
         if (highScoreTimer != null) highScoreTimer.text = (isNewHighScore ? "New " : string.Empty) + string.Format("Best Time: {0}", TimeToString(PlayerPrefs.GetFloat(highScorePlayerPref, currentTime)));
